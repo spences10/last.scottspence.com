@@ -1,0 +1,17 @@
+{
+  "name": "scottspence.com",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gatsby develop -p 4512 -o"
+  },
+  "keywords": [],
+  "author": "spences10",
+  "license": "ISC",
+  "dependencies": {
+    "gatsby": "2.21.28",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  }
+}
