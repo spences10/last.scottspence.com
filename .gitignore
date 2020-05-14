@@ -8,3 +8,5 @@ public
 # Other
 .DS_Store
 yarn-error.log
+
+.now
