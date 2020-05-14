@@ -1,17 +1,45 @@
 {
   "name": "scottspence.com",
   "version": "0.0.1",
-  "description": "",
+  "description": "A digital garden.",
   "main": "index.js",
   "scripts": {
-    "dev": "gatsby develop -p 4512 -o"
+    "dev": "gatsby develop -p 4512 -o",
+    "build": "gatsby build",
+    "serve": "gatsby serve -p 4500 -o",
+    "format": "pretty-quick"
   },
-  "keywords": [],
-  "author": "spences10",
-  "license": "ISC",
+  "author": "Scott Spence <yo@scottspence.dev>",
+  "license": "MIT",
   "dependencies": {
     "gatsby": "2.21.28",
     "react": "16.13.1",
     "react-dom": "16.13.1"
-  }
+  },
+  "devDependencies": {
+    "husky": "4.2.5",
+    "prettier": "2.0.5",
+    "pretty-quick": "2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "es5",
+    "printWidth": 70,
+    "arrowParens": "avoid",
+    "proseWrap": "always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spences10/scottspence.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spences10/scottspence.com/issues"
+  },
+  "homepage": "https://github.com/spences10/scottspence.com#readme"
 }
