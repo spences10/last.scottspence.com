@@ -1,21 +1,65 @@
 import { graphql, Link } from 'gatsby'
-import React from 'react'
+import React, { useState } from 'react'
 
 export default ({ data }) => {
+  // https://www.aboutmonica.com/blog/create-gatsby-blog-search-tutorial
+  const allPosts = data.allMdx.nodes
+
+  const emptyQuery = ''
+
+  const [state, stateSet] = useState({
+    filteredData: [],
+    query: emptyQuery,
+  })
+
+  const handleInputChange = e => {
+    const query = e.target.value
+    const posts = data.allMdx.nodes || []
+
+    const filteredData = posts.filter(post => {
+      const { title, tags } = post.frontmatter
+      return (
+        title.toLowerCase().includes(query.toLowerCase()) ||
+        (tags &&
+          tags.join('').toLowerCase().includes(query.toLowerCase()))
+      )
+    })
+
+    stateSet({ query, filteredData })
+  }
+
+  const { filteredData, query } = state
+  const hasSearchResults = filteredData && query !== emptyQuery
+  const posts = hasSearchResults ? filteredData : allPosts
+
   return (
     <>
       <>
-        {data.allMdx.nodes.map(
-          ({ id, excerpt, frontmatter, fields }) => (
+        <input
+          type="text"
+          aria-label="Search"
+          placeholder="Type to filter posts..."
+          onChange={handleInputChange}
+        />
+
+        {posts.map(post => {
+          const {
+            id,
+            excerpt,
+            fields: { slug },
+            frontmatter: { title, date },
+          } = post
+
+          return (
             <article key={id}>
-              <Link to={fields.slug}>
-                <h1>{frontmatter.title}</h1>
-                <p>{frontmatter.date}</p>
+              <Link to={slug}>
+                <h1>{title}</h1>
+                <p>{date}</p>
                 <p>{excerpt}</p>
               </Link>
             </article>
           )
-        )}
+        })}
       </>
     </>
   )
