@@ -3,16 +3,25 @@
   "version": "0.0.1",
   "description": "A digital garden.",
   "main": "index.js",
+  "author": "Scott Spence <yo@scottspence.dev>",
+  "license": "MIT",
   "scripts": {
     "dev": "gatsby develop -p 4512 -o",
     "build": "gatsby build",
     "serve": "gatsby serve -p 4500 -o",
     "format": "pretty-quick"
   },
-  "author": "Scott Spence <yo@scottspence.dev>",
-  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "dependencies": {
+    "@mdx-js/mdx": "1.6.1",
+    "@mdx-js/react": "1.6.1",
     "gatsby": "2.21.28",
+    "gatsby-plugin-mdx": "1.2.7",
+    "gatsby-source-filesystem": "2.3.3",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
@@ -20,11 +29,6 @@
     "husky": "4.2.5",
     "prettier": "2.0.5",
     "pretty-quick": "2.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "prettier": {
     "singleQuote": true,
