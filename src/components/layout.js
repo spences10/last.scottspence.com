@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { Header } from './header'
 
 const AppStyles = styled.main`
   max-width: 640px;
@@ -8,11 +10,13 @@ const AppStyles = styled.main`
 `
 
 export const Layout = ({ children }) => {
-  // const { title, description } = useSiteMetadata()
+  const { title, description } = useSiteMetadata()
   return (
     <>
-      {/* HEADER */}
-      <AppStyles>{children}</AppStyles>
+      <AppStyles>
+        <Header title={title} description={description} />
+        {children}
+      </AppStyles>
     </>
   )
 }
