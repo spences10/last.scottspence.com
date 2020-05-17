@@ -41,7 +41,7 @@ export default ({ data }) => {
           placeholder="Type to filter posts..."
           onChange={handleInputChange}
         />
-
+        <span>{Object.keys(posts).length}</span>
         {posts.map(post => {
           const {
             id,

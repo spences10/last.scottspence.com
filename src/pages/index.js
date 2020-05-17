@@ -4,7 +4,7 @@ import React from 'react'
 export default () => {
   return (
     <>
-      <Link to="garden">Garden</Link>
+      <Link to="/garden">Garden</Link>
     </>
   )
 }
