@@ -1,8 +1,10 @@
 import { MDXProvider } from '@mdx-js/react'
 import { preToCodeBlock } from 'mdx-utils'
 import React from 'react'
+import { ThemeProvider } from 'styled-components'
 import { Layout } from './components/layout'
 import { Code } from './components/page-elements'
+import { GlobalStyle, theme } from './theme/global-style'
 
 const components = {
   pre: preProps => {
@@ -17,7 +19,10 @@ const components = {
 }
 
 export const wrapPageElement = ({ element }) => (
-  <MDXProvider components={components}>
-    <Layout>{element}</Layout>
-  </MDXProvider>
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <MDXProvider components={components}>
+      <Layout>{element}</Layout>
+    </MDXProvider>
+  </ThemeProvider>
 )
