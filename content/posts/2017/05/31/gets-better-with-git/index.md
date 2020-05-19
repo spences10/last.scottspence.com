@@ -1,7 +1,7 @@
 ---
 date: 2017-05-31
 title: Just starting out with Git and GitHub? It gets easier, honest!
-tags: ['information', 'guide']
+tags: ['Guide']
 private: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2016-11-13
 title: freeCodeCamp
-tags: ['freecodecamp', 'learning']
+tags: ['freeCodeCamp', 'Learning']
 private: false
 ---
 

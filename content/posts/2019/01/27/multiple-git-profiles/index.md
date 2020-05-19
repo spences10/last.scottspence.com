@@ -1,15 +1,7 @@
 ---
 date: 2019-01-27
 title: Setting up multiple Git providers
-tags:
-  [
-    'information',
-    'learning',
-    'guide',
-    'wsl',
-    'bash on windows',
-    'git',
-  ]
+tags: ['Learning', 'Guide', 'WSL', 'git']
 private: false
 ---
 

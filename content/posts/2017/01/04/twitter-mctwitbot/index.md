@@ -1,7 +1,7 @@
 ---
 date: 2017-01-04
 title: Twitter McTwitBot
-tags: ['information', 'guide']
+tags: ['Guide']
 private: false
 ---
 

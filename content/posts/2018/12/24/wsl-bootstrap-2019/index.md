@@ -1,16 +1,7 @@
 ---
 date: 2018-12-24
 title: Windows Web-dev bootstrap
-tags:
-  [
-    'information',
-    'learning',
-    'guide',
-    'wsl',
-    'bash on windows',
-    'n',
-    'node',
-  ]
+tags: ['Learning', 'Guide', 'WSL', 'n', 'Node']
 private: false
 ---
 

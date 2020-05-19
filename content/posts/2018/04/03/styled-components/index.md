@@ -1,7 +1,7 @@
 ---
 date: 2018-04-03
 title: styled-components 💅 getting started
-tags: ['information', 'guide', 'styled-components', 'css-in-js']
+tags: ['Guide', 'styled-components', 'CSS-in-JS']
 published: true
 ---
 
