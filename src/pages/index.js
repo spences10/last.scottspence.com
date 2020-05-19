@@ -5,6 +5,7 @@ export default () => {
   return (
     <>
       <Link to="/garden">Garden</Link>
+      <Link to="/tags">Tags</Link>
     </>
   )
 }
