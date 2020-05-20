@@ -7,9 +7,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop -p 4512 -o",
-    "build": "gatsby build",
+    "build": "gatsby build && npm run wellknown",
     "serve": "gatsby serve -p 4500 -o",
-    "format": "pretty-quick"
+    "format": "pretty-quick",
+    "wellknown": "cp -r .well-known/ public/"
   },
   "husky": {
     "hooks": {
