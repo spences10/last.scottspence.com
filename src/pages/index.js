@@ -4,6 +4,7 @@ import About from '../../content/copy/about'
 import Now from '../../content/copy/now'
 import Portfolio from '../../content/copy/portfolio'
 import Uses from '../../content/copy/uses'
+import { BackToTop } from '../components/back-to-top'
 
 export default () => {
   return (
@@ -11,9 +12,12 @@ export default () => {
       <Link to="/garden">Garden</Link>
       <Link to="/tags">Tags</Link>
       <About />
-      <Portfolio />
-      <Now />
-      <Uses />
+      <section id={`back-to-top-intersection`}>
+        <Portfolio />
+        <Now />
+        <Uses />
+      </section>
+      <BackToTop />
     </>
   )
 }
