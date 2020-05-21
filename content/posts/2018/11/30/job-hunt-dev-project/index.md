@@ -1,7 +1,7 @@
 ---
 date: 2018-11-30
 title: Turning a job hunt into a dev project
-tags: ['Learning', 'Career']
+tags: ['learning', 'career']
 private: false
 ---
 

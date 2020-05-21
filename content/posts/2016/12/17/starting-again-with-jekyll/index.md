@@ -1,7 +1,7 @@
 ---
 date: 2016-12-17
 title: Starting again with Jekyll
-tags: ['Learning']
+tags: ['learning']
 private: false
 ---
 

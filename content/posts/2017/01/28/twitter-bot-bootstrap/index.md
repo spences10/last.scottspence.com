@@ -1,7 +1,7 @@
 ---
 date: 2017-01-28
 title: Easily set up your own Twitter bot
-tags: ['Guide']
+tags: ['guide']
 private: false
 ---
 

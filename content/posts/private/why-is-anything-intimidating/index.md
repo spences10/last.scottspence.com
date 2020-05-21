@@ -1,7 +1,7 @@
 ---
 date: 2019-09-01
 title: Why is anything intimidating?
-tags: ['Habits']
+tags: ['habits']
 excerpt: ''
 private: true
 ---

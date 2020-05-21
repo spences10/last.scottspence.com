@@ -1,7 +1,7 @@
 ---
 date: 2017-06-30
 title: Git ` — allow-unrelated-histories`
-tags: ['Learning', 'Guide']
+tags: ['learning', 'guide']
 private: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2017-03-15
 title: Code life balance
-tags: ['Career']
+tags: ['career']
 private: false
 ---
 

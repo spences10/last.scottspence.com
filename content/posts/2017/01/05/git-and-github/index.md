@@ -1,7 +1,7 @@
 ---
 date: 2017-01-05
 title: Git and GitHub
-tags: ['Learning', 'Guide']
+tags: ['learning', 'guide']
 private: false
 ---
 

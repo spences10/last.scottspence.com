@@ -2,7 +2,7 @@
 date: 2017-06-01
 title:
   Moving from beginner to [slightly more] advanced git with aliases.
-tags: ['Guide']
+tags: ['guide']
 private: false
 ---
 

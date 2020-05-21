@@ -1,7 +1,7 @@
 ---
 date: 2017-05-23
 title: Twitter bot playground
-tags: ['Guide']
+tags: ['guide']
 private: false
 ---
 

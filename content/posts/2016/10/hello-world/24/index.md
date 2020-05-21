@@ -1,7 +1,7 @@
 ---
 date: 2016-10-24
 title: Hello World!
-tags: ['Hello World', 'Getting Started']
+tags: ['hello world', 'getting started']
 private: false
 ---
 

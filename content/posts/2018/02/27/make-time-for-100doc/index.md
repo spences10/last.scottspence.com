@@ -1,7 +1,7 @@
 ---
 date: 2018-02-27
 title: How to make time for 100 days of code
-tags: ['Guide', 'Learning', 'Habits', 'Career']
+tags: ['guide', 'learning', 'habits', 'career']
 private: false
 ---
 

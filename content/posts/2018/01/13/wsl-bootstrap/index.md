@@ -1,7 +1,7 @@
 ---
 date: 2018-01-13
 title: Windows Subsystem Linux setup
-tags: ['Guide', 'WSL', 'n', 'Node']
+tags: ['guide', 'wsl', 'n', 'node']
 private: false
 ---
 

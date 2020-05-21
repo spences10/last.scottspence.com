@@ -1,7 +1,7 @@
 ---
 date: 2018-05-28
 title: Making a CI pipeline with Travis CI
-tags: ['Guide', 'CI-CD']
+tags: ['guide', 'ci-cd']
 private: false
 ---
 

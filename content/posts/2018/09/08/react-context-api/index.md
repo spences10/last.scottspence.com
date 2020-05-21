@@ -3,13 +3,13 @@ date: 2018-09-08
 title: Using the React Context API  -  getting started
 tags:
   [
-    'Learning',
-    'Guide',
-    'Getting Started',
-    'React',
-    'API',
+    'learning',
+    'guide',
+    'getting started',
+    'react',
+    'api',
     'styled-components',
-    'CSS-in-JS',
+    'css-in-js',
   ]
 private: false
 ---

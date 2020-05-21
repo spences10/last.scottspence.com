@@ -1,7 +1,7 @@
 ---
 date: 2016-12-05
 title: Job hunting, one class 'A' ballache
-tags: ['Career']
+tags: ['career']
 private: false
 ---
 
