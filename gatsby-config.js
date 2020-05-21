@@ -1,6 +1,7 @@
 const siteMetadata = {
   title: `Scott Spence`,
   description: `Scott Spence's digital Garden.`,
+  lastBuildDate: new Date(Date.now()).toISOString(),
 }
 module.exports = {
   siteMetadata,

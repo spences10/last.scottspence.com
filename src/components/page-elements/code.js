@@ -1,4 +1,3 @@
-/* eslint react/destructuring-assignment: 0 */
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import React from 'react'

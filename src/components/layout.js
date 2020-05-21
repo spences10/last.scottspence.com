@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { Header } from './header'
 
-const AppStyles = styled.main`
+const Styles = styled.main`
   max-width: 640px;
   margin: 0 auto;
   padding: 0 20px;
@@ -12,11 +12,9 @@ const AppStyles = styled.main`
 export const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <>
-      <AppStyles>
-        <Header title={title} description={description} />
-        {children}
-      </AppStyles>
-    </>
+    <Styles>
+      <Header title={title} description={description} />
+      {children}
+    </Styles>
   )
 }
