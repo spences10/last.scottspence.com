@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { inlineCode } from './inline-code'
 
 const StyledText = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.base};
+  font-size: ${({ theme }) => theme.fontSize.lg};
   margin-top: ${({ theme }) => theme.spacing[6]};
   strong {
     font-weight: 500;

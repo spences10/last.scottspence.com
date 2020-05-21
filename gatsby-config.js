@@ -1,6 +1,6 @@
 const siteMetadata = {
   title: `Scott Spence`,
-  description: `Scott Spence's digital Garden.`,
+  description: `Scott's Digital Garden.`,
   lastBuildDate: new Date(Date.now()).toISOString(),
 }
 module.exports = {
@@ -39,6 +39,17 @@ module.exports = {
         path: `${__dirname}/content`,
       },
       __key: `${__dirname}/content`,
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `poppins\:400,500,600,700`,
+          `pridi\:400,700`,
+          `space mono\:400,700`,
+        ],
+        display: 'swap',
+      },
     },
   ],
 }

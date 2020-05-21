@@ -1,22 +1,23 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import { H2, Li, Ul } from '../components/page-elements'
 
 export default ({ pageContext }) => {
   const { posts, tag } = pageContext
   return (
     <>
-      <h2>Posts about {tag}</h2>
-      <ul>
+      <H2>Posts about {tag}</H2>
+      <Ul>
         {posts.map(
           ({ id, frontmatter: { title }, fields: { slug } }) => {
             return (
-              <li key={id}>
+              <Li key={id}>
                 <Link to={slug}>{title}</Link>
-              </li>
+              </Li>
             )
           }
         )}
-      </ul>
+      </Ul>
     </>
   )
 }

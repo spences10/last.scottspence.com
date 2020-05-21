@@ -1,4 +1,3 @@
-import { Link } from 'gatsby'
 import React, { useRef } from 'react'
 import About from '../../content/copy/about'
 import Now from '../../content/copy/now'
@@ -12,8 +11,6 @@ export default () => {
   const onScreen = useOnScreen(ref, '-100px')
   return (
     <>
-      <Link to="/garden">Garden</Link>
-      <Link to="/tags">Tags</Link>
       <About />
       <section ref={ref}>
         <Portfolio />

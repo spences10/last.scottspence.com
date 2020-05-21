@@ -1,5 +1,6 @@
 import { graphql, Link } from 'gatsby'
 import React from 'react'
+import { H2, Li, Ul } from '../components/page-elements'
 
 export default ({
   data: {
@@ -7,16 +8,16 @@ export default ({
   },
 }) => (
   <>
-    <h2>Tags</h2>
-    <ul>
+    <H2>Tags</H2>
+    <Ul>
       {group.map(({ fieldValue, totalCount }) => (
-        <li key={fieldValue}>
+        <Li key={fieldValue}>
           <Link to={`/tags/${fieldValue}/`}>
             {fieldValue} ({totalCount})
           </Link>
-        </li>
+        </Li>
       ))}
-    </ul>
+    </Ul>
   </>
 )
 

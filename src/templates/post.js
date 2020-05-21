@@ -1,13 +1,14 @@
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
+import { H1, Small } from '../components/page-elements'
 
 export default ({ data }) => {
   const { frontmatter, body } = data.mdx
   return (
     <>
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.date}</p>
+      <H1>{frontmatter.title}</H1>
+      <Small>{frontmatter.date}</Small>
       <MDXRenderer>{body}</MDXRenderer>
     </>
   )

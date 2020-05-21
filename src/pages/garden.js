@@ -1,5 +1,6 @@
 import { graphql, Link } from 'gatsby'
 import React, { useState } from 'react'
+import { H2, P, Small } from '../components/page-elements'
 
 export default ({ data }) => {
   // https://www.aboutmonica.com/blog/create-gatsby-blog-search-tutorial
@@ -53,9 +54,9 @@ export default ({ data }) => {
           return (
             <article key={id}>
               <Link to={slug}>
-                <h1>{title}</h1>
-                <p>{date}</p>
-                <p>{excerpt}</p>
+                <H2>{title}</H2>
+                <Small>{date}</Small>
+                <P>{excerpt}</P>
               </Link>
             </article>
           )
@@ -76,7 +77,7 @@ export const query = graphql`
         excerpt(pruneLength: 250)
         frontmatter {
           title
-          date
+          date(formatString: "YYYY MMMM Do")
         }
         fields {
           slug

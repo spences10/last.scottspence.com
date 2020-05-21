@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: ${({ theme }) => theme.fontFamily.sans};
+    font-family: Poppins;
     font-size: 16px;
     margin-left: calc(100vw - 100%);
     margin-right: 0;

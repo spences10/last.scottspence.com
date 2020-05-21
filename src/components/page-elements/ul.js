@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing[6]};
+  margin-top: ${({ theme }) => theme.spacing[6]};
 `
 
 export const StyledUl = styled.ul`
