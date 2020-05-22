@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import { Layout } from './components/layout'
 import {
   A,
+  Blockquote,
   Code,
   H1,
   H2,
@@ -21,6 +22,7 @@ import { GlobalStyle, theme } from './theme/global-style'
 
 const components = {
   a: props => <A {...props} />,
+  blockquote: props => <Blockquote {...props} />,
   h1: props => <H1 {...props} />,
   h2: props => <H2 {...props} />,
   h3: props => <H3 {...props} />,
