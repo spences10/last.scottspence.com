@@ -18,7 +18,7 @@ import {
   Small,
   Ul,
 } from './components/page-elements'
-import { GlobalStyle, theme } from './theme/global-style'
+import { GlobalStyle, theme } from './theme'
 
 const components = {
   a: props => <A {...props} />,

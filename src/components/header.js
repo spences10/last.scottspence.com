@@ -4,13 +4,14 @@ import styled from 'styled-components'
 
 const StyledHeader = styled.header`
   display: flex;
-  height: 75px;
-  max-width: 800px;
+  /* height: 75px; */
+  /* max-width: 800px; */
   margin: auto;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   flex-wrap: wrap;
+  align-items: center;
   h1 {
-    font-family: 'Space Mono';
+    font-family: ${({ theme }) => theme.fontFamily.mono};
     font-size: ${({ theme }) => theme.fontSize['4xl']};
   }
   nav {
@@ -23,8 +24,8 @@ const StyledHeader = styled.header`
       flex-wrap: wrap;
       padding: 0;
       li {
-        margin-left: 2rem;
-        margin-top: 20px;
+        margin-left: 1rem;
+        /* margin-top: 20px; */
       }
     }
   }
