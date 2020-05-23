@@ -1,3 +1,4 @@
+// https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/src/components/code.tsx
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import React from 'react'
@@ -7,6 +8,8 @@ import {
   LivePreview,
   LiveProvider,
 } from 'react-live'
+import styled from 'styled-components'
+import { code } from '../../theme/code-style'
 
 function getParams(className = ``) {
   const [lang = ``, params = ``] = className.split(`:`)
@@ -41,6 +44,10 @@ function calculateLinesToHighlight(meta) {
   }
 }
 
+const CodeWrapper = styled.div`
+  ${code}
+`
+
 export const Code = ({
   codeString,
   noLineNumbers = false,
@@ -66,55 +73,60 @@ export const Code = ({
     )
   }
   return (
-    <Highlight
-      {...defaultProps}
-      code={codeString}
-      language={language}
-      theme={theme}
-    >
-      {({
-        className,
-        style,
-        tokens,
-        getLineProps,
-        getTokenProps,
-      }) => (
-        <>
-          {title && (
-            <div className="code-title">
-              <div>{title}</div>
-            </div>
-          )}
-          <div className="gatsby-highlight" data-language={language}>
-            <pre
-              className={className}
-              style={style}
-              data-linenumber={hasLineNumbers}
+    <CodeWrapper>
+      <Highlight
+        {...defaultProps}
+        code={codeString}
+        language={language}
+        theme={theme}
+      >
+        {({
+          className,
+          style,
+          tokens,
+          getLineProps,
+          getTokenProps,
+        }) => (
+          <>
+            {title && (
+              <div className="code-title">
+                <div>{title}</div>
+              </div>
+            )}
+            <div
+              className="gatsby-highlight"
+              data-language={language}
             >
-              {tokens.map((line, i) => {
-                const lineProps = getLineProps({ line, key: i })
+              <pre
+                className={className}
+                style={style}
+                data-linenumber={hasLineNumbers}
+              >
+                {tokens.map((line, i) => {
+                  const lineProps = getLineProps({ line, key: i })
 
-                if (shouldHighlightLine(i)) {
-                  lineProps.className = `${lineProps.className} highlight-line`
-                }
+                  if (shouldHighlightLine(i)) {
+                    lineProps.className = `${lineProps.className} highlight-line`
+                  }
 
-                return (
-                  <div {...lineProps}>
-                    {hasLineNumbers && (
-                      <span className="line-number-style">
-                        {i + 1}
-                      </span>
-                    )}
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                )
-              })}
-            </pre>
-          </div>
-        </>
-      )}
-    </Highlight>
+                  return (
+                    <div {...lineProps}>
+                      {hasLineNumbers && (
+                        <span className="line-number-style">
+                          {i + 1}
+                        </span>
+                      )}
+                      {line.map((token, key) => (
+                        <span {...getTokenProps({ token, key })} />
+                      ))}
+                    </div>
+                  )
+                })}
+              </pre>
+            </div>
+          </>
+        )}
+      </Highlight>
+    </CodeWrapper>
   )
 }

@@ -4,9 +4,7 @@ import { themeVariables } from './theme-variables'
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
-    
   ${themeVariables}
-    
   *, *:before, *:after {
     box-sizing: border-box;
   }
