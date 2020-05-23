@@ -1,16 +1,65 @@
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { H2, P } from '../components/page-elements'
+import { PostInfo, StyledLink } from '../components/shared-styles'
 
 const Wrapper = styled.main`
+  input {
+    margin-top: ${({ theme }) => theme.spacing[12]};
+    font-size: ${({ theme }) => theme.fontSize.lg};
+    border-radius: ${({ theme }) => theme.borderRadius.lg};
+    border: 1px solid ${({ theme }) => theme.colors.gray[500]};
+    padding: ${({ theme }) => theme.spacing[1]};
+    outline: none;
+    &:focus {
+      box-shadow: ${({ theme }) => theme.boxShadow.outline};
+    }
+  }
+  .posts-number {
+    margin: -${({ theme }) => theme.spacing[6]};
+    font-size: ${({ theme }) => theme.fontSize.sm};
+    font-family: ${({ theme }) => theme.fontFamily.mono};
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    color: ${({ theme }) => theme.colors.primary[500]};
+  }
   article {
+    margin: ${({ theme }) => theme.spacing[8]} 0;
     border-radius: ${({ theme }) => theme.borderRadius.lg};
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     color: ${({ theme }) => theme.colors.gray[900]};
     padding: ${({ theme }) => theme.spacing[4]};
     h2 {
-      margin-top: 20px;
+      margin-top: 0;
+    }
+    p {
+      margin-top: ${({ theme }) => theme.spacing[2]};
+    }
+    a {
+      &:focus {
+        display: block;
+      }
+    }
+    overflow: hidden;
+    &:before {
+      position: relative;
+      display: block;
+      margin: 0 -17px;
+      width: 108%;
+      height: 5px;
+      top: -16px;
+      content: '';
+      background: linear-gradient(
+        0.25turn,
+        var(
+          --title-gradient-from,
+          ${({ theme }) => theme.colors.primary[200]}
+        ),
+        var(
+          --title-gradient-to,
+          ${({ theme }) => theme.colors.primary[500]}
+        )
+      );
     }
   }
 `
@@ -54,21 +103,28 @@ export default ({ data }) => {
         placeholder="Type to filter posts..."
         onChange={handleInputChange}
       />
-      <span>{Object.keys(posts).length}</span>
+      <span className="posts-number">
+        {Object.keys(posts).length}
+      </span>
       {posts.map(post => {
         const {
           id,
           excerpt,
           fields: { slug },
           frontmatter: { title },
+          timeToRead,
         } = post
-
         return (
           <article key={id}>
-            <Link to={slug}>
+            <StyledLink to={slug}>
               <H2>{title}</H2>
+              <PostInfo>
+                <span className="postTimeToRead">
+                  {timeToRead * 2} minutes to read
+                </span>
+              </PostInfo>
               <P>{excerpt}</P>
-            </Link>
+            </StyledLink>
           </article>
         )
       })}

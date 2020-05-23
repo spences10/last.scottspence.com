@@ -1,6 +1,16 @@
-import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from './shared-styles'
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active {
+    color: ${({ theme }) => theme.colors.primary[500]};
+  }
+`
 
 const StyledHeader = styled.header`
   display: flex;
@@ -33,10 +43,10 @@ const StyledHeader = styled.header`
 export const Header = ({ title, description }) => {
   return (
     <StyledHeader>
-      <Link to="/" id="top-of-page">
+      <StyledLink to="/" id="top-of-page">
         <h1>{title}</h1>
         <p>{description}</p>
-      </Link>
+      </StyledLink>
 
       <nav>
         <ul>

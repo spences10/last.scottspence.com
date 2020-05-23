@@ -1,7 +1,8 @@
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import { H2, Li, Ul } from '../components/page-elements'
+import { Link } from '../components/shared-styles'
 
 const StyledTags = styled.article`
   ul {

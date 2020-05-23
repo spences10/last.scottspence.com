@@ -1,6 +1,6 @@
-import { Link } from 'gatsby'
 import React from 'react'
 import { H2, Li, Ul } from '../components/page-elements'
+import { Link } from '../components/shared-styles'
 
 export default ({ pageContext }) => {
   const { posts, tag } = pageContext
