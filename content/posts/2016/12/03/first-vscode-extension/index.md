@@ -1,7 +1,7 @@
 ---
 date: 2016-12-03
 title: My first Microsoft Visual Studio Code [VSCode] extension
-tags: ['learning', vscode', 'extension']
+tags: ['learning', 'vscode', 'extension']
 private: false
 ---
 

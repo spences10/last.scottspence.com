@@ -2,12 +2,12 @@ import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { H3, P } from './page-elements'
-import { Link } from './shared-styles'
+import { StyledLink } from './shared-styles'
 
 const POPULAR_POSTS = [
   {
     title: `Build a coding blog from scratch with Gatsby and MDX`,
-    slug: `/2019/10/31/build-an-mdx-blog/`,
+    slug: `2019/10/31/build-an-mdx-blog/`,
   },
   {
     title: `Update Windows Subsystem Linux Ubuntu from 18.04 to 18.10`,
@@ -15,11 +15,11 @@ const POPULAR_POSTS = [
   },
   {
     title: `Add a Table of Contents with Smooth scroll using Gatsby and MDX`,
-    slug: `/2020/02/13/smooth-scroll-toc-gatsby/`,
+    slug: `2020/02/13/smooth-scroll-toc-gatsby/`,
   },
   {
     title: `Upgrade Windows Subsystem Linux - Ubuntu 18.04 to Ubuntu 19.10`,
-    slug: `/2019/04/01/update-wsl-from-18.04-18.10`,
+    slug: `2019/04/01/update-wsl-from-18.04-18.10`,
   },
 ]
 
@@ -69,10 +69,10 @@ export const PopularPosts = () => {
       <P>Take a look at some popular content from me...</P>
       <div>
         {POPULAR_POSTS.map(post => (
-          <article>
-            <Link to={post.slug}>
+          <article key={post.slug}>
+            <StyledLink to={`/${post.slug}`}>
               <H3>{post.title}</H3>
-            </Link>
+            </StyledLink>
           </article>
         ))}
       </div>
