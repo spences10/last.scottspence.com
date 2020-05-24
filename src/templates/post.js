@@ -3,36 +3,14 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
-import { H1, H4 } from '../components/page-elements'
-import {
-  Link,
-  NegMargin,
-  PostInfo,
-} from '../components/shared-styles'
+import { H1 } from '../components/page-elements'
+import { PopularPosts } from '../components/popular-posts'
+import { NegMargin, PostInfo } from '../components/shared-styles'
 import { Share } from '../components/social-share'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
-const POPULAR_POSTS = [
-  {
-    title: `Build a coding blog from scratch with Gatsby and MDX`,
-    slug: `/2019/10/31/build-an-mdx-blog/`,
-  },
-  {
-    title: `Update Windows Subsystem Linux Ubuntu from 18.04 to 18.10`,
-    slug: `2020/01/28/update-wsl-ubuntu-from-18.10-to-19.10`,
-  },
-  {
-    title: `Add a Table of Contents with Smooth scroll using Gatsby and MDX`,
-    slug: `/2020/02/13/smooth-scroll-toc-gatsby/`,
-  },
-  {
-    title: `Upgrade Windows Subsystem Linux - Ubuntu 18.04 to Ubuntu 19.10`,
-    slug: `/2019/04/01/update-wsl-from-18.04-18.10`,
-  },
-]
-
 const PostWrapper = styled.article`
-  padding-bottom: 40px;
+  padding-bottom: ${({ theme }) => theme.spacing[20]};
   h1 {
   }
   small {
@@ -112,13 +90,7 @@ export default ({ data }) => {
         title={title}
         twitterHandle={twitterUsername}
       />
-      {POPULAR_POSTS.map(post => {
-        return (
-          <Link to={post.slug}>
-            <H4>{post.title}</H4>
-          </Link>
-        )
-      })}
+      <PopularPosts />
     </>
   )
 }
