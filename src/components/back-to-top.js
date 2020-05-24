@@ -18,7 +18,6 @@ export const BackToTop = ({ visible }) => {
   return (
     <Wrapper
       href="#top-of-page"
-      role="link"
       aria-label="back to top navigation"
       visible={visible}
     >
