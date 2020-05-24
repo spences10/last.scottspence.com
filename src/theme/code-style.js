@@ -1,7 +1,8 @@
 // https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/src/styles/code.ts
 import { css } from 'styled-components'
+import { NegMargin } from '../components/shared-styles'
 
-export const code = css`
+export const codeStyle = css`
   font-family: 'Victor Mono', 'Courier New', Courier, monospace;
   [data-name='live-editor'] {
     font-size: ${({ theme }) => theme.fontSize.xl};
@@ -44,11 +45,12 @@ export const code = css`
   }
   .gatsby-highlight {
     position: relative;
+    ${NegMargin};
+    margin-top: ${({ theme }) => theme.spacing[2]};
     -webkit-overflow-scrolling: touch;
     background: rgb(1, 22, 39);
     overflow: auto;
     border-radius: 2px;
-    margin: 0; /*  Neg margin here */
     .token-line {
       margin: 0 -1.3rem;
     }

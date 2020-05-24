@@ -9,7 +9,7 @@ import {
   LiveProvider,
 } from 'react-live'
 import styled from 'styled-components'
-import { code } from '../../theme/code-style'
+import { codeStyle } from '../../theme/code-style'
 
 function getParams(className = ``) {
   const [lang = ``, params = ``] = className.split(`:`)
@@ -45,7 +45,7 @@ function calculateLinesToHighlight(meta) {
 }
 
 const CodeWrapper = styled.div`
-  ${code}
+  ${codeStyle}
 `
 
 export const Code = ({
