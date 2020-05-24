@@ -51,7 +51,7 @@ export default ({
 
 export const query = graphql`
   query SITE_TAGS_QUERY {
-    allMdx {
+    allMdx(filter: { frontmatter: { private: { eq: false } } }) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

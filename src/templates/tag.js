@@ -8,15 +8,18 @@ export default ({ pageContext }) => {
     <>
       <H2>Posts about {tag}</H2>
       <Ul>
-        {posts.map(
-          ({ id, frontmatter: { title }, fields: { slug } }) => {
-            return (
-              <Li key={id}>
-                <Link to={slug}>{title}</Link>
-              </Li>
-            )
-          }
-        )}
+        {posts.map(({ node }) => {
+          const {
+            id,
+            fields: { slug },
+            frontmatter: { title },
+          } = node
+          return (
+            <Li key={id}>
+              <Link to={slug}>{title}</Link>
+            </Li>
+          )
+        })}
       </Ul>
     </>
   )
