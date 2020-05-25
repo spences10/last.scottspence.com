@@ -42,7 +42,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
   const postTemplate = path.resolve(`src/templates/post.js`)
   const projectTemplate = path.resolve(`src/templates/project.js`)
-  return await graphql(`
+  const { data, errors } = await graphql(`
     {
       posts: allMdx(
         filter: { fileAbsolutePath: { regex: "/content/posts/" } }
@@ -80,35 +80,34 @@ exports.createPages = async ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      throw result.errors
-    }
-    const posts = result.data.posts.edges
-    const projects = result.data.projects.edges
+  `)
 
-    createTagPage(createPage, posts)
-    // createProjectPages(createPage, posts)
+  if (errors) throw errors
 
-    // create page for each mdx file
-    posts.forEach(post => {
-      createPage({
-        path: post.node.fields.slug,
-        component: postTemplate,
-        context: {
-          slug: post.node.fields.slug,
-        },
-      })
+  const posts = data.posts.edges
+  const projects = data.projects.edges
+
+  createTagPage(createPage, posts)
+  // createProjectPages(createPage, posts)
+
+  // create page for each mdx file
+  posts.forEach(post => {
+    createPage({
+      path: post.node.fields.slug,
+      component: postTemplate,
+      context: {
+        slug: post.node.fields.slug,
+      },
     })
+  })
 
-    projects.forEach(post => {
-      createPage({
-        path: post.node.fields.slug,
-        component: projectTemplate,
-        context: {
-          slug: post.node.fields.slug,
-        },
-      })
+  projects.forEach(post => {
+    createPage({
+      path: post.node.fields.slug,
+      component: projectTemplate,
+      context: {
+        slug: post.node.fields.slug,
+      },
     })
   })
 }

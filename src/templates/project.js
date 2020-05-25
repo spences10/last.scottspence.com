@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
 import { A, H1, P } from '../components/page-elements'

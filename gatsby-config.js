@@ -1,3 +1,12 @@
+const activeEnv =
+  process.env.ACTIVE_ENV || process.env.NODE_ENV || 'development'
+
+console.log(`Using environment config: '${activeEnv}'`)
+
+require('dotenv').config({
+  path: `.env.${activeEnv}`,
+})
+
 const siteMetadata = {
   title: `Scott Spence`,
   description: `Scott's Digital Garden.`,
@@ -59,6 +68,18 @@ module.exports = {
           `space mono\:400,700`,
         ],
         display: 'swap',
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GitHub`,
+        fieldName: `github`,
+        url: `https://api.github.com/graphql`,
+        headers: {
+          Authorization: `bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
+        },
+        fetchOptions: {},
       },
     },
   ],
