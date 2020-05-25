@@ -10,3 +10,6 @@ public
 yarn-error.log
 
 .now
+
+# env files
+.env*
