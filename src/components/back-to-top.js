@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.a`
   position: fixed;
-  bottom: 20px;
+  bottom: 0;
   right: 30px;
   z-index: 1;
   cursor: pointer;
@@ -11,7 +11,11 @@ const Wrapper = styled.a`
   transform: ${({ visible }) =>
     visible ? 'translate3d(0, 0, 0)' : 'translate3d(0, 150px, 0)'};
   transition: all 0.4s;
-  max-width: 50px;
+  max-width: 100px;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: saturate(80%) blur(5px);
 `
 
 export const BackToTop = ({ visible }) => {

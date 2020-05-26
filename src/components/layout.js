@@ -4,6 +4,7 @@ import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { Header } from './header'
 
 const Styles = styled.main`
+  position: relative;
   max-width: 640px;
   margin: 0 auto;
   padding: 0 20px;

@@ -1,6 +1,6 @@
 import { ResponsiveCalendar } from '@nivo/calendar'
 import { subWeeks } from 'date-fns'
-import React from 'react'
+import React, { memo } from 'react'
 import { between, down, up } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { useGitHubContributions } from '../hooks/use-github-contributions'
@@ -50,7 +50,7 @@ const ContributionsWrapper = styled.div`
   }
 `
 
-export const GitHubContributions = () => {
+const Contributions = () => {
   const { weeks } = useGitHubContributions()
   return (
     <Wrapper>
@@ -78,3 +78,5 @@ export const GitHubContributions = () => {
     </Wrapper>
   )
 }
+
+export const GitHubContributions = memo(Contributions)

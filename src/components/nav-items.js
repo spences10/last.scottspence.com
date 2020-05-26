@@ -25,7 +25,7 @@ const NavLink = styled.a`
   grid-area: ${({ gridArea }) => gridArea};
   align-items: center;
   border-radius: 50px;
-  color: ${({ theme }) => theme.colors.gray[100]};
+  color: ${({ theme }) => theme.colors.gray[100]} !important;
   background: linear-gradient(
     180turn,
     ${({ theme }) => theme.colors.primary[500]},

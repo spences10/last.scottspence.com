@@ -1,5 +1,5 @@
 import { ResponsivePie } from '@nivo/pie'
-import React from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components'
 import { useGitHubRepositories } from '../hooks/use-github-repositories'
 import { topLanguages } from '../services/data-massage'
@@ -12,7 +12,7 @@ const LanguageWrapper = styled.div`
   margin-top: 60px;
 `
 
-export const TopLanguages = () => {
+const Languages = () => {
   const { repositories } = useGitHubRepositories()
   return (
     <LanguageWrapper>
@@ -32,3 +32,5 @@ export const TopLanguages = () => {
     </LanguageWrapper>
   )
 }
+
+export const TopLanguages = memo(Languages)
