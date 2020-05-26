@@ -22,6 +22,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -58,6 +59,13 @@ module.exports = {
         path: `${__dirname}/content`,
       },
       __key: `${__dirname}/content`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static`,
+      },
     },
     {
       resolve: `gatsby-plugin-google-fonts`,

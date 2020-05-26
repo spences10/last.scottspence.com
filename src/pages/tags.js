@@ -21,9 +21,6 @@ const StyledTags = styled.article`
     margin: 1rem;
     margin-left: 0;
   }
-  a:hover {
-    opacity: 0.5;
-  }
 `
 
 export default ({

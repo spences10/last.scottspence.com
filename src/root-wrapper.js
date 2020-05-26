@@ -19,6 +19,7 @@ import {
   Small,
   Ul,
 } from './components/page-elements'
+import { AnalyticsProvider } from './contexts/fathom-event-tracking'
 import { GlobalStyle, theme } from './theme'
 
 const components = {
@@ -57,9 +58,11 @@ export const wrapPageElement = ({ element }) => (
     </Helmet>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <MDXProvider components={components}>
-        <Layout>{element}</Layout>
-      </MDXProvider>
+      <AnalyticsProvider>
+        <MDXProvider components={components}>
+          <Layout>{element}</Layout>
+        </MDXProvider>
+      </AnalyticsProvider>
     </ThemeProvider>
   </>
 )

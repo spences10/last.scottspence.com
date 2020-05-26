@@ -7,6 +7,7 @@ import { H1 } from '../components/page-elements'
 import { PopularPosts } from '../components/popular-posts'
 import { NegMargin, PostInfo } from '../components/shared-styles'
 import { Share } from '../components/social-share'
+import { useAnalytics } from '../contexts/fathom-event-tracking'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const PostWrapper = styled.article`
@@ -47,6 +48,7 @@ const Private = styled.div`
 `
 
 export default ({ data }) => {
+  const fa = useAnalytics()
   const { siteUrl, twitterUsername } = useSiteMetadata()
   const {
     frontmatter: { title, private: isPrivate },
@@ -75,6 +77,7 @@ export default ({ data }) => {
           </span>
           <span className="postEditOnGitHub">
             <a
+              onClick={() => fa('8C4MCGZM')}
               href={editLink}
               target="_blank"
               rel="noopener noreferrer"

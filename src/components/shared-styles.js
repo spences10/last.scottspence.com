@@ -51,7 +51,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-export const NegMargin = css`
+export const negMargin = css`
   margin-left: -${({ theme }) => theme.spacing[12]};
   margin-right: -${({ theme }) => theme.spacing[12]};
   ${down('sm')} {
