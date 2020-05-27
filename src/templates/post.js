@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import SEO from 'react-seo-component'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
@@ -74,6 +73,7 @@ export default ({ data }) => {
         title={title}
         titleTemplate={siteTitle}
         description={excerpt}
+        image={ogImageUrl(authorName, 'scottspence.com', title)}
         pathname={`${siteUrl}${slug}`}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
@@ -83,16 +83,6 @@ export default ({ data }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      <Helmet encodeSpecialCharacters={false}>
-        <meta
-          property="og:image"
-          content={ogImageUrl(authorName, 'scottspence.com', title)}
-        />
-        <meta
-          name="twitter:image:src"
-          content={ogImageUrl(authorName, 'scottspence.com', title)}
-        />
-      </Helmet>
       <PostWrapper>
         <H1>{title}</H1>
         {isPrivate && (
