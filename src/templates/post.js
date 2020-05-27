@@ -1,6 +1,8 @@
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
+import { Helmet } from 'react-helmet'
+import SEO from 'react-seo-component'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { A, H1 } from '../components/page-elements'
@@ -9,6 +11,7 @@ import { negMargin, PostInfo, Toc } from '../components/shared-styles'
 import { Share } from '../components/social-share'
 import { useAnalytics } from '../contexts/fathom-event-tracking'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { ogImageUrl } from '../util/build-og-image-url'
 
 const PostWrapper = styled.article`
   padding-bottom: ${({ theme }) => theme.spacing[20]};
@@ -49,16 +52,47 @@ const Private = styled.div`
 
 export default ({ data }) => {
   const fa = useAnalytics()
-  const { siteUrl, twitterUsername } = useSiteMetadata()
   const {
-    frontmatter: { title, private: isPrivate },
+    title: siteTitle,
+    siteUrl,
+    authorName,
+    twitterUsername,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata()
+  const {
+    frontmatter: { title, private: isPrivate, date },
     fields: { editLink, slug },
     timeToRead,
     body,
     tableOfContents,
+    excerpt,
   } = data.mdx
   return (
     <>
+      <SEO
+        title={title}
+        titleTemplate={siteTitle}
+        description={excerpt}
+        pathname={`${siteUrl}${slug}`}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+        author={authorName}
+        article={true}
+        publishedDate={date}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
+      <Helmet encodeSpecialCharacters={false}>
+        <meta
+          property="og:image"
+          content={ogImageUrl(authorName, 'scottspence.com', title)}
+        />
+        <meta
+          name="twitter:image:src"
+          content={ogImageUrl(authorName, 'scottspence.com', title)}
+        />
+      </Helmet>
       <PostWrapper>
         <H1>{title}</H1>
         {isPrivate && (
@@ -119,6 +153,7 @@ export const query = graphql`
       body
       tableOfContents
       timeToRead
+      excerpt
       frontmatter {
         title
         date(formatString: "YYYY MMMM Do")

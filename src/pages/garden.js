@@ -1,8 +1,10 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
+import SEO from 'react-seo-component'
 import styled from 'styled-components'
 import { H2, P } from '../components/page-elements'
 import { PostInfo, StyledLink } from '../components/shared-styles'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const Wrapper = styled.main`
   input {
@@ -65,6 +67,14 @@ const Wrapper = styled.main`
 `
 
 export default ({ data }) => {
+  const {
+    title,
+    description,
+    siteUrl,
+    twitterUsername,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata()
   // https://www.aboutmonica.com/blog/create-gatsby-blog-search-tutorial
   const allPosts = data.allMdx.nodes
 
@@ -96,39 +106,51 @@ export default ({ data }) => {
   const posts = hasSearchResults ? filteredData : allPosts
 
   return (
-    <Wrapper>
-      <input
-        type="text"
-        aria-label="Search"
-        placeholder="Type to filter posts..."
-        onChange={handleInputChange}
+    <>
+      <SEO
+        title={`Garden`}
+        titleTemplate={title}
+        description={description}
+        image={`${siteUrl}/favicon.png`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
       />
-      <span className="posts-number">
-        {Object.keys(posts).length}
-      </span>
-      {posts.map(post => {
-        const {
-          id,
-          excerpt,
-          fields: { slug },
-          frontmatter: { title },
-          timeToRead,
-        } = post
-        return (
-          <article key={id}>
-            <StyledLink to={slug}>
-              <H2>{title}</H2>
-              <PostInfo>
-                <span className="postTimeToRead">
-                  {timeToRead * 2} minutes to read
-                </span>
-              </PostInfo>
-              <P>{excerpt}</P>
-            </StyledLink>
-          </article>
-        )
-      })}
-    </Wrapper>
+      <Wrapper>
+        <input
+          type="text"
+          aria-label="Search"
+          placeholder="Type to filter posts..."
+          onChange={handleInputChange}
+        />
+        <span className="posts-number">
+          {Object.keys(posts).length}
+        </span>
+        {posts.map(post => {
+          const {
+            id,
+            excerpt,
+            fields: { slug },
+            frontmatter: { title },
+            timeToRead,
+          } = post
+          return (
+            <article key={id}>
+              <StyledLink to={slug}>
+                <H2>{title}</H2>
+                <PostInfo>
+                  <span className="postTimeToRead">
+                    {timeToRead * 2} minutes to read
+                  </span>
+                </PostInfo>
+                <P>{excerpt}</P>
+              </StyledLink>
+            </article>
+          )
+        })}
+      </Wrapper>
+    </>
   )
 }
 

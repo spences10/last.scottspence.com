@@ -1,16 +1,34 @@
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
+import SEO from 'react-seo-component'
 import { A, H1, P } from '../components/page-elements'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 export default ({ data }) => {
   const {
+    title: siteTitle,
+    siteUrl,
+    twitterUsername,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata()
+  const {
     frontmatter: { title, repo, demo },
-    fields: { editLink, slug },
     body,
+    excerpt,
   } = data.mdx
   return (
     <>
+      <SEO
+        title={title}
+        titleTemplate={siteTitle}
+        description={excerpt}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
       <H1>{title}</H1>
       <A href={repo}>
         <P>{repo}</P>
@@ -29,6 +47,7 @@ export const query = graphql`
       body
       tableOfContents
       timeToRead
+      excerpt
       frontmatter {
         title
         repo

@@ -1,8 +1,10 @@
 import { graphql } from 'gatsby'
 import React from 'react'
+import SEO from 'react-seo-component'
 import styled from 'styled-components'
 import { H2, Li, Ul } from '../components/page-elements'
 import { Link } from '../components/shared-styles'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const StyledTags = styled.article`
   ul {
@@ -27,24 +29,42 @@ export default ({
   data: {
     allMdx: { group },
   },
-}) => (
-  <>
-    <H2>Tags</H2>
-    <StyledTags>
-      <Ul>
-        {group.map(({ fieldValue, totalCount }) => {
-          return (
-            <Li key={fieldValue}>
-              <Link to={`/tags/${fieldValue}/`}>
-                {fieldValue} ({totalCount})
-              </Link>
-            </Li>
-          )
-        })}
-      </Ul>
-    </StyledTags>
-  </>
-)
+}) => {
+  const {
+    title: siteTitle,
+    siteUrl,
+    twitterUsername,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata()
+  return (
+    <>
+      <SEO
+        title={`Site tags`}
+        titleTemplate={siteTitle}
+        description={`Site tags`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
+      <H2>Tags</H2>
+      <StyledTags>
+        <Ul>
+          {group.map(({ fieldValue, totalCount }) => {
+            return (
+              <Li key={fieldValue}>
+                <Link to={`/tags/${fieldValue}/`}>
+                  {fieldValue} ({totalCount})
+                </Link>
+              </Li>
+            )
+          })}
+        </Ul>
+      </StyledTags>
+    </>
+  )
+}
 
 export const query = graphql`
   query SITE_TAGS_QUERY {

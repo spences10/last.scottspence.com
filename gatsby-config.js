@@ -12,7 +12,10 @@ const siteMetadata = {
   description: `Scott's Digital Garden.`,
   lastBuildDate: new Date(Date.now()).toISOString(),
   siteUrl: `https://scottspence.com`,
+  authorName: `Scott Spence`,
   twitterUsername: `@spences10`,
+  siteLanguage: `en-GB`,
+  siteLocale: `en_gb`,
 }
 module.exports = {
   siteMetadata,

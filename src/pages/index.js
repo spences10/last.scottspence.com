@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import SEO from 'react-seo-component'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import About from '../../content/copy/about'
@@ -9,6 +10,7 @@ import { BackToTop } from '../components/back-to-top'
 import { MugFace } from '../components/mug-face'
 import { NavItems } from '../components/nav-items'
 import { useOnScreen } from '../hooks/use-on-screen'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const Wrapper = styled.section`
   position: relative;
@@ -70,10 +72,28 @@ const LandingPage = ({ children }) => {
 }
 
 export default () => {
+  const {
+    title,
+    description,
+    siteUrl,
+    twitterUsername,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata()
   const ref = useRef()
   const onScreen = useOnScreen(ref, '-100px')
   return (
     <>
+      <SEO
+        title={`Home`}
+        titleTemplate={title}
+        description={description}
+        image={`${siteUrl}/favicon.png`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
       <LandingPage>
         <MugFace />
         <NavItems />

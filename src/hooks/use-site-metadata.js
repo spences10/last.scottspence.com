@@ -11,6 +11,9 @@ export const useSiteMetadata = () => {
             lastBuildDate
             siteUrl
             twitterUsername
+            authorName
+            siteLanguage
+            siteLocale
           }
         }
       }
