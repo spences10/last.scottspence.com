@@ -12,10 +12,12 @@ const Wrapper = styled.a`
     visible ? 'translate3d(0, 0, 0)' : 'translate3d(0, 150px, 0)'};
   transition: all 0.4s;
   max-width: 100px;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0 !important;
   padding: 20px;
   text-align: center;
+  -webkit-backdrop-filter: saturate(180%) blur(5px);
   backdrop-filter: saturate(80%) blur(5px);
+  background-color: hsla(204, 45%, 98%, 0.8);
 `
 
 export const BackToTop = ({ visible }) => {

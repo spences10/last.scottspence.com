@@ -22,10 +22,19 @@ const Wrapper = styled.section`
     margin: 0 auto;
     margin-top: 30%;
     border-radius: ${({ theme }) => theme.borderRadius.full};
+    height: 200px;
+    width: 200px;
+    ${down('sm')} {
+      height: 150px;
+      width: 150px;
+    }
   }
   h1 {
     text-align: center;
     margin-top: 30%;
+    ${down('sm')} {
+      margin-top: 10%;
+    }
     span {
       &:before {
         content: ' ';
@@ -49,8 +58,9 @@ const Wrapper = styled.section`
       margin: 0;
       margin-top: 30%;
     }
-    /* align-items: center; */
-    /* justify-items: center; */
+    ${down('sm')} {
+      margin-top: 20%;
+    }
     grid-gap: 30px;
   }
 `

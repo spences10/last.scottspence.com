@@ -8,8 +8,8 @@ export const MugFace = () => {
     query {
       placeholderImage: file(relativePath: { eq: "favicon.png" }) {
         childImageSharp {
-          fixed(width: 200) {
-            ...GatsbyImageSharpFixed_tracedSVG
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
@@ -19,7 +19,7 @@ export const MugFace = () => {
   return (
     <>
       <Img
-        fixed={data.placeholderImage.childImageSharp.fixed}
+        fluid={data.placeholderImage.childImageSharp.fluid}
         alt="mug face image"
       />
       <H1>
