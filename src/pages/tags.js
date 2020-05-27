@@ -40,9 +40,9 @@ export default ({
   return (
     <>
       <SEO
-        title={`Site tags`}
+        title={`Tags`}
         titleTemplate={siteTitle}
-        description={`Site tags`}
+        description={`Tags`}
         pathname={siteUrl}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
