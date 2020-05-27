@@ -1,8 +1,17 @@
 import React from 'react'
 import SEO from 'react-seo-component'
+import styled from 'styled-components'
 import { H2, Li, Ul } from '../components/page-elements'
 import { Link } from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+
+const Wrapper = styled.article`
+  a {
+    &:hover {
+      opacity: 0.5 !important;
+    }
+  }
+`
 
 export default ({ pageContext }) => {
   const {
@@ -14,7 +23,7 @@ export default ({ pageContext }) => {
   } = useSiteMetadata()
   const { posts, tag } = pageContext
   return (
-    <>
+    <Wrapper>
       <SEO
         title={`Posts about ${tag}`}
         titleTemplate={siteTitle}
@@ -39,6 +48,6 @@ export default ({ pageContext }) => {
           )
         })}
       </Ul>
-    </>
+    </Wrapper>
   )
 }
