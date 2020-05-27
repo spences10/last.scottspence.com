@@ -3,9 +3,9 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
-import { H1 } from '../components/page-elements'
+import { A, H1 } from '../components/page-elements'
 import { PopularPosts } from '../components/popular-posts'
-import { negMargin, PostInfo } from '../components/shared-styles'
+import { negMargin, PostInfo, Toc } from '../components/shared-styles'
 import { Share } from '../components/social-share'
 import { useAnalytics } from '../contexts/fathom-event-tracking'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
@@ -55,6 +55,7 @@ export default ({ data }) => {
     fields: { editLink, slug },
     timeToRead,
     body,
+    tableOfContents,
   } = data.mdx
   return (
     <>
@@ -70,6 +71,20 @@ export default ({ data }) => {
               👀
             </span>
           </Private>
+        )}
+        {typeof tableOfContents.items === 'undefined' ? null : (
+          <Toc>
+            <h3>Table of contents</h3>
+            <ul>
+              {tableOfContents.items.map(i => (
+                <li key={i.url}>
+                  <A href={i.url} key={i.url}>
+                    {i.title}
+                  </A>
+                </li>
+              ))}
+            </ul>
+          </Toc>
         )}
         <PostInfo>
           <span className="postTimeToRead">
