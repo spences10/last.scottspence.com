@@ -22,7 +22,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-remove-trailing-slashes`,
+    `gatsby-plugin-preact`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -68,14 +68,22 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
-          `poppins\:400,500,600,700`,
-          `pridi\:400,700`,
-          `space mono\:400,700`,
+          {
+            family: `Poppins`,
+            variants: [`400`, `500`, `600`, `700`],
+          },
+          {
+            family: `Pridi`,
+            variants: [`400`, `700`],
+          },
+          {
+            family: `Space Mono`,
+            variants: [`400`, `700`],
+          },
         ],
-        display: 'swap',
       },
     },
     {

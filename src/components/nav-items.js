@@ -1,29 +1,9 @@
 import React from 'react'
-import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { useAnalytics } from '../contexts/fathom-event-tracking'
 
-export const NavWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas: 'about portfolio now uses';
-  ${down('sm')} {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      'about portfolio'
-      'now uses';
-    margin: 0;
-  }
-  align-items: center;
-  justify-items: center;
-  grid-gap: 30px;
-  margin: 0 -10rem;
-`
-
 const NavLink = styled.a`
   grid-area: ${({ gridArea }) => gridArea};
-  align-items: center;
   border-radius: 50px;
   color: ${({ theme }) => theme.colors.gray[100]} !important;
   background: linear-gradient(
@@ -34,18 +14,18 @@ const NavLink = styled.a`
   outline: none;
   &:focus {
     box-shadow: ${({ theme }) => theme.boxShadow.outline};
-    border-radius: 50px;
+    border-radius: 50px !important;
   }
   padding: 0.65rem 1rem;
-  width: 100%;
   text-align: center;
   text-decoration: none;
+  height: min-content;
 `
 
 export const NavItems = () => {
   const fa = useAnalytics()
   return (
-    <NavWrapper aria-label={`Site navigation`}>
+    <nav aria-label={`page navigation`}>
       <NavLink
         gridArea={`about`}
         href={`#hi-im-scott`}
@@ -74,6 +54,6 @@ export const NavItems = () => {
       >
         Uses
       </NavLink>
-    </NavWrapper>
+    </nav>
   )
 }

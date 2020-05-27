@@ -5,7 +5,7 @@ import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { H1 } from '../components/page-elements'
 import { PopularPosts } from '../components/popular-posts'
-import { NegMargin, PostInfo } from '../components/shared-styles'
+import { negMargin, PostInfo } from '../components/shared-styles'
 import { Share } from '../components/social-share'
 import { useAnalytics } from '../contexts/fathom-event-tracking'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
@@ -31,7 +31,7 @@ const Private = styled.div`
   margin: ${({ theme }) => theme.spacing[3]};
   text-align: center;
   font-style: italic;
-  ${NegMargin}
+  ${negMargin}
   span {
     font-style: normal;
     padding: 0 ${({ theme }) => theme.spacing[5]};

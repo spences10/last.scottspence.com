@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop -p 4512 -o",
-    "build": "gatsby build && npm run wellknown",
+    "build": "gatsby build && yarn wellknown",
     "serve": "gatsby serve -p 4500 -o",
     "format": "pretty-quick",
     "wellknown": "cp -r .well-known/ public/"
@@ -29,8 +29,9 @@
     "gatsby-image": "2.4.3",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-mdx": "1.2.7",
+    "gatsby-plugin-preact": "^4.0.0",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.3.2",
-    "gatsby-plugin-remove-trailing-slashes": "^2.3.3",
     "gatsby-plugin-sharp": "2.6.3",
     "gatsby-plugin-styled-components": "3.3.1",
     "gatsby-remark-autolink-headers": "^2.3.3",
@@ -39,6 +40,8 @@
     "gatsby-source-graphql": "^2.5.2",
     "gatsby-transformer-sharp": "2.5.2",
     "mdx-utils": "0.2.0",
+    "preact": "^10.4.4",
+    "preact-render-to-string": "^5.1.8",
     "prism-react-renderer": "1.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",

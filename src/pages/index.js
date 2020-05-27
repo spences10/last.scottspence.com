@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import About from '../../content/copy/about'
 import Now from '../../content/copy/now'
@@ -9,19 +10,48 @@ import { MugFace } from '../components/mug-face'
 import { NavItems } from '../components/nav-items'
 import { useOnScreen } from '../hooks/use-on-screen'
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
+  position: relative;
+  display: grid;
+  grid-auto-rows: min-content;
   min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  padding: 4vh 0px;
-  span {
-    &:before {
-      content: ' ';
-    }
+  ${down('md')} {
+    min-height: 80vh;
+  }
+  div {
+    margin: 0 auto;
+    margin-top: 30%;
+    border-radius: ${({ theme }) => theme.borderRadius.full};
   }
   h1 {
-    display: inline-block;
     text-align: center;
+    margin-top: 30%;
+    span {
+      &:before {
+        content: ' ';
+      }
+    }
+  }
+  nav {
+    position: relative;
+    bottom: 0;
+    margin: 0 -10rem;
+    margin-top: 30%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 'about portfolio now uses';
+    ${down('md')} {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'about portfolio'
+        'now uses';
+      margin: 0;
+      margin-top: 30%;
+    }
+    /* align-items: center; */
+    /* justify-items: center; */
+    grid-gap: 30px;
   }
 `
 
