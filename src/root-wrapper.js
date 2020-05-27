@@ -3,6 +3,10 @@ import { preToCodeBlock } from 'mdx-utils'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
+import { DateDistance } from './components/date-distance'
+import { DateUpdated } from './components/date-updated'
+import { GitHubContributions } from './components/gh-contributions'
+import { TopLanguages } from './components/gh-top-languages'
 import { Layout } from './components/layout'
 import {
   A,
@@ -44,6 +48,11 @@ const components = {
   },
   small: props => <Small {...props} />,
   ul: props => <Ul {...props} />,
+  Small,
+  DateDistance,
+  DateUpdated,
+  TopLanguages,
+  GitHubContributions,
 }
 
 export const wrapPageElement = ({ element }) => (

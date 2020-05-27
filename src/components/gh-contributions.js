@@ -30,23 +30,22 @@ const Wrapper = styled.div`
   ${between('lg', 'md')} {
     position: initial;
   }
-`
-
-const ContributionsWrapper = styled.div`
-  height: 400px;
-  margin: -60px auto;
-  ${down('md')} {
-    position: relative;
-    max-width: 800px;
-    width: 200%;
-    right: 94%;
-  }
-  ${between('md', 'lg')} {
-    position: initial;
-  }
-  ${between('sm', 'md')} {
-    position: initial;
-    right: 100%;
+  div {
+    height: 400px;
+    margin: -60px auto;
+    ${down('md')} {
+      position: relative;
+      max-width: 800px;
+      width: 200%;
+      right: 94%;
+    }
+    ${between('md', 'lg')} {
+      position: initial;
+    }
+    ${between('sm', 'md')} {
+      position: initial;
+      right: 100%;
+    }
   }
 `
 
@@ -54,7 +53,7 @@ const Contributions = () => {
   const { weeks } = useGitHubContributions()
   return (
     <Wrapper>
-      <ContributionsWrapper>
+      <div>
         <ResponsiveCalendar
           data={contributions(weeks)}
           from={subWeeks(new Date(Date.now()), 49).toISOString()}
@@ -74,7 +73,7 @@ const Contributions = () => {
           dayBorderWidth={2}
           dayBorderColor="#ffffff"
         />
-      </ContributionsWrapper>
+      </div>
     </Wrapper>
   )
 }
