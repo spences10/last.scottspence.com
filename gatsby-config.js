@@ -101,7 +101,12 @@ module.exports = {
         fetchOptions: {},
       },
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/2019/*`, `/2020/*`],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
