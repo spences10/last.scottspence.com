@@ -140,7 +140,7 @@ generate an image:
 ```js react-live
 const params = {
   author: `Scott Spence`,
-  website: `thelocalhost.io`,
+  website: `scottspence.com`,
   title: `Serverless OG Image Example Card`,
   image: `https://scottspence.me/favicon.png`,
 }
@@ -179,7 +179,7 @@ from the site metadata.
 ```js
 const ogImageUrl = buildURL('https://image-og.now.sh/og.jpg', {
   author: authorName,
-  website: 'thelocalhost.io',
+  website: 'scottspence.com',
   title: title.length > 55 ? `${title.substring(0, 55)}...` : title,
   image: 'https://scottspence.me/favicon.png',
 })
@@ -224,7 +224,7 @@ Here's an example URL of what is being added to the page source:
 ```text
 https://image-og.now.sh/og.jpg
   ?author=Scott%20Spence
-  &amp;website=thelocalhost.io
+  &amp;website=scottspence.com
   &amp;title=Serverless%20OG%20Image%20Example%20Card
   &amp;image=https%3A%2F%2Fscottspence.me%2Ffavicon.png
 ```

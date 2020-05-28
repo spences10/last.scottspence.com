@@ -17,7 +17,7 @@ export const StyledA = styled.a`
 
 export const A = props => {
   const fa = useAnalytics()
-  const containsGoalId = props.href.includes(`goalId`)
+  const containsGoalId = props.href?.includes(`goalId`)
   const [goalId, setGoalId] = useState(``)
   const [newHref, setNewHref] = useState(``)
 

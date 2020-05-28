@@ -11,6 +11,7 @@ import { MugFace } from '../components/mug-face'
 import { NavItems } from '../components/nav-items'
 import { useOnScreen } from '../hooks/use-on-screen'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { ogImageUrl } from '../util/build-og-image-url'
 
 const Wrapper = styled.section`
   position: relative;
@@ -77,6 +78,7 @@ export default () => {
     description,
     siteUrl,
     twitterUsername,
+    authorName,
     siteLanguage,
     siteLocale,
   } = useSiteMetadata()
@@ -88,7 +90,11 @@ export default () => {
         title={`Home`}
         titleTemplate={title}
         description={description}
-        image={`${siteUrl}/favicon.png`}
+        image={ogImageUrl(
+          authorName,
+          'scottspence.com',
+          `Scott's Digital Garden`
+        )}
         pathname={siteUrl}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}

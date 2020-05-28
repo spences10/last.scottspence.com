@@ -2,7 +2,7 @@
 date: 2018-04-03
 title: styled-components 💅 getting started
 tags: ['guide', 'styled-components', 'css-in-js']
-published: true
+private: false
 ---
 
 We're going to style the basic create react app with styled-components

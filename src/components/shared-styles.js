@@ -89,7 +89,7 @@ export const Toc = styled.aside`
   border-radius: ${({ theme }) => theme.borderRadius.default};
   padding: ${({ theme }) => theme.spacing[3]};
   margin: ${({ theme }) => theme.spacing[3]} 0;
-  font-size: ${({ theme }) => theme.fontSize.sm};
+  font-size: ${({ theme }) => theme.fontSize.md};
   * {
     width: 100%;
   }

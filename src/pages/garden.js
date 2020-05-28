@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { H2, P } from '../components/page-elements'
 import { PostInfo, StyledLink } from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { ogImageUrl } from '../util/build-og-image-url'
 
 const Wrapper = styled.main`
   input {
@@ -72,6 +73,7 @@ export default ({ data }) => {
     description,
     siteUrl,
     twitterUsername,
+    authorName,
     siteLanguage,
     siteLocale,
   } = useSiteMetadata()
@@ -111,7 +113,11 @@ export default ({ data }) => {
         title={`Garden`}
         titleTemplate={title}
         description={description}
-        image={`${siteUrl}/favicon.png`}
+        image={ogImageUrl(
+          authorName,
+          'scottspence.com',
+          `Digital Garden`
+        )}
         pathname={siteUrl}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}

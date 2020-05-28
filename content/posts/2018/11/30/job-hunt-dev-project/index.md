@@ -133,11 +133,11 @@ pick up the phone than READ the information provided.
 [poll]:
   https://dev.to/whokilledkevin/8-things-i-hate-in-recruitment-letters-8ke
 [dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
-[my portfolio]: https://scottspence.me
-[personal portfolio]: https://scottspence.me
-[recruiter faq]: https://scottspence.me/faq
-[online cv]: https://cv.scottspence.me/
-[faq]: https://scottspence.me/faq
+[my portfolio]: https://scottspence.com
+[personal portfolio]: https://scottspence.com/#portfolio
+[recruiter faq]: https://scottspence.com/faq
+[online cv]: https://mecv.xyz/
+[faq]: https://scottspence.com/faq
 [teh jamstack behbeh!]: https://jamstack.org/
 [jsonresume]: https://jsonresume.org/
 [use my cv]: https://github.com/spences10/cv
