@@ -80,7 +80,6 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
         author={authorName}
-        article={true}
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
