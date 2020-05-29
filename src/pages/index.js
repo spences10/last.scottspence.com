@@ -83,7 +83,7 @@ export default () => {
     siteLocale,
   } = useSiteMetadata()
   const ref = useRef()
-  const onScreen = useOnScreen(ref, '-100px')
+  const onScreen = useOnScreen(ref)
   return (
     <>
       <SEO
@@ -102,14 +102,14 @@ export default () => {
       />
       <LandingPage>
         <MugFace />
-        <NavItems />
+        <section ref={ref}>
+          <NavItems />
+        </section>
       </LandingPage>
-      <section ref={ref}>
-        <About />
-        <Portfolio />
-        <Now />
-        <Uses />
-      </section>
+      <About />
+      <Portfolio />
+      <Now />
+      <Uses />
       <BackToTop visible={onScreen} />
     </>
   )

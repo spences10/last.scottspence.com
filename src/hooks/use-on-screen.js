@@ -23,5 +23,5 @@ export const useOnScreen = (ref, rootMargin = '0px') => {
     }
   })
 
-  return isIntersecting
+  return !isIntersecting
 }

@@ -65,13 +65,13 @@ export const wrapPageElement = ({ element }) => (
         defer
       ></script>
     </Helmet>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <AnalyticsProvider>
+    <AnalyticsProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <MDXProvider components={components}>
           <Layout>{element}</Layout>
         </MDXProvider>
-      </AnalyticsProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </AnalyticsProvider>
   </>
 )

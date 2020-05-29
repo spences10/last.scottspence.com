@@ -1,14 +1,16 @@
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import React from 'react'
+import React, { useRef } from 'react'
 import SEO from 'react-seo-component'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
+import { BackToTop } from '../components/back-to-top'
 import { A, H1 } from '../components/page-elements'
 import { PopularPosts } from '../components/popular-posts'
 import { negMargin, PostInfo, Toc } from '../components/shared-styles'
 import { Share } from '../components/social-share'
 import { useAnalytics } from '../contexts/fathom-event-tracking'
+import { useOnScreen } from '../hooks/use-on-screen'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
 
@@ -67,6 +69,9 @@ export default ({ data }) => {
     tableOfContents,
     excerpt,
   } = data.mdx
+  const ref = useRef()
+  const onScreen = useOnScreen(ref)
+
   return (
     <>
       <SEO
@@ -84,7 +89,6 @@ export default ({ data }) => {
         modifiedDate={new Date(Date.now()).toISOString()}
       />
       <PostWrapper>
-        <H1>{title}</H1>
         {isPrivate && (
           <Private>
             <span role="img" aria-label="shushing face">
@@ -110,6 +114,9 @@ export default ({ data }) => {
             </ul>
           </Toc>
         )}
+        <section ref={ref}>
+          <H1>{title}</H1>
+        </section>
         <PostInfo>
           <span className="postTimeToRead">
             {timeToRead * 2} minutes to read
@@ -126,6 +133,7 @@ export default ({ data }) => {
           </span>
         </PostInfo>
         <MDXRenderer>{body}</MDXRenderer>
+        <BackToTop visible={onScreen} />
       </PostWrapper>
       <Share
         url={`${siteUrl}${slug}`}
