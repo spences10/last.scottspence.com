@@ -26,6 +26,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-preact`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
