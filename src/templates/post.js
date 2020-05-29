@@ -75,6 +75,7 @@ export default ({ data }) => {
         description={excerpt}
         image={ogImageUrl(authorName, 'scottspence.com', title)}
         pathname={`${siteUrl}${slug}`}
+        article={true}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
