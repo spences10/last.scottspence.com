@@ -118,7 +118,7 @@ export default ({ data }) => {
           'scottspence.com',
           `Digital Garden`
         )}
-        pathname={siteUrl}
+        pathname={`${siteUrl}/garden/`}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}

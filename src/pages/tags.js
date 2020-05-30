@@ -48,7 +48,7 @@ export default ({
         title={`Tags`}
         titleTemplate={siteTitle}
         description={`Tags`}
-        pathname={siteUrl}
+        pathname={`${siteUrl}/tags`}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
