@@ -32,7 +32,7 @@ export const A = props => {
 
   const onClick = () => {
     if (goalId) {
-      fa(goalId)
+      fa(goalId, 0)
     }
   }
   return (
