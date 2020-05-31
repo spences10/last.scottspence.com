@@ -34,7 +34,7 @@ const StyledHeader = styled.header`
       flex-wrap: wrap;
       padding: 0;
       li {
-        margin-left: 1rem;
+        margin: 1rem;
         /* margin-top: 20px; */
       }
     }
