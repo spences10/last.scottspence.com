@@ -25,4 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     background: ${({ theme }) => theme.colors.gray[100]}
   }
+  .youtube-mdx-embed{
+    margin-top: ${({ theme }) => theme.spacing[6]};
+  }
 `
