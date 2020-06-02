@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 import SEO from 'react-seo-component'
+import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { H2, P } from '../components/page-elements'
 import { PostInfo, StyledLink } from '../components/shared-styles'
@@ -49,6 +50,9 @@ const Wrapper = styled.main`
       display: block;
       margin: 0 -17px;
       width: 108%;
+      ${down('sm')} {
+        width: initial;
+      }
       height: 5px;
       top: -16px;
       content: '';
