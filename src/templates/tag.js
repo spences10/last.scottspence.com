@@ -22,6 +22,9 @@ export default ({ pageContext }) => {
     siteLocale,
   } = useSiteMetadata()
   const { posts, tag } = pageContext
+  // reverse order the posts this is
+  // destructive as it mutates the array
+  posts.reverse()
   return (
     <Wrapper>
       <SEO
