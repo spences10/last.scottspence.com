@@ -19,6 +19,7 @@ import {
   Hr,
   InlineCode,
   Li,
+  Ol,
   P,
   Small,
   Ul,
@@ -35,6 +36,7 @@ const components = {
   h4: props => <H4 {...props} />,
   hr: props => <Hr {...props} />,
   li: props => <Li {...props} />,
+  ol: props => <Ol {...props} />,
   p: props => <P {...props} />,
   'p.inlineCode': props => <InlineCode {...props} />,
   pre: preProps => {
