@@ -40,6 +40,7 @@ export const PostInfo = styled.div`
       text-decoration: underline;
       text-decoration-color: ${({ theme }) => theme.colors.gray[700]};
       &:hover {
+        transition: opacity 300ms;
         opacity: 0.5;
       }
       cursor: pointer;
