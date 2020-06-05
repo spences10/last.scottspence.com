@@ -8,9 +8,7 @@ const createTagPage = (createPage, posts) => {
 
   posts.forEach(post => {
     const {
-      node: {
-        frontmatter: { tags, private },
-      },
+      frontmatter: { tags, private },
     } = post
     if (tags && !private) {
       tags.forEach(tag => {
@@ -38,75 +36,48 @@ const createTagPage = (createPage, posts) => {
   })
 }
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const postTemplate = path.resolve(`src/templates/post.js`)
-  const projectTemplate = path.resolve(`src/templates/project.js`)
-  const { data, errors } = await graphql(`
+  const result = await graphql(`
     {
-      posts: allMdx(
+      allMdx(
         filter: { fileAbsolutePath: { regex: "/content/posts/" } }
       ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              tags
-              title
-              private
-            }
-            fields {
-              slug
-              editLink
-            }
+        nodes {
+          id
+          frontmatter {
+            tags
+            title
+            private
           }
-        }
-      }
-      projects: allMdx(
-        filter: { fileAbsolutePath: { regex: "/content/projects/" } }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              repo
-              demo
-            }
-            fields {
-              slug
-            }
+          fields {
+            slug
+            editLink
           }
         }
       }
     }
   `)
 
-  if (errors) throw errors
+  if (result.errors) {
+    reporter.panic(
+      `Error loading posts`,
+      JSON.stringify(result.errors)
+    )
+  }
 
-  const posts = data.posts.edges
-  const projects = data.projects.edges
+  const posts = result.data.allMdx.nodes
 
   createTagPage(createPage, posts)
-  // createProjectPages(createPage, posts)
 
   // create page for each mdx file
   posts.forEach(post => {
     createPage({
-      path: post.node.fields.slug,
+      path: post.fields.slug,
       component: postTemplate,
       context: {
-        slug: post.node.fields.slug,
-      },
-    })
-  })
-
-  projects.forEach(post => {
-    createPage({
-      path: post.node.fields.slug,
-      component: projectTemplate,
-      context: {
-        slug: post.node.fields.slug,
+        slug: post.fields.slug,
       },
     })
   })

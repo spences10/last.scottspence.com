@@ -38,12 +38,12 @@ export default ({ pageContext }) => {
       />
       <H2>Posts about {tag}</H2>
       <Ul>
-        {posts.map(({ node }) => {
+        {posts.map(post => {
           const {
             id,
             fields: { slug },
             frontmatter: { title },
-          } = node
+          } = post
           return (
             <Li key={id}>
               <Link to={slug}>{title}</Link>
