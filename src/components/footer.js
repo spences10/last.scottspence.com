@@ -51,6 +51,7 @@ export const Footer = () => {
         href="https://twitter.com/spences10"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Twitter Account"
       >
         <Twitter />
       </a>
@@ -58,6 +59,7 @@ export const Footer = () => {
         href="https://github.com/spences10"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="GitHub Account"
       >
         <GitHub />
       </a>
@@ -65,6 +67,7 @@ export const Footer = () => {
         href="https://open.spotify.com/user/spences10"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Spotify Account"
       >
         <Spotify />
       </a>
@@ -72,6 +75,7 @@ export const Footer = () => {
         href="https://www.youtube.com/channel/UCnngLXpLSFsKkDhFoO9Ct3w"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="YouTube Account"
       >
         <YouTube />
       </a>
@@ -79,6 +83,7 @@ export const Footer = () => {
         href="https://twitch.tv/spences10"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Twitch Account"
       >
         <Twitch />
       </a>
