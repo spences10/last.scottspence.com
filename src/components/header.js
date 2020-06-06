@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from './shared-styles'
+import { Link, linkStyle } from './shared-styles'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -10,14 +10,12 @@ const StyledLink = styled(Link)`
   &:active {
     color: ${({ theme }) => theme.colors.primary[500]};
   }
+  ${linkStyle}
 `
 
 const StyledHeader = styled.header`
   display: flex;
-  /* height: 75px; */
-  /* max-width: 800px; */
   margin: auto;
-  /* margin-top: 30px; */
   flex-wrap: wrap;
   align-items: center;
   h1 {
@@ -35,7 +33,6 @@ const StyledHeader = styled.header`
       padding: 0;
       li {
         margin: 1rem;
-        /* margin-top: 20px; */
       }
     }
   }
@@ -51,10 +48,10 @@ export const Header = ({ title, description }) => {
       <nav>
         <ul>
           <li>
-            <Link to="/garden">Garden</Link>
+            <StyledLink to="/garden">Garden</StyledLink>
           </li>
           <li>
-            <Link to="/tags">Tags</Link>
+            <StyledLink to="/tags">Tags</StyledLink>
           </li>
         </ul>
       </nav>

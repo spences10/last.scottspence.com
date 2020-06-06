@@ -3,7 +3,30 @@ import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled, { css } from 'styled-components'
 
+export const linkStyle = css`
+  color: inherit;
+  outline: none;
+  &:focus {
+    box-shadow: ${({ theme }) => theme.boxShadow.outline};
+    border-radius: ${({ theme }) => theme.borderRadius.lg};
+  }
+  &:visited {
+    color: inherit;
+  }
+`
+
+export const linkHover = css`
+  &:hover {
+    transition: opacity 300ms;
+    opacity: 0.5;
+  }
+`
+
 export const Link = styled(props => <GatsbyLink {...props} />)``
+
+export const StyledLink = styled(Link)`
+  ${linkStyle}
+`
 
 export const PostInfo = styled.div`
   margin-top: ${({ theme }) => theme.spacing[0]};
@@ -38,18 +61,11 @@ export const PostInfo = styled.div`
     a {
       color: ${({ theme }) => theme.colors.gray[700]};
       text-decoration: underline;
-      text-decoration-color: ${({ theme }) => theme.colors.gray[700]};
-      &:hover {
-        transition: opacity 300ms;
-        opacity: 0.5;
-      }
+      ${linkStyle};
+      ${linkHover};
       cursor: pointer;
     }
   }
-`
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
 `
 
 export const negMargin = css`
@@ -99,6 +115,9 @@ export const Toc = styled.aside`
       --colour-on-background,
       ${({ theme }) => theme.colors.gray[900]}
     );
+    text-decoration: none;
+    ${linkStyle};
+    ${linkHover};
   }
   ${down('sm')} {
     display: none;
@@ -124,8 +143,5 @@ export const Toc = styled.aside`
     line-height: ${({ theme }) => theme.lineHeight.tight};
     margin-bottom: ${({ theme }) => theme.spacing[3]};
     margin-right: ${({ theme }) => theme.spacing[4]};
-  }
-  a {
-    text-decoration: none;
   }
 `

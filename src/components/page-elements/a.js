@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useAnalytics } from '../../contexts/fathom-event-tracking'
+import { linkHover, linkStyle } from '../shared-styles'
 import { inlineCode } from './inline-code'
 
 export const StyledA = styled.a`
   text-decoration: underline;
-  color: ${({ theme }) => theme.colors.gray[900]};
-  text-decoration-color: ${({ theme }) => theme.colors.gray[900]};
-  &:hover {
-    opacity: 0.5;
-  }
+  ${linkStyle};
+  ${linkHover};
   code {
     ${inlineCode}
   }

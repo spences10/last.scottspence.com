@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { linkHover, linkStyle } from './shared-styles'
 
 const Wrapper = styled.a`
   position: fixed;
@@ -18,6 +19,8 @@ const Wrapper = styled.a`
   -webkit-backdrop-filter: saturate(180%) blur(5px);
   backdrop-filter: saturate(80%) blur(5px);
   background-color: hsla(204, 45%, 98%, 0.8);
+  ${linkStyle};
+  ${linkHover};
 `
 
 export const BackToTop = ({ visible }) => {
