@@ -25,7 +25,7 @@ const POPULAR_POSTS = [
 
 const Wrapper = styled.aside`
   padding-top: ${({ theme }) => theme.spacing[32]};
-  padding-bottom: ${({ theme }) => theme.spacing[16]};
+  padding-bottom: ${({ theme }) => theme.spacing[6]};
   margin-left: -${({ theme }) => theme.spacing[40]};
   margin-right: -${({ theme }) => theme.spacing[40]};
   ${down('sm')} {
@@ -48,6 +48,8 @@ const Wrapper = styled.aside`
     padding: ${({ theme }) => theme.spacing[6]};
     border: 1px solid ${({ theme }) => theme.colors.gray[500]};
     color: ${({ theme }) => theme.colors.gray[700]};
+    background: ${({ theme }) => theme.colors.gray[100]};
+    z-index: 1;
     border-radius: ${({ theme }) => theme.borderRadius.lg};
     &:hover {
       background-color: ${({ theme }) => theme.colors.gray[200]};
