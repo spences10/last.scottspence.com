@@ -24,6 +24,7 @@ import {
   Small,
   Ul,
 } from './components/page-elements'
+import { Projects } from './components/projects'
 import { AnalyticsProvider } from './contexts/fathom-event-tracking'
 import { GlobalStyle, theme } from './theme'
 
@@ -55,6 +56,7 @@ const components = {
   DateUpdated,
   TopLanguages,
   GitHubContributions,
+  Projects,
 }
 
 export const wrapPageElement = ({ element }) => (

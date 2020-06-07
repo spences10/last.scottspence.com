@@ -17,9 +17,9 @@ const Wrapper = styled.section`
   position: relative;
   display: grid;
   grid-auto-rows: min-content;
-  min-height: 90vh;
+  min-height: 100vh;
   ${down('md')} {
-    min-height: 80vh;
+    min-height: 90vh;
   }
   div {
     margin: 0 auto;

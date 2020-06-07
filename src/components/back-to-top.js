@@ -19,6 +19,7 @@ const Wrapper = styled.a`
   -webkit-backdrop-filter: saturate(180%) blur(5px);
   backdrop-filter: saturate(80%) blur(5px);
   background-color: hsla(204, 45%, 98%, 0.8);
+  text-decoration: none;
   ${linkStyle};
   ${linkHover};
 `

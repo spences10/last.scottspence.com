@@ -14,17 +14,22 @@ const StyledLink = styled(Link)`
 `
 
 const StyledHeader = styled.header`
+  position: relative;
   display: flex;
   margin: auto;
   flex-wrap: wrap;
   align-items: center;
   h1 {
     font-family: ${({ theme }) => theme.fontFamily.mono};
-    font-size: ${({ theme }) => theme.fontSize['4xl']};
+    font-size: ${({ theme }) => theme.fontSize['3xl']};
+  }
+  p {
+    font-size: ${({ theme }) => theme.fontSize.sm};
   }
   nav {
     display: flex;
     flex: 1;
+    margin-top: 10px;
     ul {
       display: flex;
       flex: 1;
@@ -32,7 +37,8 @@ const StyledHeader = styled.header`
       flex-wrap: wrap;
       padding: 0;
       li {
-        margin: 1rem;
+        bottom: 0;
+        margin: 0 1rem;
       }
     }
   }
