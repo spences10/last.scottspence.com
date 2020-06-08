@@ -4,7 +4,12 @@ import SEO from 'react-seo-component'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { H2, P } from '../components/page-elements'
-import { PostInfo, StyledLink } from '../components/shared-styles'
+import {
+  linkHover,
+  linkStyle,
+  PostInfo,
+  StyledLink,
+} from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
 
@@ -43,6 +48,9 @@ const Wrapper = styled.main`
       &:focus {
         display: block;
       }
+      ${linkStyle};
+      ${linkHover};
+      text-decoration: none;
     }
     overflow: hidden;
     &:before {

@@ -2,14 +2,19 @@ import React from 'react'
 import SEO from 'react-seo-component'
 import styled from 'styled-components'
 import { H2, Li, Ul } from '../components/page-elements'
-import { Link } from '../components/shared-styles'
+import {
+  Link,
+  linkHover,
+  linkStyle,
+} from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const Wrapper = styled.article`
+  min-height: 58vh;
   a {
-    &:hover {
-      opacity: 0.5 !important;
-    }
+    ${linkStyle};
+    ${linkHover};
+    text-decoration: none;
   }
 `
 

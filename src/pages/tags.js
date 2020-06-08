@@ -3,7 +3,11 @@ import React from 'react'
 import SEO from 'react-seo-component'
 import styled from 'styled-components'
 import { H2, Li, Ul } from '../components/page-elements'
-import { Link } from '../components/shared-styles'
+import {
+  Link,
+  linkHover,
+  linkStyle,
+} from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 const StyledTags = styled.article`
@@ -26,7 +30,11 @@ const StyledTags = styled.article`
   a {
     &:hover {
       opacity: 0.5 !important;
+      text-decoration: underline;
     }
+    ${linkStyle};
+    ${linkHover};
+    text-decoration: none;
   }
 `
 
