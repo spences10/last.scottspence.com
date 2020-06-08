@@ -13,9 +13,9 @@ export const theme = {
     xl: '1280px',
   },
   fontFamily: {
-    mono: [['Space Mono'], defaults.fontFamily.mono].join(`,`),
-    sans: [['Poppins'], defaults.fontFamily.sans].join(`,`),
-    serif: [['Pridi'], defaults.fontFamily.serif].join(`,`),
+    mono: [['Fira Code'], defaults.fontFamily.mono].join(`,`),
+    sans: [['Manrope'], defaults.fontFamily.sans].join(`,`),
+    serif: [['Hepta Slab'], defaults.fontFamily.serif].join(`,`),
   },
   colors: {
     primary: {

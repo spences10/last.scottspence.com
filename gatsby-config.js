@@ -81,20 +81,23 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: [
           {
-            family: `Poppins`,
-            variants: [`400`, `500`, `600`, `700`],
+            family: 'Manrope',
+            variable: true,
+            weights: ['200..800'],
           },
           {
-            family: `Pridi`,
-            variants: [`400`, `700`],
+            family: 'Hepta Slab',
+            variable: true,
+            weights: ['400..900'],
           },
           {
-            family: `Space Mono`,
-            variants: [`400`, `700`],
+            family: 'Fira Code',
+            variable: true,
+            weights: ['300..700'],
           },
         ],
       },
@@ -127,6 +130,23 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `static/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-zeit-now',
+      options: {
+        globalHeaders: {
+          'referrer-policy': 'same-origin',
+          'feature-policy':
+            "geolocation 'self'; microphone 'self'; camera 'self'",
+          'expect-ct': 'max-age=604800, enforce',
+          'strict-transport-security':
+            'max-age=31536000; includeSubDomains',
+          'x-frame-options': 'DENY',
+          'x-xss-protection': '1; mode=block',
+          'x-content-type-options': 'nosniff',
+          'x-download-options': 'noopen',
+        },
       },
     },
   ],
