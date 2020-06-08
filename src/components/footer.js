@@ -1,6 +1,7 @@
 import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
+import { focusOutline } from './shared-styles'
 import {
   GitHub,
   Spotify,
@@ -32,7 +33,10 @@ const Wrapper = styled.footer`
       transition: transform 0.35s;
     }
   }
-
+  a {
+    display: inline-block;
+    ${focusOutline}
+  }
   .sign-off {
     margin-top: ${({ theme }) => theme.spacing[6]};
     margin-bottom: ${({ theme }) => theme.spacing[16]};

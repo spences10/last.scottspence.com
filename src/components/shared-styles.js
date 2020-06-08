@@ -3,16 +3,20 @@ import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled, { css } from 'styled-components'
 
-export const linkStyle = css`
-  color: inherit;
+export const focusOutline = css`
   outline: none;
   &:focus {
     box-shadow: ${({ theme }) => theme.boxShadow.outline};
     border-radius: ${({ theme }) => theme.borderRadius.lg};
   }
+`
+
+export const linkStyle = css`
+  color: inherit;
   &:visited {
     color: inherit;
   }
+  ${focusOutline}
 `
 
 export const linkHover = css`

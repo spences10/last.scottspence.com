@@ -2,7 +2,7 @@ import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { H3, P } from './page-elements'
-import { StyledLink } from './shared-styles'
+import { linkStyle, StyledLink } from './shared-styles'
 
 const POPULAR_POSTS = [
   {
@@ -53,15 +53,16 @@ const Wrapper = styled.aside`
     border-radius: ${({ theme }) => theme.borderRadius.lg};
     &:hover {
       background-color: ${({ theme }) => theme.colors.gray[200]};
+      transition: background-color 300ms;
     }
   }
   a {
+    display: inline-block;
+    text-decoration: none !important;
     h3 {
       margin: 0;
     }
-    &:focus {
-      display: block;
-    }
+    ${linkStyle}
   }
 `
 

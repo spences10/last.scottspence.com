@@ -1,6 +1,7 @@
 import React from 'react'
 import { TwitterShareButton } from 'react-share'
 import styled from 'styled-components'
+import { focusOutline } from './shared-styles'
 const ShareWrapper = styled.section`
   h6 {
     background: linear-gradient(
@@ -20,6 +21,9 @@ const ShareWrapper = styled.section`
   }
   span {
     font-weight: 500;
+  }
+  button {
+    ${focusOutline}
   }
 `
 
