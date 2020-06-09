@@ -120,6 +120,7 @@ export const Toc = styled.aside`
       ${({ theme }) => theme.colors.gray[900]}
     );
     text-decoration: none;
+    padding: 0 ${({ theme }) => theme.spacing[1]};
     ${linkStyle};
     ${linkHover};
   }
@@ -130,6 +131,7 @@ export const Toc = styled.aside`
     margin: 0 ${({ theme }) => theme.spacing[3]};
     font-size: ${({ theme }) => theme.fontSize['2xl']};
     font-family: ${({ theme }) => theme.fontFamily.serif};
+    padding: ${({ theme }) => theme.spacing[1]};
   }
   ul {
     overflow: hidden;
@@ -144,8 +146,9 @@ export const Toc = styled.aside`
     }
   }
   li {
+    padding: ${({ theme }) => theme.spacing[1]};
     line-height: ${({ theme }) => theme.lineHeight.tight};
-    margin-bottom: ${({ theme }) => theme.spacing[3]};
+    margin-bottom: ${({ theme }) => theme.spacing[1]};
     margin-right: ${({ theme }) => theme.spacing[4]};
   }
 `

@@ -17,6 +17,10 @@ export const theme = {
     sans: [['Manrope'], defaults.fontFamily.sans].join(`,`),
     serif: [['Hepta Slab'], defaults.fontFamily.serif].join(`,`),
   },
+  boxShadow: {
+    outline: '0 0 0 3px hsla(270, 50%, 40%, 0.5)',
+  },
+  ...defaults.boxShadow,
   colors: {
     primary: {
       100: '#aa7fd4',
