@@ -25,7 +25,7 @@ import {
   Ul,
 } from './components/page-elements'
 import { Projects } from './components/projects'
-import { AnalyticsProvider } from './contexts/fathom-event-tracking'
+import { AnalyticsProvider } from './contexts/event-tracking'
 import { GlobalStyle, theme } from './theme'
 
 const components = {

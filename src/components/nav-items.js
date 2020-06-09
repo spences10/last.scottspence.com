@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useAnalytics } from '../contexts/fathom-event-tracking'
+import { useAnalytics } from '../contexts/event-tracking'
 
 const NavLink = styled.a`
   grid-area: ${({ gridArea }) => gridArea};
