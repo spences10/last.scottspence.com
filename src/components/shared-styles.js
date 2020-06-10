@@ -120,7 +120,6 @@ export const Toc = styled.aside`
       ${({ theme }) => theme.colors.gray[900]}
     );
     text-decoration: none;
-    padding: 0 ${({ theme }) => theme.spacing[1]};
     ${linkStyle};
     ${linkHover};
   }

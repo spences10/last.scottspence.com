@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useAnalytics } from '../../contexts/fathom-event-tracking'
+import { useAnalytics } from '../../contexts/event-tracking'
 import { linkHover, linkStyle } from '../shared-styles'
 import { inlineCode } from './inline-code'
 
