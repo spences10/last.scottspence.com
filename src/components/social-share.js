@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { focusOutline } from './shared-styles'
 const ShareWrapper = styled.section`
   h6 {
+    font-size: ${({ theme }) => theme.fontSize.xl};
     background: linear-gradient(
       0.25turn,
       var(
@@ -20,7 +21,7 @@ const ShareWrapper = styled.section`
     -webkit-text-fill-color: transparent;
   }
   span {
-    font-weight: 500;
+    font-weight: 900;
   }
   button {
     ${focusOutline}
@@ -36,7 +37,7 @@ export const Share = ({ url, title, twitterHandle }) => {
         via={twitterHandle.split('@').join('')}
       >
         <h6>
-          Useful? Click here to <span>share this</span> post on
+          Useful? Please consider <span>sharing</span> this on
           Twitter.
         </h6>
       </TwitterShareButton>
