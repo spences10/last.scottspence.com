@@ -1,6 +1,7 @@
 import React from 'react'
 import { down, up } from 'styled-breakpoints'
 import styled from 'styled-components'
+import { inlineCode } from './page-elements'
 import { linkHover, linkStyle } from './shared-styles'
 
 const projects = [
@@ -135,6 +136,7 @@ const ProjectsWrapper = styled.div`
     padding: 0 ${({ theme }) => theme.spacing[1]};
     border-radius: ${({ theme }) => theme.borderRadius.default};
     margin-top: ${({ theme }) => theme.spacing[1]};
+    ${inlineCode}
   }
   p {
     margin-top: ${({ theme }) => theme.spacing[4]};

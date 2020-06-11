@@ -36,7 +36,10 @@ const Wrapper = styled.main`
     margin: ${({ theme }) => theme.spacing[8]} 0;
     border-radius: ${({ theme }) => theme.borderRadius.lg};
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    color: ${({ theme }) => theme.colors.gray[900]};
+    color: var(
+      --colour-on-background,
+      ${({ theme }) => theme.colors.gray[900]}
+    );
     padding: ${({ theme }) => theme.spacing[4]};
     h2 {
       margin-top: 0;

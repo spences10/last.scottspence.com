@@ -3,7 +3,10 @@ import styled, { css } from 'styled-components'
 
 export const inlineCode = css`
   padding: 0 3px;
-  background-color: ${({ theme }) => theme.colors.gray[300]};
+  background-color: var(
+    --colour-on-secondary,
+    ${({ theme }) => theme.colors.gray[300]}
+  );
   font-family: ${({ theme }) => theme.fontFamily.mono};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
 `
