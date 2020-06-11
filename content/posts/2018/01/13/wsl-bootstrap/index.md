@@ -93,7 +93,7 @@ node -v && npm -v
 ### Install fish 🐟🐚
 
 Fish is now my go to shell purely for the auto complete/intellisense
-👌 there's also some nice themes you can get for it too.
+there's also some nice themes you can get for it too.
 
 There's two options here, one is to use the standard package that come
 pre installed with the Ubuntu install or you can use the Fish [PPA]

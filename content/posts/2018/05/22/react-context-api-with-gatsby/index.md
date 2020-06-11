@@ -363,7 +363,7 @@ the [styled-components 💅 getting started] post.
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/r1b8qgu6lm5xjjondse7.gif)
 
-Ok, success 💯 👌 now onto the background switching/transition thingy.
+Ok, success 💯 now onto the background switching/transition thingy.
 
 ## Switch hero (background patterns)
 

@@ -719,8 +719,8 @@ https://codesandbox.io/s/x26q7l9vyq?from-embed
 A great resource for getting started with styled-components which
 really helped me is [Simon Vrachliotis]'s [egghead.io]
 styled-components [playlist] which is a great foundation for starting
-out with styled-components 👌 the first lesson is for pro members but
-the rest are currently available to watch for free.
+out with styled-components the first lesson is for pro members but the
+rest are currently available to watch for free.
 
 There's also the [spectrum.chat] community and of course [Stack
 Overflow].

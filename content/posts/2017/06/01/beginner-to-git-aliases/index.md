@@ -7,7 +7,7 @@ private: false
 ---
 
 Speed up your git workflow with git aliases, this is a brief
-introduction on using aliases 👌🚀👍
+introduction on using aliases 🚀👍
 
 The more you work with Git the more familiar you become with the
 commands used in your every day workflow for your projects or your
