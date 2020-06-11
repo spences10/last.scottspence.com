@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, linkStyle } from './shared-styles'
+import { ToggleTheme } from './toggle-theme'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -39,6 +40,19 @@ const StyledHeader = styled.header`
       li {
         bottom: 0;
         margin: 0 1rem;
+        button {
+          margin-top: 3px;
+          background: none;
+          border: none;
+          img {
+            width: 20px;
+          }
+          border-radius: ${({ theme }) => theme.borderRadius.full};
+          outline: none;
+          &:focus {
+            box-shadow: ${({ theme }) => theme.boxShadow.outline};
+          }
+        }
       }
     }
   }
@@ -50,7 +64,6 @@ export const Header = ({ title, description }) => {
         <h1>{title}</h1>
         <p>{description}</p>
       </StyledLink>
-
       <nav>
         <ul>
           <li>
@@ -58,6 +71,9 @@ export const Header = ({ title, description }) => {
           </li>
           <li>
             <StyledLink to="/tags">Tags</StyledLink>
+          </li>
+          <li>
+            <ToggleTheme />
           </li>
         </ul>
       </nav>

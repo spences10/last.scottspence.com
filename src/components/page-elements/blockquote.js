@@ -7,7 +7,10 @@ const StyledBlockquote = styled.blockquote`
     margin-top: 0;
     padding: 20px;
     border-left: 5px solid ${({ theme }) => theme.colors.gray[700]};
-    background-color: ${({ theme }) => theme.colors.gray[200]};
+    background-color: var(
+      --colour-background,
+      ${({ theme }) => theme.colors.gray[200]}
+    );
     padding-left: 15px;
     font-style: italic;
     font-size: ${({ theme }) => theme.fontSize['2xl']};

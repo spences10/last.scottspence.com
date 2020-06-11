@@ -21,9 +21,15 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     line-height: ${({ theme }) => theme.lineHeight.relaxed};
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
-    color: ${({ theme }) => theme.colors.gray[900]};
+    background: var(
+      --colour-background,
+      ${({ theme }) => theme.colors.gray[100]}
+    );
+    color: var(
+      --colour-on-background,
+      ${({ theme }) => theme.colors.gray[900]}
+    );
     -webkit-font-smoothing: antialiased;
-    background: ${({ theme }) => theme.colors.gray[100]};
   }
   .youtube-mdx-embed{
     margin-top: ${({ theme }) => theme.spacing[6]};

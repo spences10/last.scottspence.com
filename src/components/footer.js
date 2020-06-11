@@ -1,6 +1,7 @@
 import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
+import useDarkMode from 'use-dark-mode'
 import { focusOutline } from './shared-styles'
 import {
   GitHub,
@@ -23,7 +24,10 @@ const Wrapper = styled.footer`
   hr {
     margin: ${({ theme }) => theme.spacing[10]} 0;
     opacity: 0.5;
-    color: ${({ theme }) => theme.colors.gray[300]};
+    color: var(
+      --colour-on-background,
+      ${({ theme }) => theme.colors.gray[300]}
+    );
   }
   svg {
     margin: 0 ${({ theme }) => theme.spacing[4]};
@@ -47,6 +51,7 @@ const Wrapper = styled.footer`
 `
 
 export const Footer = () => {
+  const darkMode = useDarkMode()
   return (
     <Wrapper>
       <hr />
@@ -65,7 +70,7 @@ export const Footer = () => {
         rel="noopener noreferrer"
         aria-label="GitHub Account"
       >
-        <GitHub />
+        <GitHub fill={darkMode.value} />
       </a>
       <a
         href="https://open.spotify.com/user/spences10"

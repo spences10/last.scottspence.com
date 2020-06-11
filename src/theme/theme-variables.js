@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
 
 export const themeVariables = css`
-  body[data-theme='light'] {
+  .light-mode {
     --colour-background: ${({ theme }) => theme.colors.gray[100]};
     --colour-on-background: ${({ theme }) => theme.colors.gray[900]};
     --colour-warn: ${({ theme }) => theme.colors.red[500]};
@@ -24,7 +24,7 @@ export const themeVariables = css`
     --rainbow-five: #864bfe;
     --rainbow-six: #cc4438;
   }
-  body[data-theme='dark'] {
+  .dark-mode {
     --colour-background: ${({ theme }) => theme.colors.gray[900]};
     --colour-on-background: ${({ theme }) => theme.colors.gray[100]};
     --colour-warn: ${({ theme }) => theme.colors.red[200]};
