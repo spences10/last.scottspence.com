@@ -1,8 +1,9 @@
-import { ResponsiveCalendar } from '@nivo/calendar'
+import { ResponsiveCalendarCanvas } from '@nivo/calendar'
 import { subWeeks } from 'date-fns'
-import React, { memo } from 'react'
+import React from 'react'
 import { between, down, up } from 'styled-breakpoints'
 import styled from 'styled-components'
+import useDarkMode from 'use-dark-mode'
 import { useGitHubContributions } from '../hooks/use-github-contributions'
 import { contributions } from '../services/data-massage'
 
@@ -49,16 +50,17 @@ const Wrapper = styled.div`
   }
 `
 
-const Contributions = () => {
+export const GitHubContributions = () => {
   const { weeks } = useGitHubContributions()
+  const { value } = useDarkMode()
   return (
     <Wrapper>
       <div>
-        <ResponsiveCalendar
+        <ResponsiveCalendarCanvas
           data={contributions(weeks)}
           from={subWeeks(new Date(Date.now()), 49).toISOString()}
           to={new Date(Date.now()).toISOString()}
-          emptyColor="#eeeeee"
+          emptyColor={value ? `#1a202c` : `#f7fafc`}
           colors={[
             '#a1cfff',
             '#468df3',
@@ -69,13 +71,12 @@ const Contributions = () => {
           margin={{ top: 80, right: 40, bottom: 40, left: 40 }}
           yearSpacing={40}
           // yearLegendPosition="after"
-          monthBorderColor="#ffffff"
+          monthBorderColor={value ? `#f7fafc` : `#1a202c`}
           dayBorderWidth={2}
-          dayBorderColor="#ffffff"
+          dayBorderColor={value ? `#2d3748` : `#edf2f7`}
+          isInteractive={false}
         />
       </div>
     </Wrapper>
   )
 }
-
-export const GitHubContributions = memo(Contributions)
