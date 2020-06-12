@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import useDarkMode from 'use-dark-mode'
 import { linkHover, linkStyle } from './shared-styles'
 
 const Wrapper = styled.a`
@@ -18,15 +19,18 @@ const Wrapper = styled.a`
   text-align: center;
   -webkit-backdrop-filter: saturate(180%) blur(5px);
   backdrop-filter: saturate(80%) blur(5px);
-  background-color: hsla(204, 45%, 98%, 0.8);
+  background-color: ${({ dark }) =>
+    dark ? `hsla(220, 26%, 14%, 0.8)` : `hsla(204, 45%, 98%, 0.8)`};
   text-decoration: none;
   ${linkStyle};
   ${linkHover};
 `
 
 export const BackToTop = ({ visible }) => {
+  const { value } = useDarkMode()
   return (
     <Wrapper
+      dark={value}
       href="#top-of-page"
       aria-label="back to top navigation"
       visible={visible}
