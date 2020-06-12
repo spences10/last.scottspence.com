@@ -6,7 +6,7 @@ export const themeVariables = css`
     --colour-on-background: ${({ theme }) => theme.colors.gray[900]};
     --colour-warn: ${({ theme }) => theme.colors.red[500]};
     --colour-on-warn: ${({ theme }) => theme.colors.black};
-    --colour-secondary: ${({ theme }) => theme.colors.gray[300]};
+    --colour-secondary: ${({ theme }) => theme.colors.gray[800]};
     --colour-on-secondary: ${({ theme }) => theme.colors.gray[400]};
     --box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -29,7 +29,7 @@ export const themeVariables = css`
     --colour-on-background: ${({ theme }) => theme.colors.gray[100]};
     --colour-warn: ${({ theme }) => theme.colors.red[200]};
     --colour-on-warn: ${({ theme }) => theme.colors.white};
-    --colour-secondary: ${({ theme }) => theme.colors.gray[800]};
+    --colour-secondary: ${({ theme }) => theme.colors.gray[300]};
     --colour-on-secondary: ${({ theme }) => theme.colors.gray[700]};
     --box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -2px rgba(0, 0, 0, 5);

@@ -25,7 +25,7 @@ const Wrapper = styled.footer`
     margin: ${({ theme }) => theme.spacing[10]} 0;
     opacity: 0.5;
     color: var(
-      --colour-on-background,
+      --colour-secondary,
       ${({ theme }) => theme.colors.gray[300]}
     );
   }
