@@ -9,7 +9,11 @@ import { contributions } from '../services/data-massage'
 
 const Wrapper = styled.div`
   overflow: hidden;
-  border: 2px solid ${({ theme }) => theme.colors.gray[100]};
+  border: 1px solid
+    var(
+      --colour-on-background,
+      ${({ theme }) => theme.colors.gray[100]}
+    );
   border-radius: 5px;
   margin-top: 60px;
   height: 320px;
