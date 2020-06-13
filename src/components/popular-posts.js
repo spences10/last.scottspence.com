@@ -2,7 +2,7 @@ import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { H3, P } from './page-elements'
-import { linkStyle, StyledLink } from './shared-styles'
+import { linkHover, linkStyle, StyledLink } from './shared-styles'
 
 const POPULAR_POSTS = [
   {
@@ -46,15 +46,17 @@ const Wrapper = styled.aside`
   article {
     margin: ${({ theme }) => theme.spacing[3]};
     padding: ${({ theme }) => theme.spacing[6]};
-    border: 1px solid ${({ theme }) => theme.colors.gray[500]};
-    color: ${({ theme }) => theme.colors.gray[700]};
-    background: ${({ theme }) => theme.colors.gray[100]};
+    color: var(
+      --colour-on-background,
+      ${({ theme }) => theme.colors.gray[900]}
+    );
+    background: var(
+      --colour-background,
+      ${({ theme }) => theme.colors.gray[100]}
+    );
     z-index: 1;
     border-radius: ${({ theme }) => theme.borderRadius.lg};
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.gray[200]};
-      transition: background-color 300ms;
-    }
+    box-shadow: var(--box-shadow-xl);
   }
   a {
     display: inline-block;
@@ -63,6 +65,9 @@ const Wrapper = styled.aside`
       margin: 0;
     }
     ${linkStyle}
+    &:hover {
+      ${linkHover}
+    }
   }
 `
 
