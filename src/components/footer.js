@@ -96,7 +96,9 @@ export const Footer = () => {
       >
         <Twitch />
       </a>
-      <p className="sign-off">Built with Gatsby · Hosted on Vercel</p>
+      <p className="sign-off">
+        {`Built with Gatsby · Hosted on Vercel · ${new Date().getFullYear()}`}
+      </p>
     </Wrapper>
   )
 }

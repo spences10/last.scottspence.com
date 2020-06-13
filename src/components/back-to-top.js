@@ -24,6 +24,7 @@ const Wrapper = styled.a`
   text-decoration: none;
   ${linkStyle};
   ${linkHover};
+  box-shadow: var(--box-shadow-xl);
 `
 
 export const BackToTop = ({ visible }) => {

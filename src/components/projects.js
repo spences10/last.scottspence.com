@@ -174,13 +174,21 @@ export const Projects = () => {
             <h3>{p.title}</h3>
             {p.repo ? (
               <small>
-                <a href={p.repo} rel="noopener noreferrer">
+                <a
+                  href={p.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Repo
                 </a>
               </small>
             ) : null}
             <small>
-              <a href={p.demo} rel="noopener noreferrer">
+              <a
+                href={p.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Demo
               </a>
             </small>

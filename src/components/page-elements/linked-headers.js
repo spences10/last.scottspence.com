@@ -11,7 +11,8 @@ export const AutoLink = `
       visibility: visible;
       height: 25px;
       width: 20px;
-      fill: ${({ theme }) => theme.colors.gray[900]};
+      fill: var(--colour-on-background, ${({ theme }) =>
+        theme.colors.gray[900]});
     }
   }
 `
