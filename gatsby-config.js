@@ -27,6 +27,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
