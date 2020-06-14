@@ -20,6 +20,8 @@ export const MugFace = () => {
     <>
       <Img
         fluid={data.placeholderImage.childImageSharp.fluid}
+        // fadeIn={false}
+        // loading="eager"
         alt="mug face image"
       />
       <H1>
