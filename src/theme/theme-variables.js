@@ -4,6 +4,7 @@ export const themeVariables = css`
   .light-mode {
     --colour-background: ${({ theme }) => theme.colors.gray[100]};
     --colour-on-background: ${({ theme }) => theme.colors.gray[900]};
+    --colour-primary: ${({ theme }) => theme.colors.primary[700]};
     --colour-warn: ${({ theme }) => theme.colors.red[500]};
     --colour-on-warn: ${({ theme }) => theme.colors.black};
     --colour-secondary: ${({ theme }) => theme.colors.gray[800]};
@@ -27,6 +28,7 @@ export const themeVariables = css`
   .dark-mode {
     --colour-background: ${({ theme }) => theme.colors.gray[900]};
     --colour-on-background: ${({ theme }) => theme.colors.gray[100]};
+    --colour-primary: ${({ theme }) => theme.colors.primary[300]};
     --colour-warn: ${({ theme }) => theme.colors.red[200]};
     --colour-on-warn: ${({ theme }) => theme.colors.white};
     --colour-secondary: ${({ theme }) => theme.colors.gray[300]};

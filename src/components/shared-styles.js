@@ -34,9 +34,12 @@ export const StyledLink = styled(Link)`
 
 export const PostInfo = styled.div`
   margin-top: ${({ theme }) => theme.spacing[0]};
-  color: ${({ theme }) => theme.colors.gray[700]};
+  color: var(
+    --colour-primary,
+    ${({ theme }) => theme.colors.primary[100]}
+  );
   font-size: ${({ theme }) => theme.fontSize.xs};
-  font-weight: ${({ theme }) => theme.fontWeight.normal};
+  font-weight: ${({ theme }) => theme.fontWeight.semibold};
   text-transform: uppercase;
   display: inline-grid;
   grid-template-columns: auto auto auto;
@@ -63,10 +66,13 @@ export const PostInfo = styled.div`
       }
     }
     a {
-      color: ${({ theme }) => theme.colors.gray[700]};
       text-decoration: underline;
       ${linkStyle};
       ${linkHover};
+      color: var(
+        --colour-primary,
+        ${({ theme }) => theme.colors.primary[100]}
+      );
       cursor: pointer;
     }
   }
