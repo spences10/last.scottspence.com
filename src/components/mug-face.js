@@ -9,7 +9,7 @@ export const MugFace = () => {
       placeholderImage: file(relativePath: { eq: "favicon.png" }) {
         childImageSharp {
           fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
@@ -20,8 +20,8 @@ export const MugFace = () => {
     <>
       <Img
         fluid={data.placeholderImage.childImageSharp.fluid}
-        fadeIn={false}
-        loading="eager"
+        // fadeIn={false}
+        // loading="eager"
         alt="mug face image"
       />
       <H1>
