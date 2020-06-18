@@ -35,7 +35,7 @@ export const themeVariables = css`
     --colour-on-background-two: ${({ theme }) =>
       theme.colors.gray[200]};
     --colour-primary: ${({ theme }) => theme.colors.primary[300]};
-    --colour-warn: ${({ theme }) => theme.colors.red[200]};
+    --colour-warn: ${({ theme }) => theme.colors.red[400]};
     --colour-on-warn: ${({ theme }) => theme.colors.white};
     --colour-secondary: ${({ theme }) => theme.colors.gray[300]};
     --colour-on-secondary: ${({ theme }) => theme.colors.gray[700]};
