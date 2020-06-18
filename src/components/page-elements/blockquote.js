@@ -8,7 +8,7 @@ const StyledBlockquote = styled.blockquote`
     padding: 20px;
     border-left: 5px solid ${({ theme }) => theme.colors.gray[700]};
     background-color: var(
-      --colour-background,
+      --colour-background-two,
       ${({ theme }) => theme.colors.gray[200]}
     );
     padding-left: 15px;

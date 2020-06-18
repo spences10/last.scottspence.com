@@ -1,0 +1,94 @@
+---
+date: 2020-06-18
+title: Theming With Linaria
+tags: ['css', 'css-in-js', 'linaria']
+private: false
+---
+
+This is a followup on the post I did on [Linaria CSS - Getting
+Started]
+
+## Theming
+
+You can create your own theme with Linaria using React Context but I
+
+have decided to go with the Callstack theme provider. You can
+implement it like so:
+
+```js
+import { createTheming } from '@callstack/react-theme-provider'
+import { defaults } from './default-config'
+
+const theme = {
+  ...defaults,
+}
+
+export const { ThemeProvider, withTheme, useTheme } = createTheming(
+  theme
+)
+```
+
+In this example I'm spreading in the [defaults from Tailwind CSS] this
+means I have all the defaults available in Tailwind from the
+ThemeProvider.
+
+## Global styling
+
+Linaria uses the `css` helper for global styles, but the documentation
+doesn't really show you how to implement it over, "this is how you
+make a global style", I found that you can append it to the
+`ThemeProvider` class like so:
+
+```jsx
+<ThemeProvider theme={theme} className={globals}>
+  <>{element}</>
+</ThemeProvider>
+```
+
+## Theme hook
+
+To use the theme I've utilised the `useTheme` hook provided by the
+theme provider.
+
+```jsx
+import { styled } from 'linaria/react'
+import React from 'react'
+import { useTheme } from '../../theme/theme-provider'
+
+const StyledText = styled.h3`
+  font-size: ${({ theme }) => theme.fontSize['2xl']};
+  font-family: ${({ theme }) => theme.fontFamily.serif};
+  margin-top: ${({ theme }) => theme.spacing[8]};
+  line-height: ${({ theme }) => theme.lineHeight.none};
+`
+
+export const H3 = props => {
+  const theme = useTheme()
+  return (
+    <StyledText theme={theme} {...props}>
+      {props.children}
+    </StyledText>
+  )
+}
+```
+
+## Convert Default Starter to Linaria
+
+```bash
+yarn add gatsby-plugin-linaria linaria
+```
+
+Add the Linaria Gatsby plugin to the plugin array, add
+`.linaria-cache` to the `.gitignore` file.
+
+Remove current styling which is the `layout.css` file in the
+components folder along with the inline styles.
+
+Add global styles
+
+<!-- Links -->
+
+[linaria css - getting started]:
+  https://scottspence.com/2020/06/04/linaria-getting-started/
+[defaults from tailwind css]:
+  https://github.com/tailwindcss/designing-with-tailwindcss/blob/master/01-getting-up-and-running/07-customizing-your-design-system/tailwind-full.config.js
