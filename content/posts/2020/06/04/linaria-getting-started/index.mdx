@@ -1,7 +1,8 @@
 ---
 date: 2020-06-04
 title: Linaria CSS - Getting Started
-tags: ['getting started', 'hello world', 'css', 'css-in-js']
+tags:
+  ['getting started', 'hello world', 'css', 'css-in-js', 'linaria']
 private: false
 ---
 
@@ -47,7 +48,7 @@ Add Linaria and the Gatsby plugin as dependencies:
 yarn add linaria@next gatsby-plugin-linaria
 ```
 
-> Error: Cannot find module 'core-js/modules/'
+> Error: Cannot find module 'core-js/...'
 
 I'm using `@next` because there's a [known issue] between Linaria and
 Gatsby's version of core-js.
@@ -64,14 +65,15 @@ plugins: [
     ...
 ```
 
-The `...` represents the reset of the items in the array, it's
-shortend for [brevity].
+The `...` represents the reset of the items in the array, I've
+shortend it for [brevity].
 
-Delete the `layout.css` file in the components directory and remove
-the `import "./layout.css"` from the `layout.js` component.
+I'll delete the `layout.css` file in the components directory and
+remove the `import "./layout.css"` line from the `layout.js`
+component.
 
 Now the reset is removed (when I deleted the `layout.css` file)
-there's a bit of a boarder and everything looks a bit meh!
+there's a bit of a margin showing and everything looks a bit meh!
 
 ## Global Style
 
@@ -79,7 +81,7 @@ With CSS-in-JS the styles can be scoped to specific components, more
 on this in a bit.
 
 Sometimes there's a need to write some global styles, to get rid of
-that border margin and to normalise browser inconsistencies.
+that margin and to normalise browser inconsistencies.
 
 I'll straight up [jack the example] given in the Linaria docs and add
 that to a `theme` folder in the `src` directory, file structure will
@@ -133,7 +135,7 @@ For now I'll change the empty fragment (`<></>`) wrapping the layout
 component to a div and add a `className` to it to pass the `globals`
 to:
 
-```jsx {2}
+```jsx {2,6}
 ...
 import { globals } from "../theme/globals"
 ...
@@ -155,7 +157,7 @@ return (
 I can now take some of the styles from the reset I deleted and add
 those to the `globals` file:
 
-```js {6-8,19-20}
+```js {6-8,20-21}
 import { css } from 'linaria'
 
 export const globals = css`
@@ -182,18 +184,20 @@ export const globals = css`
 `
 ```
 
-Styles are back to what they were but I'm now using Linaria.
+Now the styles are back to what they were but I'm now using Linaria.
 
 ## Using the `styled` tag
 
 Now I can use the Linaria `styled` tag much in the same way I'd use it
-with styled-components, so I'm going to convert the components from
-using the inline `style` tag.
+with styled-components.
 
-I'll work through the components first then the pages.
+I'm going to convert the components from using the inline `style` tag
+to using the Linaria `styled` tag.
 
-**Header** import the Linaria `styled` tag and make a `StyledHeader`
-component:
+I'll work through the components that have styles in them.
+
+**Header:** I'll import the Linaria `styled` tag and make a
+`StyledHeader` component:
 
 ```js
 import { styled } from 'linaria/react'
@@ -201,8 +205,11 @@ import { styled } from 'linaria/react'
 const StyledHeader = styled.header``
 ```
 
-From here I can add all the styles in that wrapping component, a `div`
-a `h1` and an `a` tag (the Gatsby `Link` component) like this:
+From here I can add all the styles in that wrapping component to the
+`styled` Linaria tag component.
+
+So I'll add a `div` a `h1` and an `a` tag (the Gatsby `Link`
+component) like this:
 
 ```js
 const StyledHeader = styled.header`
@@ -223,7 +230,8 @@ const StyledHeader = styled.header`
 `
 ```
 
-Now the component is cleaner with all the inline styling removed.
+Now the component is cleaner with all the inline styling moved to the
+`styled` Linaria component.
 
 ```jsx
 const Header = ({ siteTitle }) => (
@@ -237,7 +245,7 @@ const Header = ({ siteTitle }) => (
 )
 ```
 
-**Layout** same again, import the Linaria `styled` tag and make a
+**Layout:** same again, import the Linaria `styled` tag and make a
 `StyledLayout` component:
 
 ```js
@@ -259,9 +267,10 @@ const StyledLayout = styled.main`
 `
 ```
 
-And apply the class to the div in the component:
+Apply the class to the div in the component and remove the `main` tag
+wrapping the components `children`:
 
-```jsx
+```jsx {4-5}
 return (
   <StyledLayout className={globals}>
     <Header siteTitle={data.site.siteMetadata.title} />
@@ -277,83 +286,8 @@ return (
 )
 ```
 
-## Theming
-
-You can create your own theme with Linaria using React Context but I
-
-have decided to go with the Callstack theme provider. You can
-implement it like so:
-
-```js
-import { createTheming } from '@callstack/react-theme-provider'
-import { defaults } from './default-config'
-
-const theme = {
-  ...defaults,
-}
-
-export const { ThemeProvider, withTheme, useTheme } = createTheming(
-  theme
-)
-```
-
-In this example I'm spreading in the [defaults from Tailwind CSS] this
-means I have all the defaults available in Tailwind from the
-ThemeProvider.
-
-## Global styling
-
-Linaria uses the `css` helper for global styles, but the documentation
-doesn't really show you how to implement it over, "this is how you
-make a global style", I found that you can append it to the
-`ThemeProvider` class like so:
-
-```jsx
-<ThemeProvider theme={theme} className={globals}>
-  <>{element}</>
-</ThemeProvider>
-```
-
-## Theme hook
-
-To use the theme I've utilised the `useTheme` hook provided by the
-theme provider.
-
-```jsx
-import { styled } from 'linaria/react'
-import React from 'react'
-import { useTheme } from '../../theme/theme-provider'
-
-const StyledText = styled.h3`
-  font-size: ${({ theme }) => theme.fontSize['2xl']};
-  font-family: ${({ theme }) => theme.fontFamily.serif};
-  margin-top: ${({ theme }) => theme.spacing[8]};
-  line-height: ${({ theme }) => theme.lineHeight.none};
-`
-
-export const H3 = props => {
-  const theme = useTheme()
-  return (
-    <StyledText theme={theme} {...props}>
-      {props.children}
-    </StyledText>
-  )
-}
-```
-
-## Convert Default Starter to Linaria
-
-```bash
-yarn add gatsby-plugin-linaria linaria
-```
-
-Add the Linaria Gatsby plugin to the plugin array, add
-`.linaria-cache` to the `.gitignore` file.
-
-Remove current styling which is the `layout.css` file in the
-components folder along with the inline styles.
-
-Add global styles
+That's it for the components and takeing a look at the pages none of
+them have any styles in them.
 
 Resources:
 
@@ -365,8 +299,6 @@ Resources:
 
 [the unseen performance costs of modern css-in-js libraries in react apps]:
   https://calendar.perfplanet.com/2019/the-unseen-performance-costs-of-css-in-js-in-react-apps/
-[defaults from tailwind css]:
-  https://github.com/tailwindcss/designing-with-tailwindcss/blob/master/01-getting-up-and-running/07-customizing-your-design-system/tailwind-full.config.js
 [css-in-js performance cost - mitigating strategies]:
   https://www.infoq.com/news/2020/01/css-cssinjs-performance-cost/
 [https://www.freecodecamp.org/news/the-tradeoffs-of-css-in-js-bee5cf926fdb/]:
