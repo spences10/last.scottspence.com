@@ -28,6 +28,10 @@ const Wrapper = styled.aside`
   padding-bottom: ${({ theme }) => theme.spacing[6]};
   margin-left: -${({ theme }) => theme.spacing[40]};
   margin-right: -${({ theme }) => theme.spacing[40]};
+  ${down('md')} {
+    margin-left: ${({ theme }) => theme.spacing[5]};
+    margin-right: ${({ theme }) => theme.spacing[5]};
+  }
   ${down('sm')} {
     margin-left: -${({ theme }) => theme.spacing[3]};
     margin-right: -${({ theme }) => theme.spacing[3]};
@@ -39,8 +43,11 @@ const Wrapper = styled.aside`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    ${down('sm')} {
+    ${down('md')} {
       grid-template-columns: repeat(2, 1fr);
+    }
+    ${down('sm')} {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   article {
