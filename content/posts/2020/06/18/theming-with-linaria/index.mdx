@@ -2,16 +2,40 @@
 date: 2020-06-18
 title: Theming With Linaria
 tags: ['css', 'css-in-js', 'linaria']
-private: true
+private: false
 ---
 
 This is a followup on the post I did about [Getting Started with
 Linaria]
 
+The starter I worked on last time I made into a template so it can be
+used as the base of this project.
+
+I'll use the Gatsby CLI to spin up a new project:
+
+```bash
+gatsby new gatsby-linaria-starter-with-theme https://github.com/spences10/gatsby-starter-linaria
+```
+
+## Defaults
+
+In this example I'm using the [defaults from Tailwind CSS] for the
+theme.
+
+With this as a base I can then add my own theme on top of that. An
+example of why I would want to do that would be with the Tailwind
+default there's no `primary` colour.
+
+If I want to add my own primary colour to the theme I can spread the
+defaults into my `theme` object.
+
+I'm going to do that now, create a `theme-defaults.js` file in the
+`theme` directory, then create a `theme.js` file where I'll add in the
+theme properties I want in there.
+
 ## Theming
 
 You can create your own theme with Linaria using React Context but I
-
 have decided to go with the Callstack theme provider. You can
 implement it like so:
 
