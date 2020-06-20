@@ -22,6 +22,7 @@ import {
   Ol,
   P,
   Small,
+  Table,
   Ul,
 } from './components/page-elements'
 import { Projects } from './components/projects'
@@ -50,6 +51,7 @@ const components = {
     return <pre {...preProps} />
   },
   small: props => <Small {...props} />,
+  table: props => <Table {...props} />,
   ul: props => <Ul {...props} />,
   Small,
   DateDistance,
