@@ -97,9 +97,9 @@ module.exports = {
             weights: ['400..900'],
           },
           {
-            family: 'Fira Code',
+            family: 'Inconsolata',
             variable: true,
-            weights: ['300..700'],
+            weights: ['200..900'],
           },
         ],
       },
