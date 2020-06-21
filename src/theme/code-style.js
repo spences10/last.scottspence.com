@@ -1,12 +1,13 @@
 // https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/src/styles/code.ts
 import { css } from 'styled-components'
+import 'victormono'
 import { negMargin } from '../components/shared-styles'
 
 export const codeStyle = css`
   font-family: 'Victor Mono', 'Courier New', Courier, monospace;
   [data-name='live-editor'] {
-    font-size: ${({ theme }) => theme.fontSize.xl};
-    font-weight: 500;
+    font-size: ${({ theme }) => theme.fontSize['2xl']};
+    font-weight: 400;
     textarea,
     pre {
       padding: ${({ theme }) => theme.spacing[1]} !important;
@@ -18,7 +19,7 @@ export const codeStyle = css`
     background-color: ${({ theme }) => theme.colors.red[500]};
   }
   .prism-code {
-    font-size: ${({ theme }) => theme.fontSize.base};
+    font-size: ${({ theme }) => theme.fontSize.xl};
     font-weight: 500;
     padding: ${({ theme }) => theme.spacing[5]};
     -webkit-overflow-scrolling: touch;
