@@ -13,7 +13,7 @@ export const theme = {
     xl: '1280px',
   },
   fontFamily: {
-    mono: [['Fira Code'], defaults.fontFamily.mono].join(`,`),
+    mono: [['Inconsolata'], defaults.fontFamily.mono].join(`,`),
     sans: [['Manrope'], defaults.fontFamily.sans].join(`,`),
     serif: [['Hepta Slab'], defaults.fontFamily.serif].join(`,`),
   },

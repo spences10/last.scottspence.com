@@ -33,8 +33,13 @@ const StyledHeader = styled.header`
   margin: auto;
   flex-wrap: wrap;
   align-items: center;
+  &:hover {
+    .dot-com {
+      display: contents;
+    }
+  }
   h1 {
-    font-family: ${({ theme }) => theme.fontFamily.mono};
+    font-family: Inconsolata, monospace;
     font-size: ${({ theme }) => theme.fontSize['3xl']};
     background: linear-gradient(
       var(
@@ -49,9 +54,19 @@ const StyledHeader = styled.header`
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    .first-name {
+      font-weight: 300;
+    }
+    .last-name {
+      font-weight: 800;
+    }
+    .dot-com {
+      display: none;
+    }
   }
   p {
-    font-size: ${({ theme }) => theme.fontSize.sm};
+    margin-top: -${({ theme }) => theme.spacing[3]};
+    font-size: ${({ theme }) => theme.fontSize.xs};
     color: var(
       --colour-on-background,
       ${({ theme }) => theme.colors.gray[900]}
@@ -109,7 +124,11 @@ export const Header = ({ title, description }) => {
   return (
     <StyledHeader>
       <StyledLink to="/" id="top-of-page">
-        <h1>{title}</h1>
+        <h1>
+          <span className="first-name">Scott</span>
+          <span className="last-name">Spence</span>
+          <span className="dot-com">.com</span>
+        </h1>
         <p>{description}</p>
       </StyledLink>
       <nav>
