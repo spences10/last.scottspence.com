@@ -1,13 +1,19 @@
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React, { useRef } from 'react'
 import SEO from 'react-seo-component'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { BackToTop } from '../components/back-to-top'
-import { A, H1 } from '../components/page-elements'
+import { A, H1, Small } from '../components/page-elements'
 import { PopularPosts } from '../components/popular-posts'
-import { negMargin, PostInfo, Toc } from '../components/shared-styles'
+import {
+  focusOutline,
+  negMargin,
+  PostInfo,
+  rainbowAnimation,
+  Toc,
+} from '../components/shared-styles'
 import { Share } from '../components/social-share'
 import { useAnalytics } from '../contexts/event-tracking'
 import { useOnScreen } from '../hooks/use-on-screen'
@@ -19,6 +25,25 @@ const PostWrapper = styled.article`
   h1 {
   }
   small {
+  }
+`
+
+const TagsWrapper = styled.p`
+  letter-spacing: 2px;
+  :after {
+    content: ' ';
+  }
+  a {
+    text-decoration: none;
+    :hover {
+      text-decoration: underline;
+    }
+    ${focusOutline}
+  }
+  small {
+    margin-right: 10px;
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    ${rainbowAnimation}
   }
 `
 
@@ -62,7 +87,7 @@ export default ({ data }) => {
     siteLocale,
   } = useSiteMetadata()
   const {
-    frontmatter: { title, private: isPrivate, date },
+    frontmatter: { title, private: isPrivate, date, tags },
     fields: { editLink, slug },
     timeToRead,
     body,
@@ -132,6 +157,13 @@ export default ({ data }) => {
             </a>
           </span>
         </PostInfo>
+        <TagsWrapper>
+          {tags.map(t => (
+            <Link to={`/tags/${t}`}>
+              <Small>{t}</Small>
+            </Link>
+          ))}
+        </TagsWrapper>
         <MDXRenderer>{body}</MDXRenderer>
         <BackToTop visible={onScreen} />
       </PostWrapper>
@@ -156,6 +188,7 @@ export const query = graphql`
         title
         date(formatString: "YYYY MMMM Do")
         private
+        tags
       }
       fields {
         slug

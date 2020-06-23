@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const StyledSmall = styled.span`
+export const StyledSmall = styled.small`
   font-size: ${({ theme }) => theme.fontSize.xs};
 `
 
