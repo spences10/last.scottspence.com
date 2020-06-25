@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     );
     -webkit-font-smoothing: antialiased;
   }
-  .youtube-mdx-embed{
+  [class$="mdx-embed"] {
     margin-top: ${({ theme }) => theme.spacing[6]};
   }
 `
