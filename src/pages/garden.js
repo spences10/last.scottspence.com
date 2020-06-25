@@ -3,11 +3,12 @@ import React, { useState } from 'react'
 import SEO from 'react-seo-component'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
-import { H2, P } from '../components/page-elements'
+import { H1, H2, P } from '../components/page-elements'
 import {
   linkHover,
   linkStyle,
   PostInfo,
+  rainbowAnimation,
   StyledLink,
 } from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
@@ -31,6 +32,9 @@ const Wrapper = styled.main`
     font-family: ${({ theme }) => theme.fontFamily.mono};
     font-weight: ${({ theme }) => theme.fontWeight.bold};
     color: ${({ theme }) => theme.colors.primary[500]};
+  }
+  small {
+    ${rainbowAnimation}
   }
   article {
     margin: ${({ theme }) => theme.spacing[8]} 0;
@@ -139,6 +143,12 @@ export default ({ data }) => {
         twitterUsername={twitterUsername}
       />
       <Wrapper>
+        <H1>Digital Garden</H1>
+        <p>
+          <StyledLink to="/2020/04/27/a-digital-garden/">
+            <small>What's this?</small>
+          </StyledLink>
+        </p>
         <input
           type="text"
           aria-label="Search"

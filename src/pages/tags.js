@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import SEO from 'react-seo-component'
 import styled from 'styled-components'
-import { H2, Li, Ul } from '../components/page-elements'
+import { H1, Li, Ul } from '../components/page-elements'
 import {
   Link,
   linkHover,
@@ -61,7 +61,7 @@ export default ({
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <H2>Tags</H2>
+      <H1>Tags</H1>
       <StyledTags>
         <Ul>
           {group.map(({ fieldValue, totalCount }) => {
