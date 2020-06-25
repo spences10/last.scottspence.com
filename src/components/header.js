@@ -56,48 +56,53 @@ const StyledHeader = styled.header`
     font-size: ${({ theme }) => theme.fontSize.xs};
     ${rainbowAnimation}
   }
-  nav {
-    display: flex;
-    flex: 1;
-    margin-top: 10px;
-    ul {
-      display: flex;
-      flex: 1;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      padding: 0;
-      li {
-        bottom: 0;
-        margin: 0 1rem;
-        button {
-          margin-top: 3px;
-          background: none;
-          border: none;
-          img {
-            width: 20px;
-          }
-          border-radius: ${({ theme }) => theme.borderRadius.full};
-          outline: none;
-          &:focus {
-            box-shadow: ${({ theme }) => theme.boxShadow.outline};
-          }
-        }
-      }
+
+  button {
+    position: absolute;
+    right: 0;
+    margin-top: 3px;
+    background: none;
+    border: none;
+    img {
+      width: 20px;
+    }
+    border-radius: ${({ theme }) => theme.borderRadius.full};
+    outline: none;
+    &:focus {
+      box-shadow: ${({ theme }) => theme.boxShadow.outline};
     }
   }
 `
+
+const StyledNav = styled.nav`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+  ul {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+    grid-gap: 2.5rem;
+    padding-inline-start: 0;
+  }
+`
+
 export const Header = ({ title, description }) => {
   return (
-    <StyledHeader>
-      <StyledLink to="/" id="top-of-page">
-        <h1>
-          <span className="first-name">Scott</span>
-          <span className="last-name">Spence</span>
-          <span className="dot-com">.com</span>
-        </h1>
-        <p>{description}</p>
-      </StyledLink>
-      <nav>
+    <>
+      <StyledHeader>
+        <StyledLink to="/" id="top-of-page">
+          <h1>
+            <span className="first-name">Scott</span>
+            <span className="last-name">Spence</span>
+            <span className="dot-com">.com</span>
+          </h1>
+          <p>{description}</p>
+        </StyledLink>
+        <ToggleTheme />
+      </StyledHeader>
+      <StyledNav>
         <ul>
           <li>
             <StyledLink to="/garden">Garden</StyledLink>
@@ -106,10 +111,10 @@ export const Header = ({ title, description }) => {
             <StyledLink to="/tags">Tags</StyledLink>
           </li>
           <li>
-            <ToggleTheme />
+            <StyledLink to="/speaking">Speaking</StyledLink>
           </li>
         </ul>
-      </nav>
-    </StyledHeader>
+      </StyledNav>
+    </>
   )
 }
