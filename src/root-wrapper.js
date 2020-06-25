@@ -1,4 +1,5 @@
 import { MDXProvider } from '@mdx-js/react'
+import ConvertKitForm from 'convertkit-react'
 import { preToCodeBlock } from 'mdx-utils'
 import React from 'react'
 import { Helmet } from 'react-helmet'
@@ -61,6 +62,7 @@ const components = {
   GitHubContributions,
   Projects,
   GetInTouch,
+  ConvertKitForm,
 }
 
 export const wrapPageElement = ({ element }) => (
