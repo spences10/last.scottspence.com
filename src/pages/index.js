@@ -17,13 +17,13 @@ const Wrapper = styled.section`
   position: relative;
   display: grid;
   grid-auto-rows: min-content;
-  min-height: 100vh;
+  min-height: 90vh;
   ${down('md')} {
-    min-height: 90vh;
+    min-height: 80vh;
   }
   div {
     margin: 0 auto;
-    margin-top: 30%;
+    margin-top: 20%;
     border-radius: ${({ theme }) => theme.borderRadius.full};
     height: 200px;
     width: 200px;
@@ -34,7 +34,7 @@ const Wrapper = styled.section`
   }
   h1 {
     text-align: center;
-    margin-top: 30%;
+    margin-top: 20%;
     ${down('sm')} {
       margin-top: 10%;
     }
@@ -48,7 +48,7 @@ const Wrapper = styled.section`
     position: relative;
     bottom: 0;
     margin: 0 -10rem;
-    margin-top: 30%;
+    margin-top: 25%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
