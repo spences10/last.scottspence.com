@@ -71,7 +71,7 @@ export const StyledLink = styled(Link)`
 `
 
 export const PostInfo = styled.div`
-  margin-top: ${({ theme }) => theme.spacing[0]};
+  margin-top: ${({ theme }) => theme.spacing[1]};
   color: var(
     --colour-primary,
     ${({ theme }) => theme.colors.primary[100]}

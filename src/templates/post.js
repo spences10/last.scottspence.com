@@ -28,7 +28,12 @@ const PostWrapper = styled.article`
   }
 `
 
-const TagsWrapper = styled.p`
+const TagsWrapper = styled.section`
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: ${({ theme }) => theme.spacing[3]};
+  grid-auto-columns: min-content;
+  margin-top: ${({ theme }) => theme.spacing[2]};
   letter-spacing: 2px;
   :after {
     content: ' ';
@@ -41,7 +46,6 @@ const TagsWrapper = styled.p`
     ${focusOutline}
   }
   small {
-    margin-right: 10px;
     font-weight: ${({ theme }) => theme.fontWeight.bold};
     ${rainbowAnimation}
   }
@@ -159,9 +163,9 @@ export default ({ data }) => {
         </PostInfo>
         <TagsWrapper>
           {tags.map(t => (
-            <Link to={`/tags/${t}`}>
-              <Small>{t}</Small>
-            </Link>
+            <Small>
+              <Link to={`/tags/${t}`}>{t}</Link>
+            </Small>
           ))}
         </TagsWrapper>
         <MDXRenderer>{body}</MDXRenderer>
