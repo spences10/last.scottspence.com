@@ -65,6 +65,10 @@ const components = {
   ConvertKitForm,
 }
 
+if (typeof window !== 'undefined') {
+  require('smooth-scroll')('a[href*="#"]')
+}
+
 export const wrapPageElement = ({ element }) => (
   <>
     <Helmet>
