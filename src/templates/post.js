@@ -32,7 +32,7 @@ const TagsWrapper = styled.section`
   display: grid;
   grid-auto-flow: column;
   grid-gap: ${({ theme }) => theme.spacing[3]};
-  grid-auto-columns: min-content;
+  grid-auto-columns: max-content;
   margin-top: ${({ theme }) => theme.spacing[2]};
   letter-spacing: 2px;
   :after {
