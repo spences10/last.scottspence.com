@@ -5,6 +5,8 @@ tags: ['learning', 'gatsby', 'guide', 'mdx', 'markdown']
 private: false
 ---
 
+> If you're having issues with the clicks not scrolling to link IDs
+
 The main purpose for me documenting this is to demonstrate
 implementing a table of contents with smooth scroll to the anchors in
 a Gatsby project using MDX.
@@ -409,7 +411,7 @@ const components = {
   p: props => <P {...props} />,
 }
 
-export const wrapRootElement = ({ element }) => (
+export const wrapPageElement = ({ element }) => (
   <ThemeProvider theme={theme}>
     <GlobalStyle />
     <MDXProvider components={components}>
@@ -654,6 +656,27 @@ TOC.
 
 <YouTube youTubeId="Kp51KajhluE" />
 
+## Demo and Sauce
+
+Source code: https://github.com/spences10/gatsby-smooth-scroll
+
+Demo: https://gatsby-smooth-scroll.vercel.app/toc-example/
+
+## Not scrolling to ID
+
+There's been a recent issue with `gatsby-react-router-scroll` causing
+inconsistencies with clicking and scrolling to the IDs, this is [being
+addressed by the Gatsby team].
+
+If it's not resolved when you're reading this (dated: 2020-07-08) add
+the following to your `package.json`:
+
+```json
+"resolutions": {
+  "gatsby-react-router-scroll": "3.0.3"
+}
+```
+
 ## Resources that helped me
 
 - [4pine's blog]
@@ -707,3 +730,5 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
   https://mdxjs.com/getting-started#table-of-components
 [gatsby-remark-autolink-headers]:
   https://www.gatsbyjs.org/packages/gatsby-remark-autolink-headers/
+[being addressed by the gatsby team]:
+  https://github.com/gatsbyjs/gatsby/issues/25554
