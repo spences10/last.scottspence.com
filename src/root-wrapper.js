@@ -65,14 +65,6 @@ const components = {
   ConvertKitForm,
 }
 
-if (typeof window !== 'undefined') {
-  require('smooth-scroll')('a[href*="#"]', {
-    speed: 500,
-    speedAsDuration: true,
-    easing: 'easeInOutCubic',
-  })
-}
-
 export const wrapPageElement = ({ element }) => (
   <>
     <Helmet>
