@@ -4369,10 +4369,10 @@ convert-source-map@^1.7.0:
   dependencies:
     safe-buffer "~5.1.1"
 
-convertkit-react@^1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/convertkit-react/-/convertkit-react-1.3.2.tgz#e93bc8ec3bf810e47927f837cd27bfabae47093b"
-  integrity sha512-S7e4iC3gWdST1fgY17qqfGI9EVDMSEJVN5YX2azLzqlbbs1S2DuuCk8qCVLLdXSc06KbVoLxH5Bjw9+2gun96A==
+convertkit-react@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/convertkit-react/-/convertkit-react-1.4.0.tgz#916d63ac4698e04442a9ddf384da54ea0e0f2c78"
+  integrity sha512-plDxjJ6/YpNTd/sWmrppNufXmyqJZ8mah4YXYXNtemHXYMMgwCmDC0Mwl2DeFbbo/aXSBlKVGlM5w/NhjmCSJA==
   dependencies:
     prop-types "^15.7.2"
     react "^16.13.1"
