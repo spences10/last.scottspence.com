@@ -4369,10 +4369,10 @@ convert-source-map@^1.7.0:
   dependencies:
     safe-buffer "~5.1.1"
 
-convertkit-react@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/convertkit-react/-/convertkit-react-1.4.0.tgz#916d63ac4698e04442a9ddf384da54ea0e0f2c78"
-  integrity sha512-plDxjJ6/YpNTd/sWmrppNufXmyqJZ8mah4YXYXNtemHXYMMgwCmDC0Mwl2DeFbbo/aXSBlKVGlM5w/NhjmCSJA==
+convertkit-react@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/convertkit-react/-/convertkit-react-1.4.1.tgz#4b992be49225db890313b9d039dffc2a10cbb5d9"
+  integrity sha512-iLVCGeFutivivKf2+955CvbQ5+IL6hx7icwZWYgwPbR0HAzxbq6JjwxXcXLVYijFbTNlSdqXmcxFfH+UYn3ixA==
   dependencies:
     prop-types "^15.7.2"
     react "^16.13.1"
@@ -12027,17 +12027,17 @@ potrace@^2.1.6:
   dependencies:
     jimp "^0.10.2"
 
-preact-render-to-string@^5.1.9:
-  version "5.1.9"
-  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.1.9.tgz#201d7bb4c20899b68f5cbda705d36c45305f7efb"
-  integrity sha512-fuuZP/nBcsYvfI5Mjs8R0wVA8jPbnAsr/UQ5Y5/p9Qg4HAz9vSVJ03iejBVw4YGV8jkUCJv0++k4zwp6qjx2Kg==
+preact-render-to-string@^5.1.10:
+  version "5.1.10"
+  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.1.10.tgz#cce03d73b166c550148af9dedc9e06fdf6820f8a"
+  integrity sha512-40svy7NDe5Qe0ymdsIC11f0hZb05MeTSUqqIaWJ5DEFCh/sF86KcpRW0kN/ymGYDVVUCfv9qFrVuLCXR7aQxgQ==
   dependencies:
     pretty-format "^3.8.0"
 
-preact@^10.4.5:
-  version "10.4.5"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.4.5.tgz#457fe034d558595864d0663574c2850f0b43d28e"
-  integrity sha512-/GyQOM44xNbM1nx1NWWdEO9RFjOVl3Ji6HTnEP+y9OkfyvJDHXnWJPQnuknrslzu5lZfAtFavS8gka91fbFAPg==
+preact@^10.4.6:
+  version "10.4.6"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.4.6.tgz#86cc43396e4bdd755726a2b4b1f0529e78067cd3"
+  integrity sha512-80WJfXH53yyINig5Wza/8MD9n4lMg9G6aN00ws0ptsAaY/Fu/M7xW4zICf7OLfocVltxS30wvNQ8oIbUyZS1tw==
 
 prebuild-install@^5.3.4:
   version "5.3.5"
