@@ -1,0 +1,62 @@
+---
+date: 2020-07-15
+title: Switching to Manjaro from Ubuntu
+tags: ['manjaro', 'ubuntu', 'getting started', 'linux']
+private: true
+---
+
+I switched
+
+## Didn't copy my dotfiles
+
+## Issues
+
+## Bluetooth
+
+## Yarn
+
+I was having Yarn Global binaries not sowing in the fish shell
+
+- https://github.com/yarnpkg/yarn/issues/5824
+- To add to Fish:
+  `set fish_user_paths $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin $fish_user_paths`
+- To remove it:
+  `set fish_user_paths (string match -rv yarn $fish_user_paths)`
+- Don't forget to add it to your path:
+  - add this to the `.bashrc` file`PATH=$PATH:/home/scott/.yarn/bin`
+    this was my first port of call but was still getting issues in
+    Fish, wasn't until I checked in Bash that I knew the path was
+    working. (What prompted me to check bash:
+    https://github.com/yarnpkg/yarn/issues/4702#issuecomment-343970090)
+- Useful(ish) links from SO and GH:
+  - SO:
+    https://stackoverflow.com/questions/40317578/yarn-global-command-not-working
+  - GH: https://github.com/yarnpkg/yarn/issues/5353
+
+## Emoji
+
+Installing Emoji on Manjaro with Emote:
+https://snapcraft.io/install/emote/ubuntu
+
+```bash
+sudo pacman -Syu noto-fonts-emoji
+```
+
+Then in Tweaks > Fonts > Legacy Window Titles > Noto Sans Regular
+
+## Bluetooth
+
+Manjario Bluetooth issues I found this:
+https://forum.manjaro.org/t/bluetooth-is-not-working-with-headphones/116661/4 -
+which pointed me to install `pulseaudio-bluetooth-a2dp-gdm-fix` search
+for "Bluetooth Headset" in the add/remove software section
+
+## Hot corners
+
+disable hot corners in Manjaro: https://askubuntu.com/a/1019918/142801
+
+## Virtualbox
+
+<Tweet tweetLink="spences10/status/1283797903203618816" />
+
+https://forum.manjaro.org/t/help-me-install-virtualbox/103458/4
