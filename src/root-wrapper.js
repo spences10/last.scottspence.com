@@ -6,7 +6,6 @@ import { Helmet } from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 import { DateDistance } from './components/date-distance'
 import { DateUpdated } from './components/date-updated'
-import { GetInTouch } from './components/get-in-touch'
 import { GitHubContributions } from './components/gh-contributions'
 import { TopLanguages } from './components/gh-top-languages'
 import { Layout } from './components/layout'
@@ -61,7 +60,6 @@ const components = {
   TopLanguages,
   GitHubContributions,
   Projects,
-  GetInTouch,
   ConvertKitForm,
 }
 
