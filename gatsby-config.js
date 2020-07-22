@@ -116,23 +116,23 @@ module.exports = {
         fetchOptions: {},
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-offline`,
-    //   options: {
-    //     precachePages: [`/2019/*`, `/2020/*`],
-    //   },
-    // },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: siteMetadata.title,
-    //     short_name: siteMetadata.title,
-    //     start_url: `/`,
-    //     background_color: `#336699`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `static/favicon.png`, // This path is relative to the root of the site.
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/2019/*`, `/2020/*`],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: siteMetadata.title,
+        short_name: siteMetadata.title,
+        start_url: `/`,
+        background_color: `#336699`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `static/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
   ],
 }
