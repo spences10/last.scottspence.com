@@ -10,7 +10,8 @@
     "build": "gatsby build && yarn wellknown",
     "serve": "gatsby serve -p 4500 -o",
     "format": "pretty-quick",
-    "wellknown": "cp -r .well-known/ public/"
+    "wellknown": "cp -r .well-known/ public/",
+    "test": "npx qawolf test --all-browsers"
   },
   "husky": {
     "hooks": {
@@ -67,8 +68,11 @@
   },
   "devDependencies": {
     "husky": "4.2.5",
+    "jest": "^26.1.0",
+    "playwright": "1.2.0",
     "prettier": "2.0.5",
-    "pretty-quick": "2.0.1"
+    "pretty-quick": "2.0.1",
+    "qawolf": "1.2.0"
   },
   "resolutions": {
     "gatsby-react-router-scroll": "3.0.3"
