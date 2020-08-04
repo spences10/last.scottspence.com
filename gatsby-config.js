@@ -29,6 +29,7 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-use-dark-mode`,
+    `gatsby-plugin-mailgo`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
