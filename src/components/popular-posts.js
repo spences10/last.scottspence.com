@@ -10,16 +10,16 @@ const POPULAR_POSTS = [
     slug: `2019/10/31/build-an-mdx-blog/`,
   },
   {
-    title: `Update Windows Subsystem Linux Ubuntu from 18.04 to 18.10`,
-    slug: `2020/01/28/update-wsl-ubuntu-from-18.10-to-19.10`,
-  },
-  {
     title: `Add a Table of Contents with Smooth scroll using Gatsby and MDX`,
     slug: `2020/02/13/smooth-scroll-toc-gatsby/`,
   },
   {
-    title: `Upgrade Windows Subsystem Linux - Ubuntu 18.04 to Ubuntu 19.10`,
-    slug: `2019/04/01/update-wsl-from-18.04-18.10`,
+    title: `Globally Style the Gatsby Default Starter with styled-components v5`,
+    slug: `2020/02/06/globally-style-gatsby-styled-components/`,
+  },
+  {
+    title: `Windows Web-dev bootstrap`,
+    slug: `2018/12/24/wsl-bootstrap-2019/`,
   },
 ]
 
