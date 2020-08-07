@@ -117,13 +117,13 @@ module.exports = {
         fetchOptions: {},
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-offline`,
-    //   options: {
-    //     precachePages: [`/2019/*`, `/2020/*`],
-    //   },
-    // },
-    `gatsby-plugin-remove-serviceworker`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/2019/*`, `/2020/*`],
+      },
+    },
+    // `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
