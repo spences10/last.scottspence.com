@@ -137,9 +137,9 @@ Work specific config `~/work/.gitconfig`
 
 [ss10.me/cheat-sheets]: https://github.com/spences10/cheat-sheets
 [how to authenticate with github using ssh]:
-  https://github.com/spences10/cheat-sheets/blob/master/git.md#how-to-authenticate-with-github-using-ssh
+  https://cheatsheets.xyz/git/#how-to-authenticate-with-github-using-ssh
 [use multiple ssh keys]:
-  https://github.com/spences10/cheat-sheets/blob/master/git.md#use-multiple-ssh-keys
+  https://cheatsheets.xyz/git/#use-multiple-ssh-keys
 [re use ssh keys from one machine to another]:
-  https://github.com/spences10/cheat-sheets/blob/master/git.md#re-use-ssh-keys-from-one-machine-to-another
+  https://cheatsheets.xyz/git/#re-use-ssh-keys-from-one-machine-to-another
 [wsl set-up]: https://scottspence.com/2018/12/24/wsl-bootstrap-2019/
