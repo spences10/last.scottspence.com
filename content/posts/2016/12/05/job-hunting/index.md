@@ -51,7 +51,7 @@ from it, this is something I'll be looking into with the scripting
 language Python (general purpose programming language) once I have
 progressed with my FCC certification.
 
-> ## It's an employers market
+> It's an employers market
 >
 > Another thing which is bad, because it’s an employer’s market
 > (apparently) employers are being very specific about the skills they
