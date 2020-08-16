@@ -29,7 +29,6 @@ const Wrapper = styled.div`
   }
   ${down('md')} {
     position: inherit;
-    width: 100%;
     overflow-x: auto;
   }
   ${between('lg', 'md')} {
@@ -42,7 +41,6 @@ const Wrapper = styled.div`
       position: relative;
       max-width: 800px;
       width: 200%;
-      right: 94%;
     }
     ${between('md', 'lg')} {
       position: initial;
