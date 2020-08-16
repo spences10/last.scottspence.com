@@ -1,9 +1,9 @@
 # Project dependencies
-.cache
+.next
 node_modules
 
 # Build directory
-public
+out
 
 # Other
 .DS_Store

@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "build": {
     "env": {
       "GATSBY_FATHOM_TRACKING_ID_SCOTTSPENCE_COM": "@gatsby_fathom_tracking_id_scottspence_com",
