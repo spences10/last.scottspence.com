@@ -1,5 +1,5 @@
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/vsDark'
+import theme from 'prism-react-renderer/themes/nightOwl'
 // import CopyButton from '@components/CopyButton.js'
 
 export default function Code({ children, className }) {
