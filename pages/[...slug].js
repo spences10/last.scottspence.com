@@ -1,3 +1,4 @@
+import { Box, IconButton, useColorMode } from '@chakra-ui/core'
 import fs from 'fs'
 import matter from 'gray-matter'
 import hydrate from 'next-mdx-remote/hydrate'
@@ -8,10 +9,27 @@ import { getPostPaths, getPostSlugs } from '../lib/posts'
 
 const components = { code: Code }
 
+const ThemeSelector = () => {
+  const { colorMode, toggleColorMode: colorModeSet } = useColorMode(
+    `light`
+  )
+
+  return (
+    <Box textAlign="right" py={4}>
+      <IconButton
+        icon={colorMode === 'light' ? 'moon' : 'sun'}
+        onClick={colorModeSet}
+        variant="ghost"
+      />
+    </Box>
+  )
+}
+
 export default function Post({ mdxSource, frontMatter }) {
   const content = hydrate(mdxSource, components)
   return (
     <Layout>
+      <ThemeSelector />
       <h1>{frontMatter.title}</h1>
       {content}
     </Layout>
