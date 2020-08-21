@@ -31,6 +31,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const mdxSource = fs.readFileSync(matchedPath.toString())
   const { content, data } = matter(mdxSource)
 
+  if (typeof data.date === 'object') {
+    data.date = data.date.toString()
+  }
+
   if (!matchedPath) {
     console.warn('No MDX file found for slug')
   }
