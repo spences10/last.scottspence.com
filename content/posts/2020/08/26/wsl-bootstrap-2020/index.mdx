@@ -48,6 +48,29 @@ terminal but
 
 ## Symlinks (Symbolic Link)
 
+A quick note on symlinks ([symbolic links]), with WSL you can have
+several several instances of a Linux distro on your machine.
+
+There's several for Ubuntu, with Ubuntu (20.04), Ubuntu 20.04 LTS and
+Ubuntu 18.04 LTS then on top of that there are [another several
+distros] recommended by Microsoft with additional ones on top of that
+like [Pengwin] which is a great extension on what's already available
+in the recommended distros from Microsoft.
+
+**What does that have to do with symlinks though?** Well, if you think
+about each one of these instances you could have each their own
+isolated oppearting system on your machine.
+
+Each one with it's own set of configurations, it will get pretty
+tedious keeping them all current.
+
+The majority of my settings on these instances will be for git,
+`.gitconfig` and SSH settings for [authenticating with GitHub via
+SSH].
+
+Rather than have several differing SSH keys I have the one key in a
+shared location for all the WSL instances that need to use it.
+
 <!-- Links -->
 
 [windows subsystem linux setup]:
@@ -57,3 +80,9 @@ terminal but
 [slow]:
   https://github.com/microsoft/WSL/issues/5078#issuecomment-613384302
 [symbolic links]: https://en.wikipedia.org/wiki/Symbolic_link
+[another several distros]: https://aka.ms/wslstore
+[pengwin]: https://www.whitewaterfoundry.com/
+[rook]:
+  https://nickymeuleman.netlify.app/blog/linux-on-windows-wsl2-zsh-docker
+[authenticating with github via ssh]:
+  https://cheatsheets.xyz/git/#how-to-authenticate-with-github-using-ssh
