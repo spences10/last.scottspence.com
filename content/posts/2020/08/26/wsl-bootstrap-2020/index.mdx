@@ -84,8 +84,8 @@ on version 2004 build 19041.
 
 ## Install Ubuntu
 
-Now is a good time to install [linux from the ms store] I'll be using
-Ubuntu.
+Now is a good time to install [a Linux distro from the ms store] I'll
+be using Ubuntu.
 
 ## Use PowerShell as admin
 
@@ -136,6 +136,16 @@ password.
 
 You're good to go!
 
+I like to update any packages that may need upgrading, I use the
+following snippet to do that:
+
+```bash
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+```
+
+The `-y` flag is to confirm 'yes I want to update' if you want to take
+a look before letting it do it's thing then remove the `-y` flags.
+
 ## Enable file permissions for symlinks
 
 This will only come into play if you want to have your configuration
@@ -167,7 +177,7 @@ options = "metadata,umask=22,fmask=11"
 
 With the first options I now have my root directory changed to
 `/windir/` instead of the default `/mnt/`. Partly my fault for blindly
-following instructions.
+following instructions on the internet!
 
 There's more detail on what the `[automount]` options are in this post
 on [RIDICURIOUS].
@@ -242,7 +252,48 @@ well so for.
 
 ## Make it your own
 
-Time to add all the web dev tools you need, for me this is
+Time to add all the web dev tools you need, for me this is Node, Yarn,
+NVM and my shell of choice Fish with Oh My Fish.
+
+Install the `build-essential` tools for utility packages like `make`
+this will come in handy when installing node.
+
+```bash
+sudo apt install -y build-essential
+```
+
+## Node with NVM
+
+This time round I'm [using Node Version Manager] (NVM) in place of `n`
+as `n` has a weird bug where it doesn't change past Node v10.
+
+NVM is installed with a one liner:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+Then install node set it for use and default it to v12 long term
+support (LTS) version.
+
+```bash
+nvm install 12 && nvm use 12 && nvm alias default 12
+```
+
+There's other Node version manager out there if you want to give them
+a try:
+
+- [n]
+- [fnm]
+- [Volta]
+- [asdf-vm]
+- [nvs]
+
+For fnm you may need `unzip` for if not installed already:
+
+```bash
+sudo apt innstall unzip
+```
 
 ## Terminal
 
@@ -250,6 +301,8 @@ I like Hyper, I know a lot of people use the VSCode integrated
 terminal but
 
 ## Shell
+
+## Change default shell
 
 ## Symlinks (Symbolic Link)
 
@@ -306,7 +359,7 @@ source ~/.bashrc
 [slow]:
   https://github.com/microsoft/WSL/issues/5078#issuecomment-613384302
 [symbolic links]: https://en.wikipedia.org/wiki/Symbolic_link
-[linux from the ms store]: https://aka.ms/wslstore
+[a linux distro from the ms store]: https://aka.ms/wslstore
 [pengwin]: https://www.whitewaterfoundry.com/
 [rook]:
   https://nickymeuleman.netlify.app/blog/linux-on-windows-wsl2-zsh-docker
@@ -336,3 +389,9 @@ source ~/.bashrc
 [get started]: https://chocolatey.org/install
 [had to install git on windows]:
   https://scottspence.com/2018/12/24/wsl-bootstrap-2019/#install-windows-git
+[using node version manager]: https://github.com/nvm-sh/nvm
+[n]: https://www.npmjs.com/package/n#installation
+[fnm]: https://github.com/Schniz/fnm#using-a-script
+[volta]: https://github.com/volta-cli/volta#installing-volta
+[asdf-vm]: https://asdf-vm.com/#/core-manage-asdf-vm
+[nvs]: https://github.com/jasongin/nvs
