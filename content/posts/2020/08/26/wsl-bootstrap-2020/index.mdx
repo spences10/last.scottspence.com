@@ -7,20 +7,34 @@ private: true
 
 Yo! It's that time again!!
 
-I've been using Manjaro for a grand total of three months now so now
-I've switched back to Windows 😂
+This is an opinionated guide on setting up a development environment
+for web development in widows that will use the requisite tools, Bash,
+Node, Git, VSCode etc...
 
-Why?
+Tl;Dr to the [guide] if you're not interested in the preamble and how
+I got here.
 
-Why not! 😜
+I've been using Manjaro (Linux distribution) for a grand total of
+three months or so now; so now I've switched back to Windows 😂
 
-I have done a web development set up on Windows a few times now:
+> Why?
+>
+> Why not! 😜
+
+I added another SSD to my PC so I have one with Linux and one with
+Windows, I'm giving Windows a good roll because of things like the
+XSplit VCam for a virtual camera background and OBS having Twitch
+integration, not directly related to web dev but I like to create
+content and the options in Windows are better than with Linux.
+
+I have done a web development set up on Windows a couple of times in
+the past:
 
 - [Windows Subsystem Linux setup]
 - [Windows Web-dev bootstrap]
 
-This time round it was just as confusing at the times before, so this
-is why I'm making notes for future Scott to refer to. 🔥
+This time round it was just as confusing (for me) at the times before,
+so this is why I'm making notes for future Scott to refer to. 🔥
 
 ## Advantages of Windows over Linux or MacOs
 
@@ -30,14 +44,35 @@ over another.
 I can be productive on all of them given the right tools and that's
 fine with me. Consider it like building a project for a client, they
 really don't care what framework you used to make it as long as it
-works and I feel the same about that with using Windows or Linux.
+works and I feel the same about that with using Windows, Linux or
+MacOs.
 
 ## Why WSL?
 
 So me saying that I do sound like a total hypocrite when what I am
 using for web dev on Windows is, in fact, Linux!
 
-Windows Subsystem Linux 2 to be precise
+Windows Subsystem Linux 2 to be precise, I was really excited for this
+ever since seeing the announcement back in May 2019.
+
+<Tweet tweetLink="windowsdev/status/1125484494616649728" />
+
+> Dramatically improved file read performance up to a 3x improvement!
+
+So what does WSL offer over using everything in Windows, I couldn't
+say really, I think the developer experience (DX) in WSL offers a bit
+more than that of Windows.
+
+I have become a lot more accustomed to doing my web dev in a Linux
+environment and I'm very comfortable using the terminal to get what
+needs doing, done.
+
+> If you already have a good set-up with Windows then there's no need
+> to change, I'm not here to convince you otherwise.
+
+## Prerequisites
+
+## Chocolatey
 
 ## Terminal
 
@@ -48,14 +83,19 @@ terminal but
 
 ## Symlinks (Symbolic Link)
 
-A quick note on symlinks ([symbolic links]), with WSL you can have
-several several instances of a Linux distro on your machine.
+A quick note on symlinks ([symbolic links]), and why I'm using them.
+So a symlink is a pointer to a file somewhere else, an example would
+be in Windows when you install a program you get a shortcut on your
+desktop to that program, a symlink is like that.
+
+The reasoning for using them is with WSL you can have several several
+instances of a Linux distro on your machine.
 
 There's several for Ubuntu, with Ubuntu (20.04), Ubuntu 20.04 LTS and
 Ubuntu 18.04 LTS then on top of that there are [another several
 distros] recommended by Microsoft with additional ones on top of that
-like [Pengwin] which is a great extension on what's already available
-in the recommended distros from Microsoft.
+like [Pengwin] (which is a great extension on what's already available
+in the recommended distros from Microsoft).
 
 **What does that have to do with symlinks though?** Well, if you think
 about each one of these instances you could have each their own
@@ -70,6 +110,22 @@ SSH].
 
 Rather than have several differing SSH keys I have the one key in a
 shared location for all the WSL instances that need to use it.
+
+## Hints and tips
+
+Use Yarn? Don't seem to be able to use `yarn` in the terminal? Try
+adding [this line] to your `.bashrc` file:
+
+```bash
+# open the .bashrc file to edit with nano
+nano ~/.bashrc
+# add the following line at the bottom of the file
+export PATH="$(yarn global bin):$PATH"
+# ctrl+o to write the change
+# ctrl+x to exit
+# reload the terminal with
+source ~/.bashrc
+```
 
 <!-- Links -->
 
@@ -86,3 +142,14 @@ shared location for all the WSL instances that need to use it.
   https://nickymeuleman.netlify.app/blog/linux-on-windows-wsl2-zsh-docker
 [authenticating with github via ssh]:
   https://cheatsheets.xyz/git/#how-to-authenticate-with-github-using-ssh
+[cygwin]: https://cygwin.com/packages/summary/bash.html
+[chocolatey]: chocolatey.org/
+[guide]: #prerequisites
+[windows terminal documentation]:
+  https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md
+[windows terminal themes]: https://atomcorp.github.io/themes/
+[guide on how to use themes]:
+  https://github.com/atomcorp/themes#how-to-use-the-themes
+[wsl git workaround]: https://github.com/Microsoft/vscode/issues/9502
+[this line]:
+  https://github.com/yarnpkg/yarn/issues/5353#issuecomment-593307861
