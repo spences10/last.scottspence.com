@@ -517,11 +517,11 @@ Now to change the premissions from within the `.ssh` folder for the
 symlinks, I'll do that with `chmod`:
 
 ```bash
-sudo chmod 777 id_rsa.pub
-sudo chmod 777 id_rsa
-sudo chmod 777 known_hosts
+sudo chmod 644 id_rsa.pub
+sudo chmod 600 id_rsa
+sudo chmod 644 known_hosts
 cd ../
-sudo chmod 755 .ssh/
+sudo chmod 700 .ssh/
 ```
 
 ## Hints and tips
@@ -589,10 +589,8 @@ source ~/.bashrc
 [hyper]: https://hyper.is/
 [microsoft terminal]: https://aka.ms/terminal
 [cheat sheets]: https://cheatsheets.xyz/fish/#list-out-added-aliases
-
-[earlier]: #enable-file-permissions-for-symlinks this time I'll need
-to move the created `.ssh` folder to [dotfiles repo]:
-https://github.com/spences10/dotfiles/blob/master/Windows/.gitconfig
-[cheat sheets again]: https://cheatsheets this time I'll need to move
-the created `.ssh` folder to
-.xyz/git/#how-to-authenticate-with-github-using-ssh
+[earlier]: #enable-file-permissions-for-symlinks
+[dotfiles repo]:
+  https://github.com/spences10/dotfiles/blob/master/Windows/.gitconfig
+[cheat sheets again]:
+  https://cheatsheets.xyz/git/#how-to-authenticate-with-github-using-ssh
