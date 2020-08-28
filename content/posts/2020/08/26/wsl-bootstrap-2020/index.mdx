@@ -271,7 +271,7 @@ Once I found out how to customise it via the [Windows Terminal
 documentation] and found a pretty sweet site for [Windows Terminal
 Themes].
 
-## Shell
+## Shell, Fish Shell
 
 My preferred shell is Fish, I love this for it's auto completion and
 path matching also, with Oh My Fish you get added themes and support
@@ -310,12 +310,63 @@ I'm also going to need the NVM wrapper package for Fish:
 omf install nvm
 ```
 
+Now I can add my aliases to fish, I have a list that I always use from
+my [Cheat Sheets] site. This is shortening things like `git` to `g`
+(yes) and `yarn add` to `ya`. this time I'll need to move the created
+`.ssh` folder to
+
 ## Change default shell
+
+Default shell is currently set to bash I want to change that to Fish,
+I can do that with `chsh` (Change Shell, I guess??).
+
+In the past I have used `chsh -l` to list available shells, that
+doesn't work here so instead I can see what shells are available with
+`cat /etc/shells`, this lists out my available shells:
+
+```bash
+# /etc/shells: valid login shells
+/bin/sh
+/bin/bash
+/usr/bin/bash
+/bin/rbash
+/usr/bin/rbash
+/bin/dash
+/usr/bin/dash
+/usr/bin/tmux
+/usr/bin/screen
+/usr/bin/fish
+```
+
+That's a lot of shells yo! I want to use Fish so I'll use the `-s`
+(set, save whatevs!):
+
+```bash
+chsh -s /usr/bin/fish
+```
+
+My default shell is now Fish cool! I now want to have my default path
+to my repos set when I open the terminal, I'll do that by adding a
+command to the `config.fish` file:
+
+```bash
+nano ~/.config/fish/config.fish
+```
+
+It didn't exist before so nano will create it for me, I'll then add in
+the default path I want to go to when I open the terminal, in the file
+I'll add:
+
+```bash
+# Change start path
+cd /home/scott/projects/
+```
 
 ## Node with NVM
 
-This time round I'm [using Node Version Manager] (NVM) in place of `n`
-as `n` has a weird bug where it doesn't change past Node v10.
+Ok, time to install Node, this time round I'm [using Node Version
+Manager] (NVM) in place of `n` as `n` has a weird bug where it doesn't
+change past Node v10.
 
 NVM is installed with a one liner:
 
@@ -330,7 +381,7 @@ support (LTS) version.
 nvm install 12 && nvm use 12 && nvm alias default 12
 ```
 
-There's other Node version manager out there if you want to give them
+There's other Node version managers out there if you want to give them
 a try:
 
 - [n]
@@ -377,9 +428,31 @@ Install hub via the Ubuntu package manager:
 sudo apt install hub
 ```
 
+Now I'll alias my `git` command which I already have aliased to `g`
+over to Hub:
+
+```bash
+alias g hub
+funcsave g
+```
+
+Now if I want to make a PR from my current branch `develop` to the
+`production` branch I can do:
+
+```bash
+g pull-request -b production
+```
+
+If you don't specify a branch with `-b` then it will default to the
+default branch on GitHub.
+
 ## Symlinks (Symbolic Link)
 
 A quick note on symlinks ([symbolic links]), and why I'm using them.
+
+I touched on this [earlier] where I set up my filesystem so I could
+set file permissions that aren't enabled by default in WSL.
+
 So a symlink is a pointer to a file somewhere else, an example would
 be in Windows when you install a program you get a shortcut on your
 desktop to that program, a symlink is like that.
@@ -406,6 +479,50 @@ SSH].
 
 Rather than have several differing SSH keys I have the one key in a
 shared location for all the WSL instances that need to use it.
+
+## Config Git
+
+So I have had to install WSL enough times to know that I'm going to be
+losing my dotfiles all the time, that's why I made a [dotfiles repo]
+to store this information for the next time.
+
+This is where the symlinks come into play, I have my `.gitconfig` in a
+separate location to my WSL install.
+
+So for me as I changed my root dir, that'll be `/windir/` if you're
+following along and didn't set your root dir to that then you're
+probably going to be in `/mnt/` anyways! Link what is on my C drive to
+what in in my Linux home folder:
+
+```bash
+ln -s /windir/c/Users/scott/stuff-not-on-linux/symlinks/.gitconfig /home/scott/.gitconfig
+```
+
+Coolio!
+
+## Config SSH
+
+No to be able to use Git with GitHub and not having to authenticate
+each time, to do that SSH!
+
+I'll follow my own instructions I've made for myself in [Cheat Sheets
+again], this time I'll need to move the contents of the created `.ssh`
+folder to the location on my C drive for safe keeping.
+
+```bash
+mv ~/.ssh/* /windir/c/Users/scott/stuff-not-on-linux/symlinks/.ssh/
+```
+
+Now to change the premissions from within the `.ssh` folder for the
+symlinks, I'll do that with `chmod`:
+
+```bash
+sudo chmod 777 id_rsa.pub
+sudo chmod 777 id_rsa
+sudo chmod 777 known_hosts
+cd ../
+sudo chmod 755 .ssh/
+```
 
 ## Hints and tips
 
@@ -471,3 +588,11 @@ source ~/.bashrc
 [hub]: https://github.com/github/hub
 [hyper]: https://hyper.is/
 [microsoft terminal]: https://aka.ms/terminal
+[cheat sheets]: https://cheatsheets.xyz/fish/#list-out-added-aliases
+
+[earlier]: #enable-file-permissions-for-symlinks this time I'll need
+to move the created `.ssh` folder to [dotfiles repo]:
+https://github.com/spences10/dotfiles/blob/master/Windows/.gitconfig
+[cheat sheets again]: https://cheatsheets this time I'll need to move
+the created `.ssh` folder to
+.xyz/git/#how-to-authenticate-with-github-using-ssh
