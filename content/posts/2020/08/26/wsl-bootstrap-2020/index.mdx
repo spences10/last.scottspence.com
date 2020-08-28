@@ -262,6 +262,56 @@ this will come in handy when installing node.
 sudo apt install -y build-essential
 ```
 
+## Terminal
+
+I like [Hyper], but I've decided to use the [Microsoft Terminal] for a
+while, so far I really like it.
+
+Once I found out how to customise it via the [Windows Terminal
+documentation] and found a pretty sweet site for [Windows Terminal
+Themes].
+
+## Shell
+
+My preferred shell is Fish, I love this for it's auto completion and
+path matching also, with Oh My Fish you get added themes and support
+for NVM and other things.
+
+Install Fish via the Ubuntu package manager:
+
+```bash
+sudo install fish
+```
+
+Then install OMF with a `curl` command:
+
+```bash
+curl -L https://get.oh-my.fish | fish
+```
+
+This will switch me into the Fish shell once it's finished then I can
+install a super sweet theme from OMF, to list out the available themes
+in OMF:
+
+```bash
+omf theme
+```
+
+I like the `one` theme as it gives Git and node version information,
+I'll install it with:
+
+```bash
+omf install one
+```
+
+I'm also going to need the NVM wrapper package for Fish:
+
+```bash
+omf install nvm
+```
+
+## Change default shell
+
 ## Node with NVM
 
 This time round I'm [using Node Version Manager] (NVM) in place of `n`
@@ -295,14 +345,37 @@ For fnm you may need `unzip` for if not installed already:
 sudo apt innstall unzip
 ```
 
-## Terminal
+I've also installed [fnm] as it also works with `.nvmrc` and
+`.node-version`.
 
-I like Hyper, I know a lot of people use the VSCode integrated
-terminal but
+## Yarn
 
-## Shell
+I prefer to use Yarn in my projects over npm, one for Yarn workspaces
+but also because the script syntax is that little bit shorter:
 
-## Change default shell
+```bash
+npm run develop
+# vs
+yarn develop
+```
+
+Yes lazy dev is lazy! I'll install Yarn with the Ubuntu package
+manager:
+
+```bash
+sudo apt install yarn
+```
+
+## Hub
+
+[Hub] offers some extended command line features for GitHub, such as
+making PRs and being able to pop open the repo in a browser window.
+
+Install hub via the Ubuntu package manager:
+
+```bash
+sudo apt install hub
+```
 
 ## Symlinks (Symbolic Link)
 
@@ -395,3 +468,6 @@ source ~/.bashrc
 [volta]: https://github.com/volta-cli/volta#installing-volta
 [asdf-vm]: https://asdf-vm.com/#/core-manage-asdf-vm
 [nvs]: https://github.com/jasongin/nvs
+[hub]: https://github.com/github/hub
+[hyper]: https://hyper.is/
+[microsoft terminal]: https://aka.ms/terminal
