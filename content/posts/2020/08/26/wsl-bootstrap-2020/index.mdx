@@ -72,11 +72,14 @@ needs doing, done.
 
 ## Prerequisites
 
-I did this from a fresh install of Windows 10, I followed the
+I did this from a fresh install of Windows 10 Pro, I followed the
 instructions from the [Windows WSL Install] docs.
 
 You need to be on Windows version 1903 or higher, Build 18362 or
 higher.
+
+If you don't have Windows Pro you should be able to enable WSL 2 on
+[Windows 10 home].
 
 To check use the Windows run command Windows key + r (Win+r) and enter
 `winver`, you'll get a dialogue with your machine details on it, I'm
@@ -603,6 +606,17 @@ tools I detailed in this post.
 
 They may work for you if you come across a similar problem.
 
+### Open Linux files in Windows
+
+Yeahp! You can do that with `explore.exe` in WSL:
+
+```bash
+# pwd = /home/scott/
+explore.exe .
+```
+
+Will open the directory I'm in, in Windows file explorer!
+
 ### No Yarn?
 
 Don't seem to be able to use `yarn` in the terminal? Try adding [this
@@ -709,3 +723,5 @@ try.
   https://www.youtube.com/watch?v=A0eqZujVfYU&feature=emb_title
 [remote wsl]:
   https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+[windows 10 home]:
+  https://docs.microsoft.com/en-us/windows/wsl/wsl2-faq#does-wsl-2-use-hyper-v-will-it-be-available-on-windows-10-home
