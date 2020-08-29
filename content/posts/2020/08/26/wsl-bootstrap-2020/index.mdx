@@ -2,7 +2,7 @@
 date: 2020-08-26
 title: Windows Subsystem Linux Bootstrap 2020
 tags: ['learning', 'guide', 'wsl']
-private: true
+private: false
 ---
 
 Yo! It's that time again!!
@@ -533,19 +533,65 @@ cd ../
 sudo chmod 700 .ssh/
 ```
 
+## VSCode
+
+Ok I'm ready to use VSCode, configuring VSCode is another topic in
+itself the one thing I want to for Git to work with VSCode is to pick
+the default shell I want to use with VSCode.
+
+I'll pop out the terminal pane in VSCode with the shortcut Ctrl+j (or
+Ctrl+') then in the top of the panel there's a drop down box with the
+option to 'Select Default Shell', selecting this option gives me the
+list of shells to choose from I'm picking Fish.
+
+Now if I go to my settings (with Ctrl+,) I can see a new entry for the
+default shell:
+
+```json
+"terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+```
+
+Shout out to [Brittney] in the [Party Corgi Discord] for that one as
+I've always added that setting manually in the past!
+
+I can open the settings as a JSON file because I have set my workbench
+settings to open the JSON file rather than the UI, if you want to open
+the JSON file use the VSCode shortcut to open the command pallet with
+Ctrl+Shift+p then search for 'Preferences: Open Setting (JSON)', I
+have the following setting so I can use the JSON file over the UI:
+
+```json
+"workbench.settings.editor": "json",
+```
+
 ## WSLGit
 
-## VSCode
+Time to touch on [WSLGit] again, now that I've got VSCode pointing to
+my WSL terminal I should see any changes under source control (Git)
+appear in the Git VSCode panel.
+
+I mentioned previously in the past I [had to install Git on windows]
+with WSLGit installed via Chocolatey any issues I had in the past are
+forgotten (for now).
+
+Now any code changes that are made in VSCode are forwarded to the WSL
+Git instance so there's no need to install Git in Windows!
 
 ## Other Guides
 
 Like I mentioned at the top of this post, this is my opinionated guide
-for how I want to do my wed dev work in Windows.
+for how I want to do my web dev work in Windows.
 
 Here are some other guides that may be of use when setting up your in
 environment.
 
 - Nicky Meuleman: [WSL2, zsh, and docker. Linux through Windows.]
+
+- The Microsoft Docs: [Set up your development environment on Windows
+  10]
+
+- Scott Hanselman: [Developing on Windows with WSL2 (Subsystem for
+  Linux), VS Code, Docker, and the Terminal]
 
 ## Hints and tips
 
@@ -578,7 +624,23 @@ WSL 2. I found [this comment on a WSL issue] which cleared it up.
 
 I had my project repos on my Windows file system
 (`/mnt/c/Users/scott/`), when they should be on my WSL file system
-(`/home/scott/`).
+(`/home/scott/`). Once I moved them to the Linux filesystem everything
+as super duper fast.
+
+## Wrap up!
+
+That's it 😅 done, for now at least!
+
+Like I mentioned several times now I have set up WSL on Windows a few
+times now! This time was still confusing to me, I hope some of these
+notes help you although this is really just my reference for when I
+have to start from scratch again.
+
+There is a lot more documentation out there covering this subject and
+I see Windows as a solid development environment now.
+
+I'd love to know how it went for you if you're going to give WSL a
+try.
 
 <!-- Links -->
 
@@ -635,3 +697,10 @@ I had my project repos on my Windows file system
   https://github.com/spences10/dotfiles/blob/master/Windows/.gitconfig
 [cheat sheets again]:
   https://cheatsheets.xyz/git/#how-to-authenticate-with-github-using-ssh
+[brittney]: https://twitter.com/brittneypostma
+[party corgi discord]: https://discord.gg/MzC3kr
+[wslgit]: https://github.com/andy-5/wslgit
+[set up your development environment on windows 10]:
+  https://docs.microsoft.com/en-us/windows/dev-environment/overview
+[developing on windows with wsl2 (subsystem for linux), vs code, docker, and the terminal]:
+  https://www.youtube.com/watch?v=A0eqZujVfYU&feature=emb_title
