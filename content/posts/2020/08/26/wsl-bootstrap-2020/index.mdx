@@ -250,13 +250,13 @@ Installing this via Chocolatey I haven't had any issues, it's a
 straight up install from Chocolatey and forget about it, works pretty
 well so for.
 
-## Make it your own
+## Make it my own
 
-Time to add all the web dev tools you need, for me this is Node, Yarn,
+Time to add all the web dev tools I need, for me this is Node, Yarn,
 NVM and my shell of choice Fish with Oh My Fish.
 
 Install the `build-essential` tools for utility packages like `make`
-this will come in handy when installing node.
+this will come in handy when installing NVM and OMF.
 
 ```bash
 sudo apt install -y build-essential
@@ -274,8 +274,8 @@ Themes].
 ## Shell, Fish Shell
 
 My preferred shell is Fish, I love this for it's auto completion and
-path matching also, with Oh My Fish you get added themes and support
-for NVM and other things.
+path matching, also with Oh My Fish you get added themes and support
+for NVM and additional utilities.
 
 Install Fish via the Ubuntu package manager:
 
@@ -467,13 +467,13 @@ like [Pengwin] (which is a great extension on what's already available
 in the recommended distros from Microsoft).
 
 **What does that have to do with symlinks though?** Well, if you think
-about each one of these instances you could have each their own
-isolated oppearting system on your machine.
+about each one of these instances as their own isolated oppearting
+system on your machine.
 
 Each one with it's own set of configurations, it will get pretty
 tedious keeping them all current.
 
-The majority of my settings on these instances will be for git,
+The majority of my settings on these instances will be for Git,
 `.gitconfig` and SSH settings for [authenticating with GitHub via
 SSH].
 
@@ -483,11 +483,11 @@ shared location for all the WSL instances that need to use it.
 ## Config Git
 
 So I have had to install WSL enough times to know that I'm going to be
-losing my dotfiles all the time, that's why I made a [dotfiles repo]
+losing my dotfiles at some point, that's why I made a [dotfiles repo]
 to store this information for the next time.
 
 This is where the symlinks come into play, I have my `.gitconfig` in a
-separate location to my WSL install.
+separate location on my computer to my WSL install.
 
 So for me as I changed my root dir, that'll be `/windir/` if you're
 following along and didn't set your root dir to that then you're
@@ -502,15 +502,24 @@ Coolio!
 
 ## Config SSH
 
-No to be able to use Git with GitHub and not having to authenticate
-each time, to do that SSH!
+I want to be able to use Git with GitHub and not have to authenticate
+on each pull/push to a GitHub repo, to do that I use SSH!
 
 I'll follow my own instructions I've made for myself in [Cheat Sheets
-again], this time I'll need to move the contents of the created `.ssh`
-folder to the location on my C drive for safe keeping.
+again], as this is the first time authenticating with GitHub the
+`.ssh` folder containing the `rsa` files will be created on my WSL
+instance. I'll need to move the contents of the created `.ssh` folder
+to the location on my C drive for safe keeping.
 
 ```bash
 mv ~/.ssh/* /windir/c/Users/scott/stuff-not-on-linux/symlinks/.ssh/
+```
+
+Then I'll simlink to those files:
+
+```bash
+# pwd = /home/scott/.ssh/
+ln -s /windir/c/Users/scott/stuff-not-on-linux/symlinks/.ssh/* .
 ```
 
 Now to change the premissions from within the `.ssh` folder for the
@@ -524,14 +533,31 @@ cd ../
 sudo chmod 700 .ssh/
 ```
 
-## WSL Git
+## WSLGit
 
 ## VSCode
 
+## Other Guides
+
+Like I mentioned at the top of this post, this is my opinionated guide
+for how I want to do my wed dev work in Windows.
+
+Here are some other guides that may be of use when setting up your in
+environment.
+
+- Nicky Meuleman: [WSL2, zsh, and docker. Linux through Windows.]
+
 ## Hints and tips
 
-Use Yarn? Don't seem to be able to use `yarn` in the terminal? Try
-adding [this line] to your `.bashrc` file:
+Here's a list of some of the problems I come up against when using the
+tools I detailed in this post.
+
+They may work for you if you come across a similar problem.
+
+### No Yarn?
+
+Don't seem to be able to use `yarn` in the terminal? Try adding [this
+line] to your `.bashrc` file:
 
 ```bash
 # open the .bashrc file to edit with nano
@@ -544,18 +570,29 @@ export PATH="$(yarn global bin):$PATH"
 source ~/.bashrc
 ```
 
+### Slow WSL
+
+Does WSL seem slow on `npm install`/`yarn`? I had this issue and
+wasn't to impressed with the supposed 3x speed increase promised with
+WSL 2. I found [this comment on a WSL issue] which cleared it up.
+
+I had my project repos on my Windows file system
+(`/mnt/c/Users/scott/`), when they should be on my WSL file system
+(`/home/scott/`).
+
 <!-- Links -->
 
 [windows subsystem linux setup]:
   https://scottspence.com/2018/01/13/wsl-bootstrap/
 [windows web-dev bootstrap]:
   https://scottspence.com/2018/12/24/wsl-bootstrap-2019/
-[slow]:
+[this comment on a wsl issue]:
   https://github.com/microsoft/WSL/issues/5078#issuecomment-613384302
 [symbolic links]: https://en.wikipedia.org/wiki/Symbolic_link
 [a linux distro from the ms store]: https://aka.ms/wslstore
+[another several distros]: https://aka.ms/wslstore
 [pengwin]: https://www.whitewaterfoundry.com/
-[rook]:
+[wsl2, zsh, and docker. linux through windows.]:
   https://nickymeuleman.netlify.app/blog/linux-on-windows-wsl2-zsh-docker
 [authenticating with github via ssh]:
   https://cheatsheets.xyz/git/#how-to-authenticate-with-github-using-ssh
