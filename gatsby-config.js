@@ -20,7 +20,7 @@ const siteMetadata = {
 module.exports = {
   siteMetadata,
   plugins: [
-    `@pauliescanlon/gatsby-mdx-embed`,
+    `gatsby-plugin-mdx-embed`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
