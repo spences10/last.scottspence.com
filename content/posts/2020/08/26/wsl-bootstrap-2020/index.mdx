@@ -633,6 +633,21 @@ export PATH="$(yarn global bin):$PATH"
 source ~/.bashrc
 ```
 
+### No Yarn binaries showing?
+
+I came across this issue when [switching to Manjaro from Ubuntu] where
+I have documented it, the following line will resolve that issue:
+
+```bash
+set -U fish_user_paths $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin $fish_user_paths
+```
+
+If you need to remove it at a later date use:
+
+```bash
+set fish_user_paths (string match -rv yarn $fish_user_paths)
+```
+
 ### Slow WSL
 
 Does WSL seem slow on `npm install`/`yarn`? I had this issue and
@@ -725,3 +740,5 @@ try.
   https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
 [windows 10 home]:
   https://docs.microsoft.com/en-us/windows/wsl/wsl2-faq#does-wsl-2-use-hyper-v-will-it-be-available-on-windows-10-home
+[switching to manjaro from ubuntu]:
+  https://scottspence.com/2020/07/15/switching-to-manjaro-from-ubuntu/#yarn

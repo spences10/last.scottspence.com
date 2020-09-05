@@ -72,6 +72,10 @@ export const wrapPageElement = ({ element }) => (
         site={process.env.GATSBY_FATHOM_TRACKING_ID_SCOTTSPENCE_COM}
         defer
       ></script>
+      <meta
+        name="monetization"
+        content="$ilp.uphold.com/bzPBWkMBzLmN"
+      />
     </Helmet>
     <AnalyticsProvider>
       <ThemeProvider theme={theme}>
