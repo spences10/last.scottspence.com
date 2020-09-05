@@ -87,11 +87,11 @@ find good candidates.
 
 #### What the recruiter says:
 
-> `“hi Scott, just seen your profile and think you will be a really good match for a role I’m recruiting for”`
+> hi Scott, just seen your profile and think you will be a really good match for a role I’m recruiting for
 
 #### What it actually means:
 
-> `“you have come up in my keyword search and I'm blindly calling you, I haven’t really read your profile”`
+> you have come up in my keyword search and I'm blindly calling you, I haven’t really read your profile
 
 This was incredibly frustrating experience for me, yes I could have
 done things better and like I said this was basically a rant, this is
@@ -127,12 +127,12 @@ are suitable for the role (which they could have done if they took the
 time to read your profile) let's just bear in mind ten minutes before
 it was,
 
-> ## "Hi Scott, just seen your profile on LinkedIn and I'm really keen to talk to you about a role with one of our very high profile clients I'm recruiting for."
+> ## Hi Scott, just seen your profile on LinkedIn and I'm really keen to talk to you about a role with one of our very high profile clients I'm recruiting for.
 
 The call usually ends with a
-`"I'll send the spec through for you to look at let me know what you think"`
+"I'll send the spec through for you to look at let me know what you think"
 and the mail never turns up or the old chestnut
-`I'll pass you details on to my colleague\I'll update your details on our database`
+I'll pass you details on to my colleague\I'll update your details on our database
 
 So now we're near the end of Ranty McRantRant's post, if you made it
 this far thank you for persevering, if you can relate I'd be keen to
