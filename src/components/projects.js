@@ -6,6 +6,16 @@ import { linkHover, linkStyle } from './shared-styles'
 
 const projects = [
   {
+    title: `MDX Embed`,
+    repo: `https://github.com/PaulieScanlon/mdx-embed/`,
+    demo: `https://www.mdx-embed.com/`,
+    tags: ['gatsby', 'mdx'],
+    image: ``,
+    copy: [
+      `MDX Embed allows you to embed popular 3rd party media content such as YouTube videos, Tweets, Instagram posts and many more straight into your .mdx`,
+    ],
+  },
+  {
     title: `React SEO Component`,
     repo: `https://github.com/spences10/react-seo-component/`,
     demo: `https://www.npmjs.com/package/react-seo-component`,
@@ -14,14 +24,6 @@ const projects = [
     copy: [
       `A React component for adding Open Graph and SEO meta tags to your projects.`,
     ],
-  },
-  {
-    title: `Characters from Password`,
-    repo: `https://github.com/spences10/characters-from-password/`,
-    demo: `https://cfromp.xyz`,
-    tags: ['gatsby', 'mdx', 'styled-components', 'api'],
-    image: `characters-from-password.png`,
-    copy: [`Pick a character from your password`],
   },
   {
     title: `ASI Style Guide`,
@@ -152,7 +154,7 @@ const ProjectCard = styled.article`
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: 1px solid ${({ theme }) => theme.colors.gray[500]};
   padding: ${({ theme }) => theme.spacing[4]};
-  background-image:url("${({ url }) => url}");
+  background-image: url('${({ url }) => url}');
 `
 
 const Tags = ({ tags }) => {
