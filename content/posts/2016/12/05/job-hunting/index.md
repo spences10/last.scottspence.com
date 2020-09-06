@@ -17,12 +17,12 @@ employed again.
 
 ## No one wants to hire you
 
-![stress-office](./stress-office.jpg)
+![stress-office]
 
 For the longest time I thought there was something wrong with my CV so
-I read up on [ATS'](https://lmgtfy.com/?q=what+is+an+ats) and added
-what I thought was needed to at least meet the minimum requirements
-for passing the ATS if there was one for the roles I was applying for.
+I read up on [ATS'] and added what I thought was needed to at least
+meet the minimum requirements for passing the ATS if there was one for
+the roles I was applying for.
 
 What I have also found is that my skill set is now in a minority,
 that's not to say that banks are going to stop using Excel overnight
@@ -34,14 +34,14 @@ organisations want now.
 This has basically brought me to the conclusion that I should be
 expanding my skill set, so I have been busy getting the skills I need
 to become a full stack web developer using the awesome free course
-material at [freeCodeCamp](https://www.freecodecamp.com) (fCC) I'm
-still in the very early stages of this and am not about to start
-looking for full stack web developer jobs but it is something that I'm
-going to commit a lot of my spare time to so I can build a portfolio
-to showcase my skills for prospective employers. This will be an
-additional tool to my toolkit I'm also hoping to gain a lot of insight
-into general purpose programming languages, something currently
-lacking from my 'skill stack'.
+material at [freeCodeCamp] (fCC) I'm still in the very early stages of
+this and am not about to start looking for full stack web developer
+jobs but it is something that I'm going to commit a lot of my spare
+time to so I can build a portfolio to showcase my skills for
+prospective employers. This will be an additional tool to my toolkit
+I'm also hoping to gain a lot of insight into general purpose
+programming languages, something currently lacking from my 'skill
+stack'.
 
 What I found whilst searching for roles is that someone with VBA, SQL
 and C# there is also the need now for Tableau, ClikView or some other
@@ -74,7 +74,7 @@ really exist.
 
 ## Recruiters
 
-![shady-recruiter-middle-man](./shady-recruiter-middle-man.jpg)
+![shady-recruiter-middle-man]
 
 So this is where we get all warm and fuzzy talking about recruiters
 and what great jobs they do. How they are always busy talking to
@@ -87,11 +87,13 @@ find good candidates.
 
 #### What the recruiter says:
 
-> `“hi Scott, just seen your profile and think you will be a really good match for a role I’m recruiting for”`
+> hi Scott, just seen your profile and think you will be a really good
+> match for a role I’m recruiting for
 
 #### What it actually means:
 
-> `“you have come up in my keyword search and I'm blindly calling you, I haven’t really read your profile”`
+> you have come up in my keyword search and I'm blindly calling you, I
+> haven’t really read your profile
 
 This was incredibly frustrating experience for me, yes I could have
 done things better and like I said this was basically a rant, this is
@@ -127,12 +129,14 @@ are suitable for the role (which they could have done if they took the
 time to read your profile) let's just bear in mind ten minutes before
 it was,
 
-> ## "Hi Scott, just seen your profile on LinkedIn and I'm really keen to talk to you about a role with one of our very high profile clients I'm recruiting for."
+> Hi Scott, just seen your profile on LinkedIn and I'm really keen to
+> talk to you about a role with one of our very high profile clients
+> I'm recruiting for.
 
-The call usually ends with a
-`"I'll send the spec through for you to look at let me know what you think"`
-and the mail never turns up or the old chestnut
-`I'll pass you details on to my colleague\I'll update your details on our database`
+The call usually ends with a "I'll send the spec through for you to
+look at let me know what you think" and the mail never turns up or the
+old chestnuts "I'll pass you details on to my colleague" and "I'll
+update your details on our database"
 
 So now we're near the end of Ranty McRantRant's post, if you made it
 this far thank you for persevering, if you can relate I'd be keen to
@@ -143,9 +147,26 @@ this post:
 
 LinkedIn:
 
-- ["Recruitment industry will die in 2018."](https://www.linkedin.com/pulse/recruitment-industry-die-2018-oleg-vishnepolsky)
-- ["If a Recruiter Sh\*ts in the woods and nobody is around to hear it?"](https://www.linkedin.com/pulse/recruiter-shts-woods-nobody-around-hear-tim-chattaway)
+- ["Recruitment industry will die in 2018."]
+- ["If a Recruiter Sh\*ts in the woods and nobody is around to hear
+  it?"]
 
 Medium:
 
-- [Lessons From My Post-bootcamp Job Search in London](https://medium.freecodecamp.com/lessons-from-my-post-bootcamp-job-search-in-london-cb37ea12ec2f#.ckpg5lkpa)
+- [Lessons From My Post-bootcamp Job Search in London]
+
+<!-- Links -->
+
+[ats']: https://lmgtfy.com/?q=what+is+an+ats
+[freecodecamp]: https://www.freecodecamp.com
+["recruitment industry will die in 2018."]:
+  https://www.linkedin.com/pulse/recruitment-industry-die-2018-oleg-vishnepolsky)
+["if a recruiter sh\*ts in the woods and nobody is around to hear it?"]:
+  https://www.linkedin.com/pulse/recruiter-shts-woods-nobody-around-hear-tim-chattaway)
+[lessons from my post-bootcamp job search in london]:
+  https://medium.freecodecamp.com/lessons-from-my-post-bootcamp-job-search-in-london-cb37ea12ec2f#.ckpg5lkpa)
+
+<!-- Images -->
+
+[stress-office]: ./stress-office.jpg
+[shady-recruiter-middle-man]: ./shady-recruiter-middle-man.jpg
