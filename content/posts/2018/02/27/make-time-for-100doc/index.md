@@ -106,7 +106,7 @@ needed.
 ### Make time
 
 Saying that you don't have the time to do 1-2 hours of coding a day
-isn't going to help, it's though, but it's not about having the time
+isn't going to help, it's tough, but it's not about having the time
 it's about making the time to do this. If it's important to you, you
 will make time. You're the only one that can make these things happen.
 
