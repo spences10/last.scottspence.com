@@ -65,7 +65,7 @@ What we're going to cover:
 ## Install WSL
 
 You can install Ubuntu from [the Microsoft store] which will be the
-first half of the install the second will be when ypu open the app.
+first half of the install the second will be when you open the app.
 
 ## Enable WSL on your machine
 
