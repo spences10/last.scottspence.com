@@ -8,7 +8,6 @@
   },
   "redirects": [
     { "source": "/uses", "destination": "/#uses" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "status": 404, "dest": "/404" }
+    { "source": "/(.*)", "status": 404, "destination": "/404" }
   ]
 }
