@@ -6,5 +6,9 @@
       "GATSBY_GITHUB_TOKEN": "@gatsby_github_token"
     }
   },
-  "redirects": [{ "source": "/uses", "destination": "/#uses" }]
+  "redirects": [{ "source": "/uses", "destination": "/#uses" }],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "status": 404, "dest": "/404" }
+  ]
 }
