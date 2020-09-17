@@ -8,6 +8,15 @@ private: true
 Here it is kids! All I know about Markdown. First! The standard
 preamble...
 
+Before that, some of the possible titles I came up with before writing
+this:
+
+- Uptown with Markdown
+- Downtown with Markdown
+- Splashdown with Markdown
+- Don't frown with Markdown
+- Get the Markdown Crown
+
 As a developer, a developer of web, and someone that writes a lot in
 my [digital garden] I use Markdown on a daily basis, but what is it?
 
@@ -67,7 +76,16 @@ I'll be using VSCode and Prettier
 
 ## Markdown Tables
 
+## Resources
+
+- [The initial Markdown announcement]
+- [Markdown table generator]
+
 <!-- Links -->
 
 [digital garden]: https://scottspence.com/garden
 [gfm]: https://github.github.com/gfm/
+[markdown table generator]:
+  https://www.tablesgenerator.com/markdown_tables
+[the initial markdown announcement]:
+  https://daringfireball.net/projects/markdown/
