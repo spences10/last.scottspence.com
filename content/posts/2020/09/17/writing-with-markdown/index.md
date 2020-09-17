@@ -8,8 +8,8 @@ private: true
 Here it is kids! All I know about Markdown. First! The standard
 preamble...
 
-Before that, some of the possible titles I came up with before writing
-this:
+Before that though! Some of the possible titles I came up with before
+writing this:
 
 - Uptown with Markdown
 - Downtown with Markdown
@@ -17,8 +17,11 @@ this:
 - Don't frown with Markdown
 - Get the Markdown Crown
 
+Sorry, anyways! Onwards!!
+
 As a developer, a developer of web, and someone that writes a lot in
-my [digital garden] I use Markdown on a daily basis, but what is it?
+my [digital garden] I use Markdown on a daily basis, but what is
+Markdown?
 
 ## Introduction: What's Markdown then?
 
