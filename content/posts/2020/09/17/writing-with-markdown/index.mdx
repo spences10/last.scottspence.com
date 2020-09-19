@@ -44,12 +44,6 @@ Like I mentioned earlier Markdown is converted into valid HTML and if
 you have not encountered Markdown before it before looks something
 like this in your text editor:
 
-Component here
-
-<MarkdownParser />
-
-Component here
-
 ```md
 ## This is a h2 headding
 ```
@@ -60,8 +54,11 @@ The equivalent in HTML will be:
 <h2>This is a h2 headding</h2>
 ```
 
-Which will be converted to a h2 as you see in the web browser. Like
-the next heading here 👇
+Which will be converted to a h2 as you see in the web browser. Take a
+look at this interactive component here 👇 try editing the text on the
+left:
+
+<MarkdownParser markdownContent={`## This is a h2 headding`} />
 
 ## Markdown Tooling
 
