@@ -2,7 +2,7 @@ import Markdown from 'markdown-to-jsx'
 import React from 'react'
 import styled, { css } from 'styled-components'
 import useDarkMode from 'use-dark-mode'
-import { negMargin } from './shared-styles'
+import { linkHover, linkStyle, negMargin } from './shared-styles'
 
 const sharedCss = css`
   flex: 0 0 50%;
@@ -14,6 +14,10 @@ const Wrapper = styled.section`
   flex-grow: 1;
   margin: 2rem 0;
   ${negMargin};
+  a {
+    ${linkStyle};
+    ${linkHover};
+  }
   h1 {
     font-size: 2.5rem;
     line-height: ${({ theme }) => theme.lineHeight.tight};
