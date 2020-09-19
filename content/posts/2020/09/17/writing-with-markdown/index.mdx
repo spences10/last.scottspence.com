@@ -58,15 +58,31 @@ Which will be converted to a h2 as you see in the web browser. Take a
 look at this interactive component here 👇 try editing the text on the
 left:
 
-<MarkdownParser markdownContent={`## This is a h2 headding`} />
+<MarkdownParser markdownContent={`## This is a h2 heading`} />
 
 ## Markdown Tooling
 
-I'll be using VSCode and Prettier
+There are may places to use Markdown as I mentioned earlier, for the
+examples here I'll be using the interactive component, if you want to
+follow along I'll be using VSCode and Prettier.
 
 ## Markdown Headings
 
+<MarkdownParser
+  markdownContent={`# h1 heading
+## h2 heading
+### h3 heading
+#### h4 heading
+##### h5 heading
+###### h6 heading
+`}
+/>
+
 ## Markdown Links
+
+<MarkdownParser
+  markdownContent={`my [digital garden](https://scottspence.com/garden)`}
+/>
 
 ## Markdown Images
 
