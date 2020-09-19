@@ -9,6 +9,7 @@ import { DateUpdated } from './components/date-updated'
 import { GitHubContributions } from './components/gh-contributions'
 import { TopLanguages } from './components/gh-top-languages'
 import { Layout } from './components/layout'
+import { MarkdownParser } from './components/markdown-parser'
 import {
   A,
   Blockquote,
@@ -61,6 +62,7 @@ const components = {
   GitHubContributions,
   Projects,
   ConvertKitForm,
+  MarkdownParser,
 }
 
 export const wrapPageElement = ({ element }) => (

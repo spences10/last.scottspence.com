@@ -50,6 +50,7 @@
     "gatsby-source-filesystem": "2.3.30",
     "gatsby-source-graphql": "^2.7.4",
     "gatsby-transformer-sharp": "2.5.15",
+    "markdown-to-jsx": "^7.0.0",
     "mdx-embed": "^0.0.13",
     "mdx-utils": "0.2.0",
     "preact": "^10.4.8",
