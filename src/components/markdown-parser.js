@@ -16,23 +16,35 @@ const Wrapper = styled.section`
   ${negMargin};
   h1 {
     font-size: 2.5rem;
+    line-height: ${({ theme }) => theme.lineHeight.tight};
   }
   h2 {
     font-size: 2rem;
+    margin-top: ${({ theme }) => theme.spacing[8]};
+    line-height: ${({ theme }) => theme.lineHeight.none};
   }
   h3 {
     font-size: 1.75rem;
+    margin-top: ${({ theme }) => theme.spacing[6]};
+    line-height: ${({ theme }) => theme.lineHeight.none};
   }
   h4 {
     font-size: 1.5rem;
+    margin-top: ${({ theme }) => theme.spacing[5]};
+    line-height: ${({ theme }) => theme.lineHeight.none};
   }
   h5 {
     font-size: 1.25rem;
+    margin-top: ${({ theme }) => theme.spacing[4]};
+    line-height: ${({ theme }) => theme.lineHeight.none};
   }
   h6 {
     font-size: 1.2rem;
+    margin-top: ${({ theme }) => theme.spacing[3]};
+    line-height: ${({ theme }) => theme.lineHeight.none};
   }
   p {
+    margin-top: ${({ theme }) => theme.spacing[3]};
     em {
       font-weight: bold;
     }
@@ -79,8 +91,17 @@ const Textarea = styled.textarea`
   max-height: 100vh;
 `
 
-const markdownExample = `
-# This is a heading
+const markdownExample = `# Heading 1 
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
 
 This is a paragraph
 
@@ -103,7 +124,9 @@ export const MarkdownParser = ({ markdownContent }) => {
     <Wrapper>
       <Textarea onInput={handleInput} value={markdown} />
       <Compiled>
-        <Markdown>{markdown}</Markdown>
+        <Markdown style={{ marginTop: '-0.5rem' }}>
+          {markdown}
+        </Markdown>
       </Compiled>
     </Wrapper>
   )
