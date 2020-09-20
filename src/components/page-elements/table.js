@@ -6,6 +6,7 @@ export const StyledTable = styled.table`
   margin-bottom: ${({ theme }) => theme.spacing[10]};
   font-size: ${({ theme }) => theme.fontSize.sm};
   width: 100%;
+  text-align: left;
   thead {
     font-size: ${({ theme }) => theme.fontSize.base};
     font-weight: ${({ theme }) => theme.fontWeight.bold};
@@ -26,7 +27,6 @@ export const StyledTable = styled.table`
     padding-right: ${({ theme }) => theme.spacing[3]};
     padding-top: ${({ theme }) => theme.spacing[2]};
     padding-bottom: ${({ theme }) => theme.spacing[1]};
-    text-align: left;
   }
   th,
   td {
