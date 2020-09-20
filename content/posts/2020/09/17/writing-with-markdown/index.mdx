@@ -117,13 +117,22 @@ with underscores (`_italic_`).
 
 ### Strikethrough
 
+The thing to remember with strikethrough is that it's double tilde not
+a single one, using a single tilde with show the tilde either side of
+the word/paragraph.
+
 <MarkdownParser
-  markdownContent={`This is a paragraph.\n\nThis is also a paragraph.`}
+  markdownContent={`This is ~~strikethrough~~.\n\nThis is not ~strikethrough~.`}
 />
 
 ## Markdown Headings
 
-Headings
+There are two ways to do headings in Markdown, the first way which you
+may see but is way less popular is with
+
+<MarkdownParser
+  markdownContent={`This is ~~strikethrough~~.\n\nThis is not ~strikethrough~.`}
+/>
 
 <MarkdownParser
   markdownContent={`# h1 heading
@@ -148,6 +157,19 @@ Headings
 ## Line Breaks
 
 ## Horizontal Rules
+
+There's several ways to do a horizontal rule in Markdown, with
+hyphens, asterisks and underscores.
+
+Like with the text decorations for bold and italic Prettier has
+declared that hyphens are the way to do this for me in my text editor
+but I'm detailing the differences here.
+
+<MarkdownParser markdownContent={`Hyphens\n\n---`} />
+
+<MarkdownParser markdownContent={`Asterisks\n\n***`} />
+
+<MarkdownParser markdownContent={`Underscores\n\n___`} />
 
 ## Block Quotes
 
