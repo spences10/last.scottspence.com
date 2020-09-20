@@ -400,9 +400,47 @@ that's being used, in this example JS:
 />
 
 GitHub uses [Linguist] to determine the syntax highlighting on issues
-and READMEs.
+and READMEs, there's a lot in there!
+
+Code fences don't have to have a language attached to them and a code
+fence with no language assigned will look like this:
+
+<MarkdownParser
+  markdownContent={`\`\`\`\nconsole.log('hello world!')\n\`\`\`\n`}
+/>
 
 ## Markdown Tables
+
+Markdown tables look fugly! There I said it! If there's content that
+needs to go into a table, each one of the columns needs to be
+surrounded by a pipe, like so:
+
+```md
+|col 1|col 2|col3|
+```
+
+Then each of the column rows needs to have pipes around the content
+too.
+
+```md
+|col 1|col 2|col3|
+
+|content 1|content 2|content 3|
+```
+
+```md
+| Markdown       |  Tables   |         Layout |
+| -------------- | :-------: | -------------: |
+| Left aligned 1 | Centred 1 | Left aligned 1 |
+| Left aligned 2 | Centred 2 | Left aligned 2 |
+| Left aligned 3 | Centred 3 | Left aligned 3 |
+```
+
+| Markdown       |  Tables   |         Layout |
+| -------------- | :-------: | -------------: |
+| Left aligned 1 | Centred 1 | Left aligned 1 |
+| Left aligned 2 | Centred 2 | Left aligned 2 |
+| Left aligned 3 | Centred 3 | Left aligned 3 |
 
 ## Resources
 
