@@ -1,7 +1,6 @@
 import Markdown from 'markdown-to-jsx'
 import React from 'react'
 import styled, { css } from 'styled-components'
-import useDarkMode from 'use-dark-mode'
 import { linkHover, linkStyle, negMargin } from './shared-styles'
 
 const sharedCss = css`
@@ -123,7 +122,6 @@ export const MarkdownParser = ({ markdownContent }) => {
     e => setMarkdown(e.target.value),
     []
   )
-  const { value } = useDarkMode()
   return (
     <Wrapper>
       <Textarea onInput={handleInput} value={markdown} />
