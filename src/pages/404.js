@@ -23,7 +23,12 @@ const StyledLink = styled(Link)`
 export default () => {
   return (
     <>
-      <H1>That's a nop! 😢</H1>
+      <H1>
+        That's a nop!
+        <span role="img" aria-label="crying face">
+          😢
+        </span>
+      </H1>
       <H2>It looks like that page doesn't exist</H2>
       <P>
         There's plenty more content on the rest of the site, take a
