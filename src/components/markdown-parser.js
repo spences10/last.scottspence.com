@@ -2,6 +2,7 @@ import Markdown from 'markdown-to-jsx'
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { linkHover, linkStyle, negMargin } from './shared-styles'
+import 'victormono'
 
 const sharedCss = css`
   flex: 0 0 50%;
@@ -46,12 +47,16 @@ const Wrapper = styled.section`
     margin-top: ${({ theme }) => theme.spacing[3]};
     line-height: ${({ theme }) => theme.lineHeight.none};
   }
-  p {
+  p,
+  span {
+    font-size: ${({ theme }) => theme.fontSize.lg};
     margin-top: ${({ theme }) => theme.spacing[3]};
     em {
+      font-style: italic;
+    }
+    strong {
       font-weight: bold;
     }
-    font-size: 1rem;
   }
   ul {
     list-style-type: disc;
@@ -64,6 +69,20 @@ const Wrapper = styled.section`
     li {
       font-size: 1rem;
     }
+  }
+  blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+  }
+  pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    border-radius: 6px;
+    font-family: 'Victor Mono', 'Source Code Pro', Consolas, Monaco;
+    background-color: #6a737d;
   }
 `
 
@@ -89,27 +108,21 @@ const Textarea = styled.textarea`
     ${({ theme }) => theme.colors.gray[200]}
   );
   top: 0;
-  font-family: 'Source Code Pro', Consolas, Monaco, monospace;
-  font-size: inherit;
+  font-family: 'Victor Mono', 'Source Code Pro', Consolas, Monaco,
+    monospace;
+  font-size: ${({ theme }) => theme.fontSize.base};
   max-height: 100vh;
 `
 
-const markdownExample = `# Heading 1 
-
-## Heading 2
-
-### Heading 3
-
-#### Heading 4
-
-##### Heading 5
-
-###### Heading 6
-
-This is a paragraph
-
-_bold lettering_
-
+const markdownExample = `# Heading 1\n
+## Heading 2\n
+### Heading 3\n
+#### Heading 4\n
+##### Heading 5\n
+###### Heading 6\n
+This is a paragraph\n
+**bold lettering**\n
+_italic lettering_\n
 ~~Strikethrough~~
 `
 
