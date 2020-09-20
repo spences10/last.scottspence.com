@@ -88,7 +88,7 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: 'Manrope',
+            family: 'Work Sans',
             variable: true,
             weights: ['200..800'],
           },

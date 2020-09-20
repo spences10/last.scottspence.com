@@ -47,7 +47,7 @@ export const codeStyle = css`
   .gatsby-highlight {
     position: relative;
     ${negMargin};
-    margin-top: ${({ theme }) => theme.spacing[2]};
+    margin-top: ${({ theme }) => theme.spacing[6]};
     -webkit-overflow-scrolling: touch;
     background: rgb(1, 22, 39);
     overflow: auto;
