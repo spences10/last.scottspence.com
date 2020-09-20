@@ -2,7 +2,7 @@
 date: 2020-09-17
 title: Markdown Showdown - All I Know About Markdown
 tags: ['markdown', 'getting started', 'guide']
-private: false
+private: true
 ---
 
 Here it is kids! All I know about Markdown. First! The standard
@@ -30,7 +30,7 @@ Microsoft Word but without using the toolbar to select the format for
 the text.
 
 The goal for Markdown is to enable easy to write and easy to read
-plain text format that is converted to HTML in the browser.
+plain text format that can be converted to HTML in the browser.
 
 There are a many differing flavours of Markdown which you may have
 come across before on the web, places like Discord, GitHub, Jira,
@@ -66,7 +66,64 @@ There are may places to use Markdown as I mentioned earlier, for the
 examples here I'll be using the interactive component, if you want to
 follow along I'll be using VSCode and Prettier.
 
+There's also [Markdown Forge] by [Justin Juno] which is a very handy
+tool for writing Markdown in the browser.
+
+## Paragraphs and Text Decoration
+
+The basics of Markdown is writing text in paragraphs the whole idea is
+that it's readable in plain text before it get parsed out to HTML.
+
+<MarkdownParser markdownContent={`This is a paragraph`} />
+
+One little gotcha here is that there needs to be a clear space between
+paragraphs otherwise Markdown parses them all as one paragraph as
+Markdown needs a line between them to identify them as paragraph
+elements.
+
+<MarkdownParser
+  markdownContent={`This is a paragraph.\nThis is also a paragraph.`}
+/>
+
+Adding a clear line space between paragraphs allows Markdown to make
+the distinction:
+
+<MarkdownParser
+  markdownContent={`This is a paragraph.\n\nThis is also a paragraph.`}
+/>
+
+### Bold
+
+Bold text is achieved by adding double asterisks around the word or
+paragraph you want to bold.
+
+<MarkdownParser markdownContent={`This is **bold**.`} />
+
+### Italic
+
+Italic or emphasis is done by adding underscores around the word or
+paragraph you want to add emphasis to.
+
+<MarkdownParser markdownContent={`This is _italic_.`} />
+
+One thing to note in Markdown is that one set of _either_ underscores
+or asterisks will make it _italic_ and two sets of **either**
+underscores or asterisks will make it **bold**, so both `*italic*` and
+`_italic_` will do the same thing as will `**bold**` and `__bold__`.
+
+Luckily for me as a Prettier user this that decision taken away from
+me and will format **bold** with asterisks (`**bold**`) and _italic_
+with underscores (`_italic_`).
+
+### Strikethrough
+
+<MarkdownParser
+  markdownContent={`This is a paragraph.\n\nThis is also a paragraph.`}
+/>
+
 ## Markdown Headings
+
+Headings
 
 <MarkdownParser
   markdownContent={`# h1 heading
@@ -81,7 +138,7 @@ follow along I'll be using VSCode and Prettier.
 ## Markdown Links
 
 <MarkdownParser
-  markdownContent={`my [digital garden](https://scottspence.com/garden)`}
+  markdownContent={`Check out my [digital garden](https://scottspence.com/garden) for more content.`}
 />
 
 ## Markdown Images
@@ -102,6 +159,8 @@ follow along I'll be using VSCode and Prettier.
 
 - [The initial Markdown announcement]
 - [Markdown table generator]
+- [Markdown Cheatsheet]
+- [Markdown Forge] by [Justin Juno]
 
 <!-- Links -->
 
@@ -111,3 +170,7 @@ follow along I'll be using VSCode and Prettier.
   https://www.tablesgenerator.com/markdown_tables
 [the initial markdown announcement]:
   https://daringfireball.net/projects/markdown/
+[markdown cheatsheet]:
+  https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+[markdown forge]: https://www.markdownforge.com/about
+[justin juno]: https://twitter.com/justinjunodev
