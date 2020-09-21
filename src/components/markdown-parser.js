@@ -1,8 +1,8 @@
 import Markdown from 'markdown-to-jsx'
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { linkHover, linkStyle, negMargin } from './shared-styles'
 import 'victormono'
+import { linkHover, linkStyle, negMargin } from './shared-styles'
 
 const sharedCss = css`
   flex: 0 0 50%;
@@ -126,7 +126,7 @@ _italic lettering_\n
 ~~Strikethrough~~
 `
 
-export const MarkdownParser = ({ markdownContent }) => {
+export const MarkdownParser = ({ markdownContent, style }) => {
   const [markdown, setMarkdown] = React.useState(
     !markdownContent ? markdownExample : markdownContent
   )
@@ -135,13 +135,15 @@ export const MarkdownParser = ({ markdownContent }) => {
     e => setMarkdown(e.target.value),
     []
   )
+  const mdStyle = {
+    ...style,
+    marginTop: '-0.5rem',
+  }
   return (
     <Wrapper>
       <Textarea onInput={handleInput} value={markdown} />
       <Compiled>
-        <Markdown style={{ marginTop: '-0.5rem' }}>
-          {markdown}
-        </Markdown>
+        <Markdown style={mdStyle}>{markdown}</Markdown>
       </Compiled>
     </Wrapper>
   )
