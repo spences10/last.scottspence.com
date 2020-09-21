@@ -225,6 +225,29 @@ notice that I have added HTML comments (`<!-- -->`) here, these aren't
 rendered with the Markdown which makes it handy for identifying types
 of links.
 
+### Local link references
+
+Like I mentioned with the headings these can also be linked to
+headings in the Markdown document, so to skip to the
+[Markdown Images](#markdown-images) section I'd create a link like
+this:
+
+```markdown
+[Markdown Images](#markdown-images)
+```
+
+Notice that the ID matches the ID added to the heading by the Markdown
+parser in the HTML, you may need to check this if you have special
+characters in the heading, in most cases apostrophes and ampersands
+will be stripped out of the generated ID.
+
+As an example if the heading was Markdown & Images the heading would
+have the ampersand removed and look like this:
+
+```markdown
+[Markdown & Images](#markdown--images)
+```
+
 ## Markdown Images
 
 Images in Markdown are pretty much the same as links with a subtle
