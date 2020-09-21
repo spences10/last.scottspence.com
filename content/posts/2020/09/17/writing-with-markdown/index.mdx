@@ -268,9 +268,10 @@ using keys and references here:
 
 ## Markdown Lists
 
-With Markdown it's the same as HTML with unordered and ordered lists
-and like the differing flavours of headings and text decorations with
-bold and italic there's several ways to make **unordered lists**:
+Markdown lists are the same as with HTML, with unordered and ordered
+lists. Also like with headings, text decorations and bold and italic
+in Markdown there's several ways to make **unordered lists** in
+Markdown:
 
 ### Unordered list
 
@@ -297,7 +298,7 @@ middle of the list all the numbering has to change.
 Using the `1.` approach Markdown does all the numbering for you:
 
 <MarkdownParser
-  markdownContent={`1. Ordered Lists\n1. All use\n1. The same number 1.`}
+  markdownContent={`1. Ordered Lists\n1. All use\n1. The same number, 1.`}
 />
 
 ### Nesting lists
@@ -322,6 +323,25 @@ bullet paragraph and the additional content to go in there:
 
 1. Rest of the ordered list items
 ```
+
+### Check Boxes
+
+To add a check box to a list use the list notation (`-`) with square
+brackets with either a space between the spaces to indicate an empty
+checkbox (`[ ]`) or with an x to indicate that it's checked (`[x]`).
+
+```markdown
+- [ ] Check, check one
+- [x] Check two
+```
+
+The checkbox needs to start with the hyphen, space then the square
+brackets indicating if it is checked or not:
+
+<MarkdownParser
+  style={{ listStyleType: 'none' }}
+  markdownContent={`- [ ] Check, check one\n- [x] Check two`}
+/>
 
 ## Line Breaks
 
