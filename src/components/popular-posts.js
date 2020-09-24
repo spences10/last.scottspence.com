@@ -18,8 +18,8 @@ const POPULAR_POSTS = [
     slug: `2020/02/06/globally-style-gatsby-styled-components/`,
   },
   {
-    title: `Windows Web-dev bootstrap`,
-    slug: `2018/12/24/wsl-bootstrap-2019/`,
+    title: `My Second Brain - Zettelkasten`,
+    slug: `2020/07/17/my-second-brain-zettelkasten/`,
   },
 ]
 
