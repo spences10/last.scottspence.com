@@ -7,10 +7,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop -p 4512 -o",
-    "build": "gatsby build && yarn wellknown",
+    "build": "gatsby build && yarn wellknown && yarn robots",
     "serve": "gatsby serve -p 4500 -o",
     "format": "pretty-quick",
-    "wellknown": "cp -r .well-known/ public/"
+    "wellknown": "cp -r .well-known/ public/",
+    "robots": "cp robots.txt public/"
   },
   "husky": {
     "hooks": {
@@ -37,7 +38,6 @@
     "gatsby-plugin-preact": "^4.0.13",
     "gatsby-plugin-react-helmet": "^3.3.12",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
-    "gatsby-plugin-robots-txt": "^1.5.3",
     "gatsby-plugin-sharp": "2.6.37",
     "gatsby-plugin-sitemap": "^2.4.14",
     "gatsby-plugin-styled-components": "3.3.12",
