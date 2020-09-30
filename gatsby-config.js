@@ -27,7 +27,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-robots-txt`,
     `gatsby-plugin-use-dark-mode`,
     `gatsby-plugin-mailgo`,
     {
