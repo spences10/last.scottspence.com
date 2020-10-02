@@ -45,48 +45,6 @@ const projects = [
       `A playful landing page to help raise awareness of the issues caused by flushing wet wipes down the toilet. Featuring the voice of (Gollum) Andy Serkis`,
     ],
   },
-  {
-    title: `Cheat Sheets`,
-    repo: `https://github.com/spences10/cheat-sheets`,
-    demo: `https://cheatsheets.xyz`,
-    tags: ['gatsby', 'mdx', 'styled-components'],
-    image: `cheat-sheets.png`,
-    copy: [
-      `Everyday commands, config, hints and tips used for modern web development.`,
-    ],
-  },
-  {
-    title: `hacker-nuxt`,
-    repo: `https://github.com/spences10/hacker-nuxt`,
-    demo: `https://hacker-nuxt.now.sh`,
-    tags: ['vue', 'tailwid'],
-    image: `hnc.png`,
-    copy: [`A simple Hackernews clone made with Nuxt`],
-  },
-  {
-    title: `cv / resume`,
-    repo: `https://github.com/spences10/cv`,
-    demo: `https://mecv.xyz`,
-    tags: ['gatsby', 'styled-components'],
-    image: `cv.png`,
-    copy: [`My CV using Gatsby and the JSON Resume schema`],
-  },
-  {
-    title: `c-counter`,
-    repo: `https://github.com/spences10/c-counter`,
-    demo: `https://c-counter.now.sh/`,
-    tags: ['gatsby', 'styled-components', 'api'],
-    image: `ccounter.png`,
-    copy: [`Cryptocurrency ticker with react`],
-  },
-  {
-    title: `Framework of the Day`,
-    repo: `https://github.com/spences10/framework-of-the-day`,
-    demo: `https://fotd.now.sh/`,
-    tags: ['react'],
-    image: `fotd.png`,
-    copy: `Get your fresh JavaScript frameworks here!`,
-  },
 ]
 
 const ProjectsWrapper = styled.div`
