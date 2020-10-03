@@ -1,0 +1,42 @@
+[
+  {
+    "title": "MDX Embed",
+    "repo": "https://github.com/PaulieScanlon/mdx-embed/",
+    "demo": "https://www.mdx-embed.com/",
+    "tags": ["gatsby", "mdx", "typescript"],
+    "image": "./mdx-embed.png",
+    "copy": [
+      "MDX Embed allows you to embed popular 3rd party media content such as YouTube videos, Tweets, Instagram posts and many more straight into your .mdx"
+    ]
+  },
+  {
+    "title": "React SEO Component",
+    "repo": "https://github.com/spences10/react-seo-component/",
+    "demo": "https://www.npmjs.com/package/react-seo-component",
+    "tags": ["typescript", "react"],
+    "image": "./react-seo-component.jpg",
+    "copy": [
+      "A React component for adding Open Graph and SEO meta tags to your projects."
+    ]
+  },
+  {
+    "title": "ASI Style Guide",
+    "repo": "",
+    "demo": "https://www.asi.style/",
+    "tags": ["gatsby", "styled-components"],
+    "image": "./asi-style.jpg",
+    "copy": [
+      "Aberdeen Standard Investments style guide made with Gatsby using MDX"
+    ]
+  },
+  {
+    "title": "City 2 Sea",
+    "repo": "",
+    "demo": "https://beagoodasshole.com/",
+    "tags": ["gatsby", "styled-components"],
+    "image": "./city-to-sea.png",
+    "copy": [
+      "A playful landing page to help raise awareness of the issues caused by flushing wet wipes down the toilet. Featuring the voice of (Gollum) Andy Serkis"
+    ]
+  }
+]
