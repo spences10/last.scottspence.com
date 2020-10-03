@@ -71,21 +71,6 @@ const ProjectCard = styled.article`
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: 1px solid ${({ theme }) => theme.colors.gray[500]};
   padding: ${({ theme }) => theme.spacing[4]};
-  &:before {
-    content: '';
-    background-image: url('${({ url }) => url}');
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 1;
-  }
-  &:hover {
-    opacity: 0.3;
-    transition: 0.5s ease;
-  }
 `
 
 const Tags = ({ tags }) => {
