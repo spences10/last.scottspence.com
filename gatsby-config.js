@@ -29,6 +29,7 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-use-dark-mode`,
     `gatsby-plugin-mailgo`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

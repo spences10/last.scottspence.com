@@ -49,6 +49,7 @@
     "gatsby-remark-smartypants": "^2.3.12",
     "gatsby-source-filesystem": "2.3.32",
     "gatsby-source-graphql": "^2.7.5",
+    "gatsby-transformer-json": "^2.4.13",
     "gatsby-transformer-sharp": "2.5.16",
     "markdown-to-jsx": "^7.0.0",
     "mdx-embed": "^0.0.14",
