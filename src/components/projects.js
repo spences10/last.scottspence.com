@@ -1,51 +1,9 @@
 import React from 'react'
 import { down, up } from 'styled-breakpoints'
 import styled from 'styled-components'
+import { useProjectsData } from '../hooks/use-projects-data'
 import { inlineCode } from './page-elements'
 import { linkHover, linkStyle } from './shared-styles'
-
-const projects = [
-  {
-    title: `MDX Embed`,
-    repo: `https://github.com/PaulieScanlon/mdx-embed/`,
-    demo: `https://www.mdx-embed.com/`,
-    tags: ['gatsby', 'mdx'],
-    image: ``,
-    copy: [
-      `MDX Embed allows you to embed popular 3rd party media content such as YouTube videos, Tweets, Instagram posts and many more straight into your .mdx`,
-    ],
-  },
-  {
-    title: `React SEO Component`,
-    repo: `https://github.com/spences10/react-seo-component/`,
-    demo: `https://www.npmjs.com/package/react-seo-component`,
-    tags: ['typescript', 'react'],
-    image: `react-seo-component.png`,
-    copy: [
-      `A React component for adding Open Graph and SEO meta tags to your projects.`,
-    ],
-  },
-  {
-    title: `ASI Style Guide`,
-    repo: ``,
-    demo: `https://www.asi.style/`,
-    tags: ['gatsby', 'styled-components'],
-    image: `asi-style.png`,
-    copy: [
-      `Aberdeen Standard Investments style guide made with Gatsby using MDX`,
-    ],
-  },
-  {
-    title: `City 2 Sea`,
-    repo: ``,
-    demo: `https://beagoodasshole.com/`,
-    tags: ['gatsby', 'styled-components'],
-    image: `city-to-sea.png`,
-    copy: [
-      `A playful landing page to help raise awareness of the issues caused by flushing wet wipes down the toilet. Featuring the voice of (Gollum) Andy Serkis`,
-    ],
-  },
-]
 
 const ProjectsWrapper = styled.div`
   position: relative;
@@ -107,12 +65,27 @@ const ProjectsWrapper = styled.div`
 `
 
 const ProjectCard = styled.article`
+  position: relative;
   height: 250px;
   overflow: hidden;
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: 1px solid ${({ theme }) => theme.colors.gray[500]};
   padding: ${({ theme }) => theme.spacing[4]};
-  background-image: url('${({ url }) => url}');
+  &:before {
+    content: '';
+    background-image: url('${({ url }) => url}');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 1;
+  }
+  &:hover {
+    opacity: 0.3;
+    transition: 0.5s ease;
+  }
 `
 
 const Tags = ({ tags }) => {
@@ -126,11 +99,13 @@ const Tags = ({ tags }) => {
 }
 
 export const Projects = () => {
+  const projects = useProjectsData()
+
   return (
     <ProjectsWrapper>
       {projects.map(p => {
         return (
-          <ProjectCard /*url={p.image}*/>
+          <ProjectCard url={p.image}>
             <h3>{p.title}</h3>
             {p.repo ? (
               <small>
