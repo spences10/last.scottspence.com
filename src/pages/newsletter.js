@@ -1,4 +1,3 @@
-import ConvertKitForm from 'convertkit-react'
 import React from 'react'
 import styled from 'styled-components'
 import { H1 } from '../components/page-elements'
@@ -14,7 +13,18 @@ export default () => {
   return (
     <Wrapper>
       <H1>Newsletter</H1>
-      <ConvertKitForm formId={`1384272`} />
+      <form
+        class="kwes-form"
+        action="https://kwes.io/api/foreign/forms/bflGuWmLSpqgCEC5SaIg"
+      >
+        <label for="name">Your Name</label>
+        <input
+          type="text"
+          name="name"
+          rules="required|max:255"
+        ></input>
+        <button type="submit">Submit</button>
+      </form>
     </Wrapper>
   )
 }
