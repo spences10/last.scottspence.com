@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.main`
@@ -47,6 +47,12 @@ const Wrapper = styled.main`
 `
 
 export default () => {
+  useEffect(() => {
+    if (window.location.hostname === `localhost`) {
+      console.log(`I'm on localhost`)
+    }
+    window.kwesFormsInitialize()
+  })
   return (
     <Wrapper>
       <form
