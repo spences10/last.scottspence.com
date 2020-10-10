@@ -1,7 +1,6 @@
 import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
-import useDarkMode from 'use-dark-mode'
 import { focusOutline } from './shared-styles'
 import {
   GitHub,
@@ -51,7 +50,6 @@ const Wrapper = styled.footer`
 `
 
 export const Footer = () => {
-  const { value } = useDarkMode()
   return (
     <Wrapper>
       <hr />
@@ -70,7 +68,7 @@ export const Footer = () => {
         rel="noopener noreferrer"
         aria-label="GitHub Account"
       >
-        <GitHub fill={value} />
+        <GitHub />
       </a>
       <a
         href="https://open.spotify.com/user/spences10"
