@@ -1,4 +1,5 @@
-import React from 'react'
+import kwesforms from 'kwesforms'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.main`
@@ -47,14 +48,24 @@ const Wrapper = styled.main`
 `
 
 export default () => {
+  useEffect(() => {
+    if (window.location.hostname === `localhost`) {
+      console.log(`I'm on localhost`)
+    }
+    kwesforms.init()
+  })
   return (
     <Wrapper>
       <form
         class="kwes-form"
-        action="https://kwes.io/api/foreign/forms/Qy4BcJqzGSbPj3slxjeG"
+        action="https://kwes.io/api/foreign/forms/RdkZ6TlyTY0ig4SwrB9s"
       >
         <label htmlFor="name">Your Name</label>
-        <input type="text" name="name" rules="required"></input>
+        <input
+          type="text"
+          name="name"
+          rules="required|max:255"
+        ></input>
         <label htmlFor="email_address">Your Email</label>
         <input
           type="email"
@@ -62,7 +73,7 @@ export default () => {
           rules="required|email"
         />
         <label htmlFor="message">Your Message</label>
-        <textarea name="message" />
+        <textarea name="message" rules="required" />
         <button type="submit">Submit</button>
       </form>
     </Wrapper>
