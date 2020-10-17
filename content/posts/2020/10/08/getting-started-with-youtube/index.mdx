@@ -1,6 +1,6 @@
 ---
 date: 2020-10-08
-title: Getting Started with YouTube Videos
+title: Getting Started with Creating YouTube Videos
 tags: ['getting started', 'guide', 'resource']
 private: true
 ---
@@ -115,8 +115,8 @@ going to break the bank but not incredibly cheap either.
   from the desk (when typing) if the mic is on the desk.
 
 The sound will be the most important thing when people are watching
-your video so a decent mic will go a long way, I'm still really happy
-with the quality of my Fifine USB mic I got back in 2018.
+your video so a decent mic will go a _long_ way, I'm still really
+happy with the quality of my Fifine USB mic I got back in 2018.
 
 For screen recording all I have ever used is OBS on Windows, Linux and
 macOS so I'm not able to recommend anything outside of that. Doing the
@@ -158,8 +158,8 @@ when you make a recording.
 
 ![empty-starting-scene]
 
-You can right click on the Scene name and select Rename to give it a
-more meaningful name if you wish.
+You can right click on the Scene name and select Rename from the
+context menu to give it a more meaningful name if you wish.
 
 First thing that will need to be added to the Scene is a display to
 record. In the Sources panel (next to Scenes) click the plus button
@@ -168,7 +168,7 @@ select a screen to display in the scene.
 
 ![add-display-capture.png]
 
-Check the video here on setting up your first OBS Scene.
+Check the video here on setting up your first OBS Scene:
 
 <YouTube youTubeId="hSgI0z9E3tA" />
 
@@ -188,12 +188,16 @@ If I'm streaming there's a couple I'd use, first would be same if it
 were a pre-record with a desktop input source and a video capture
 device.
 
-There are a few scenarios if you're streaming where you're not able to
-stay on the camera, like when that delivery you've been waiting all
-day to turn up knocks on your door ten minutes into a stream!
+#### Be Right Back!
+
+If you're streaming and you're not able to stay on the camera, like
+when that delivery you've been waiting on all day decides to turn up
+and knock on your door ten minutes into a stream!
 
 This would be a good candidate for a **Be Right Back** Scene, this
 (for me) is an image I created in PowerPoint with BRB on there.
+
+#### Countdown Timer
 
 If you're streaming and want to have a countdown timer, there's a
 script you can use in OBS available for download in the [OBS forum
@@ -216,20 +220,59 @@ section].
 
 ![add-script]
 
-Here you can add in the duration and the start and stop text.
+Here you can add in the duration and the start and stop text. You'll
+also need to add the Text Source as the Text (GDI+) source you added,
+type the name you gave the text source in here.
 
 See the video here for a walkthrough of setting it up:
 
 <YouTube youTubeId="rUHy_tBzXus" />
 
-When this happens it's handy to have a Be Right Back banner to show
-while you go pick up your parcel from the delivery driver.
-
 ### Lighting
+
+Lighting is something I didn't worry about too much when I first
+started but now that the days are drawing in and there's less natural
+light available a little extra light goes a long way!
+
+The images in this tweet were taken early in the morning with no
+available natural light, the little USB light is angled away from my
+face towards the wall behind my monitor.
 
 <Tweet tweetLink="spences10/status/1315169567199694849" />
 
+This little lamp is enough for me right now as that's all I have room
+for really, your situation may be different.
+
 ### Sound
+
+Sound is one major factor in videos, if is sounds like crap no one
+wants to hang around.
+
+OBS has some great options for this and in the latest version (26.0.2)
+there's been some awesome additions.
+
+Prior to that I had issues sometimes with background hiss on my mic
+and I had a noise gate filter, this would be when you spoke and you
+voice was over a certain level then the mic opened reducing the
+background noise.
+
+With the latest OBS version there's an option for Noise Suppression
+which resolved most of the issues I was having, adding a little extra
+gain goes a long way too.
+
+To add filters to your mic input click on the cog nex to where the mic
+level is moving and select Filters fom the context menu.
+
+From here add in the desired filters, ones I have are Noise
+Suppression, Compressor, Gain and Noise Gate.
+
+They are all at the default setting except for gain which is at
+10.00dB. These setting will vary with differing microphones so my
+setting will probably not match what result you want from your set up.
+
+Check out the short video detailing adding filters to your mic input.
+
+<YouTube youTubeId="FQz4hZmd6Qc" />
 
 ## Editing
 
@@ -281,6 +324,8 @@ be [OpenShot] and [Shotcut], both open source and cross platform.
 [2009]: https://www.youtube.com/watch?v=9gk_rl3y_SU
 [obs forum resources section]:
   https://obsproject.com/forum/resources/count-down-adaptive-time.719/
+[large microphone boom arm]:
+  https://www.amazon.co.uk/gp/product/B07JN2CJF9/ref=ppx_yo_dt_b_search_asin_title
 
 <!-- Images -->
 
