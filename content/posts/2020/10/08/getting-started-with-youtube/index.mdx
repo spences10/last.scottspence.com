@@ -37,7 +37,6 @@ simplicities sake I have literally copy pasted them from the
 conversation I had with Rich:
 
 - [How to get started](#how-to-get-started)
-- [Disclaimer](#disclaimer)
 - [What do I need](#what-do-i-need)
 - [How do I set it up](#how-do-i-set-it-up)
 - [Editing](#editing)
@@ -48,6 +47,13 @@ start pretty much.
 
 Like with most of the content I write, I'm making this for people one
 or a couple of steps behind me but ultimately for future me.
+
+## Disclaimer
+
+This is my opinionated guide, the tools and approaches I use may not
+work for you. My primary OS now for making content is Windows
+([powered by WSL]) I used Linux in the past but the experience was a
+bit too rough around the edges to justify using it.
 
 ## How to get started
 
@@ -68,7 +74,10 @@ In the words of MKBHD
   }}
 />
 
-Some sage advice from Twitter motivator Danny Thompson.
+What you also need to bear in mind is that MKBHD has also been
+consistently adding videos to YouTube since [2009].
+
+Here's some sage advice from Twitter motivator Danny Thompson.
 
 <Tweet tweetLink="DThompsonDev/status/1315087467733815297" />
 
@@ -78,26 +87,19 @@ Also from Rich himself when feeling particularly insightful.
 
 They both covey the same message.
 
-## Disclaimer
-
-This is my opinionated guide, the tools and approaches I use may not
-work for you. My primary OS now for making content is Windows
-([powered by WSL]) so I used Linux in the past but the experience was
-a bit too rough around the edges to justify using it.
-
 ## What do I need
 
 As this is my opinionated guide I'll be detailing what I use for the
 content I'm producing (mainly coding guides).
 
-The basics would be:
+The basics you would need would be:
 
 - a computer
 - a mic
 - screen capture software
 
-My list of tools I use for recording videos, nothing that's going to
-break the bank but not incredibly cheap either.
+Here's my list of tools I use for recording videos, nothing that's
+going to break the bank but not incredibly cheap either.
 
 - [Fifine USB Mic], at £24.99 when I purchased it in 2018, it's now
   around £50.
@@ -109,20 +111,26 @@ break the bank but not incredibly cheap either.
   licence (at £49.99) when it's time to renew.
 - [USB Lighting], this clips to the desk and adds a little additional
   lighting, at £9.09 it'll do for now.
+- [Large Microphone Boom Arm], not essential but is can cut vibrations
+  from the desk (when typing) if the mic is on the desk.
 
 The sound will be the most important thing when people are watching
 your video so a decent mic will go a long way, I'm still really happy
-with the quality of my Fifine USB mic.
+with the quality of my Fifine USB mic I got back in 2018.
 
 For screen recording all I have ever used is OBS on Windows, Linux and
 macOS so I'm not able to recommend anything outside of that. Doing the
-standard **"screen recording software"** Google search brings up loads
-of options for free and paid software.
+standard **"screen recording software"** search brings up loads of
+options for free and paid software.
 
-There's also Streamlabs OBS which has a lot of pre-made scenes and
-integration with YouTube and Twitch. Streamlabs OBS is a fork of OBS
-so if there are any improvements in OBS they may take a while to be
-implemented in Streamlabs OBS.
+There is also Streamlabs OBS which has a lot of pre-made scenes and
+integration with YouTube and Twitch.
+
+Streamlabs OBS is alltogether a much nice looking experience but I
+found it a bit tedious digging around for settings.
+
+Streamlabs OBS is a fork of OBS so if there are any improvements in
+OBS they may take a while to be implemented in Streamlabs OBS.
 
 ## How do I set it up
 
@@ -135,13 +143,30 @@ based on your hardware and internet speed.
 
 ![obs-auto-configuration-wizard]
 
-There's two options, if you're not interested in streaming on Twitch
-then I'd suggest selecting the second option.
+There are two options, if you're not interested in streaming on Twitch
+then I'd suggest selecting the second option. The last option is for
+sharing your scenes with other software like Zoom.
 
 [Open Broadcaster Software] (OBS) is a whole post in itself I think!
 
 For the very basics you're going to need a scene with a display
 capture.
+
+The bottom left corner will show you the Scenes collection, this is
+where you can create differing appearances of how the screen appears
+when you make a recording.
+
+![empty-starting-scene]
+
+You can right click on the Scene name and select Rename to give it a
+more meaningful name if you wish.
+
+First thing that will need to be added to the Scene is a display to
+record. In the Sources panel (next to Scenes) click the plus button
+and select Display Capture, the next dialogue will prompt you to
+select a screen to display in the scene.
+
+![add-display-capture.png]
 
 Check the video here on setting up your first OBS Scene.
 
@@ -221,7 +246,10 @@ be [OpenShot] and [Shotcut], both open source and cross platform.
 [xsplit vcam]: https://www.xsplit.com/vcam
 [aukey webcam]:
   https://www.amazon.co.uk/gp/product/B0721MKXQ2/ref=ppx_yo_dt_b_search_asin_title
+[2009]: https://www.youtube.com/watch?v=9gk_rl3y_SU
 
 <!-- Images -->
 
 [obs-auto-configuration-wizard]: ./obs-auto-configuration-wizard.png
+[empty-starting-scene]: ./empty-starting-scene.png
+[add-display-capture.png]: ./add-display-capture.png
