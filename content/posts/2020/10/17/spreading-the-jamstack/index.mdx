@@ -7,3 +7,290 @@ private: true
 
 I have delivered this talk several times now but not actually written
 about it.
+
+- Been professional web a developer since 2018
+- Analyst Developer 10 years previously
+- Large financial organisations Braclays, Fidelity and Deloitte
+- I'm married, I have a wife and Daughter and we live in Kent here in
+  the UK
+
+- I'm a cat dad...
+- That's Boris, Leo and Darcy
+- Ok, ice breakers out of the way
+- Little bit more about me before we continue, some shamless plugs
+
+- I'm one half of the Whiskey Wednesday podcast
+- Catch us on Spotify
+
+- I work at Karmarama (Part of Accenture Interactive)
+- Adverts in the UK like the recent one for: Army, Lidl, Guide Dogs
+- I work in Creative Products, Working with clients like, Tescos,
+  Sainsburys, BT, EDF, SSE
+- I'm not sure about how much details I can give about recent projects
+  so I'll say...
+- We've used the Jamstack for several projects we have in production
+
+- It's nice to get a bit of feedback
+- Who knows what Jamstack is
+- Who cares?
+- Hopefully by the end you will care more
+
+- First up! It's not JAMstack anymore
+
+- It's Jamstack
+- The creator of the term and his company have decided it's Jamstack
+- Coined back in 2016 by Netlify CEO Matt Billman
+- More on the reasoning for the name in a bit
+
+- There's now a logo
+
+## What's a Jamstack? 🤔
+
+- JavaScript
+- APIs
+- Markup
+
+- The holy trinity of web development
+- The Jamstack is not about specific technologies.
+- Like, LAMP, MEAN, MERN, whatever
+- It's more a paradigm of how to deploy
+- a way of building websites and apps that helps deliver:
+
+- better performance,
+- more secured projects,
+- lower cost of scaling,
+- and MOST IMPORTANTLY a better developer experience.
+- I say MOST IMPORTANTLY as a developer, but ultimately it will lead
+  to a better user experience.
+
+## JavaScript
+
+- Any dynamic programming during the request/response cycle is handled
+  by JavaScript,
+- running entirely on the client (the browser).
+- This could be any frontend framework, library, or even vanilla
+  JavaScript.
+
+## APIs
+
+- All server-side processes or database actions are abstracted into
+  reusable APIs,
+- accessed over HTTPS with JavaScript.
+- These can be custom-built or leveraged third-party services.
+
+## Markup
+
+- Templated markup should be prebuilt at deploy time,
+- usually using a site generator for content sites,
+- or a build tool for web apps.
+
+## AKA Static Sites
+
+- static site generators, SSGs
+- when you think about static sites what do you think?
+
+## Static
+
+## What is static?
+
+- if we look at the dictionary definition
+- Static (loaded term) - lacking movement, action or change
+
+## Is my project Jamstack?
+
+- When is your site not built with the Jamstack?
+- Does it depend on a web server?
+- A site built with a server-side CMS like WordPress, Drupal or
+  Squarespace.
+- A monolithic server-run web app that relies on Ruby, Node, or
+  another backend language.
+- A single page app that uses isomorphic rendering to build views on
+  the server at runtime.
+- Back to the Jamstack though
+
+## Jamstack
+
+- It's not the experience
+- It's the architecture
+- why is that important though?
+
+- why is that important though?
+- slight tangent now
+
+## Perf
+
+- Performance matters
+
+## Speed
+
+## 🐢
+
+## People want things fast
+
+- Perf has been a factor in Google's ranking algorithm since 2010
+- That's not news,
+- people are using mobile devices a lot more now for everything
+- there are two indexes, desktop and mobile
+- perf will affect...
+
+## How users interact with your site
+
+## and it _will_ impact rankings
+
+## Click through rates
+
+## Time spent on page
+
+## Return rates
+
+- returning users
+
+## Bounce Rates & Conversions
+
+## where it _really_ matters
+
+## 💷 💳 💸 🤑
+
+- emoji here to emphasise the importance
+- so...
+
+## How fast is fast enough?
+
+## 2 seconds ⏱
+
+- apparently
+- let's take a look at an infographic...
+
+- this slide is from a think with Google post,
+- on mobile industry benchmarks (from 2018)
+- from 2018 so this has probably decreased
+- Just under a third of potential visitors lost after three seconds
+
+## Back to static
+
+## Perf
+
+No work at request time.
+
+##### for the content that's not dynamic
+
+- Static means
+- No work to be done at request time
+
+## Security
+
+Much smaller attack surface to secure and protect
+
+- lets look at an example of how that works
+
+## _Dynamic_
+
+- Browser 👀
+- ⬇
+- CDN 🌐
+- ⬇
+- Load balancer ⚖
+- ⬇
+- Web server 🤹‍♀️
+- ⬇
+- Database server ‍🤹‍♀️
+- ⬇🔃
+- Browser 👀
+
+- simplified example
+- Some resources that may be on a CDN
+- Or an origin server that is sitting behind a
+- AWS load balancer,
+- and there'll be logic on there to route the request
+- to one of maybe several web servers
+- Web server for server things
+- Then there may be a request for things to render from a database
+- then imagine this as a round trip
+
+## _Jamstack_
+
+- Browser 👀
+- ⬇
+- CDN 🌐
+- ⬇
+- Browser 👀
+
+- CDN
+- this can be enriched further with the A in the Jamstack
+- The Gatsby team refer to this as the content mesh
+- have your prebuilt site and enrich further with services
+- and micro-services
+- these can be leveraged directly in the browser
+- or at build time
+
+## Empower
+
+## front end developers
+
+- much smaller stack
+- fewer things for the developer to manage
+
+## Powered
+
+## By modern browsers
+
+- the capabilities they have
+
+## Enhanced
+
+## By a rich ecosystem of services
+
+- Now.sh, Netlify
+- GraphCMS, Strapi
+- Snipcart, stripe
+
+## Impact
+
+## Processes and organisation
+
+## Static Site Generators
+
+## JavaScript
+
+### Gatsby.js
+
+### Next.js
+
+- I've made it this far without mentioning any frameworks
+- I'm sure I've impressed my team with that!
+- Static site generators aren't new
+- April 2013 for Jekyll
+
+- Gatsby is more of a PWA generator
+- Detail the workflow
+- Netlify with a pre built template
+- Netlify with Gatsby
+- Netlify with this presentation
+- Now.sh with a pre built template
+- Now.sh with Gatsby
+- Now.sh with this presentation
+- Netlify with a pre built template
+- search HTML5 template, pick http://www.initializr.com/
+- download bootstrap version
+- load it to Netlify
+- Mind blown
+
+## Jamstack sites
+
+- smashingmagazine.com
+- jfkt4.nyc
+- reactjs.org
+- store.gatsbyjs.org
+- nozzle.io
+
+## Resources
+
+- [staticgen.com/](https://www.staticgen.com/)
+
+- [404pagefound.com/](http://www.404pagefound.com/)
+
+- [jamstack.wtf/](https://jamstack.wtf/)
+
+- [how-mobile-latency-impacts-publisher-revenue/](https://www.thinkwithgoogle.com/intl/en-154/insights-inspiration/research-data/need-mobile-speed-how-mobile-latency-impacts-publisher-revenue/)
+
+- [mobile-page-speed-new-industry-benchmarks/](https://www.thinkwithgoogle.com/marketing-resources/data-measurement/mobile-page-speed-new-industry-benchmarks/)
