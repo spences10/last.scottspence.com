@@ -8,6 +8,88 @@ private: true
 I have delivered this talk several times now but not actually written
 about it.
 
+Sooooo, let's talks about the Jamstack!
+
+## What is the Jamstack?
+
+It's JavaScript APIs and Markup
+
+Javascript === browserside
+
+APIS === the backend for the browser
+
+Markup === html, css
+
+Using these technologies together is the term stack
+
+Let's looks at some other stacks
+
+LAMP (Linux, Apache, MySQL, PHP)
+
+MEAN (MongoDB, ExpressJS, AngularJS, NodeJS)
+
+MErN (MongoDB, ExpressJS, React, NodeJS)
+
+These technologies generate the template for the pages you're going to
+see on the fly on a server somewhere.
+
+Notice that the technologies are specific?
+
+With the Jamstack your not bound to a certain framework
+
+Jekyll
+
+11ty
+
+Gatsby
+
+Nuxt
+
+The core philopiphy is to generate as much as you can at build time
+then server that statically from a CDN.
+
+Anything that generates static HTML then fetches data from an API can
+be termed jamstack.
+
+Three different types of pages,
+
+1. totally static like a landing page,
+
+2. build time, referred to as prerendering, data for this is usually
+   sitting somewhere else like a Markdown file a CMS or an API
+   somewhere. Build a template somewhere and use the data to populate
+   the template.
+
+3. Data that is either stale or can't be added at build time, like
+   user generated data, in this case you use a loading indicator
+   whilst you retrieve the data from the API.
+
+## Advantages
+
+Cheaper or easier scaling
+
+Better performance, the caveat being for dynamic data where the static
+files will be served from the CDN then making an API request to ge the
+data, in this case server side rendering would be faster.
+
+Higher security
+
+Better DX
+
+## When to use it
+
+Main consideration would be SEO
+
+Is the content you need SEO for dynamic?
+
+Yes === SSR
+
+No === Jamstack
+
+## What does that mean then?
+
+An index.html file is a Jamstack site
+
 - Been professional web a developer since 2018
 - Analyst Developer 10 years previously
 - Large financial organisations Braclays, Fidelity and Deloitte
@@ -277,20 +359,31 @@ Much smaller attack surface to secure and protect
 
 ## Jamstack sites
 
-- smashingmagazine.com
-- jfkt4.nyc
-- reactjs.org
-- store.gatsbyjs.org
-- nozzle.io
+- [smashingmagazine.com]
+- [jfkt4.nyc]
+- [reactjs.org]
+- [store.gatsbyjs.
+- [nozzle.io]
 
 ## Resources
 
-- [staticgen.com/](https://www.staticgen.com/)
+- [staticgen.com]
+- [404pagefound.com]
+- [jamstack.wtf]
+- [how-mobile-latency-impacts-publisher-revenue]
+- [mobile-page-speed-new-industry-benchmarks]
 
-- [404pagefound.com/](http://www.404pagefound.com/)
+<!-- Links -->
 
-- [jamstack.wtf/](https://jamstack.wtf/)
-
-- [how-mobile-latency-impacts-publisher-revenue/](https://www.thinkwithgoogle.com/intl/en-154/insights-inspiration/research-data/need-mobile-speed-how-mobile-latency-impacts-publisher-revenue/)
-
-- [mobile-page-speed-new-industry-benchmarks/](https://www.thinkwithgoogle.com/marketing-resources/data-measurement/mobile-page-speed-new-industry-benchmarks/)
+[smashingmagazine.com]: https://smashingmagazine.com
+[jfkt4.nyc]: https://jfkt4.nyc
+[reactjs.org]: https://reactjs.org
+[store.gatsbyjs.org]: https://store.gatsbyjs.org
+[nozzle.io]: https://nozzle.io
+[staticgen.com]: https://www.staticgen.com/)
+[404pagefound.com]: http://www.404pagefound.com/)
+[jamstack.wtf]: https://jamstack.wtf/)
+[how-mobile-latency-impacts-publisher-revenue]:
+  https://www.thinkwithgoogle.com/intl/en-154/insights-inspiration/research-data/need-mobile-speed-how-mobile-latency-impacts-publisher-revenue/
+[mobile-page-speed-new-industry-benchmarks]:
+  https://www.thinkwithgoogle.com/marketing-resources/data-measurement/mobile-page-speed-new-industry-benchmarks/
