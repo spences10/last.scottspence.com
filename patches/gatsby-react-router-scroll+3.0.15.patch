@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby-react-router-scroll/scroll-handler.js b/node_modules/gatsby-react-router-scroll/scroll-handler.js
+index 91114f2..9284f09 100644
+--- a/node_modules/gatsby-react-router-scroll/scroll-handler.js
++++ b/node_modules/gatsby-react-router-scroll/scroll-handler.js
+@@ -104,7 +104,7 @@ var ScrollHandler = /*#__PURE__*/function (_React$Component) {
+       scrollPosition = this._stateStorage.read(this.props.location, key);
+     }
+ 
+-    if (hash && scrollPosition === 0) {
++    if (hash) {
+       this.scrollToHash(decodeURI(hash), prevProps);
+     } else {
+       this.windowScroll(scrollPosition, prevProps);
