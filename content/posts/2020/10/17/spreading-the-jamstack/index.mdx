@@ -18,7 +18,12 @@ Javascript === browserside
 
 APIS === the backend for the browser
 
-Markup === html, css
+(pre rendered) Markup === html, css, markdown, templating languages
+
+Specifically, markup in the Jamstack terminology refers to
+“pre-rendered” markup or content served in its final form, HTML.
+
+One interesting this is that none of these technologies are new.
 
 Using these technologies together is the term stack
 
@@ -45,11 +50,16 @@ Gatsby
 
 Nuxt
 
-The core philopiphy is to generate as much as you can at build time
+The core philosophy is to generate as much as you can at build time
 then server that statically from a CDN.
 
 Anything that generates static HTML then fetches data from an API can
 be termed jamstack.
+
+The distinction here is the delivery mechanism of content. Within the
+Jamstack model, content is not delivered dynamically via a web server
+tasked with building pages at runtime. Rather, markup is prebuilt
+upfront and served to the browser via a CDN.
 
 Three different types of pages,
 
