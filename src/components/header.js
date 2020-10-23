@@ -25,9 +25,10 @@ const StyledHeader = styled.header`
       display: contents;
     }
   }
-  h1 {
+  .site-title {
     font-family: Inconsolata, monospace;
     font-size: ${({ theme }) => theme.fontSize['3xl']};
+    margin-top: ${({ theme }) => theme.spacing[1]};
     background: linear-gradient(
       var(
         --title-gradient-from,
@@ -93,11 +94,11 @@ export const Header = ({ title, description }) => {
     <>
       <StyledHeader>
         <StyledLink to="/" id="top-of-page">
-          <h1>
+          <p className="site-title">
             <span className="first-name">Scott</span>
             <span className="last-name">Spence</span>
             <span className="dot-com">.com</span>
-          </h1>
+          </p>
           <p>{description}</p>
         </StyledLink>
         <ToggleTheme />
