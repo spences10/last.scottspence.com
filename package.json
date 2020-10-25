@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "description": "A digital garden.",
   "main": "index.js",
-  "author": "Scott Spence <yo@scottspence.dev>",
+  "author": {
+    "name": "Scott Spence",
+    "email": "yo@scottspence.dev",
+    "url": "https://scottspence.com"
+  },
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop -p 4512 -o",
