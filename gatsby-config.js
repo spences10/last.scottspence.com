@@ -22,7 +22,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-mdx-embed`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-preact`,
@@ -30,6 +29,12 @@ module.exports = {
     `gatsby-plugin-use-dark-mode`,
     `gatsby-plugin-mailgo`,
     `gatsby-transformer-json`,
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        experimentalDisableLazyProcessing: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -137,4 +142,5 @@ module.exports = {
       },
     },
   ],
+  __experimentalQueryOnDemand: true,
 }
