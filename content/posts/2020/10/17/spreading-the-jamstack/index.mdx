@@ -28,58 +28,52 @@ thousands of users.
 I have evangelised the adoption of the jamstack wherever I saw there
 was an advantage to using it.
 
-## What is the Jamstack?
+## What is the jamstack?
 
-It's JavaScript APIs and Markup
+It's JavaScript, APIs and Markup
 
-Javascript === browserside
+Javascript > browserside
 
-APIS === the backend for the browser
+APIS > the backend for the browser
 
-(pre rendered) Markup === html, css, markdown, templating languages
+(pre rendered) Markup > html, css, markdown, templating languages
 
 Specifically, markup in the Jamstack terminology refers to
 “pre-rendered” markup or content served in its final form, HTML.
 
 One interesting this is that none of these technologies are new.
 
-Using these technologies together is the term stack
+Using a group of technologies together is where the term stack comes
+from. It doesn't necessarily have to be tech, the fitness industry
+term their nutritional supplements combination as a stack, anyway...
 
-Let's looks at some other stacks
+Let's looks at some other web dev stacks:
 
-LAMP (Linux, Apache, MySQL, PHP)
+**LAMP** (Linux, Apache, MySQL, PHP)
 
-MEAN (MongoDB, ExpressJS, AngularJS, NodeJS)
+**MEAN** (MongoDB, ExpressJS, AngularJS, NodeJS)
 
-MERN (MongoDB, ExpressJS, React, NodeJS)
+**MERN** (MongoDB, ExpressJS, React, NodeJS)
 
 These technologies generate the template for the pages you're going to
 see on the fly on a server somewhere.
 
 Notice that the technologies are specific?
 
-With the Jamstack your not bound to a certain framework
+With the jamstack your not bound to a certain framework or database
+choice.
 
-Let's take a look at some static site generators:
+## Jamstack core philosophy
 
-Jekyll
-
-11ty
-
-Gatsby
-
-Nuxt
-
-The core philosophy is to generate as much as you can at build time
-then serve that statically from a CDN.
-
-Anything that generates static HTML then fetches data from an API can
-be termed jamstack.
+The core philosophy with the jamstack is to generate as much content
+as you can at build time then serve that statically from a CDN.
 
 The distinction here is the delivery mechanism of content. Within the
-Jamstack model, content is not delivered dynamically via a web server
-tasked with building pages at runtime. Rather, markup is prebuilt
-upfront and served to the browser via a CDN.
+jamstack model, content is not delivered dynamically via a web server
+tasked with building pages at runtime.
+
+Rather, the markup is prebuilt upfront and served to the browser via a
+CDN.
 
 Three different types of pages,
 
@@ -112,11 +106,23 @@ Main consideration would be SEO
 
 Is the content you need SEO for dynamic?
 
-Yes === SSR
+Yes > SSR
 
-No === Jamstack
+No > Jamstack
 
 ## What does that mean then?
+
+## Static
+
+Let's take a look at some static site generators:
+
+Jekyll
+
+11ty
+
+Gatsby
+
+Nuxt
 
 ## Performance matters
 
