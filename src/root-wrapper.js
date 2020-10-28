@@ -28,6 +28,7 @@ import {
   Ul,
 } from './components/page-elements'
 import { Projects } from './components/projects'
+import { Sarcasm } from './components/sarcasm'
 import { AnalyticsProvider } from './contexts/event-tracking'
 import { GlobalStyle, theme } from './theme'
 
@@ -63,6 +64,7 @@ const components = {
   Projects,
   ConvertKitForm,
   MarkdownParser,
+  Sarcasm,
 }
 
 export const wrapPageElement = ({ element }) => (
