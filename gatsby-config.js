@@ -29,12 +29,7 @@ module.exports = {
     `gatsby-plugin-use-dark-mode`,
     `gatsby-plugin-mailgo`,
     `gatsby-transformer-json`,
-    {
-      resolve: 'gatsby-plugin-sharp',
-      options: {
-        experimentalDisableLazyProcessing: true,
-      },
-    },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -142,5 +137,4 @@ module.exports = {
       },
     },
   ],
-  __experimentalQueryOnDemand: true,
 }
