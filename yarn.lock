@@ -9811,10 +9811,10 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
-kwesforms@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/kwesforms/-/kwesforms-2.0.2.tgz#632279a27688df96c40702793d8e9435a4cc9501"
-  integrity sha512-ckhwOatNCGNjDz+5G2+l9Tp5CUeG504dfQ1DXDePpjBzZNIl0T4MZ4Wsiz/2lE+IpwNW437hM5sx8CpHknsQ0A==
+kwesforms@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/kwesforms/-/kwesforms-2.0.3.tgz#590fc824b241f03ade6e164a4314da91d12a7bf4"
+  integrity sha512-DG7iqgyFFD625lyGS7weEm5UPE/zn4+bhVxqVcPzHhrWh5Eq5X8acW2JvtE7JKCajU5iqZkpQroSIxpxq4gtxA==
 
 language-subtag-registry@~0.3.2:
   version "0.3.20"
