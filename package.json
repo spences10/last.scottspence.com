@@ -60,7 +60,7 @@
     "markdown-to-jsx": "^7.0.1",
     "mdx-embed": "^0.0.14",
     "mdx-utils": "0.2.0",
-    "preact": "^10.5.4",
+    "preact": "^10.5.5",
     "preact-render-to-string": "^5.1.9",
     "prism-react-renderer": "1.1.1",
     "react": "16.14.0",
