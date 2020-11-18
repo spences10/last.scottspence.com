@@ -72,7 +72,7 @@
     "react-share": "^4.3.1",
     "styled-breakpoints": "^9.0.0",
     "styled-components": "5.2.1",
-    "styled-reset": "4.3.0",
+    "styled-reset": "4.3.1",
     "use-dark-mode": "^2.3.1",
     "victormono": "^1.4.2"
   },
