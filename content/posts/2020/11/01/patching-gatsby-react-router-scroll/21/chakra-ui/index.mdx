@@ -1,0 +1,121 @@
+---
+date: 2020-11-21
+title: Chakra UI and Gatsby - Getting Started
+tags: ['gatsby', 'getting started', 'guide']
+private: true
+---
+
+Ok, so this is another one of those "let's use a new CSS-in-JS library
+on a Gatsby default starter project" post.
+
+In this case it's Chakra UI, it's recently gone v1 and I'm keen to use
+it.
+
+<Tweet tweetLink="thesegunadebayo/status/1327234974970425344" />
+
+What I'm going to be doing is styling the [Gatsby starter default]
+using Chakra UI and chucking in a theme toggle as well.
+
+This will involve swapping out the styles that come with the [Gatsby
+starter default] with Chakra UI ones.
+
+The end result I'l aiming for is for it to look exactly the same as
+before but using Chakra UI in place of the styling it comes with.
+
+## Pre requisites
+
+The usual notes on development environment, this comes with the
+presumption you'll already have a development environment set up and
+configured. If you don't have a development environment then you can
+always use [CodeSandbox.io] to get up and running with an environment.
+
+In the examples here I'm using Node version `14.13.0`.
+
+Here's some of the dependencies being used in this guide, they're all
+latest versions at the time of writing this.
+
+```json
+"@chakra-ui/gatsby-plugin": "^1.0.0",
+"@chakra-ui/icons": "^1.0.1",
+"@chakra-ui/react": "^1.0.1",
+"@emotion/react": "^11.1.1",
+"@emotion/styled": "^11.0.0",
+"framer-motion": "^2.9.4",
+"gatsby": "^2.26.1",
+"react": "^17.0.1",
+"react-dom": "^17.0.1",
+```
+
+## Create the thing
+
+Spin up a new Gatsby project with `npx`:
+
+```bash
+npx gatsby new gatsby-chakra-ui
+```
+
+You can install and use the Gatsby CLI if you like, in this instance
+I'm going `npx` as I'm not going to need any of the Gatsby CLI
+functionality.
+
+Wait for that to finish doing it's thing then change directory to the
+freshly created gatsby project. Cool, cool, do a quick `yarn develop`
+to make sure everything's installed ok with no issues.
+
+## Install the things
+
+```bash
+yarn add \
+  @chakra-ui/react \
+  @emotion/react \
+  @emotion/styled \
+  framer-motion \
+  @chakra-ui/gatsby-plugin \
+  @chakra-ui/icons
+```
+
+Add the Chakra UI Gatsby plugin to the Gatsby plugin array in
+`gatsby-config.js`
+
+All the styles are gone
+
+## Root Wrapper time!
+
+## Theme Toggle
+
+```jsx
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import {
+  IconButton,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react'
+import React from 'react'
+
+export default function ThemeToggle() {
+  const { toggleColorMode: toggleMode } = useColorMode()
+  const ToggleIcon = useColorModeValue(SunIcon, MoonIcon)
+
+  return (
+    <IconButton
+      icon={<ToggleIcon />}
+      variant="ghost"
+      aria-label="Toggle Theme"
+      onClick={toggleMode}
+    />
+  )
+}
+```
+
+<!-- Links -->
+
+[gatsby starter default]:
+  https://github.com/gatsbyjs/gatsby-starter-default
+[gatsby documentation]:
+  https://www.gatsbyjs.com/plugins/gatsby-plugin-chakra-ui/
+[chakra ui getting started]:
+  https://chakra-ui.com/docs/getting-started
+[codesandbox.io]: http://codesandbox.io/
+
+[]:
+https://github.com/chakra-ui/chakra-ui/blob/develop/website/pages/guides/integrations/with-gatsby.mdx#chakra-providers
