@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { inlineCode } from './inline-code'
 
 const Wrapper = styled.div`
   margin-top: ${({ theme }) => theme.spacing[6]};
@@ -8,6 +9,9 @@ const Wrapper = styled.div`
     li {
       list-style-type: decimal;
     }
+  }
+  code {
+    ${inlineCode}
   }
 `
 

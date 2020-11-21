@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { inlineCode } from './inline-code'
 
 export const StyledLi = styled.li`
   list-style-type: circle;
@@ -8,6 +9,9 @@ export const StyledLi = styled.li`
   line-height: ${({ theme }) => theme.lineHeight.tight};
   p {
     margin-top: 10px;
+  }
+  code {
+    ${inlineCode}
   }
 `
 
