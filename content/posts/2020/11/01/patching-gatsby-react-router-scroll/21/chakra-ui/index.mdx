@@ -2,7 +2,7 @@
 date: 2020-11-21
 title: Chakra UI and Gatsby - Getting Started
 tags: ['gatsby', 'getting started', 'guide']
-private: true
+private: false
 ---
 
 Ok, so this is another one of those "let's use a new CSS-in-JS library
@@ -144,7 +144,8 @@ export const wrapPageElement = ({ element }) => {
 
 So now there's no need to import the layout component into each page
 that is created. I'll need to remove the layout from component from
-the `404.js`, `index.js` and `page-2.js` pages.
+the `404.js`, `index.js` ,`page-2.js` and `using-typescript.tsx`
+pages.
 
 ## Theme Toggle
 
@@ -185,15 +186,18 @@ export default function ThemeToggle() {
 
 I'll add this to the header component for now.
 
-## Chakra UI style
+## Style it with Chakra UI
 
 Ok, now I've done the groundwork I can start removing the inline
 styles in this project, I'll start with the header component.
 
-Here's the component with the inline styles swapped out for Chakra UI
-styles.
+I'll straight up copy pasta the changed code in here, som of these may
+be a bit long, I'll shorten them where I can so there's no code walls.
 
 ## Style the header
+
+Here's the component with the inline styles swapped out for Chakra UI
+styles.
 
 I've left out the default export and prop types for brevity.
 
@@ -227,7 +231,7 @@ const Header = ({ siteTitle }) => (
 Notice that the `<header>` tag and the `<div>` tags are now both
 Chakra UI `<Box>` components?
 
-They're both using the Chakra UI [as] prop, this is a feature that
+They're both using the Chakra UI [`as`] prop, this is a feature that
 allows you to pass an HTML tag or component to be rendered. Pretty
 neat right?
 
@@ -237,6 +241,9 @@ on hover with the `_hover` prop.
 
 So with that being done it takes the 42 lines that was there
 previously down to 35 lines of code.
+
+I've also added the theme toggle button, not the best way to position
+it mind you, just for funsies!
 
 ## Style the layout
 
@@ -280,7 +287,7 @@ Ok, that's it for the components, onto the pages now.
 
 ## Style the 404 page
 
-The 404 page, I've added in a Chakra UI `<Heading>` and `Text`
+On the 404 page, I've added in a Chakra UI `<Heading>` and `Text`
 components and added the `fontSize` prop along with with some margin
 top and bottom on the text component with the `my` prop.
 
@@ -308,12 +315,6 @@ The index page you'll notice is a bit larger due to the additional
 props needed for the link components.
 
 ```jsx
-import { Box, Heading, Link, Text } from '@chakra-ui/react'
-import { Link as GatsbyLink } from 'gatsby'
-import React from 'react'
-import Image from '../components/image'
-import SEO from '../components/seo'
-
 const IndexPage = () => (
   <>
     <SEO title="Home" />
@@ -348,8 +349,6 @@ const IndexPage = () => (
     </Link>
   </>
 )
-
-export default IndexPage
 ```
 
 Additional props for the link components includes the text, underline
@@ -361,11 +360,6 @@ Same as with the index page for styling the Gatsby links with Chakra
 UI here.
 
 ```jsx
-import { Heading, Link, Text } from '@chakra-ui/react'
-import { Link as GatsbyLink } from 'gatsby'
-import React from 'react'
-import SEO from '../components/seo'
-
 const SecondPage = () => (
   <>
     <SEO title="Page two" />
@@ -384,8 +378,6 @@ const SecondPage = () => (
     </Link>
   </>
 )
-
-export default SecondPage
 ```
 
 ## Style the Using TypeScript page
@@ -394,21 +386,10 @@ Same again with the TypeScript file here, I've added in the `as` prop
 to refer to the link as a Gatsby link along with the `textDecor`,
 `color` and `fontSize` props.
 
-I've remove the text from this example to reduce the overall size of
+I've removed the text from this example to reduce the overall size of
 the code block.
 
 ```tsx
-import { Heading, Link, Text } from '@chakra-ui/react'
-import { graphql, Link as GatsbyLink, PageProps } from 'gatsby'
-import React from 'react'
-import SEO from '../components/seo'
-
-type DataProps = {
-  site: {
-    buildTime: string
-  }
-}
-
 const UsingTypescript: React.FC<PageProps<DataProps>> = ({
   data,
   path,
@@ -439,25 +420,21 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({
     </Link>
   </>
 )
-
-export default UsingTypescript
-
-export const query = graphql`
-  {
-    site {
-      buildTime(formatString: "YYYY-MM-DD hh:mm a z")
-    }
-  }
-`
 ```
 
 ## Recap and wrap up!
 
 That's it for this one! To recap what I did:
 
-- Create a Gatsby starter
+- Create a Gatsby starter using npx
 - Add Chakra UI packages
+- Created a theme toggle using the Chakra UI `useColorMode` hook
 - Swap out inline styles with Chakra UI components
+
+Done!
+
+I'm only beginning to get familiar with Chakra UI so I'll be writing
+more about it as I continue to use it.
 
 ## Thanks for reading 🙏
 
@@ -467,7 +444,9 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 
 ## Resources
 
-- [Chakra UI typography/heading]
+These are literally all linking to the Chakra UI documentation:
+
+- [Chakra UI typography heading]
 - [Chakra UI components/link]
 - [Chakra UI typography/text]
 - [Chakra UI The `as` prop]
@@ -491,12 +470,12 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 [`wrappageelement`]:
   https://www.gatsbyjs.com/docs/browser-apis/#wrapPageElement
 [out of the box]: https://www.gatsbyjs.com/docs/typescript/
-[as]: https://chakra-ui.com/docs/features/style-props#the-as-prop
+[`as`]: https://chakra-ui.com/docs/features/style-props#the-as-prop
 [`fontsize`]:
   https://chakra-ui.com/docs/typography/text#changing-the-font-size
 [twitter]: https://twitter.com/spences10
 [ask me anything]: https://github.com/spences10/ama
-[chakra ui typography/heading]:
+[chakra ui typography heading]:
   https://chakra-ui.com/docs/typography/heading
 [chakra ui components/link]:
   https://chakra-ui.com/docs/components/link
