@@ -252,7 +252,7 @@ return (
       padding="0 1.0875rem 1.45rem"
     >
       <Box as="main">{children}</Box>
-      <Box as="footer" marginTop="2rem">
+      <Box as="footer" marginTop="2rem" fontSize="xl">
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
@@ -260,6 +260,33 @@ return (
     </Box>
   </>
 )
+```
+
+You may notice the addition of the [`fontSize`] prop added to the
+footer, I'll be using this a bit more when editing the pages.
+
+Ok, that's it for the components, onto the pages now.
+
+The 404 page, I've added in a Chakra UI `<Heading>` and `Text`
+components and added the `fontSize` prop along with with some margin
+top and bottom on the text component with the `my` prop.
+
+```jsx
+import { Heading, Text } from '@chakra-ui/react'
+import React from 'react'
+import SEO from '../components/seo'
+
+const NotFoundPage = () => (
+  <>
+    <SEO title="404: Not found" />
+    <Heading>404: Not Found</Heading>
+    <Text fontSize="xl" my={5}>
+      You just hit a route that doesn&#39;t exist... the sadness.
+    </Text>
+  </>
+)
+
+export default NotFoundPage
 ```
 
 <!-- Links -->
@@ -279,3 +306,5 @@ return (
   https://www.gatsbyjs.com/docs/browser-apis/#wrapPageElement
 [out of the box]: https://www.gatsbyjs.com/docs/typescript/
 [as]: https://chakra-ui.com/docs/features/style-props#the-as-prop
+[`fontsize`]:
+  https://chakra-ui.com/docs/typography/text#changing-the-font-size
