@@ -77,7 +77,16 @@ yarn add \
 Add the Chakra UI Gatsby plugin to the Gatsby plugin array in
 `gatsby-config.js`
 
-All the styles are gone
+```js
+plugins: [
+  `@chakra-ui/gatsby-plugin`,
+  // many more plugins 👇
+```
+
+All the styles are gone, that's the Gatsby plugin doing it's thing.
+
+I'll remove the `import "./layout.css"` from the `layout.js`
+component. I can then delete the `layout.css` file as it's not needed.
 
 ## Root Wrapper time!
 
