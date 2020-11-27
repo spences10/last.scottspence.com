@@ -26,9 +26,9 @@
   "dependencies": {
     "@mdx-js/mdx": "1.6.21",
     "@mdx-js/react": "1.6.21",
-    "@nivo/calendar": "^0.65.1",
-    "@nivo/core": "^0.65.0",
-    "@nivo/pie": "^0.65.1",
+    "@nivo/calendar": "^0.66.0",
+    "@nivo/core": "^0.66.0",
+    "@nivo/pie": "^0.66.0",
     "babel-plugin-styled-components": "1.12.0",
     "convertkit-react": "^1.4.1",
     "date-fns": "^2.16.1",
