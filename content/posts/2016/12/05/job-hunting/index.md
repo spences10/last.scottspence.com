@@ -160,11 +160,11 @@ Medium:
 [ats']: https://lmgtfy.com/?q=what+is+an+ats
 [freecodecamp]: https://www.freecodecamp.com
 ["recruitment industry will die in 2018."]:
-  https://www.linkedin.com/pulse/recruitment-industry-die-2018-oleg-vishnepolsky)
+  https://www.linkedin.com/pulse/recruitment-industry-die-2018-oleg-vishnepolsky
 ["if a recruiter sh\*ts in the woods and nobody is around to hear it?"]:
-  https://www.linkedin.com/pulse/recruiter-shts-woods-nobody-around-hear-tim-chattaway)
+  https://www.linkedin.com/pulse/recruiter-shts-woods-nobody-around-hear-tim-chattaway
 [lessons from my post-bootcamp job search in london]:
-  https://medium.freecodecamp.com/lessons-from-my-post-bootcamp-job-search-in-london-cb37ea12ec2f#.ckpg5lkpa)
+  https://medium.freecodecamp.com/lessons-from-my-post-bootcamp-job-search-in-london-cb37ea12ec2f#.ckpg5lkpa
 
 <!-- Images -->
 
