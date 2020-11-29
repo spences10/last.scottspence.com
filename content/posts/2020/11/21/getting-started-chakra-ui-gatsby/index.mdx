@@ -149,6 +149,15 @@ that is created. I'll need to remove the layout from component from
 the `404.js`, `index.js` ,`page-2.js` and `using-typescript.tsx`
 pages.
 
+Finally I'll need to import the root wrapper into both the
+`gatsby-ssr.js` and the `gatsby-browser.js` files.
+
+```js
+import { wrapPageElement as wrap } from './src/woot-wapper'
+
+export const wrapPageElement = wrap
+```
+
 ## Theme Toggle
 
 Using the Chakra UI theme provider means that I can use one of the
