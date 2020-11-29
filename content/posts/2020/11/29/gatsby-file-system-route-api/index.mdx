@@ -1,0 +1,70 @@
+---
+date: 2020-11-29
+title: Gatsby File System Route API with MDX
+tags: ['gatsby', 'mdx', 'learning']
+private: true
+---
+
+## Content
+
+## Gatsby Source Filesystem
+
+```json
+{
+  "resolve": `gatsby-source-filesystem`,
+  "options": {
+    "name": `images`,
+    "path": `${__dirname}/content`
+  }
+}
+```
+
+## Gatsby MDX Plugin
+
+```json
+{
+  "resolve": `gatsby-plugin-mdx`,
+  "options": {
+    "extensions": [`.mdx`, `.md`]
+  }
+}
+```
+
+## Pages file notation
+
+```
+{mdx.slug}.js
+```
+
+```js
+import { Text } from '@chakra-ui/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import React from 'react'
+
+export default function PostPage({ data }) {
+  const {
+    body,
+    frontmatter: { title },
+  } = data.mdx
+  return (
+    <>
+      <Text fontSize="4xl">{title}</Text>
+      <MDXRenderer>{body}</MDXRenderer>
+    </>
+  )
+}
+
+export const query = graphql`
+  query PostBySlug($slug: String) {
+    mdx(slug: { eq: $slug }) {
+      id
+      slug
+      body
+      frontmatter {
+        date
+        title
+      }
+    }
+  }
+`
+```
