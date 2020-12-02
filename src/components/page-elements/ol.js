@@ -9,6 +9,12 @@ const Wrapper = styled.div`
     li {
       list-style-type: decimal;
     }
+    em {
+      font-style: italic;
+      code {
+        ${inlineCode}
+      }
+    }
   }
   code {
     ${inlineCode}
