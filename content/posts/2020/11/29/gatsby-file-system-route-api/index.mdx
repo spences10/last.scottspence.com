@@ -35,10 +35,10 @@ need to have some content to generate the paths with.
 I'm going to jack the last three months of content from my digital
 garden and add it to the root of this project.
 
-I have a particular way I like to file my posts which is
+I have a particular way _I_ like to structure my posts which is
 `YYYY/MM/DD/folder-for-the-post/index.mdx` this is nested in a
-`content` folder. I use the words folder and directory
-interchangeably.
+`content` folder. (You can structure your files how you like, you do
+you.) I use the words folder and directory interchangeably.
 
 So the file structure looks a bit like this:
 
@@ -56,7 +56,7 @@ gatsby-file-system-route-api-mdx/
 │  ├─ images/
 │  ├─ pages/
 │  └─ woot-wapper.tsx
-... more
+... more files
 ```
 
 ## Gatsby Source Filesystem
@@ -146,6 +146,19 @@ export const query = graphql`
 `
 ```
 
+## Recap and wrap!
+
+That’s it for this one! To recap what I did:
+
+- Created a project from a starter with the Gatsby CLI
+- Added some content
+- Configured the Gatsby Source Filesystem
+- Added and configured the Gatsby MDX Plugin
+- Validated the pages were created via the Graph<em>i</em>QL explorer
+
+The source code for this walkthough can be found on GitHub in the
+Gatsby [File System Route Starter] I made.
+
 <!-- Links -->
 
 [announced recently]: https://www.gatsbyjs.com/blog/fs-route-api/
@@ -153,5 +166,5 @@ export const query = graphql`
   https://nextjs.org/blog/next-9#dynamic-route-segments
 [getting started chakra ui gatsby]:
   https://scottspence.com/2020/11/21/getting-started-chakra-ui-gatsby/
-[code]:
+[file system route starter]:
   https://github.com/spences10/gatsby-starter-file-system-route-api-mdx
