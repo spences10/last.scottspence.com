@@ -74,7 +74,7 @@ folder in the `gatsby-config.js` file:
     "name": `images`,
     "path": `${__dirname}/content`
   }
-}
+},
 ```
 
 ## Gatsby MDX Plugin
@@ -98,7 +98,7 @@ And to configure that in the Gatsby plugin array in the
   "options": {
     "extensions": [`.mdx`, `.md`]
   }
-}
+},
 ```
 
 Fun fact you don't actually need to have the `extensions` option
@@ -106,6 +106,77 @@ configured which I discovered on a stream with James Q Quick! I like
 to have it in there to be explicit.
 
 ## Time to spin up the dev server!
+
+Now that I have some content for the routes API to make paths for I
+can spin up the Gatsby development server on my machine:
+
+```bash
+yarn dev
+```
+
+ℹ Tip, if you have other dev servers running on the default Gatsby
+port (8000) you can change it by passing flags to the Gatsby CLI, in
+the next example I can use the `-p` flag to specify the port to open
+on and the `-o` flag to open the tab on my default browser:
+
+```bash
+yarn dev -- -p 8850 -o
+```
+
+## Validate data with the Gatsby GraphiQL explorer
+
+Once that's finished I can access the Gatsby Graph<em>i</em>QL
+explorer on the localhost by adding the `/___graphql` to the localhost
+URL, in the Graph<em>i</em>QL I can access all the data Gatsby has
+available in the data layer.
+
+Popping open the explorer I can see that I have `allMdx` and `mdx` now
+available to me for use in Gatsby.
+
+So, I can start making a page off of that data, I'll need to grab the
+data for one route.
+
+First I'll run a query so I can get a slug, why? So I can use that
+slug to uniquely identify that page.
+
+I'll query `allMdx` first up to list out all the MDX content to get a
+slug, here's the GraphQL query:
+
+```graphql
+{
+  allMdx {
+    nodes {
+      id
+      slug
+      frontmatter {
+        date
+        title
+      }
+    }
+  }
+}
+```
+
+From that I'll take a slug to use in a `mdx` query I'll grab the slug
+`09/02/how-to-monitise-your-content/`
+
+```json
+{
+  "data": {
+    "allMdx": {
+      "nodes": [
+        {
+          "id": "4fe1c1af-d3e8-5d20-bee7-dddc6b7452f3",
+          "slug": "09/02/how-to-monetise-your-content/",
+          "frontmatter": {
+            "date": "2020-09-02T00:00:00.000Z",
+            "title": "How to Monetise Your Content With Coil and Brave BAT"
+          }
+        },
+        ... lots more data
+```
+
+Why am I doing that?
 
 ## Pages file notation
 
