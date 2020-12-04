@@ -1,0 +1,241 @@
+---
+date: 2020-11-29
+title: Gatsby File System Route API with MDX
+tags: ['gatsby', 'mdx', 'learning']
+private: true
+---
+
+The Gatsby File System Route API was [announced recently] and I have
+been having a play around with it. If you're not familiar with it,
+it's something like the [dynamic routing you get with Next.js]. If
+you're not familiar with that either then it's a way to generate your
+page routes from data.
+
+In this walkthrough I'm going to set up the Gatsby File System Route
+API on a project using MDX and Chakra UI.
+
+Why Chakra UI? I made a [Getting Started Chakra UI Gatsby] post
+recently and it's something I want to invest a bit more time into to
+aid me in developing faster.
+
+## Bootstrap with a starter
+
+With the getting started post I created a Gatsby starter I'll base
+this project off of that with the Gatsby CLI:
+
+```bash
+gatsby new gatsby-file-system-route-api-mdx https://github.com/spences10/gatsby-starter-chakra-ui
+```
+
+## Content
+
+Cool, cool, cool, now to demonstrate the System Route API I'm going to
+need to have some content to generate the paths with.
+
+I'm going to jack the last three months of content from my digital
+garden and add it to the root of this project.
+
+I have a particular way _I_ like to structure my posts which is
+`YYYY/MM/DD/folder-for-the-post/index.mdx` this is nested in a
+`content` folder. (You can structure your files how you like, you do
+you.) I use the words folder and directory interchangeably.
+
+So the file structure looks a bit like this:
+
+```text
+gatsby-file-system-route-api-mdx/
+├─ content/2020/
+│  ├─ 09
+│  │  └─ 02/how-to-monetise-your-content/
+│  │    └─ index.mdx
+│  ├─ 10
+│  └─ 11
+├─ src/
+│  ├─ assets/
+│  ├─ components/
+│  ├─ images/
+│  ├─ pages/
+│  └─ woot-wapper.tsx
+... more files
+```
+
+## Gatsby Source Filesystem
+
+Cool, now there's a bit of content time to point the
+`gatsby-source-filesystem` to it, so in this instance, as the source
+plugin for it is already installed I'll copy the section pointing to
+the images folder and point another configuration to the `content`
+folder in the `gatsby-config.js` file:
+
+```json
+{
+  "resolve": `gatsby-source-filesystem`,
+  "options": {
+    "name": `images`,
+    "path": `${__dirname}/content`
+  }
+},
+```
+
+## Gatsby MDX Plugin
+
+Now I'm going to need something to parse the MDX files I'm using, time
+to install the Gatsby MDX plugin, I'll also need the related `@mdx`
+dependencies:
+
+```bash
+yarn add gatsby-plugin-mdx \
+  @mdx-js/mdx \
+  @mdx-js/react
+```
+
+And to configure that in the Gatsby plugin array in the
+`gatsby-config.js` file:
+
+```json
+{
+  "resolve": `gatsby-plugin-mdx`,
+  "options": {
+    "extensions": [`.mdx`, `.md`]
+  }
+},
+```
+
+Fun fact you don't actually need to have the `extensions` option
+configured which I discovered on a stream with James Q Quick! I like
+to have it in there to be explicit.
+
+## Time to spin up the dev server!
+
+Now that I have some content for the routes API to make paths for I
+can spin up the Gatsby development server on my machine:
+
+```bash
+yarn dev
+```
+
+ℹ Tip, if you have other dev servers running on the default Gatsby
+port (8000) you can change it by passing flags to the Gatsby CLI, in
+the next example I can use the `-p` flag to specify the port to open
+on and the `-o` flag to open the tab on my default browser:
+
+```bash
+yarn dev -- -p 8850 -o
+```
+
+## Validate data with the Gatsby GraphiQL explorer
+
+Once that's finished I can access the Gatsby Graph<em>i</em>QL
+explorer on the localhost by adding the `/___graphql` to the localhost
+URL, in the Graph<em>i</em>QL I can access all the data Gatsby has
+available in the data layer.
+
+Popping open the explorer I can see that I have `allMdx` and `mdx` now
+available to me for use in Gatsby.
+
+So, I can start making a page off of that data, I'll need to grab the
+data for one route.
+
+First I'll run a query so I can get a slug, why? So I can use that
+slug to uniquely identify that page.
+
+I'll query `allMdx` first up to list out all the MDX content to get a
+slug, here's the GraphQL query:
+
+```graphql
+{
+  allMdx {
+    nodes {
+      id
+      slug
+      frontmatter {
+        date
+        title
+      }
+    }
+  }
+}
+```
+
+From that I'll take a slug to use in a `mdx` query I'll grab the slug
+`09/02/how-to-monitise-your-content/`
+
+```json
+{
+  "data": {
+    "allMdx": {
+      "nodes": [
+        {
+          "id": "4fe1c1af-d3e8-5d20-bee7-dddc6b7452f3",
+          "slug": "09/02/how-to-monetise-your-content/",
+          "frontmatter": {
+            "date": "2020-09-02T00:00:00.000Z",
+            "title": "How to Monetise Your Content With Coil and Brave BAT"
+          }
+        },
+        ... lots more data
+```
+
+Why am I doing that?
+
+## Pages file notation
+
+```
+{mdx.slug}.js
+```
+
+```js
+import { Text } from '@chakra-ui/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import React from 'react'
+
+export default function PostPage({ data }) {
+  const {
+    body,
+    frontmatter: { title },
+  } = data.mdx
+  return (
+    <>
+      <Text fontSize="4xl">{title}</Text>
+      <MDXRenderer>{body}</MDXRenderer>
+    </>
+  )
+}
+
+export const query = graphql`
+  query PostBySlug($slug: String) {
+    mdx(slug: { eq: $slug }) {
+      id
+      slug
+      body
+      frontmatter {
+        date
+        title
+      }
+    }
+  }
+`
+```
+
+## Recap and wrap!
+
+That’s it for this one! To recap what I did:
+
+- Created a project from a starter with the Gatsby CLI
+- Added some content
+- Configured the Gatsby Source Filesystem
+- Added and configured the Gatsby MDX Plugin
+- Validated the pages were created via the Graph<em>i</em>QL explorer
+
+The source code for this walkthough can be found on GitHub in the
+Gatsby [File System Route Starter] I made.
+
+<!-- Links -->
+
+[announced recently]: https://www.gatsbyjs.com/blog/fs-route-api/
+[dynamic routing you get with next.js]:
+  https://nextjs.org/blog/next-9#dynamic-route-segments
+[getting started chakra ui gatsby]:
+  https://scottspence.com/2020/11/21/getting-started-chakra-ui-gatsby/
+[file system route starter]:
+  https://github.com/spences10/gatsby-starter-file-system-route-api-mdx
