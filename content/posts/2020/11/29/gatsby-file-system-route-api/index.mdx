@@ -211,8 +211,8 @@ query PostBySlug($slug: String!) {
 ```
 
 In the query variables panel I can now define the value of the `slug`
-variable that the `PostBySlug` query (`PostBySlug($slug: String!)` {})
-is expecting, that's where `slug` is defined with the `$` to indicate
+variable that the `PostBySlug` query (`PostBySlug($slug: String!)`) is
+expecting, that's where `slug` is defined with the `$` to indicate
 it's a variable and the `:String!` is the type of the variable, in
 this case a string, the `!` indicates that it's a required parameter
 or the query wont run:
