@@ -11,6 +11,10 @@ it's something like the [dynamic routing you get with Next.js]. If
 you're not familiar with that either then it's a way to generate your
 page routes from data.
 
+This approach means that there's no need to use the Gatsby
+`gatsby-node.js` file and related APIs to create your project pages
+from data.
+
 In this walkthrough I'm going to set up the Gatsby File System Route
 API on a project using MDX and Chakra UI.
 
@@ -176,9 +180,53 @@ From that I'll take a slug to use in a `mdx` query I'll grab the slug
         ... lots more data
 ```
 
-Why am I doing that?
+Why am I doing that? I need the individual route data for each page to
+be created, to query a single page I'm using the `mdx` query in the
+Graph<em>i</em>QL explorer.
+
+The `mdx` query is for a single route which I'm going to identify with
+the `slug` I've just pulled from the `allMdx` query.
+
+Now I can pass in the slug via the query variables panel on the
+Graph<em>i</em>QL explorer, first up I'll write the query that's going
+to take the `slug`, it'll look something like this:
+
+```graphql
+query PostBySlug($slug: String!) {
+  mdx(slug: { eq: $slug }) {
+    id
+    slug
+    # body
+    frontmatter {
+      date
+      title
+    }
+  }
+}
+```
+
+In the query variables panel I can now define the value of the `slug`
+variable that the `PostBySlug` query (`PostBySlug($slug: String!)` {})
+is expecting, that's where `slug` is defined with the `$` to indicate
+it's a variable and the `:String!` is the type of the variable, in
+this case a string, the `!` indicates that it's a required parameter
+or the query wont run:
+
+```json
+{
+  "slug": "09/02/how-to-monetise-your-content/"
+}
+```
+
+You may notice that the `body` field has a `#` next to it, that's
+commenting it out, as I'm only looking to see a result and the body
+content can be a bit noisy in the Graph<em>i</em>QL explorer, I'm
+leaving it in there as I'll be using it in a page query very soon.
 
 ## Pages file notation
+
+Super duper! Now I can see that the Gatsby File System Route API is
+doing it's magic
 
 ```
 {mdx.slug}.js
