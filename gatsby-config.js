@@ -29,11 +29,7 @@ module.exports = {
     `gatsby-plugin-use-dark-mode`,
     `gatsby-plugin-mailgo`,
     `gatsby-transformer-json`,
-<<<<<<< HEAD
     `gatsby-plugin-sharp`,
-=======
-    'gatsby-plugin-sharp',
->>>>>>> update deps
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
