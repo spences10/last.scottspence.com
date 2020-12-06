@@ -43,6 +43,8 @@ later.**
 
 What we're going to cover:
 
+- [From scratch to Create React App on Windows](#from-scratch-to-create-react-app-on-windows)
+- [Objective of this post](#objective-of-this-post)
 - [Install WSL](#install-wsl)
 - [Enable WSL on your machine](#enable-wsl-on-your-machine)
 - [update, upgrade and autoremove](#update-upgrade-and-autoremove)
@@ -642,7 +644,7 @@ authenticated.
 ## Change WSL version
 
 If you want to use a different version of Ubuntu, Debian or any of the
-other available distributions of Linux from teh Windows store with
+other available distributions of Linux from the Windows store with
 Hyper you will need to change the default version from PowerShell:
 
 ```bash
