@@ -2,7 +2,7 @@
 date: 2020-12-08
 title: Notes on Zsh and Oh My Zsh
 tags: ['zsh', 'learning', 'guide']
-private: true
+private: false
 ---
 
 Sooooooo, so, so, so, Zsh is pretty neat, right?
@@ -148,7 +148,49 @@ One killer feature of Fish is the abbreviations, so you can shorten
 down things like `yarn && yarn develop` into `yyd` hitting enter will
 expand that out into the full command and run it.
 
-I was quite keen to find something like that in Zsh and I did
+I was quite keen to find something like that in Zsh and I did in the
+form of a [video from gotbletu] with accompanying [GitHub repo] for
+the code example.
+
+I added that to my `.zshrc` file, like so:
+
+```bash {3,15}
+#-------- Global Alias {{{
+globalias() {
+  if [[ $LBUFFER =~ '[a-zA-Z0-9]+$' ]]; then
+    zle _expand_alias
+    zle expand-word
+  fi
+  zle self-insert
+}
+zle -N globalias
+bindkey " " globalias                 # space key to expand globalalias
+# bindkey "^ " magic-space            # control-space to bypass completion
+bindkey "^[[Z" magic-space            # shift-tab to bypass completion
+bindkey -M isearch " " magic-space    # normal space during searches
+
+. ~/.zsh_aliases
+
+#}}}
+```
+
+You'll notice that I have added lower case variables to the if
+statement from `'[A-Z0-9]+$'` to `'[a-zA-Z0-9]+$'` and that I have
+abstracted out the aliases into their own file `.zsh_aliases` this is
+because I have a lot of aliases for things.
+
+If you're interested in checking out my configuration for Zsh you can
+see my [`dotfiles`] on Github.
+
+## What's next?
+
+That's it for this, I felt that I should put down what I know now then
+maybe revisit this after using Zsh for a while.
+
+So far, I like it because I have all the toys I like to play with! 😊
+
+I'll be having a look at [powerlevel10k] sometime soon as it looks
+pretty swish!
 
 <!-- Links -->
 
@@ -166,3 +208,7 @@ I was quite keen to find something like that in Zsh and I did
   https://github.com/zsh-users/zsh-syntax-highlighting
 [zsh-autosuggestions]:
   https://github.com/zsh-users/zsh-autosuggestions
+[video from gotbletu]: https://www.youtube.com/watch?v=WTTIGjZAMGg
+[github repo]:
+  https://github.com/gotbletu/shownotes/blob/master/zsh_global_alias_expansion.md
+[`dotfiles`]: https://github.com/spences10/dotfiles
