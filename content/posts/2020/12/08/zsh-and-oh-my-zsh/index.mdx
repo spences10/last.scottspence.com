@@ -1,0 +1,52 @@
+---
+date: 2020-12-08
+title: Notes on Zsh and Oh My Zsh
+tags: ['zsh', 'learning', 'guide']
+private: true
+---
+
+Sooooooo, so, so, so, Zsh is pretty neat, right?
+
+I've been a long time fan of the Fish shell, but I recently had to go
+full on with a Zsh shell and decided to give it a proper go.
+
+The main selling points for Fish shell to me over anything else was
+one not having to prefix directory changes with a `cd` all the time,
+just typing out the path you wanted to go to would offer up auto
+suggest of paths to use.
+
+That was enough to have me sold on it, there's also abbreviations and
+aliases all super nice to use and that is pretty much the extent of
+the sort of perks I like to have.
+
+## Oh My Zsh
+
+https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+
+## Themes
+
+## Plugins
+
+## Where do they go?
+
+Plugins and themes, some are really not that helpful (documentation
+wise) when it comes to installing them.
+
+But hey it's open source so if you're not happy you can always ask for
+your money back, right? 😂
+
+> But hey it's open source so if you're not happy you can always ask
+> for your money back, right? 😂
+
+If the instruction is along the lines of, clone the repo then there is
+a path you can specify when cloning it.
+
+This is the clone location for `zsh-syntax-highlighting` that can be
+swapped out with the theme/plugin you're using, just be sure to swap
+out `plugins` with `themes` if you're cloning a theme.
+
+```bash
+git clone \
+  https://github.com/zsh-users/zsh-syntax-highlighting \
+  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
