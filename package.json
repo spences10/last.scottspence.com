@@ -24,8 +24,8 @@
     }
   },
   "dependencies": {
-    "@mdx-js/mdx": "1.6.21",
-    "@mdx-js/react": "1.6.21",
+    "@mdx-js/mdx": "1.6.22",
+    "@mdx-js/react": "1.6.22",
     "@nivo/calendar": "^0.66.0",
     "@nivo/core": "^0.66.0",
     "@nivo/pie": "^0.66.0",
@@ -53,10 +53,10 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "3.7.0",
     "gatsby-remark-smartypants": "^2.6.0",
-    "gatsby-source-filesystem": "2.6.1",
+    "gatsby-source-filesystem": "2.7.0",
     "gatsby-source-graphql": "^2.9.0",
     "gatsby-transformer-json": "^2.6.0",
-    "gatsby-transformer-sharp": "2.7.0",
+    "gatsby-transformer-sharp": "2.8.0",
     "kwesforms": "^2.0.3",
     "markdown-to-jsx": "^7.1.0",
     "mdx-embed": "^0.0.15",
@@ -72,12 +72,12 @@
     "react-share": "^4.3.1",
     "styled-breakpoints": "^9.0.0",
     "styled-components": "5.2.1",
-    "styled-reset": "4.3.1",
+    "styled-reset": "4.3.2",
     "use-dark-mode": "^2.3.1",
     "victormono": "^1.4.2"
   },
   "devDependencies": {
-    "husky": "4.3.0",
+    "husky": "4.3.5",
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "2.2.1",
