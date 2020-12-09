@@ -1,14 +1,77 @@
 ---
 date: 2020-10-05
-title:
-  Enable GUIs with Windows Subsystem Linux for Cypress and Playwright
-tags: ['wsl', 'testing']
+title: Enable GUIs on Windows Subsystem Linux (WSL)
+tags: ['wsl', 'testing', 'guide']
 private: true
 ---
 
-[Pengwin] £16.74
+So this post started off with me getting GUI apps running on my
+Windows WSL install of [Pengwin], but has now turned into doing it
+without the need to fork over [the readies] for Pengwin as now you can
+do it with Ubuntu or Debian (possibly others).
 
-[X410] £8.39
+Pengwin is a pretty powerful Linux distro based off of Debian you can
+pick it up in the Windows store for £16.74 if you want all the
+additional features it offers up. I'd suggest keeping and eye on it
+because they regularly do discount on it too.
+
+I say this started off using Pengwin, because I used all the setup
+options to enable GUI useage on there but (like most of my WSL
+instances) I trashed the install and couldn't recreate what I had done
+before. This post stayed shelved since the start of October but now
+I'm picking it up again thanks to [Nicky Meuleman]'s guide on [Using
+Graphical User Interfaces like Cypress' in WSL2] and his other post on
+[Linux on windows WSL2 ZSH Docker] this also spawned the last post I
+did on my [Notes on Zsh and Oh My Zsh].
+
+So, what am I doing in this post? Ripping off Nicky's content? Pretty
+much!
+
+I'll be adding content from Nicky's posts here along with my own take
+on things. I have several bits of content I have to gather up each
+time I want to do this (I've done it several time now) so this will be
+a complete list for my use case.
+
+I'll be doing this with a fresh install of [Debian] from the Windows
+store, this was me wanting to understand if I could do it there as
+well as with Ubuntu more than anything else.
+
+I can confirm it works with Ubuntu 18.04 and Ubuntu 20.04 as well as
+Debian, the version of debian I'm using is Debian GNU/Linux 10, if you
+want to check your version use `cat /etc/issue` in the terminal.
+
+Again massive thanks to Nick Meuleman for his awesome content on this.
+
+## Why GUI apps though?
+
+Ok, so first up why do I want to be able to run [GUI]s (Graphical User
+Interface) on my Linux instances?
+
+For testing software like [Cypress], [QA Wolf] and browser automation
+tools [Microsoft's Playwright] all need to run from the WSL instance
+which isn't set up by default to run GUIs.
+
+There is talk of the WSL team [Adding Linux GUI app support to WSL]
+but this is slated for an update in the holidays (Christmas??).
+
+I'm not going to hold my breath for this to go into the main release
+of Windows 10 I'd hazard a guess that it'll be available Spring/Summer
+release.
+
+If you absolutely must have this functionality yourself then I'd
+suggest giving [Windows insiders] a try. I've been on Windows insiders
+in the past and would prefer to stay on the normal release schedule
+for now.
+
+There's a some things I'll need up front, an [X Server] I already have
+[X410] which I got on offer from the Windows store, it retails around
+£8.39.
+
+Check out Nicky's blog on getting set up with [VcXsrv] if you're not
+going to hand over the cash for X410. There's an important note on the
+additional settings needed for that.
+
+## Debian install and config
 
 <!-- Links -->
 
@@ -16,3 +79,24 @@ private: true
   https://www.microsoft.com/en-gb/p/x410/9nlp712zmn9q?activetab=pivot:overviewtab
 [pengwin]:
   https://www.microsoft.com/en-gb/p/pengwin/9nv1gv1pxz6p?ocid=badge&rtc=1&activetab=pivot:overviewtab
+[the readies]:
+  https://dictionary.cambridge.org/dictionary/english/readies
+[linux on windows wsl2 zsh docker]:
+  https://nickymeuleman.netlify.app/blog/linux-on-windows-wsl2-zsh-docker#zsh
+[using graphical user interfaces like cypress' in wsl2]:
+  https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress
+[nicky meuleman]: https://twitter.com/NMeuleman
+[debian]:
+  https://www.microsoft.com/en-gb/p/debian/9msvkqc78pk6?activetab=pivot:overviewtab
+[notes on zsh and oh my zsh]:
+  https://scottspence.com/2020/12/08/zsh-and-oh-my-zsh/
+[gui]: https://en.wikipedia.org/wiki/Graphical_user_interface
+[microsoft's playwright]: https://github.com/microsoft/playwright
+[qa wolf]: https://github.com/qawolf/qawolf
+[cypress]: https://www.cypress.io/
+[x server]: https://en.wikipedia.org/wiki/X_server
+[adding linux gui app support to wsl]:
+  https://devblogs.microsoft.com/commandline/the-windows-subsystem-for-linux-build-2020-summary/#wsl-gui
+[windows insiders]: https://insider.windows.com/en-gb/for-developers
+[vcxsrv]:
+  https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress#vcxsrv
