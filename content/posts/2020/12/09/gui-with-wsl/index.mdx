@@ -1,14 +1,15 @@
 ---
-date: 2020-10-05
+date: 2020-12-09
 title: Enable GUIs on Windows Subsystem Linux (WSL)
 tags: ['wsl', 'testing', 'guide']
-private: true
+private: false
 ---
 
 So this post started off with me getting GUI apps running on my
 Windows WSL install of [Pengwin], but has now turned into doing it
 without the need to fork over [the readies] for Pengwin as now you can
-do it with Ubuntu or Debian (possibly others).
+do it with Ubuntu or Debian (possibly others) which are free to
+download on the Microsoft store.
 
 Pengwin is a pretty powerful Linux distro based off of Debian you can
 pick it up in the Windows store for £16.74 if you want all the
@@ -16,14 +17,14 @@ additional features it offers up. I'd suggest keeping and eye on it
 because they regularly do discount on it too.
 
 I say this started off using Pengwin, because I used all the setup
-options to enable GUI useage on there but (like most of my WSL
+options to enable GUI usage on there but (like most of my WSL
 instances) I trashed the install and couldn't recreate what I had done
 before. This post stayed shelved since the start of October but now
 I'm picking it up again thanks to [Nicky Meuleman]'s guide on [Using
 Graphical User Interfaces like Cypress' in WSL2] and his other post on
-[Linux on windows WSL2 ZSH Docker] this also spawned the last post I
-did on my [Notes on Zsh and Oh My Zsh] with the great section he did
-on [setting up Zsh].
+[Linux on windows WSL2 ZSH Docker] that post also spawned the last
+post I did on my [Notes on Zsh and Oh My Zsh] with the great section
+he did on [setting up Zsh].
 
 So, what am I doing in this post? Ripping off Nicky's content? Pretty
 much!
@@ -48,9 +49,9 @@ Again massive thanks to Nick Meuleman for his awesome content on this.
 Ok, so first up why do I want to be able to run [GUI]s (Graphical User
 Interface) on my Linux instances?
 
-For testing software like [Cypress], [QA Wolf] and browser automation
-tools [Microsoft's Playwright] all need to run from the WSL instance
-which isn't set up by default to run GUIs.
+Solely for testing software like [Cypress], [QA Wolf] and browser
+automation tools [Microsoft's Playwright]; these all need to run from
+the WSL instance which isn't set up by default to run GUIs.
 
 There is talk of the WSL team [Adding Linux GUI app support to WSL]
 but this is slated for an update in the holidays (Christmas??).
@@ -81,11 +82,11 @@ WSL in the summer.
 
 ## Debian install and config
 
-First up I'll need do the initial install from the Debian app, this
-will open up the Debian command line and prompt me to enter a username
-and password.
+First up I'll need to download and install the Debian app, this will
+open up the Debian command line and prompt me to enter a username and
+password.
 
-Then I'll need to change this from WSL to WSL2 via a Powershell admin
+I'll then need to change this from WSL to WSL2 via a Powershell admin
 panel (`Windows Key+x`, then `a`) as it's fresh from the store it'll
 be on version 1.
 
@@ -124,11 +125,16 @@ Terminal app and work in there from here on out.
 
 Update all the things, **a word of warning** if you're copy pasting
 these commands I have the `-y` flag set in these which agrees to
-install without prompting first:
+install without prompting first, **you've been warned** 😛:
+
+First update all the things:
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
+
+Then to add the missing libraries and utilities and packages I'll need
+[`build-essential`], `git` and `curl`:
 
 ```bash
 sudo apt install build-essential git curl -y
@@ -153,9 +159,26 @@ chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+Oh My Zsh will prompt to be set as the default shell to which I'll
+answer why `y`es.
+
+## The `.zshrc` file
+
+Oh My Zsh uses the `.zshrc` file for configuration, it can be accessed
+in the `$HOME` directory, I will be editing it a fair bit from now on
+with Nano:
+
+```bash
+nano ~/.zshrc
+```
+
+To exit out of Nano `Ctrl+o` to write out the changes, `Enter` to
+confirm changes then `Ctrl+x` to close.
+
 ## Install nvm
 
-Install nvm for that quick change node versions goodness.
+Install nvm for that quick change node versions goodness, this isn't
+essential but comes in handy if you need to change node versions.
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | zsh
@@ -165,7 +188,16 @@ nvm install 14
 # nvm alias default 14
 ```
 
+The first node install is what is set to the default, if you change
+versions later and want to default to a different version use
+`nvm alias default 15`.
+
 ## Install Yarn
+
+I'm installing yarn as a preference and also because I know the
+repository I'm going to test with Cypress uses Yarn as well.
+
+These instructions are taken from the [Yarn install docs]:
 
 ```bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -173,19 +205,13 @@ sudo apt update -y
 sudo apt install --no-install-recommends yarn -y
 ```
 
-## The `.zshrc` file
-
-```bash
-mkdir repos
-```
-
 ## Add starting directory
 
 All the Linux distros I use start in the Windows C drive for some
-reason at `/mnt/c/Users/username`
+reason at `/mnt/c/Users/username`.
 
 It can be really easy to start creating projects there but because
-it's on the Windows file system running projects from there will be a
+it's on the Windows file system, running projects from there will be a
 lot slower than running them from the native partition.
 
 ```bash
@@ -255,7 +281,7 @@ nano ~/.zshrc
 
 Then add in the variable, when I have attempted this in the past the
 variable was literally `0.0` so this from Nicky is a nice expansion on
-that and hes [explains brilliantly] why this needs to be done:
+that and he [explains brilliantly] why this needs to be done:
 
 ```bash
 # set DISPLAY variable to the IP automatically assigned to WSL2
@@ -276,16 +302,28 @@ echo $DISPLAY
 ## `dbus` start and access
 
 [D-Bus] is ued by Linux desktop environments for GUI apps so I'm going
-to need that and the following automatically starts it:
+to need that and the following will automatically start it.
+
+Pop open the `.zshrc` file again:
+
+```bash
+# open the zzh config file
+nano ~/.zshrc
+```
+
+Add the below snippet to the end of the `.zshrc` file:
 
 ```bash
 # Automatically start dbus
 sudo /etc/init.d/dbus start &> /dev/null
 ```
 
+To exit out of Nano `Ctrl+o` to write out the changes, `Enter` to
+confirm then `Ctrl+x` to close.
+
 I'll need to create a `sudoers` file to grant passwordless access for
-`dbus`, the following command will open that file or create it if it
-doesn't exist already, in there I need to give no password access to
+`dbus`, the following command will open that file (or create it if it
+doesn't exist already), in there I need to give no password access to
 `dbus`:
 
 ```bash
@@ -293,7 +331,7 @@ doesn't exist already, in there I need to give no password access to
 sudo visudo -f /etc/sudoers.d/dbus
 ```
 
-In Nano add in my username:
+In Nano add in my username, and this:
 
 ```bash
 scott ALL = (root) NOPASSWD: /etc/init.d/dbus
@@ -304,33 +342,24 @@ to confirm then `Ctrl+x` to close.
 
 ## Clone a repo that uses Cypress
 
-## ERROR: There are no scenarios; must have at least one.
+I know that MDX Embed uses Cypress because I participated in adding
+tests to it for Hacktoberfest.
 
-So far I've only encountered this issue with Debian when trying to run
-`yarn` I get the following error:
-
-```bash
-yarn
-00h00m00s 0/0: : ERROR: There are no scenarios; must have at least one.
-```
-
-So after a bit of Googling that error message it looks like a weird
-version of Yarn is installed, if I check with `yarn --version` I get
-`0.32+git` so I follow the instructions on the [Stack Overflow answer]
-which involves uninstalling and reinstalling:
+I'm going to clone that:
 
 ```bash
-sudo apt remove cmdtest -y
+git clone git@github.com:PaulieScanlon/mdx-embed.git
 ```
 
-The I followed the official documentation to install again:
+Wait for that to do it's thing! ⏲
+
+Then time to test!
 
 ```bash
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-# If using nvm you can avoid the node installation by doing:
-sudo apt update && sudo apt install --no-install-recommends yarn -y
+yarn cy:test
 ```
+
+Boom! GUI running in WSL!!
 
 <!-- Links -->
 
@@ -369,3 +398,7 @@ sudo apt update && sudo apt install --no-install-recommends yarn -y
 [explains brilliantly]:
   https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress#the-display-variable
 [d-bus]: https://en.wikipedia.org/wiki/D-Bus
+[`build-essential`]:
+  https://packages.ubuntu.com/xenial/build-essential
+[yarn install docs]:
+  https://classic.yarnpkg.com/en/docs/install/#debian-stable
