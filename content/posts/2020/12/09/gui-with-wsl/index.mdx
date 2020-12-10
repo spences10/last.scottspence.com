@@ -201,8 +201,8 @@ These instructions are taken from the [Yarn install docs]:
 
 ```bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-sudo apt update -y
-sudo apt install --no-install-recommends yarn -y
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn -y
 ```
 
 ## Add starting directory
