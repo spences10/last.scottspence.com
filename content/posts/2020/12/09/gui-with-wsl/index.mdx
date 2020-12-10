@@ -44,6 +44,12 @@ want to check your version use `cat /etc/issue` in the terminal.
 
 Again massive thanks to Nick Meuleman for his awesome content on this.
 
+## Tl;Dr
+
+If you prefer to watch how this is done then skip all the way to the
+end for a [video detailing the process](#video-detailing-the-process).
+🚀
+
 ## Why GUI apps though?
 
 Ok, so first up why do I want to be able to run [GUI]s (Graphical User
@@ -201,8 +207,8 @@ These instructions are taken from the [Yarn install docs]:
 
 ```bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-sudo apt update -y
-sudo apt install --no-install-recommends yarn -y
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn -y
 ```
 
 ## Add starting directory
@@ -360,6 +366,10 @@ yarn cy:test
 ```
 
 Boom! GUI running in WSL!!
+
+## Video detailing the process
+
+<YouTube youTubeId="hhxMFVQsklI" />
 
 <!-- Links -->
 
