@@ -2,83 +2,83 @@ import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React, { useRef } from 'react'
 import SEO from 'react-seo-component'
-import { down } from 'styled-breakpoints'
-import styled from 'styled-components'
+// import { down } from 'styled-breakpoints'
+// import styled from 'styled-components'
 import { BackToTop } from '../components/back-to-top'
-import { A, H1, Small } from '../components/page-elements'
+// import { A, H1, Small } from '../components/page-elements'
 import { PopularPosts } from '../components/popular-posts'
-import {
-  focusOutline,
-  negMargin,
-  PostInfo,
-  rainbowAnimation,
-  Toc,
-} from '../components/shared-styles'
+// import {
+//   focusOutline,
+//   negMargin,
+//   PostInfo,
+//   rainbowAnimation,
+//   Toc,
+// } from '../components/shared-styles'
 import { Share } from '../components/social-share'
 import { useAnalytics } from '../contexts/event-tracking'
 import { useOnScreen } from '../hooks/use-on-screen'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
 
-const PostWrapper = styled.article`
-  padding-bottom: ${({ theme }) => theme.spacing[20]};
-  h1 {
-  }
-  small {
-  }
-`
+// const PostWrapper = styled.article`
+//   padding-bottom: ${({ theme }) => theme.spacing[20]};
+//   h1 {
+//   }
+//   small {
+//   }
+// `
 
-const TagsWrapper = styled.section`
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: ${({ theme }) => theme.spacing[3]};
-  grid-auto-columns: max-content;
-  margin-top: ${({ theme }) => theme.spacing[2]};
-  letter-spacing: 2px;
-  :after {
-    content: ' ';
-  }
-  a {
-    text-decoration: none;
-    :hover {
-      text-decoration: underline;
-    }
-    ${focusOutline}
-  }
-  small {
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
-    ${rainbowAnimation}
-  }
-`
+// const TagsWrapper = styled.section`
+//   display: grid;
+//   grid-auto-flow: column;
+//   grid-gap: ${({ theme }) => theme.spacing[3]};
+//   grid-auto-columns: max-content;
+//   margin-top: ${({ theme }) => theme.spacing[2]};
+//   letter-spacing: 2px;
+//   :after {
+//     content: ' ';
+//   }
+//   a {
+//     text-decoration: none;
+//     :hover {
+//       text-decoration: underline;
+//     }
+//     ${focusOutline}
+//   }
+//   small {
+//     font-weight: ${({ theme }) => theme.fontWeight.bold};
+//     ${rainbowAnimation}
+//   }
+// `
 
-const Private = styled.div`
-  background-color: var(
-    --colour-warn,
-    ${({ theme }) => theme.colors.red[500]}
-  );
-  color: var(--colour-on-warn);
-  font-size: ${({ theme }) => theme.fontSize.lg};
-  font-family: ${({ theme }) => theme.fontFamily.mono};
-  border-radius: ${({ theme }) => theme.borderRadius.default};
-  padding: ${({ theme }) => theme.spacing[3]};
-  margin: ${({ theme }) => theme.spacing[3]};
-  text-align: center;
-  font-style: italic;
-  ${negMargin}
-  span {
-    font-style: normal;
-    padding: 0 ${({ theme }) => theme.spacing[5]};
-    ${down('sm')} {
-      padding: 0;
-      &:before {
-        content: ' ';
-      }
-      &:after {
-        content: ' ';
-      }
-    }
-  }
-`
+// const Private = styled.div`
+//   background-color: var(
+//     --colour-warn,
+//     ${({ theme }) => theme.colors.red[500]}
+//   );
+//   color: var(--colour-on-warn);
+//   font-size: ${({ theme }) => theme.fontSize.lg};
+//   font-family: ${({ theme }) => theme.fontFamily.mono};
+//   border-radius: ${({ theme }) => theme.borderRadius.default};
+//   padding: ${({ theme }) => theme.spacing[3]};
+//   margin: ${({ theme }) => theme.spacing[3]};
+//   text-align: center;
+//   font-style: italic;
+//   ${negMargin}
+//   span {
+//     font-style: normal;
+//     padding: 0 ${({ theme }) => theme.spacing[5]};
+//     ${down('sm')} {
+//       padding: 0;
+//       &:before {
+//         content: ' ';
+//       }
+//       &:after {
+//         content: ' ';
+//       }
+//     }
+//   }
+// `
 
 export default ({ data }) => {
   const fa = useAnalytics()
@@ -117,9 +117,9 @@ export default ({ data }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      <PostWrapper>
+      <article>
         {isPrivate && (
-          <Private>
+          <div>
             <span role="img" aria-label="shushing face">
               🤫
             </span>
@@ -127,26 +127,26 @@ export default ({ data }) => {
             <span role="img" aria-label="eyes">
               👀
             </span>
-          </Private>
+          </div>
         )}
         {typeof tableOfContents.items === 'undefined' ? null : (
-          <Toc>
+          <div>
             <h3>Table of contents</h3>
             <ul>
               {tableOfContents.items.map(i => (
                 <li key={i.url}>
-                  <A href={i.url} key={i.url}>
+                  <a href={i.url} key={i.url}>
                     {i.title}
-                  </A>
+                  </a>
                 </li>
               ))}
             </ul>
-          </Toc>
+          </div>
         )}
         <section ref={ref}>
-          <H1>{title}</H1>
+          <h1>{title}</h1>
         </section>
-        <PostInfo>
+        <div>
           <span className="postTimeToRead">
             {timeToRead * 2} minutes to read
           </span>
@@ -160,17 +160,17 @@ export default ({ data }) => {
               Edit on GitHub
             </a>
           </span>
-        </PostInfo>
-        <TagsWrapper>
+        </div>
+        <section>
           {tags.map(t => (
-            <Small>
+            <small>
               <Link to={`/tags/${t}`}>{t}</Link>
-            </Small>
+            </small>
           ))}
-        </TagsWrapper>
+        </section>
         <MDXRenderer>{body}</MDXRenderer>
         <BackToTop visible={onScreen} />
-      </PostWrapper>
+      </article>
       <Share
         url={`${siteUrl}${slug}`}
         title={title}

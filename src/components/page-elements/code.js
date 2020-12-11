@@ -8,8 +8,8 @@ import {
   LivePreview,
   LiveProvider,
 } from 'react-live'
-import styled from 'styled-components'
-import { codeStyle } from '../../theme/code-style'
+// import styled from 'styled-components'
+// import { codeStyle } from '../../theme/code-style'
 
 function getParams(className = ``) {
   const [lang = ``, params = ``] = className.split(`:`)
@@ -44,9 +44,9 @@ function calculateLinesToHighlight(meta) {
   }
 }
 
-const CodeWrapper = styled.div`
-  ${codeStyle}
-`
+// const CodeWrapper = styled.div`
+//   ${codeStyle}
+// `
 
 export const Code = ({
   codeString,
@@ -73,7 +73,7 @@ export const Code = ({
     )
   }
   return (
-    <CodeWrapper>
+    <div>
       <Highlight
         {...defaultProps}
         code={codeString}
@@ -127,6 +127,6 @@ export const Code = ({
           </>
         )}
       </Highlight>
-    </CodeWrapper>
+    </div>
   )
 }

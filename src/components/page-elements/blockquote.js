@@ -1,35 +1,35 @@
 import React from 'react'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
-const StyledBlockquote = styled.blockquote`
-  margin: 20px;
-  p {
-    margin-top: 0;
-    padding: 20px;
-    border-left: 5px solid ${({ theme }) => theme.colors.gray[700]};
-    background-color: var(
-      --colour-background-two,
-      ${({ theme }) => theme.colors.gray[200]}
-    );
-    padding-left: 15px;
-    font-style: italic;
-    font-size: ${({ theme }) => theme.fontSize['2xl']};
-    color: var(--colour-on-background);
-    word-break: break-word;
-  }
-  svg {
-    margin: -20px;
-    margin-left: 20px;
-  }
-`
+// const StyledBlockquote = styled.blockquote`
+//   margin: 20px;
+//   p {
+//     margin-top: 0;
+//     padding: 20px;
+//     border-left: 5px solid ${({ theme }) => theme.colors.gray[700]};
+//     background-color: var(
+//       --colour-background-two,
+//       ${({ theme }) => theme.colors.gray[200]}
+//     );
+//     padding-left: 15px;
+//     font-style: italic;
+//     font-size: ${({ theme }) => theme.fontSize['2xl']};
+//     color: var(--colour-on-background);
+//     word-break: break-word;
+//   }
+//   svg {
+//     margin: -20px;
+//     margin-left: 20px;
+//   }
+// `
 
 export const Blockquote = ({ children }) => {
   return (
-    <StyledBlockquote>
+    <blockquote>
       <Quote fill="#4a5568" />
       {children}
       <Quote fill="#4a5568" rotate="180" />
-    </StyledBlockquote>
+    </blockquote>
   )
 }
 

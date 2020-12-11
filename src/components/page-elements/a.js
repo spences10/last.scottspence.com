@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import { useAnalytics } from '../../contexts/event-tracking'
-import { linkHover, linkStyle } from '../shared-styles'
-import { inlineCode } from './inline-code'
+// import { linkHover, linkStyle } from '../shared-styles'
+// import { inlineCode } from './inline-code'
 
-export const StyledA = styled.a`
-  text-decoration: underline;
-  ${linkStyle};
-  ${linkHover};
-  code {
-    ${inlineCode}
-  }
-`
+// export const StyledA = styled.a`
+//   text-decoration: underline;
+//   ${linkStyle};
+//   ${linkHover};
+//   code {
+//     ${inlineCode}
+//   }
+// `
 
 export const A = props => {
   const fa = useAnalytics()
@@ -34,12 +34,12 @@ export const A = props => {
     }
   }
   return (
-    <StyledA
+    <a
       {...props}
       href={containsGoalId ? newHref : props.href}
       onClick={onClick}
     >
       {props.children}
-    </StyledA>
+    </a>
   )
 }

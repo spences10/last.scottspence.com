@@ -1,42 +1,42 @@
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import React from 'react'
 import SEO from 'react-seo-component'
-import styled from 'styled-components'
-import { H1, Li, Ul } from '../components/page-elements'
-import {
-  Link,
-  linkHover,
-  linkStyle,
-} from '../components/shared-styles'
+// import styled from 'styled-components'
+// import { H1, Li, Ul } from '../components/page-elements'
+// import {
+//   Link,
+//   linkHover,
+//   linkStyle,
+// } from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
-const StyledTags = styled.article`
-  ul {
-    display: flex;
-    justify-content: start;
-    flex-flow: row wrap;
-    padding: 0rem;
-    margin: 0rem;
-  }
-  li {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    list-style-type: none;
-    margin: 1rem;
-    margin-left: 0;
-  }
-  a {
-    &:hover {
-      opacity: 0.5 !important;
-      text-decoration: underline;
-    }
-    ${linkStyle};
-    ${linkHover};
-    text-decoration: none;
-  }
-`
+// const StyledTags = styled.article`
+//   ul {
+//     display: flex;
+//     justify-content: start;
+//     flex-flow: row wrap;
+//     padding: 0rem;
+//     margin: 0rem;
+//   }
+//   li {
+//     padding-top: 0.75rem;
+//     padding-bottom: 0.75rem;
+//     padding-left: 0.25rem;
+//     padding-right: 0.25rem;
+//     list-style-type: none;
+//     margin: 1rem;
+//     margin-left: 0;
+//   }
+//   a {
+//     &:hover {
+//       opacity: 0.5 !important;
+//       text-decoration: underline;
+//     }
+//     ${linkStyle};
+//     ${linkHover};
+//     text-decoration: none;
+//   }
+// `
 
 export default ({
   data: {
@@ -61,20 +61,20 @@ export default ({
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <H1>Tags</H1>
-      <StyledTags>
-        <Ul>
+      <h1>Tags</h1>
+      <article>
+        <ul>
           {group.map(({ fieldValue, totalCount }) => {
             return (
-              <Li key={fieldValue}>
+              <li key={fieldValue}>
                 <Link to={`/tags/${fieldValue}/`}>
                   {fieldValue} ({totalCount})
                 </Link>
-              </Li>
+              </li>
             )
           })}
-        </Ul>
-      </StyledTags>
+        </ul>
+      </article>
     </>
   )
 }

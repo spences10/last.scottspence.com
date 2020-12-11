@@ -1,7 +1,7 @@
 import { Link as GatsbyLink } from 'gatsby'
 import React from 'react'
-import { down } from 'styled-breakpoints'
-import styled, { css, keyframes } from 'styled-components'
+// import { down } from 'styled-breakpoints'
+// import styled, { css, keyframes } from 'styled-components'
 
 // For the gradient thing, check
 // https://github.com/fkhadra/react-toastify-doc/blob/e09ea2aabc/src/components/Actions.styles.ts

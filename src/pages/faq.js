@@ -2,8 +2,8 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
 import SEO from 'react-seo-component'
-import { A, H1 } from '../components/page-elements'
-import { Toc } from '../components/shared-styles'
+// import { A, H1 } from '../components/page-elements'
+// import { Toc } from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
 
@@ -35,20 +35,20 @@ export default ({ data }) => {
         twitterUsername={twitterUsername}
       />
       {typeof tableOfContents.items === 'undefined' ? null : (
-        <Toc>
+        <div>
           <h3>Table of contents</h3>
           <ul>
             {tableOfContents.items.map(i => (
               <li key={i.url}>
-                <A href={i.url} key={i.url}>
+                <a href={i.url} key={i.url}>
                   {i.title}
-                </A>
+                </a>
               </li>
             ))}
           </ul>
-        </Toc>
+        </div>
       )}
-      <H1>For recruiters - FAQ</H1>
+      <h1>For recruiters - FAQ</h1>
       <MDXRenderer>{body}</MDXRenderer>
     </>
   )

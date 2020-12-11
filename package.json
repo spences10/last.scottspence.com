@@ -1,6 +1,6 @@
 {
   "name": "scottspence.com",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A digital garden.",
   "main": "index.js",
   "author": {
@@ -24,14 +24,19 @@
     }
   },
   "dependencies": {
+    "@chakra-ui/gatsby-plugin": "^1.0.0",
+    "@chakra-ui/icons": "^1.0.1",
+    "@chakra-ui/react": "^1.0.3",
+    "@emotion/react": "^11.1.2",
+    "@emotion/styled": "^11.0.0",
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "@nivo/calendar": "^0.66.0",
     "@nivo/core": "^0.66.0",
     "@nivo/pie": "^0.66.0",
-    "babel-plugin-styled-components": "1.12.0",
     "convertkit-react": "^1.4.1",
     "date-fns": "^2.16.1",
+    "framer-motion": "^2.9.5",
     "gatsby": "^2.27.4",
     "gatsby-image": "2.6.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
@@ -46,8 +51,6 @@
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sharp": "^2.10.0",
     "gatsby-plugin-sitemap": "^2.8.0",
-    "gatsby-plugin-styled-components": "3.6.0",
-    "gatsby-plugin-use-dark-mode": "^1.2.0",
     "gatsby-remark-autolink-headers": "^2.7.0",
     "gatsby-remark-copy-linked-files": "^2.6.0",
     "gatsby-remark-external-links": "^0.0.4",
@@ -70,10 +73,7 @@
     "react-live": "2.2.3",
     "react-seo-component": "^2.0.2",
     "react-share": "^4.3.1",
-    "styled-breakpoints": "^9.0.0",
-    "styled-components": "5.2.1",
-    "styled-reset": "4.3.2",
-    "use-dark-mode": "^2.3.1",
+    "styled-components": "^5.2.1",
     "victormono": "^1.4.2"
   },
   "devDependencies": {

@@ -1,15 +1,15 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import React from 'react'
-import styled from 'styled-components'
-import { H1 } from './page-elements'
+// import styled from 'styled-components'
+// import { H1 } from './page-elements'
 
-const Wavy = styled.span`
-  img {
-    height: 40px;
-    width: 40px;
-  }
-`
+// const Wavy = styled.span`
+//   img {
+//     height: 40px;
+//     width: 40px;
+//   }
+// `
 
 export const MugFace = () => {
   const data = useStaticQuery(graphql`
@@ -32,12 +32,12 @@ export const MugFace = () => {
         // loading="eager"
         alt="mug face image"
       />
-      <H1>
+      <h1>
         Hello World!
-        <Wavy>
+        <span>
           <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" />
-        </Wavy>
-      </H1>
+        </span>
+      </h1>
     </>
   )
 }

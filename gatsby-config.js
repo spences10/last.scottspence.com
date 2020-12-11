@@ -20,13 +20,12 @@ const siteMetadata = {
 module.exports = {
   siteMetadata,
   plugins: [
+    `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-mdx-embed`,
-    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-use-dark-mode`,
     `gatsby-plugin-mailgo`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sharp`,

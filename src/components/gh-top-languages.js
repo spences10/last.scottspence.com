@@ -1,23 +1,23 @@
 import { ResponsivePieCanvas } from '@nivo/pie'
 import React from 'react'
-import styled from 'styled-components'
-import useDarkMode from 'use-dark-mode'
+// import styled from 'styled-components'
+// import useDarkMode from 'use-dark-mode'
 import { useGitHubRepositories } from '../hooks/use-github-repositories'
 import { topLanguages } from '../services/data-massage'
 
-const LanguageWrapper = styled.div`
-  width: 100%;
-  height: 40vh;
-  max-height: 700px;
-  max-width: 700px;
-  margin-top: 60px;
-`
+// const LanguageWrapper = styled.div`
+//   width: 100%;
+//   height: 40vh;
+//   max-height: 700px;
+//   max-width: 700px;
+//   margin-top: 60px;
+// `
 
 export const TopLanguages = () => {
   const { repositories } = useGitHubRepositories()
-  const { value } = useDarkMode()
+  // const { value } = useDarkMode()
   return (
-    <LanguageWrapper>
+    <div>
       <ResponsivePieCanvas
         data={topLanguages(repositories)}
         margin={{
@@ -39,7 +39,7 @@ export const TopLanguages = () => {
         ]}
         radialLabelsSkipAngle={10}
         radialLabelsTextXOffset={6}
-        radialLabelsTextColor={value ? `#f7fafc` : `#1a202c`}
+        // radialLabelsTextColor={value ? `#f7fafc` : `#1a202c`}
         radialLabelsLinkOffset={0}
         radialLabelsLinkDiagonalLength={16}
         radialLabelsLinkHorizontalLength={24}
@@ -52,6 +52,6 @@ export const TopLanguages = () => {
         motionDamping={15}
         isInteractive={false}
       />
-    </LanguageWrapper>
+    </div>
   )
 }
