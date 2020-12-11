@@ -24,7 +24,7 @@ module.exports = {
     `gatsby-plugin-mdx-embed`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-preact`,
+    // `gatsby-plugin-preact`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-mailgo`,
     `gatsby-transformer-json`,
