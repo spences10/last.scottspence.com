@@ -1,4 +1,4 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, theme } from '@chakra-ui/react'
 import { MDXProvider } from '@mdx-js/react'
 // import ConvertKitForm from 'convertkit-react'
 import React from 'react'
@@ -29,6 +29,7 @@ export const wrapPageElement = ({ element }) => (
     <Helmet>
       <script
         src={`${process.env.GATSBY_FATHOM_TRACKING_URL_SCOTTSPENCE_COM}/script.js`}
+        // TODO fix this
         spa="auto"
         site={process.env.GATSBY_FATHOM_TRACKING_ID_SCOTTSPENCE_COM}
         defer
@@ -39,7 +40,7 @@ export const wrapPageElement = ({ element }) => (
       />
     </Helmet>
     <AnalyticsProvider>
-      <ChakraProvider resetCSS>
+      <ChakraProvider resetCSS theme={theme}>
         <MDXProvider components={components}>
           <Layout>{element}</Layout>
         </MDXProvider>

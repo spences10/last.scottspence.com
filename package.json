@@ -34,6 +34,7 @@
     "@nivo/calendar": "^0.66.0",
     "@nivo/core": "^0.66.0",
     "@nivo/pie": "^0.66.0",
+    "@types/react-helmet": "^6.1.0",
     "convertkit-react": "^1.4.1",
     "date-fns": "^2.16.1",
     "framer-motion": "^2.9.5",
