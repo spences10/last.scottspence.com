@@ -2,7 +2,7 @@
 date: 2020-12-14
 title: Fish Shell Introduction
 tags: ['learning', 'guide']
-private: true
+private: false
 ---
 
 As a developer you spend a lot of time in the terminal so it's
@@ -101,7 +101,8 @@ yarn global add
 
 ## Install fresh Fish shell
 
-Linux and Windows Subsystem Linux:
+Ok, time to go over an install, this is specifically for Windows
+Subsystem Linux (WSL) but is the same instructions if you're on Linux:
 
 ```bash
 sudo apt -y install fish
@@ -120,7 +121,8 @@ fish -v
 # fish, version 3.1.2 👍
 ```
 
-I use fish in my work hardware so for macOS using brew it's:
+As a side note, I use fish on my work hardware so for macOS using brew
+it's:
 
 ```bash
 brew install fish
@@ -181,17 +183,39 @@ omf install spacefish nvm
 
 ## Install nvm
 
+As I'll need to have node installed I'll be using nvm to manage my
+node versions:
+
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ```
 
+Because I installed the nvm package with fish there's no need to worry
+about adding the variables output from the nvm insall, I can install
+my required node version:
+
+```bash
+nvm install 14
+```
+
 ## Install yarn
+
+Lastly there are projects I work on that use Yarn so I'll need to
+install that too, in this case it's the instructions from the [Yarn
+site].
 
 ```bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && sudo apt install yarn -y
 ```
+
+## Wrap and recap!
+
+That's it, I've detailed some of the advantages of using the Fish
+shell and detailed getting set up from a fresh install.
+
+Thanks 👍
 
 <!-- Links -->
 
@@ -202,3 +226,5 @@ sudo apt update && sudo apt install yarn -y
 [oh my fish]: https://github.com/oh-my-fish/oh-my-fish
 [the v3 package]:
   https://github.com/fish-shell/fish-shell#packages-for-linux
+[yarn site]:
+  https://classic.yarnpkg.com/en/docs/install/#debian-stable
