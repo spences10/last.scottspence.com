@@ -6,20 +6,20 @@ import { linkHover, linkStyle, StyledLink } from './shared-styles'
 
 const POPULAR_POSTS = [
   {
-    title: `Build a coding blog from scratch with Gatsby and MDX`,
-    slug: `2019/10/31/build-an-mdx-blog/`,
-  },
-  {
     title: `Add a Table of Contents with Smooth scroll using Gatsby and MDX`,
     slug: `2020/02/13/smooth-scroll-toc-gatsby/`,
   },
   {
-    title: `Globally Style the Gatsby Default Starter with styled-components v5`,
-    slug: `2020/02/06/globally-style-gatsby-styled-components/`,
+    title: `Notes on Zsh and Oh My Zsh`,
+    slug: `2020/12/08/zsh-and-oh-my-zsh/`,
   },
   {
     title: `My Second Brain - Zettelkasten`,
     slug: `2020/07/17/my-second-brain-zettelkasten/`,
+  },
+  {
+    title: `Build a coding blog from scratch with Gatsby and MDX`,
+    slug: `2019/10/31/build-an-mdx-blog/`,
   },
 ]
 
