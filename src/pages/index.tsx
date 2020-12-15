@@ -32,9 +32,7 @@ interface IndexPageProps {
 
 // IndexPage is of type FunctionComponent which accets a generic. <T>
 // A generica can be of any shape but in your case its the shape of the data object which you define in the page query below
-export const IndexPage: FunctionComponent<IndexPageProps> = ({
-  data,
-}) => {
+const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
   const posts = data.allMdx.nodes
 
   return (
@@ -103,12 +101,17 @@ export const IndexPage: FunctionComponent<IndexPageProps> = ({
   )
 }
 
+export default IndexPage
+
 // This shape is up to you, it has nothing to do with Gatsby or MDX. You define the query shape however you want
 // A Gatsby page query return it inside a "data" object
 // It the data object you need to type. As seen above in IndexPageProps
 export const query = graphql`
   {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { private: { eq: false } } }
+    ) {
       nodes {
         id
         slug

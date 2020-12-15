@@ -17,9 +17,7 @@ interface PostPageprops {
   }
 }
 
-export const PostPage: FunctionComponent<PostPageprops> = ({
-  data,
-}) => {
+const PostPage: FunctionComponent<PostPageprops> = ({ data }) => {
   const {
     body,
     frontmatter: { title },
@@ -31,6 +29,9 @@ export const PostPage: FunctionComponent<PostPageprops> = ({
     </>
   )
 }
+
+export default PostPage
+
 export const query = graphql`
   query PostBySlug($slug: String) {
     mdx(slug: { eq: $slug }) {
