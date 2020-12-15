@@ -1,28 +1,56 @@
-import { Box } from '@chakra-ui/react'
-import React, { ReactNode } from 'react'
-// import styled from 'styled-components'
-import { useSiteMetadata } from '../hooks/use-site-metadata'
-import { Footer } from './footer'
-import { Header } from './header'
+/**
+ * Layout component that queries for data
+ * with Gatsby's useStaticQuery component
+ *
+ * See: https://www.gatsbyjs.com/docs/use-static-query/
+ */
 
-// const Styles = styled.main`
-//   position: relative;
-//   max-width: 640px;
-//   margin: 0 auto;
-//   padding: 0 20px;
-// `
+import { Box, Link } from '@chakra-ui/react'
+import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Header from './header'
 
-interface Props {
-  children: ReactNode
-}
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
-export const Layout = ({ children }: Props) => {
-  const { title, description } = useSiteMetadata()
   return (
-    <Box as="main" maxW={['100%', '50%', 'auto']} m="0 auto">
-      <Header title={title} description={description} />
-      {children}
-      <Footer />
-    </Box>
+    <>
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Box
+        as="div"
+        margin="0 auto"
+        maxWidth="960px"
+        padding="0 1.0875rem 1.45rem"
+      >
+        <Box as="main">{children}</Box>
+        <Box as="footer" marginTop="2rem" fontSize="xl">
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <Link
+            isExternal
+            textDecor="underline"
+            color="purple.500"
+            href="https://www.gatsbyjs.com"
+          >
+            Gatsby
+          </Link>
+        </Box>
+      </Box>
+    </>
   )
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default Layout
