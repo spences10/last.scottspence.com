@@ -21,7 +21,7 @@ export const StyledLi = styled.li`
     border: 1px solid gray;
     vertical-align: -4px;
     color: green;
-    &:before {
+    &::before {
       content: '✔';
       position: absolute;
       font-size: 1.6em;
