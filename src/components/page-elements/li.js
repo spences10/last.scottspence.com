@@ -13,6 +13,31 @@ export const StyledLi = styled.li`
   code {
     ${inlineCode}
   }
+  input[type='checkbox'] {
+    appearance: none;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border: 1px solid gray;
+    vertical-align: -4px;
+    color: green;
+    &:before {
+      content: '✔';
+      position: absolute;
+      font-size: 1.6em;
+      right: -5.3px;
+      top: -0.6em;
+      visibility: hidden;
+    }
+    &:checked::before {
+      visibility: visible;
+    }
+    &::disabled {
+      border-color: black;
+      background: #ddd;
+      color: gray;
+    }
+  }
 `
 
 export const Li = props => {
