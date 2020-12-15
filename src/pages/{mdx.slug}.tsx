@@ -1,8 +1,25 @@
 import { Text } from '@chakra-ui/react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import React from 'react'
-export default function PostPage({ data }) {
+import React, { FunctionComponent } from 'react'
+
+interface PostPageprops {
+  data: {
+    mdx: {
+      id: string
+      slug: string
+      body: string
+      frontmatter: {
+        date: string
+        title: string
+      }
+    }
+  }
+}
+
+export const PostPage: FunctionComponent<PostPageprops> = ({
+  data,
+}) => {
   const {
     body,
     frontmatter: { title },
