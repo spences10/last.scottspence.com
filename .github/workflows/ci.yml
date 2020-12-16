@@ -24,4 +24,3 @@ jobs:
         uses: cypress-io/github-action@v2.7.0
         env:
           CYPRESS_BASE_URL: ${{ steps.wait-for-vercel.outputs.url }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
