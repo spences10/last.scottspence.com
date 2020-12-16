@@ -1,4 +1,6 @@
 {
+  "testFiles": "**/*.feature",
   "baseUrl": "http://localhost:4512/",
-  "video": false
+  "video": false,
+  "integrationFolder": "cypress/integration"
 }
