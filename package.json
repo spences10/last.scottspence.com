@@ -15,8 +15,7 @@
     "serve": "gatsby serve -p 4500 -o",
     "format": "pretty-quick",
     "wellknown": "cp -r .well-known/ public/",
-    "robots": "cp robots.txt public/",
-    "postinstall": "patch-package"
+    "robots": "cp robots.txt public/"
   },
   "husky": {
     "hooks": {
