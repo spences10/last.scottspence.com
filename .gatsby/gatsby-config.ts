@@ -1,9 +1,11 @@
+const siteMetadata = {
+  title: `A Digital Garden`,
+  description: `My digital garden, enjoy!`,
+  author: `@spences10`,
+}
+
 export default {
-  siteMetadata: {
-    title: `A Digital Garden`,
-    description: `My digital garden, enjoy!`,
-    author: `@spences10`,
-  },
+  siteMetadata,
   plugins: [
     `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-react-helmet`,

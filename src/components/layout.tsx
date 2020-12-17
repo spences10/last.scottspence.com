@@ -1,56 +1,28 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import { Box, Link } from '@chakra-ui/react'
-import { graphql, useStaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
-import React from 'react'
+import { Box } from '@chakra-ui/react'
+import React, { FunctionComponent } from 'react'
+import { useSiteMetadata } from '../hooks/site-metadata'
 import Header from './header'
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const Layout: FunctionComponent = ({ children }) => {
+  const { title } = useSiteMetadata()
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header siteTitle={title || `Title`} />
       <Box
         as="div"
         margin="0 auto"
-        maxWidth="960px"
+        maxWidth="640px"
         padding="0 1.0875rem 1.45rem"
       >
         <Box as="main">{children}</Box>
         <Box as="footer" marginTop="2rem" fontSize="xl">
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <Link
-            isExternal
-            textDecor="underline"
-            color="purple.500"
-            href="https://www.gatsbyjs.com"
-          >
-            Gatsby
-          </Link>
+          © {new Date().getFullYear()} Scott Spence. All Rights
+          Reserved.
         </Box>
       </Box>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout
