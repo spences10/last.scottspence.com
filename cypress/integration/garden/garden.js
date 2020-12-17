@@ -5,8 +5,8 @@ import {
   When,
 } from 'cypress-cucumber-preprocessor/steps'
 
-Given('I am on the Home page', () => {
-  cy.visit('/')
+Given('I am on the Garden page', () => {
+  cy.visit('/garden')
 })
 
 Then('I will see the content', () => {
@@ -20,9 +20,9 @@ When('I hover over the "Link boxes"', () => {
 })
 
 When('I click on one of the "Link boxes"', () => {
-  cy.get('.chakra-link').eq(1).click()
+  cy.get('article').eq(0).click()
 })
 
 Then('I will be taken to the selected post', function () {
-  cy.url().should('include', '/page-2/')
+  cy.url().should('include', '/2020/')
 })
