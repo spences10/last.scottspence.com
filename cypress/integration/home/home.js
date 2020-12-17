@@ -20,7 +20,7 @@ When('I hover over the "Link boxes"', () => {
 })
 
 When('I click on one of the "Link boxes"', () => {
-  cy.get('.chakra-link').eq(1).click()
+  cy.get('a[href*="page-2"]').click()
 })
 
 Then('I will be taken to the selected post', function () {
