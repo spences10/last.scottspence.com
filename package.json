@@ -57,7 +57,7 @@
     "gatsby-source-graphql": "^2.9.0",
     "gatsby-transformer-json": "^2.6.0",
     "gatsby-transformer-sharp": "2.8.0",
-    "kwesforms": "^2.0.3",
+    "kwesforms": "^2.0.4",
     "markdown-to-jsx": "^7.1.0",
     "mdx-embed": "^0.0.16",
     "mdx-utils": "0.2.0",
