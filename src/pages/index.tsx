@@ -17,6 +17,16 @@ const IndexPage: FunctionComponent = () => {
         textDecor="underline"
         color="purple.500"
         fontSize="xl"
+        to="/garden/"
+      >
+        Go to garden
+      </Link>
+      <br />
+      <Link
+        as={GatsbyLink}
+        textDecor="underline"
+        color="purple.500"
+        fontSize="xl"
         to="/page-2/"
       >
         Go to page 2
