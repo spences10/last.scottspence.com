@@ -10,7 +10,7 @@ interface Props {
 
 const Header = ({ siteTitle }: Props) => (
   <Box as="header" background="rebeccapurple" marginBottom="1.45rem">
-    <Box as="div" m="0 auto" maxW="960px" p="1.45rem 1.0875rem">
+    <Box as="div" m="0 auto" maxW="640px" p="1.45rem 1.0875rem">
       <Flex>
         <Heading margin="0">
           <Link
