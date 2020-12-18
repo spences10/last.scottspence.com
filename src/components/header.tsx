@@ -1,14 +1,24 @@
-import { Box, Flex, Heading, Link, Spacer } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Heading,
+  Link,
+  Spacer,
+  Text,
+} from '@chakra-ui/react'
 import { Link as GatsbyLink } from 'gatsby'
-import PropTypes from 'prop-types'
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import ThemeToggle from './theme-toggle'
 
-interface Props {
+interface HeaderProps {
   siteTitle: string
+  description: string
 }
 
-const Header = ({ siteTitle }: Props) => (
+export const Header: FunctionComponent<HeaderProps> = ({
+  siteTitle,
+  description,
+}) => (
   <Box as="header" background="rebeccapurple" marginBottom="1.45rem">
     <Box as="div" m="0 auto" maxW="640px" p="1.45rem 1.0875rem">
       <Flex>
@@ -21,6 +31,7 @@ const Header = ({ siteTitle }: Props) => (
           >
             {siteTitle}
           </Link>
+          <Text>{description}</Text>
         </Heading>
         <Spacer />
         <Box as="div" position="relative">
@@ -30,13 +41,3 @@ const Header = ({ siteTitle }: Props) => (
     </Box>
   </Box>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header

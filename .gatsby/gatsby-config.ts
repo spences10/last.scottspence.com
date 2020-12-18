@@ -1,6 +1,6 @@
 const siteMetadata = {
-  title: `A Digital Garden`,
-  description: `My digital garden, enjoy!`,
+  title: `Scott Spence`,
+  description: `A digital garden.`,
   author: `@spences10`,
 }
 

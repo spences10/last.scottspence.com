@@ -1,14 +1,17 @@
 import { Box } from '@chakra-ui/react'
 import React, { FunctionComponent } from 'react'
 import { useSiteMetadata } from '../hooks/site-metadata'
-import Header from './header'
+import { Header } from './header'
 
 const Layout: FunctionComponent = ({ children }) => {
-  const { title } = useSiteMetadata()
+  const { title, description } = useSiteMetadata()
 
   return (
     <>
-      <Header siteTitle={title || `Title`} />
+      <Header
+        siteTitle={title || `Title`}
+        description={description}
+      />
       <Box
         as="div"
         margin="0 auto"
