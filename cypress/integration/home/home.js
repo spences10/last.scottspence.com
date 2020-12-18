@@ -10,7 +10,8 @@ Given('I am on the Home page', () => {
 })
 
 Then('I will see the content', () => {
-  cy.contains('A Digital Garden')
+  cy.contains('Scott Spence')
+  cy.contains('A digital garden')
   cy.contains('Hi people')
 })
 
