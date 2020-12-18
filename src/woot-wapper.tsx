@@ -1,16 +1,23 @@
 import { ChakraProvider, Text } from '@chakra-ui/react'
 import { MDXProvider } from '@mdx-js/react'
 import { GatsbyBrowser } from 'gatsby'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Layout from './components/layout'
+import { H2 } from './components/mdx-elements'
 import { theme } from './theme'
 
 const components = {
-  h2: (props: { children: React.ReactNode }) => (
-    <Text fontSize="3xl" my={3} fontFamily="heading">
+  h1: (props: { children: ReactNode }) => (
+    <Text
+      fontSize="4xl"
+      my={3}
+      fontFamily="heading"
+      color="brand.100"
+    >
       {props.children}
     </Text>
   ),
+  h2: (props: { children: ReactNode }) => <H2 {...props} />,
 }
 
 interface Props {
