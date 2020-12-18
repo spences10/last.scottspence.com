@@ -7,7 +7,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { GatsbyBrowser } from 'gatsby'
 import React, { ReactNode } from 'react'
 import Layout from './components/layout'
-import { H2 } from './components/mdx-elements'
+import { H2, Li, Ol, Ul } from './components/mdx-elements'
 import { theme } from './theme'
 
 const components = {
@@ -31,6 +31,9 @@ const components = {
   'p.inlineCode': (props: { children: ReactNode }) => (
     <InlineCode {...props} />
   ),
+  ul: props => <Ul {...props} />,
+  ol: props => <Ol {...props} />,
+  li: props => <Li {...props} />,
 }
 
 interface Props {
