@@ -7,6 +7,7 @@ const siteMetadata = {
 export default {
   siteMetadata,
   plugins: [
+    `gatsby-plugin-mdx-embed`,
     `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
