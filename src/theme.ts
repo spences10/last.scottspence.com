@@ -11,6 +11,16 @@ export const theme = extendTheme({
     initialColorMode: 'dark',
     key: 'chakra-ui-no-flash',
   },
+  // If you're using gsap to animate then set the body visibility
+  // to hidden in the theme. Then on each page set it to visible with gsap.
+  // Otherwise you get a flash of non animation
+  // styles: {
+  //   global: {
+  //     body: {
+  //       visibility: 'hidden',
+  //     },
+  //   },
+  // },
   colors: {
     brand: {
       100: '#E0AAFF',
@@ -35,6 +45,11 @@ export const theme = extendTheme({
     '4xl': '36px',
     '5xl': '48px',
     '6xl': '64px',
+  },
+  fonts: {
+    heading: 'Comic Sans MS',
+    body: 'Times New Roman',
+    mono: 'Victor Mono',
   },
   fontWeights: {
     normal: 400,
