@@ -1,4 +1,8 @@
-import { ChakraProvider, Text } from '@chakra-ui/react'
+import {
+  ChakraProvider,
+  Code as InlineCode,
+  Text,
+} from '@chakra-ui/react'
 import { MDXProvider } from '@mdx-js/react'
 import { GatsbyBrowser } from 'gatsby'
 import React, { ReactNode } from 'react'
@@ -7,6 +11,11 @@ import { H2 } from './components/mdx-elements'
 import { theme } from './theme'
 
 const components = {
+  a: (
+    props: JSX.IntrinsicAttributes &
+      React.ClassAttributes<HTMLAnchorElement> &
+      React.AnchorHTMLAttributes<HTMLAnchorElement>
+  ) => <a {...props} />,
   h1: (props: { children: ReactNode }) => (
     <Text
       fontSize="4xl"
@@ -18,6 +27,10 @@ const components = {
     </Text>
   ),
   h2: (props: { children: ReactNode }) => <H2 {...props} />,
+  // pre: props => <Code {...props} />,
+  'p.inlineCode': (props: { children: ReactNode }) => (
+    <InlineCode {...props} />
+  ),
 }
 
 interface Props {
