@@ -92,9 +92,11 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
             <ListItem
               key={id}
               listStyleType="none"
-              boxShadow="lg"
-              border="1px solid brand.100"
+              border="1px"
+              borderColor="brand.500"
               borderRadius="xl"
+              boxShadow="xl"
+              my="4"
             >
               <Link
                 as={GatsbyLink}
@@ -106,7 +108,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
                   textDecor: 'none',
                 }}
               >
-                <Container m="0">
+                <Container m="0" my="4">
                   <Box as="h2" fontSize="3xl" my="4">
                     {title}
                   </Box>
