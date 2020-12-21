@@ -18,6 +18,7 @@ interface IndexPost {
   frontmatter: {
     date: string
     title: string
+    tags: []
   }
 }
 
@@ -48,7 +49,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
 
   const options = {
     includeScore: true,
-    keys: ['frontmatter.title', 'excerpt'],
+    keys: ['frontmatter.title', 'excerpt', 'frontmatter.tags'],
     includeMatches: true,
     threshold: 0.3,
   }
@@ -138,6 +139,7 @@ export const query = graphql`
         frontmatter {
           date
           title
+          tags
         }
       }
     }
