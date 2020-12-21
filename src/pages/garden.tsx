@@ -9,7 +9,12 @@ import {
 } from '@chakra-ui/react'
 import Fuse from 'fuse.js'
 import { graphql, Link as GatsbyLink } from 'gatsby'
-import React, { FunctionComponent, useRef, useState } from 'react'
+import React, {
+  ChangeEvent,
+  FunctionComponent,
+  useRef,
+  useState,
+} from 'react'
 
 interface IndexPost {
   id: string
@@ -60,8 +65,8 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
     ? results.map(result => result.item)
     : nodes
 
-  function onSearch({ currentTarget = {} }) {
-    updateQuery(currentTarget?.value)
+  const onSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    updateQuery(event.currentTarget?.value)
   }
 
   return (
@@ -76,7 +81,9 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
           type="text"
           placeholder="Search posts!"
           value={query}
-          onChange={onSearch}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            onSearch(event)
+          }
           ref={searchRef}
         />
       </Box>
