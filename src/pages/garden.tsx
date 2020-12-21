@@ -1,6 +1,15 @@
-import { Box, Heading, Link, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  FormLabel,
+  Input,
+  Link,
+  ListItem,
+  UnorderedList,
+} from '@chakra-ui/react'
+import Fuse from 'fuse.js'
 import { graphql, Link as GatsbyLink } from 'gatsby'
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useRef, useState } from 'react'
 
 interface IndexPost {
   id: string
@@ -11,6 +20,7 @@ interface IndexPost {
     title: string
   }
 }
+
 interface IndexPageProps {
   data: {
     allMdx: {
@@ -33,69 +43,79 @@ interface IndexPageProps {
 // IndexPage is of type FunctionComponent which accets a generic. <T>
 // A generica can be of any shape but in your case its the shape of the data object which you define in the page query below
 const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
-  const posts = data.allMdx.nodes
+  const { nodes } = data.allMdx
+  const [query, updateQuery] = useState('')
+
+  const options = {
+    includeScore: true,
+    keys: ['frontmatter.title', 'excerpt'],
+    includeMatches: true,
+    threshold: 0.3,
+  }
+  const fuse = new Fuse(nodes, options)
+  const results = fuse.search(query)
+  const searchRef = useRef(null)
+  const searchResults = query
+    ? results.map(result => result.item)
+    : nodes
+
+  function onSearch({ currentTarget = {} }) {
+    updateQuery(currentTarget?.value)
+  }
 
   return (
     <>
-      <Heading>Hi people</Heading>
-      <Text fontSize="xl" my={5}>
-        Welcome to your new Gatsby site.
-      </Text>
-      <Text fontSize="xl" my={5}>
-        Now go build something great.
-      </Text>
-      {posts.map((post: IndexPost, index: number) => {
-        // you don't have to destructure but its my preference
-        const {
-          // id,
-          slug,
-          excerpt,
-          frontmatter: { title },
-        } = post
-        return (
-          <Box
-            // you could use id as the key and remove index from the map if you like
-            // key={id}
-            key={index}
-            as="article"
-            border="1px"
-            borderColor="#663399"
-            borderRadius="5px"
-            my="5"
-            p="5"
-          >
-            <Link
-              as={GatsbyLink}
-              textDecor=""
-              _hover={{ textDecor: 'underline' }}
-              fontSize="xl"
-              to={`/${slug}`}
+      <Box as="form" mt="5" mb="8">
+        <FormLabel htmlFor="search" fontSize="xl">
+          Search:
+        </FormLabel>
+        <Input
+          name="search"
+          id="search"
+          type="text"
+          placeholder="Search posts!"
+          value={query}
+          onChange={onSearch}
+          ref={searchRef}
+        />
+      </Box>
+      <UnorderedList m="0">
+        {searchResults.map(post => {
+          const {
+            id,
+            slug,
+            frontmatter: { title },
+            excerpt,
+          } = post
+          return (
+            <ListItem
+              key={id}
+              listStyleType="none"
+              boxShadow="lg"
+              border="1px solid brand.100"
+              borderRadius="xl"
             >
-              <Text fontSize="3xl">{title}</Text>
-              <Text fontSize="xl">{excerpt}</Text>
-            </Link>
-          </Box>
-        )
-      })}
-      <Link
-        as={GatsbyLink}
-        textDecor="underline"
-        color="purple.500"
-        fontSize="xl"
-        to="/page-2/"
-      >
-        Go to page 2
-      </Link>
-      <br />
-      <Link
-        as={GatsbyLink}
-        textDecor="underline"
-        color="purple.500"
-        fontSize="xl"
-        to="/using-typescript/"
-      >
-        Go to "Using TypeScript"
-      </Link>
+              <Link
+                as={GatsbyLink}
+                to={`/${slug}`}
+                textDecor="underline"
+                fontWeight="bold"
+                _hover={{
+                  color: 'brand.400',
+                  textDecor: 'none',
+                }}
+              >
+                <Container m="0">
+                  <Box as="h2" fontSize="3xl" my="4">
+                    {title}
+                  </Box>
+                  {excerpt}
+                </Container>
+              </Link>
+            </ListItem>
+          )
+        })}
+      </UnorderedList>
     </>
   )
 }
