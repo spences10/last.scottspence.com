@@ -1,26 +1,12 @@
 import { extendTheme } from '@chakra-ui/react'
+import { mode } from '@chakra-ui/theme-tools'
 
-/**
- * This theme object can be changed and edited however you like. It's currently extending the default Chakra theme
- * (which itself is inspired by Tailwind CSS) with the values below.
- * Example usage of theme values: <Text color="brand.100" fontSize="6xl" fontWeight="bold">Boop</Text>
- */
 export const theme = extendTheme({
   config: {
     useSystemColorMode: true,
     initialColorMode: 'dark',
     key: 'chakra-ui-no-flash',
   },
-  // If you're using gsap to animate then set the body visibility
-  // to hidden in the theme. Then on each page set it to visible with gsap.
-  // Otherwise you get a flash of non animation
-  // styles: {
-  //   global: {
-  //     body: {
-  //       visibility: 'hidden',
-  //     },
-  //   },
-  // },
   colors: {
     brand: {
       100: '#E0AAFF',
@@ -74,4 +60,19 @@ export const theme = extendTheme({
     widest: '0.1em',
   },
   breakpoints: ['30em', '48em', '62em', '80em'],
+  styles: {
+    global: props => ({
+      html: {
+        scrollBehavior: 'smooth',
+      },
+      body: {
+        fontFamily: 'body',
+        color: mode('gray.800', 'white')(props),
+        bg: mode('white', 'gray.800')(props),
+        lineHeight: 'base',
+        marginLeft: 'calc(100vw - 100%)',
+      },
+      '.highlight': { backgroundColor: 'brand.400' },
+    }),
+  },
 })
