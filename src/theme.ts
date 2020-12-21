@@ -70,7 +70,7 @@ export const theme = extendTheme({
         color: mode('gray.800', 'white')(props),
         bg: mode('white', 'gray.800')(props),
         lineHeight: 'base',
-        marginLeft: 'calc(100vw - 100%)',
+        // marginLeft: 'calc(100vw - 100%)',
       },
       '.highlight': { backgroundColor: 'brand.400' },
     }),
