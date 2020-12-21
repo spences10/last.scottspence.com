@@ -10,8 +10,8 @@ Given('I am on the Garden page', () => {
 })
 
 Then('I will see the content', () => {
-  cy.contains('A Digital Garden')
-  cy.contains('Hi people')
+  cy.contains('Scott Spence')
+  cy.contains('A digital garden')
 })
 
 When('I hover over the "Link boxes"', () => {
@@ -20,7 +20,7 @@ When('I hover over the "Link boxes"', () => {
 })
 
 When('I click on one of the "Link boxes"', () => {
-  cy.get('article').eq(0).click()
+  cy.get('h2').eq(1).click()
 })
 
 Then('I will be taken to the selected post', function () {
