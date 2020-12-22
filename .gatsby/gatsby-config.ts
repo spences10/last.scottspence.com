@@ -8,11 +8,11 @@ export default {
   siteMetadata,
   plugins: [
     `gatsby-plugin-mdx-embed`,
-    `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-brotli`,
+    `gatsby-plugin-theme-ui`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

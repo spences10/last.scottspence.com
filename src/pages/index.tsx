@@ -1,23 +1,30 @@
-import { Heading, Link, Text } from '@chakra-ui/react'
-import { Link as GatsbyLink } from 'gatsby'
+// import { Link as GatsbyLink } from 'gatsby'
 import React, { FunctionComponent } from 'react'
+import { Heading, Text } from 'theme-ui'
 
 const IndexPage: FunctionComponent = () => {
   return (
     <>
       <Heading>Hi people</Heading>
-      <Text fontSize="xl" my={5}>
+      <Text
+        sx={{
+          fontSize: 'xl',
+          my: 5,
+        }}
+      >
         Welcome to your new Gatsby site.
       </Text>
-      <Text fontSize="xl" my={5}>
+      <Text sx={{ fontSize: 'xl', my: 5 }}>
         Now go build something great.
       </Text>
-      <Link
+      {/* <Link
         as={GatsbyLink}
-        textDecor="underline"
-        color="purple.500"
-        fontSize="xl"
         to="/garden/"
+        sx={{
+          textDecoration: 'underline',
+          color: 'purple.500',
+          fontSize: 'xl',
+        }}
       >
         Go to garden
       </Link>
@@ -40,7 +47,7 @@ const IndexPage: FunctionComponent = () => {
         to="/using-typescript/"
       >
         Go to "Using TypeScript"
-      </Link>
+      </Link> */}
     </>
   )
 }
