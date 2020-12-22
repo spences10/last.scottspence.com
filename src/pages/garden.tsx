@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   FormLabel,
   Input,
   Link,
@@ -116,7 +115,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
                   textDecor: 'none',
                 }}
               >
-                <Container m="0" my="4">
+                <Box m="0" my="4">
                   <Box as="h2" fontSize="3xl" my="4">
                     <Highlighter
                       searchWords={[query]}
@@ -127,7 +126,10 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
                       {title}
                     </Highlighter>
                   </Box>
-                  <Box as="text" fontSize="xl">
+                  <Box
+                    // as="text"
+                    fontSize="xl"
+                  >
                     <Highlighter
                       searchWords={[query]}
                       autoEscape={true}
@@ -137,7 +139,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
                       {excerpt}
                     </Highlighter>
                   </Box>
-                </Container>
+                </Box>
               </Link>
             </ListItem>
           )
