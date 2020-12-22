@@ -15,6 +15,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
+import Highlighter from 'react-highlight-words'
 
 interface IndexPost {
   id: string
@@ -56,7 +57,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
     includeScore: true,
     keys: ['frontmatter.title', 'excerpt', 'frontmatter.tags'],
     includeMatches: true,
-    threshold: 0.3,
+    threshold: 0.1,
   }
   const fuse = new Fuse(nodes, options)
   const results = fuse.search(query)
@@ -117,9 +118,25 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
               >
                 <Container m="0" my="4">
                   <Box as="h2" fontSize="3xl" my="4">
-                    {title}
+                    <Highlighter
+                      searchWords={[query]}
+                      autoEscape={true}
+                      textToHighlight={title}
+                      highlightClassName="highlight"
+                    >
+                      {title}
+                    </Highlighter>
                   </Box>
-                  {excerpt}
+                  <Box as="text" fontSize="xl">
+                    <Highlighter
+                      searchWords={[query]}
+                      autoEscape={true}
+                      textToHighlight={excerpt}
+                      highlightClassName="highlight"
+                    >
+                      {excerpt}
+                    </Highlighter>
+                  </Box>
                 </Container>
               </Link>
             </ListItem>

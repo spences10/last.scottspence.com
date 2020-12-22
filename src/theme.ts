@@ -3,10 +3,10 @@ import { mode } from '@chakra-ui/theme-tools'
 
 export const theme = extendTheme({
   config: {
-    useSystemColorMode: true,
     initialColorMode: 'dark',
     key: 'chakra-ui-no-flash',
   },
+  sizes: { container: { maxWidth: '100ch' } },
   colors: {
     brand: {
       100: '#E0AAFF',
