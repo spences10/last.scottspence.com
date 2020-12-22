@@ -12,6 +12,7 @@ export default {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-brotli`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

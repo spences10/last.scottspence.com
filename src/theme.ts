@@ -1,6 +1,38 @@
 import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 
+const fallbackFonts = {
+  headingFallback: [
+    'Georgia',
+    'Cambria',
+    '"Times New Roman"',
+    'Times',
+    'serif',
+  ],
+  bodyFallback: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    '"Noto Sans"',
+    'sans-serif',
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+    '"Noto Color Emoji"',
+  ],
+  monoFallback: [
+    'Menlo',
+    'Monaco',
+    'Consolas',
+    '"Liberation Mono"',
+    '"Courier New"',
+    'monospace',
+  ],
+}
+
 export const theme = extendTheme({
   config: {
     initialColorMode: 'dark',
@@ -35,9 +67,11 @@ export const theme = extendTheme({
     '6xl': '64px',
   },
   fonts: {
-    heading: 'Comic Sans MS',
-    body: 'Times New Roman',
-    mono: 'Victor Mono',
+    heading: [['Hepta Slab'], fallbackFonts.headingFallback].join(
+      `,`
+    ),
+    body: [['Work Sans'], fallbackFonts.bodyFallback].join(`,`),
+    mono: [['Victor Mono'], fallbackFonts.monoFallback].join(`,`),
   },
   fontWeights: {
     normal: 400,
