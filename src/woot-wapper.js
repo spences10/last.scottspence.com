@@ -44,11 +44,11 @@ const components = {
   p: props => <P {...props} />,
 }
 
-export const WootWrapper = ({ children }) => {
+export const wrapPageElement = ({ element }) => {
   return (
     <ChakraProvider theme={theme} resetCSS>
       <MDXProvider components={components}>
-        <Layout>{children}</Layout>
+        <Layout>{element}</Layout>
       </MDXProvider>
     </ChakraProvider>
   )

@@ -1,5 +1,6 @@
 import {
   Box,
+  Container,
   FormLabel,
   Input,
   Link,
@@ -144,7 +145,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
                       {excerpt}
                     </Highlighter>
                   </Box>
-                </Box>
+                </Container>
               </Link>
             </ListItem>
           )

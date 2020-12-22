@@ -39,7 +39,7 @@ export const theme = extendTheme({
     key: 'chakra-ui-no-flash',
   },
   sizes: {
-    lg: '100ch',
+    lg: '640px',
   },
   colors: {
     brand: {

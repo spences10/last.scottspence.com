@@ -1,3 +1,3 @@
-// import { wrapPageElement as wrap } from '../src/woot-wapper'
+import { wrapPageElement as wrap } from '../src/woot-wapper'
 
-// export const wrapPageElement = wrap
+export const wrapPageElement = wrap
