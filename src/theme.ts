@@ -38,7 +38,9 @@ export const theme = extendTheme({
     initialColorMode: 'dark',
     key: 'chakra-ui-no-flash',
   },
-  sizes: { container: { maxWidth: '100ch' } },
+  sizes: {
+    lg: '100ch',
+  },
   colors: {
     brand: {
       100: '#E0AAFF',

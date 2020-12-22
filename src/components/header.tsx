@@ -1,4 +1,5 @@
 import {
+  Container,
   Box,
   Flex,
   Heading,
@@ -20,24 +21,26 @@ export const Header: FunctionComponent<HeaderProps> = ({
   description,
 }) => (
   <Box as="header" background="rebeccapurple" marginBottom="1.45rem">
-    <Box as="div" m="0 auto" maxW="640px" p="1.45rem 1.0875rem">
-      <Flex>
-        <Heading margin="0">
-          <Link
-            as={GatsbyLink}
-            to="/"
-            color="white"
-            _hover={{ textDecor: 'none' }}
-          >
-            {siteTitle}
-          </Link>
-          <Text>{description}</Text>
-        </Heading>
-        <Spacer />
-        <Box as="div" position="relative">
-          <ThemeToggle />
-        </Box>
-      </Flex>
-    </Box>
+    <Container maxW="lg">
+      <Box as="div" m="0 auto" p="1.45rem 1.0875rem">
+        <Flex>
+          <Heading margin="0">
+            <Link
+              as={GatsbyLink}
+              to="/"
+              color="white"
+              _hover={{ textDecor: 'none' }}
+            >
+              {siteTitle}
+            </Link>
+            <Text>{description}</Text>
+          </Heading>
+          <Spacer />
+          <Box as="div" position="relative">
+            <ThemeToggle />
+          </Box>
+        </Flex>
+      </Box>
+    </Container>
   </Box>
 )
