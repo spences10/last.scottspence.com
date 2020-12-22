@@ -117,7 +117,12 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
                 }}
               >
                 <Container m="0" my="4">
-                  <Box as="h2" fontSize="3xl" my="4">
+                  <Box
+                    as="h2"
+                    fontSize="3xl"
+                    my="4"
+                    fontFamily="heading"
+                  >
                     <Highlighter
                       searchWords={[query]}
                       autoEscape={true}
