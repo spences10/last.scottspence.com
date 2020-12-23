@@ -90,9 +90,10 @@ export default {
     wider: '0.05em',
     widest: '0.1em',
   },
-  breakpoints: ['30em', '48em', '62em', '80em'],
+  sizes: { container: 640 },
+  breakpoints: ['40em', '52em', '64em'],
   styles: {
-    p: { fontFamily: 'body' },
+    p: { fontFamily: 'body', wordBreak: 'break-word' },
     h1: { fontFamily: 'heading' },
     h2: { fontFamily: 'heading' },
     img: { maxWidth: '100%' },

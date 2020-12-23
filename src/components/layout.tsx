@@ -1,4 +1,3 @@
-// import { Box, Container } from '@chakra-ui/react'
 import React, { FunctionComponent } from 'react'
 import { Box, Container } from 'theme-ui'
 import { useSiteMetadata } from '../hooks/site-metadata'
@@ -15,10 +14,18 @@ const Layout: FunctionComponent = ({ children }) => {
       />
       <Container
         sx={{
-          maxWidth: '640px',
+          maxWidth: 'container',
         }}
       >
-        <Box as="main">{children}</Box>
+        <Box
+          as="main"
+          sx={{
+            width: '100%',
+            flex: '1 1 auto',
+          }}
+        >
+          {children}
+        </Box>
         <Box
           as="footer"
           sx={{

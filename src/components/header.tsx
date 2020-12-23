@@ -1,12 +1,3 @@
-// import {
-//   Container,
-//   Box,
-//   Flex,
-//   Heading,
-//   Link,
-//   Spacer,
-//   Text,
-// } from '@chakra-ui/react'
 import React, { FunctionComponent } from 'react'
 import { Box, Container, Flex, Heading, Text } from 'theme-ui'
 import { InternalLink } from './internal-link'
