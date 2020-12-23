@@ -12,7 +12,6 @@ export default {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-brotli`,
-    `gatsby-plugin-theme-ui`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
