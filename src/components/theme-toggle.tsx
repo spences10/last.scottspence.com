@@ -1,21 +1,32 @@
-import { MoonIcon, SunIcon } from '@chakra-ui/icons'
-import {
-  IconButton,
-  useColorMode,
-  useColorModeValue,
-} from '@chakra-ui/react'
+// import {
+//   IconButton,
+//   useColorMode,
+//   useColorModeValue,
+// } from '@chakra-ui/react'
 import React from 'react'
+import { GiStripedSun } from 'react-icons/gi'
+import { Box } from 'theme-ui'
+import { useThemeValues } from '../hooks/theme-values'
 
 export default function ThemeToggle() {
-  const { toggleColorMode: toggleMode } = useColorMode()
-  const ToggleIcon = useColorModeValue(SunIcon, MoonIcon)
+  const { modeSet, newColorMode } = useThemeValues()
 
   return (
-    <IconButton
-      icon={<ToggleIcon />}
-      variant="ghost"
-      aria-label="Toggle Theme"
-      onClick={toggleMode}
-    />
+    <Box
+      as="button"
+      onClick={() => {
+        modeSet(newColorMode)
+      }}
+      sx={{
+        height: 50,
+        width: 50,
+        background: 'none',
+        border: 'none',
+        borderRadius: 50,
+        svg: { height: '100%', width: '100%' },
+      }}
+    >
+      <GiStripedSun />
+    </Box>
   )
 }

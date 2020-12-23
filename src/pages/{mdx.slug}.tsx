@@ -1,7 +1,7 @@
-import { Text } from '@chakra-ui/react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React, { FunctionComponent } from 'react'
+import { Box } from 'theme-ui'
 
 interface PostPageprops {
   data: {
@@ -24,7 +24,14 @@ const PostPage: FunctionComponent<PostPageprops> = ({ data }) => {
   } = data.mdx
   return (
     <>
-      <Text fontSize="4xl">{title}</Text>
+      <Box
+        as="h1"
+        sx={{
+          fontSize: '4xl',
+        }}
+      >
+        {title}
+      </Box>
       <MDXRenderer>{body}</MDXRenderer>
     </>
   )

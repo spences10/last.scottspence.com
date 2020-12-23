@@ -1,12 +1,18 @@
-import { Heading, Text } from '@chakra-ui/react'
 import React from 'react'
+import { Box } from 'theme-ui'
 
 const NotFoundPage = () => (
   <>
-    <Heading>404: Not Found</Heading>
-    <Text fontSize="xl" my={5}>
+    <Box as="h1">404: Not Found</Box>
+    <Box
+      as="p"
+      sx={{
+        fontSize: 'xl',
+        my: 5,
+      }}
+    >
       You just hit a route that doesn&#39;t exist... the sadness.
-    </Text>
+    </Box>
   </>
 )
 

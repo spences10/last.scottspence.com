@@ -1,16 +1,14 @@
-import { useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import React, { FunctionComponent, ReactNode } from 'react'
+import { useThemeValues } from '../../hooks/theme-values'
 
 export interface HideLinkProps {
   children: ReactNode
 }
 
 export const HideLink: FunctionComponent<HideLinkProps> = props => {
-  const color = useColorModeValue(
-    '#1A202C',
-    'rgba(255, 255, 255, 0.92)'
-  )
+  const { theme } = useThemeValues()
+  const svgFill = theme.colors?.text
   const HideLinkStyle = styled.span`
     a {
       float: left;
@@ -18,15 +16,15 @@ export const HideLink: FunctionComponent<HideLinkProps> = props => {
     }
     svg {
       visibility: hidden;
-      height: 45px;
+      height: 35px;
       width: 20px;
+      fill: ${svgFill};
     }
     &:hover {
       svg {
         visibility: visible;
-        height: 45px;
+        height: 35px;
         width: 20px;
-        fill: ${color};
       }
     }
   `

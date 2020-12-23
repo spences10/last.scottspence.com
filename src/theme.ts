@@ -1,6 +1,3 @@
-import { extendTheme } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
-
 const fallbackFonts = {
   headingFallback: [
     'Georgia',
@@ -33,25 +30,23 @@ const fallbackFonts = {
   ],
 }
 
-export const theme = extendTheme({
-  config: {
-    initialColorMode: 'dark',
-    key: 'chakra-ui-no-flash',
-  },
-  sizes: {
-    lg: '640px',
-  },
+export default {
+  initialColorMode: 'dark',
   colors: {
-    brand: {
-      100: '#E0AAFF',
-      200: '#C77DFF',
-      300: '#9D4EDD',
-      400: '#7B2CBF',
-      500: '#5A189A',
-      600: '#3C096C',
-      700: '#240046',
-      800: '#10002B',
-      900: '#070014',
+    text: '#ffffffeb',
+    background: 'rgb(26 32 44)',
+    primary: '#07c',
+    modes: {
+      light: {
+        text: 'rgb(26 32 44)',
+        background: '#ffffffeb',
+        primary: '#0cf',
+      },
+      purple: {
+        text: '#ffffffeb',
+        background: '#663399',
+        primary: '#0cf',
+      },
     },
   },
   fontSizes: {
@@ -97,18 +92,17 @@ export const theme = extendTheme({
   },
   breakpoints: ['30em', '48em', '62em', '80em'],
   styles: {
-    global: props => ({
-      html: {
-        scrollBehavior: 'smooth',
-      },
+    p: { fontFamily: 'body' },
+    h1: { fontFamily: 'heading' },
+    h2: { fontFamily: 'heading' },
+    img: { maxWidth: '100%' },
+    root: {
+      '.highlight': { backgroundColor: 'primary' },
       body: {
         fontFamily: 'body',
-        color: mode('gray.800', 'white')(props),
-        bg: mode('white', 'gray.800')(props),
         lineHeight: 'base',
         // marginLeft: 'calc(100vw - 100%)',
       },
-      '.highlight': { backgroundColor: 'brand.400' },
-    }),
+    },
   },
-})
+}

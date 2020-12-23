@@ -1,10 +1,10 @@
-import { Tbody as ChakraTbody } from '@chakra-ui/react'
-import React, { FunctionComponent, ReactNode } from 'react'
+// import { Tbody as ChakraTbody } from '@chakra-ui/react'
+// import React, { FunctionComponent, ReactNode } from 'react'
 
-interface TbodyProps {
-  children: ReactNode
-}
+// interface TbodyProps {
+//   children: ReactNode
+// }
 
-export const Tbody: FunctionComponent<TbodyProps> = props => {
-  return <ChakraTbody>{props.children}</ChakraTbody>
-}
+// export const Tbody: FunctionComponent<TbodyProps> = props => {
+//   return <ChakraTbody>{props.children}</ChakraTbody>
+// }

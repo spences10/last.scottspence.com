@@ -1,6 +1,7 @@
 // import { Link as GatsbyLink } from 'gatsby'
 import React, { FunctionComponent } from 'react'
 import { Heading, Text } from 'theme-ui'
+import { InternalLink } from '../components/internal-link'
 
 const IndexPage: FunctionComponent = () => {
   return (
@@ -17,8 +18,7 @@ const IndexPage: FunctionComponent = () => {
       <Text sx={{ fontSize: 'xl', my: 5 }}>
         Now go build something great.
       </Text>
-      {/* <Link
-        as={GatsbyLink}
+      <InternalLink
         to="/garden/"
         sx={{
           textDecoration: 'underline',
@@ -27,27 +27,29 @@ const IndexPage: FunctionComponent = () => {
         }}
       >
         Go to garden
-      </Link>
+      </InternalLink>
       <br />
-      <Link
-        as={GatsbyLink}
-        textDecor="underline"
-        color="purple.500"
-        fontSize="xl"
+      <InternalLink
         to="/page-2/"
+        sx={{
+          textDecoration: 'underline',
+          color: 'purple.500',
+          fontSize: 'xl',
+        }}
       >
         Go to page 2
-      </Link>
+      </InternalLink>
       <br />
-      <Link
-        as={GatsbyLink}
-        textDecor="underline"
-        color="purple.500"
-        fontSize="xl"
+      <InternalLink
         to="/using-typescript/"
+        sx={{
+          textDecoration: 'underline',
+          color: 'purple.500',
+          fontSize: 'xl',
+        }}
       >
         Go to "Using TypeScript"
-      </Link> */}
+      </InternalLink>
     </>
   )
 }

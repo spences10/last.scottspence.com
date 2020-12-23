@@ -1,14 +1,14 @@
-import {
-  Box,
-  Container,
-  FormLabel,
-  Input,
-  Link,
-  ListItem,
-  UnorderedList,
-} from '@chakra-ui/react'
+// import {
+//   Box,
+//   Container,
+//   FormLabel,
+//   Input,
+//   Link,
+//   ListItem,
+//   UnorderedList,
+// } from '@chakra-ui/react'
 import Fuse from 'fuse.js'
-import { graphql, Link as GatsbyLink } from 'gatsby'
+import { graphql } from 'gatsby'
 import React, {
   ChangeEvent,
   FunctionComponent,
@@ -16,6 +16,8 @@ import React, {
   useState,
 } from 'react'
 import Highlighter from 'react-highlight-words'
+import { Box, Container, Input, Label } from 'theme-ui'
+import { InternalLink } from '../components/internal-link'
 
 interface IndexPost {
   id: string
@@ -72,10 +74,10 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
 
   return (
     <>
-      <Box as="form" mt="5" mb="8">
-        <FormLabel htmlFor="search" fontSize="xl">
+      <Box as="form">
+        <Label htmlFor="search" sx={{ fontSize: 'xl' }}>
           Search:
-        </FormLabel>
+        </Label>
         <Input
           name="search"
           id="search"
@@ -88,7 +90,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
           ref={searchRef}
         />
       </Box>
-      <UnorderedList m="0">
+      <Box as="ul" sx={{ padding: 0 }}>
         {searchResults.map(post => {
           const {
             id,
@@ -97,31 +99,32 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
             excerpt,
           } = post
           return (
-            <ListItem
+            <Box
+              as="li"
               key={id}
-              listStyleType="none"
-              border="1px"
-              borderColor="brand.500"
-              borderRadius="xl"
-              boxShadow="xl"
-              my="4"
+              sx={{
+                listStyleType: 'none',
+                border: '1px solid primary',
+                borderRadius: 'xl',
+                boxShadow: 'xl',
+                my: '4',
+              }}
             >
-              <Link
-                as={GatsbyLink}
+              <InternalLink
                 to={`/${slug}`}
-                textDecor="underline"
-                fontWeight="bold"
-                _hover={{
-                  color: 'brand.400',
-                  textDecor: 'none',
+                sx={{
+                  textDecoration: 'underline',
+                  fontWeight: 'bold',
                 }}
               >
                 <Container m="0" my="4">
                   <Box
                     as="h2"
-                    fontSize="3xl"
-                    my="4"
-                    fontFamily="heading"
+                    sx={{
+                      fontSize: '3xl',
+                      my: '4',
+                      fontFamily: 'heading',
+                    }}
                   >
                     <Highlighter
                       searchWords={[query]}
@@ -133,8 +136,10 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
                     </Highlighter>
                   </Box>
                   <Box
-                    // as="text"
-                    fontSize="xl"
+                    as="p"
+                    sx={{
+                      fontSize: 'xl',
+                    }}
                   >
                     <Highlighter
                       searchWords={[query]}
@@ -146,11 +151,11 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
                     </Highlighter>
                   </Box>
                 </Container>
-              </Link>
-            </ListItem>
+              </InternalLink>
+            </Box>
           )
         })}
-      </UnorderedList>
+      </Box>
     </>
   )
 }
