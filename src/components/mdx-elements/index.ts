@@ -1,5 +1,6 @@
 // export { A } from './a'
 // export { H1 } from './h1'
+export { Code } from './code'
 export { H2 } from './h2'
 // export { Li } from './li'
 // export { Ol } from './ol'
