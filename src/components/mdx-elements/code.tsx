@@ -1,3 +1,4 @@
+// https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/src/components/code.tsx
 import styled from '@emotion/styled'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
@@ -8,99 +9,132 @@ import {
   LivePreview,
   LiveProvider,
 } from 'react-live'
-import { copyToClipboard } from './copy-to-clipboard'
 
-const Pre = styled.pre`
-  text-align: left;
-  padding: 1.5em;
-  overflow-x: auto;
-  border-radius: 5px;
-  border: 1px solid;
-  border-color: #639;
-  margin-bottom: 3em;
-  & .token-line {
-    line-height: 1.3em;
-    height: 1.3em;
+function getParams(className = ``) {
+  const [lang = ``, params = ``] = className.split(`:`)
+
+  return [
+    // @ts-ignore
+    lang.split(`language-`).pop().split(`{`).shift(),
+  ].concat(
+    // @ts-ignore
+    params.split(`&`).reduce((merged, param) => {
+      const [key, value] = param.split(`=`)
+      // @ts-ignore
+      merged[key] = value
+      return merged
+    }, {})
+  )
+}
+
+const RE = /{([\d,-]+)}/
+
+const calculateLinesToHighlight = (meta: string) => {
+  if (!RE.test(meta)) {
+    return () => false
   }
-  font-family: monospace;
-  font-size: 1.2em;
-`
-
-const LineNo = styled.span`
-  display: inline-block;
-  width: 2em;
-  user-select: none;
-  opacity: 0.3;
-`
-
-const CopyCode = styled.button`
-  position: absolute;
-  right: 1.25rem;
-  top: 0.5rem;
-  border: 0;
-  border-radius: 3px;
-  padding: 0.5em;
-  margin: 0.25em;
-  opacity: 0.3;
-  cursor: pointer;
-  font-family: Jost;
-  &:hover {
-    opacity: 1;
+  const lineNumbers = RE.exec(meta)![1]
+    .split(`,`)
+    .map(v => v.split(`-`).map(x => parseInt(x, 10)))
+  return (index: number) => {
+    const lineNumber = index + 1
+    const inRange = lineNumbers.some(([start, end]) =>
+      end
+        ? lineNumber >= start && lineNumber <= end
+        : lineNumber === start
+    )
+    return inRange
   }
-`
+}
+
+const CodeWrapper = styled.div``
 
 interface CodeProps {
   codeString: string
-  language: string
+  noLineNumbers: boolean
+  className: string
+  metastring: string
 }
 
 export const Code: FunctionComponent<CodeProps> = ({
   codeString,
-  language,
+  noLineNumbers = false,
+  className: blockClassName,
+  metastring = ``,
   ...props
 }) => {
-  if (props['react-live']) {
+  const showLineNumbers = true
+
+  const [language, { title = `` }] = getParams(blockClassName)
+  const shouldHighlightLine = calculateLinesToHighlight(metastring)
+
+  const hasLineNumbers =
+    !noLineNumbers && language !== `noLineNumbers` && showLineNumbers
+
+  if (props[`react-live`]) {
     return (
-      <LiveProvider scope={styled} code={codeString} theme={theme}>
-        <LiveEditor />
-        <LivePreview
-          sx={{
-            marginTop: '2em',
-          }}
-        />
+      <LiveProvider code={codeString} noInline theme={theme}>
+        <LiveEditor data-name="live-editor" />
         <LiveError />
+        <LivePreview data-name="live-preview" />
       </LiveProvider>
     )
   }
-  const handleClick = () => {
-    copyToClipboard(codeString)
-  }
   return (
-    <Highlight
-      {...defaultProps}
-      code={codeString}
-      language={language}
-      theme={theme}
-    >
-      {({
-        className,
-        style,
-        tokens,
-        getLineProps,
-        getTokenProps,
-      }) => (
-        <Pre className={className} style={style}>
-          <CopyCode onClick={handleClick}>Copy</CopyCode>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
+    <CodeWrapper>
+      <Highlight
+        {...defaultProps}
+        code={codeString}
+        language={language}
+        theme={theme}
+      >
+        {({
+          className,
+          style,
+          tokens,
+          getLineProps,
+          getTokenProps,
+        }) => (
+          <>
+            {title && (
+              <div className="code-title">
+                <div>{title}</div>
+              </div>
+            )}
+            <div
+              className="gatsby-highlight"
+              data-language={language}
+            >
+              <pre
+                className={className}
+                style={style}
+                data-linenumber={hasLineNumbers}
+              >
+                {tokens.map((line, i) => {
+                  const lineProps = getLineProps({ line, key: i })
+
+                  if (shouldHighlightLine(i)) {
+                    lineProps.className = `${lineProps.className} highlight-line`
+                  }
+
+                  return (
+                    <div {...lineProps}>
+                      {hasLineNumbers && (
+                        <span className="line-number-style">
+                          {i + 1}
+                        </span>
+                      )}
+                      {line.map((token, key) => (
+                        <span {...getTokenProps({ token, key })} />
+                      ))}
+                    </div>
+                  )
+                })}
+              </pre>
             </div>
-          ))}
-        </Pre>
-      )}
-    </Highlight>
+          </>
+        )}
+      </Highlight>
+    </CodeWrapper>
   )
 }
