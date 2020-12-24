@@ -8,16 +8,7 @@ export interface H2Props {
 
 export const H2: FunctionComponent<H2Props> = props => {
   return (
-    <Box
-      {...props}
-      as="h2"
-      sx={{
-        fontSize: '3xl',
-        my: 3,
-        fontFamily: 'heading',
-        color: 'brand.100',
-      }}
-    >
+    <Box {...props} as="h2" variant="styles.h2">
       <Box as="span" variant="styles.hideLink">
         {props.children}
       </Box>

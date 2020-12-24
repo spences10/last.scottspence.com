@@ -24,12 +24,7 @@ const PostPage: FunctionComponent<PostPageprops> = ({ data }) => {
   } = data.mdx
   return (
     <>
-      <Box
-        as="h1"
-        sx={{
-          fontSize: '4xl',
-        }}
-      >
+      <Box as="h1" variant="styles.h1">
         {title}
       </Box>
       <MDXRenderer>{body}</MDXRenderer>

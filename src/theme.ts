@@ -94,7 +94,7 @@ export default {
   breakpoints: ['40em', '52em', '64em'],
   styles: {
     h1: { fontFamily: 'heading', fontSize: '4xl' },
-    h2: { fontFamily: 'heading', fontSize: '3xl' },
+    h2: { fontFamily: 'heading', fontSize: '3xl', my: 3 },
     img: { maxWidth: '100%' },
     p: {
       fontFamily: 'body',
