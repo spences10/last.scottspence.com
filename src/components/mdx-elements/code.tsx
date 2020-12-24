@@ -1,5 +1,4 @@
 // https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/src/components/code.tsx
-import styled from '@emotion/styled'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import React, { FunctionComponent } from 'react'
@@ -9,6 +8,7 @@ import {
   LivePreview,
   LiveProvider,
 } from 'react-live'
+import { Box } from 'theme-ui'
 
 function getParams(className = ``) {
   const [lang = ``, params = ``] = className.split(`:`)
@@ -47,8 +47,6 @@ const calculateLinesToHighlight = (meta: string) => {
   }
 }
 
-const CodeWrapper = styled.div``
-
 interface CodeProps {
   codeString: string
   noLineNumbers: boolean
@@ -65,23 +63,26 @@ export const Code: FunctionComponent<CodeProps> = ({
 }) => {
   const showLineNumbers = true
 
-  const [language, { title = `` }] = getParams(blockClassName)
+  const [language, { title = `` }]: any = getParams(blockClassName)
   const shouldHighlightLine = calculateLinesToHighlight(metastring)
 
   const hasLineNumbers =
     !noLineNumbers && language !== `noLineNumbers` && showLineNumbers
 
+  // @ts-ignore
   if (props[`react-live`]) {
     return (
-      <LiveProvider code={codeString} noInline theme={theme}>
-        <LiveEditor data-name="live-editor" />
-        <LiveError />
-        <LivePreview data-name="live-preview" />
-      </LiveProvider>
+      <Box as="div" variant="styles.pre">
+        <LiveProvider code={codeString} noInline theme={theme}>
+          <LiveEditor data-name="live-editor" />
+          <LiveError />
+          <LivePreview data-name="live-preview" />
+        </LiveProvider>
+      </Box>
     )
   }
   return (
-    <CodeWrapper>
+    <Box as="div">
       <Highlight
         {...defaultProps}
         code={codeString}
@@ -105,7 +106,9 @@ export const Code: FunctionComponent<CodeProps> = ({
               className="gatsby-highlight"
               data-language={language}
             >
-              <pre
+              <Box
+                as="pre"
+                variant="styles.pre"
                 className={className}
                 style={style}
                 data-linenumber={hasLineNumbers}
@@ -130,11 +133,11 @@ export const Code: FunctionComponent<CodeProps> = ({
                     </div>
                   )
                 })}
-              </pre>
+              </Box>
             </div>
           </>
         )}
       </Highlight>
-    </CodeWrapper>
+    </Box>
   )
 }
