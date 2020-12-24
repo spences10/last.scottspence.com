@@ -93,8 +93,8 @@ export default {
   sizes: { container: 640 },
   breakpoints: ['40em', '52em', '64em'],
   styles: {
-    h1: { fontFamily: 'heading' },
-    h2: { fontFamily: 'heading' },
+    h1: { fontFamily: 'heading', fontSize: '4xl' },
+    h2: { fontFamily: 'heading', fontSize: '3xl' },
     img: { maxWidth: '100%' },
     p: {
       fontFamily: 'body',
@@ -121,6 +121,18 @@ export default {
           opacity: 0.5,
           left: '-2px',
         },
+      },
+    },
+    hideLink: {
+      a: { float: 'left', marginLeft: '-25px' },
+      svg: {
+        visibility: 'hidden',
+        height: '35px',
+        width: '20px',
+        fill: 'text',
+      },
+      ':hover': {
+        svg: { visibility: 'visible', height: '35px', width: '20px' },
       },
     },
     root: {

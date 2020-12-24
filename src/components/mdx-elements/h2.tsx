@@ -1,7 +1,6 @@
 // import { Text } from '@chakra-ui/react'
 import React, { FunctionComponent, ReactNode } from 'react'
 import { Box } from 'theme-ui'
-import { HideLink } from './hide-link'
 
 export interface H2Props {
   children: ReactNode
@@ -19,7 +18,9 @@ export const H2: FunctionComponent<H2Props> = props => {
         color: 'brand.100',
       }}
     >
-      <HideLink>{props.children}</HideLink>
+      <Box as="span" variant="styles.hideLink">
+        {props.children}
+      </Box>
     </Box>
   )
 }
