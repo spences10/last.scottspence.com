@@ -93,10 +93,11 @@ export default {
   sizes: { container: 640 },
   breakpoints: ['40em', '52em', '64em'],
   styles: {
-    p: { fontFamily: 'body', wordBreak: 'break-word' },
     h1: { fontFamily: 'heading' },
     h2: { fontFamily: 'heading' },
     img: { maxWidth: '100%' },
+    p: { fontFamily: 'body', wordBreak: 'break-word' },
+    pre: { fontFamily: 'mono', fontSize: 'xl', overflow: 'auto' },
     root: {
       '.highlight': { backgroundColor: 'primary' },
       body: {
