@@ -14,7 +14,8 @@ const Layout: FunctionComponent = ({ children }) => {
       />
       <Container
         sx={{
-          maxWidth: 'container',
+          maxWidth: 640,
+          padding: ['20px', 0, 0],
         }}
       >
         <Box
