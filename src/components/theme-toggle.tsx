@@ -1,8 +1,3 @@
-// import {
-//   IconButton,
-//   useColorMode,
-//   useColorModeValue,
-// } from '@chakra-ui/react'
 import React from 'react'
 import { GiStripedSun } from 'react-icons/gi'
 import { Box } from 'theme-ui'

@@ -1,4 +1,3 @@
-// import { Text } from '@chakra-ui/react'
 import React, { FunctionComponent, ReactNode } from 'react'
 import { Box } from 'theme-ui'
 
