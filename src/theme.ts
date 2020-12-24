@@ -96,8 +96,33 @@ export default {
     h1: { fontFamily: 'heading' },
     h2: { fontFamily: 'heading' },
     img: { maxWidth: '100%' },
-    p: { fontFamily: 'body', wordBreak: 'break-word' },
-    pre: { fontFamily: 'mono', fontSize: 'xl', overflow: 'auto' },
+    p: {
+      fontFamily: 'body',
+      wordBreak: 'break-word',
+      fontSize: 'xl',
+    },
+    pre: {
+      fontFamily: 'mono',
+      fontSize: 'xl',
+      overflow: 'auto',
+      '.line-number-style': {
+        display: 'inline-block',
+        width: '2em',
+        userSelect: 'none',
+        opacity: 0.3,
+        textAlign: 'center',
+        position: 'relative',
+      },
+      '.highlight-line': {
+        backgroundColor: 'rgb(2, 55, 81)',
+        borderLeft: '4px solid rgb(2, 155, 206)',
+        '.line-number-style': {
+          width: 'calc(2em - 4px)',
+          opacity: 0.5,
+          left: '-2px',
+        },
+      },
+    },
     root: {
       '.highlight': { backgroundColor: 'primary' },
       body: {
