@@ -1,6 +1,6 @@
 // https://github.com/gatsbyjs/gatsby/blob/561d33e2e491d3971cb2a404eec9705a5a493602/www/src/utils/copy-to-clipboard.js
 
-export const copyToClipboard = str => {
+export const copyToClipboard = (str: string) => {
   const clipboard = window.navigator.clipboard
   /*
    * fallback to older browsers (including Safari)
@@ -17,8 +17,8 @@ export const copyToClipboard = str => {
     textarea.select()
     const range = document.createRange()
     const sel = window.getSelection()
-    sel.removeAllRanges()
-    sel.addRange(range)
+    sel?.removeAllRanges()
+    sel?.addRange(range)
     textarea.setSelectionRange(0, textarea.value.length)
     document.execCommand(`copy`)
     document.body.removeChild(textarea)
