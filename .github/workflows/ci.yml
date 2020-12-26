@@ -13,27 +13,11 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     steps:
-      - uses: UnlyEd/github-action-await-vercel@v1.1.0
-        id: await-vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: Wait for Vercel
+        uses: mskelton/wait-for-vercel-action@v1.2.0
+        id: wait-for-vercel
         with:
-          deployment-url: ${{ env.VERCEL_DEPLOYMENT_URL }}
-          timeout: 10 # Wait for 10 seconds before failing
-
-      - name:
-          Displays the deployment name (example on how to read
-          information about the deployment)
-        run:
-          'echo My deployment is ${{
-          fromJson(steps.await-vercel.outputs.deploymentDetails).name
-          }}'
-      - name: Displays the deployment Url
-        run:
-          'Url is ${{
-          fromJson(steps.await-vercel.outputs.deploymentDetails).url
-          }}'
-
+          token: ${{ secrets.VERCEL_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v1
       - name: Cypress.io
