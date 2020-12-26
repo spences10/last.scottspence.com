@@ -11,7 +11,6 @@ Given('I am on the Garden page', () => {
 
 Then('I will see the content', () => {
   cy.contains('Scott Spence')
-  cy.contains('A digital garden')
 })
 
 When('I hover over the "Link boxes"', () => {
