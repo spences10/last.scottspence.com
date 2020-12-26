@@ -34,14 +34,14 @@ export default {
   initialColorMode: 'dark',
   colors: {
     text: '#ffffffeb',
-    background: 'rgb(26 32 44)',
+    background: '#1a202c',
     primary: '#07c',
     secondary: '',
     muted: '',
     highlight: '',
     modes: {
       light: {
-        text: 'rgb(26 32 44)',
+        text: '#1a202c',
         background: '#ffffffeb',
         primary: '#0cf',
         secondary: '',
@@ -165,12 +165,17 @@ export default {
       padding: '0 3px',
     },
     li: { fontFamily: 'body', fontSize: 'xl' },
+    postsUl: {
+      padding: 0,
+    },
     postsLi: {
-      listStyleType: 'none',
       borderRadius: 'lg',
       boxShadow: 'lg',
       my: 4,
       padding: 2,
+      '::marker': {
+        content: `''`,
+      },
       a: {
         color: 'text',
         textDecoration: 'none',

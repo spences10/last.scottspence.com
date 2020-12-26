@@ -85,7 +85,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
           sx={{ fontSize: 'xl', fontFamily: 'body' }}
         />
       </Box>
-      <Box as="ul" sx={{ padding: 0 }}>
+      <Box as="ul" role="list" variant="styles.postsUl">
         {searchResults.map(post => {
           const {
             id,
@@ -94,7 +94,12 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
             excerpt,
           } = post
           return (
-            <Box as="li" key={id} variant="styles.postsLi">
+            <Box
+              as="li"
+              key={id}
+              role="listitem"
+              variant="styles.postsLi"
+            >
               <InternalLink to={`/${slug}`}>
                 <Container m="0">
                   <Box as="h2" variant="styles.h2">

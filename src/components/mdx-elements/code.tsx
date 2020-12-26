@@ -72,7 +72,7 @@ export const Code: FunctionComponent<CodeProps> = ({
   // @ts-ignore
   if (props[`react-live`]) {
     return (
-      <Box as="div" variant="styles.pre">
+      <Box as="div" variant="styles.pre" role="code-block">
         <LiveProvider code={codeString} noInline theme={theme}>
           <LiveEditor data-name="live-editor" />
           <LiveError />
@@ -108,6 +108,7 @@ export const Code: FunctionComponent<CodeProps> = ({
             >
               <Box
                 as="pre"
+                role="code-block"
                 variant="styles.pre"
                 className={className}
                 style={style}
