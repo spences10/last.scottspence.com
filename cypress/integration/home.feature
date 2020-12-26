@@ -11,4 +11,4 @@ Feature: Home page
     # When I hover over the "Link boxes"
     # Then I see the title highlited
     When I click on one of the "Link boxes"
-    Then I will be taken to the selected post
+    Then I will be taken to the selected page

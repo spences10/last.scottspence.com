@@ -7,8 +7,11 @@ import React, {
   useState,
 } from 'react'
 import Highlighter from 'react-highlight-words'
+import SEO from 'react-seo-component'
 import { Box, Container, Input, Label } from 'theme-ui'
 import { InternalLink } from '../components/internal-link'
+import { useSiteMetadata } from '../hooks/site-metadata'
+import { ogImageUrl } from '../util/get-og-image'
 
 interface IndexPost {
   id: string
@@ -43,6 +46,15 @@ interface IndexPageProps {
 // IndexPage is of type FunctionComponent which accets a generic. <T>
 // A generica can be of any shape but in your case its the shape of the data object which you define in the page query below
 const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
+  const {
+    title,
+    description,
+    siteUrl,
+    twitterUsername,
+    authorName,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata()
   const { nodes } = data.allMdx
   const [query, updateQuery] = useState('')
 
@@ -65,6 +77,20 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
 
   return (
     <>
+      <SEO
+        title={`Index of posts!`}
+        titleTemplate={title}
+        description={description}
+        image={ogImageUrl(
+          authorName,
+          'scottspence.com',
+          `Scott's knowledge pamphlet!`
+        )}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
       <Box as="form">
         <Label
           htmlFor="search"

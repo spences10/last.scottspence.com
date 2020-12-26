@@ -5,7 +5,12 @@ type SiteMetadataProps = {
     siteMetadata: {
       title: string
       description: string
-      author: string
+      lastBuildDate: string
+      siteUrl: string
+      authorName: string
+      twitterUsername: string
+      siteLanguage: string
+      siteLocale: string
     }
   }
 }
@@ -18,7 +23,12 @@ export const useSiteMetadata = () => {
           siteMetadata {
             title
             description
-            author
+            lastBuildDate
+            siteUrl
+            authorName
+            twitterUsername
+            siteLanguage
+            siteLocale
           }
         }
       }
