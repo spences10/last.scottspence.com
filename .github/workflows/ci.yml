@@ -16,7 +16,7 @@ jobs:
       - name:
           Retrieve deployment URL (example on how to set an ENV var)
         run:
-          'echo VERCEL_DEPLOYMENT_URL=scottspence-com.now.sh/ >>
+          'echo VERCEL_DEPLOYMENT_URL=scottspence-com.now.sh >>
           $GITHUB_ENV'
 
       - uses: UnlyEd/github-action-await-vercel@v1.1.0
