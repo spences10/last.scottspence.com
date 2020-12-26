@@ -1,12 +1,3 @@
-// import {
-//   Box,
-//   Container,
-//   FormLabel,
-//   Input,
-//   Link,
-//   ListItem,
-//   UnorderedList,
-// } from '@chakra-ui/react'
 import Fuse from 'fuse.js'
 import { graphql } from 'gatsby'
 import React, {
@@ -75,7 +66,10 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
   return (
     <>
       <Box as="form">
-        <Label htmlFor="search" sx={{ fontSize: 'xl' }}>
+        <Label
+          htmlFor="search"
+          sx={{ fontSize: 'xl', fontFamily: 'body' }}
+        >
           Search:
         </Label>
         <Input
@@ -88,6 +82,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
             onSearch(event)
           }
           ref={searchRef}
+          sx={{ fontSize: 'xl', fontFamily: 'body' }}
         />
       </Box>
       <Box as="ul" sx={{ padding: 0 }}>
@@ -99,33 +94,10 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
             excerpt,
           } = post
           return (
-            <Box
-              as="li"
-              key={id}
-              sx={{
-                listStyleType: 'none',
-                border: '1px solid primary',
-                borderRadius: 'xl',
-                boxShadow: 'xl',
-                my: '4',
-              }}
-            >
-              <InternalLink
-                to={`/${slug}`}
-                sx={{
-                  textDecoration: 'underline',
-                  fontWeight: 'bold',
-                }}
-              >
-                <Container m="0" my="4">
-                  <Box
-                    as="h2"
-                    sx={{
-                      fontSize: '3xl',
-                      my: '4',
-                      fontFamily: 'heading',
-                    }}
-                  >
+            <Box as="li" key={id} variant="styles.postsLi">
+              <InternalLink to={`/${slug}`}>
+                <Container m="0">
+                  <Box as="h2" variant="styles.h2">
                     <Highlighter
                       searchWords={[query]}
                       autoEscape={true}
