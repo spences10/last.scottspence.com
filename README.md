@@ -1,2 +1,2 @@
 # scottspence.com
-My digital garden.
+My Letter Beautiful Mysterious Notebook.
