@@ -1,11 +1,37 @@
 // import { Link as GatsbyLink } from 'gatsby'
 import React, { FunctionComponent } from 'react'
+import SEO from 'react-seo-component'
 import { Heading, Text } from 'theme-ui'
 import { InternalLink } from '../components/internal-link'
+import { useSiteMetadata } from '../hooks/site-metadata'
+import { ogImageUrl } from '../util/get-og-image'
 
 const IndexPage: FunctionComponent = () => {
+  const {
+    title,
+    description,
+    siteUrl,
+    twitterUsername,
+    authorName,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata()
   return (
     <>
+      <SEO
+        title={`Home`}
+        titleTemplate={title}
+        description={description}
+        image={ogImageUrl(
+          authorName,
+          'scottspence.com',
+          `Scott's Digital Garden`
+        )}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
       <Heading>Hi people</Heading>
       <Text
         sx={{
@@ -27,28 +53,6 @@ const IndexPage: FunctionComponent = () => {
         }}
       >
         Go to garden
-      </InternalLink>
-      <br />
-      <InternalLink
-        to="/page-2/"
-        sx={{
-          textDecoration: 'underline',
-          color: 'purple.500',
-          fontSize: 'xl',
-        }}
-      >
-        Go to page 2
-      </InternalLink>
-      <br />
-      <InternalLink
-        to="/using-typescript/"
-        sx={{
-          textDecoration: 'underline',
-          color: 'purple.500',
-          fontSize: 'xl',
-        }}
-      >
-        Go to "Using TypeScript"
       </InternalLink>
     </>
   )
