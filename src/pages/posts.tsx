@@ -9,9 +9,9 @@ import React, {
 import Highlighter from 'react-highlight-words'
 import SEO from 'react-seo-component'
 import { Box, Container, Input, Label } from 'theme-ui'
-import { InternalLink } from '../../components/internal-link'
-import { useSiteMetadata } from '../../hooks/site-metadata'
-import { ogImageUrl } from '../../util/get-og-image'
+import { InternalLink } from '../components/internal-link'
+import { useSiteMetadata } from '../hooks/site-metadata'
+import { ogImageUrl } from '../util/get-og-image'
 
 interface IndexPost {
   id: string
