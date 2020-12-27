@@ -1,0 +1,52 @@
+---
+date: 2020-12-27
+title: Make a Simple API Endpoint with Vercel Serverless Functions
+tags: ['api', 'vercel', 'guide']
+private: true
+---
+
+https://github.com/spences10/positivity-api
+
+## Set up
+
+```bash
+yarn global add vercel
+# or use vc
+vercel login
+```
+
+## Create project
+
+```bash
+mkdir random-name-generator
+cd random-name-generator
+yarn init -y
+```
+
+```bash
+yarn add -D vercel
+```
+
+```json
+"scripts": {
+  "start": "vercel dev",
+  "deploy": "vercel deploy --prod"
+},
+```
+
+```bash
+mkdir api
+touch -p api/index.ts
+```
+
+```ts
+import { NowRequest, NowResponse } from '@vercel/node'
+
+export default (req: NowRequest, res: NowResponse) => {
+  return res.json({ message: 'Hello World' })
+}
+```
+
+## enable cors
+
+https://vercel.com/knowledge/how-to-enable-cors
