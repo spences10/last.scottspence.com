@@ -1,6 +1,5 @@
 // import { Link as GatsbyLink } from 'gatsby'
 import React, { FunctionComponent } from 'react'
-import { useQuery } from 'react-query'
 import SEO from 'react-seo-component'
 import { Heading, Text } from 'theme-ui'
 import { InternalLink } from '../components/internal-link'
@@ -17,16 +16,6 @@ const IndexPage: FunctionComponent = () => {
     siteLanguage,
     siteLocale,
   } = useSiteMetadata()
-
-  const { isLoading, error, data } = useQuery('nameData', () =>
-    fetch('https://random-blog-name.vercel.app/api').then(res =>
-      res.json()
-    )
-  )
-
-  if (isLoading) return <p>Loading...</p>
-
-  if (error) return <p>An error has occurred: {error.message}</p>
 
   return (
     <p>
@@ -57,7 +46,7 @@ const IndexPage: FunctionComponent = () => {
         Now go build something great.
       </Text>
       <InternalLink
-        to={`/posts/${data.slug}` || `/posts/blog`}
+        to={`/posts/`}
         sx={{
           textDecoration: 'underline',
           color: 'purple.500',

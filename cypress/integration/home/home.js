@@ -20,11 +20,11 @@ When('I hover over the "Link boxes"', () => {
 })
 
 When('I click on one of the "Link boxes"', () => {
-  cy.get('a[href*="garden"]').click()
+  cy.get('a[href*="posts"]').click()
 })
 
 Then('I will be taken to the selected page', function () {
-  cy.url().should('include', '/garden/')
+  cy.url().should('include', '/posts/')
 })
 
 // When('I click on one of the "Link boxes"', () => {

@@ -2,7 +2,6 @@ import { css, Global } from '@emotion/react'
 import { MDXProvider } from '@mdx-js/react'
 import { preToCodeBlock } from 'mdx-utils'
 import React from 'react'
-import { QueryClient, QueryClientProvider } from 'react-query'
 import { ThemeProvider } from 'theme-ui'
 import Layout from './components/layout'
 import { Code, H2 } from './components/mdx-elements'
@@ -39,8 +38,6 @@ const components = {
   // p: props => <P {...props} />,
 }
 
-const queryClient = new QueryClient()
-
 export const wrapPageElement = ({ element }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -52,9 +49,7 @@ export const wrapPageElement = ({ element }) => {
             }
           `}
         />
-        <QueryClientProvider client={queryClient}>
-          <Layout>{element}</Layout>
-        </QueryClientProvider>
+        <Layout>{element}</Layout>
       </MDXProvider>
     </ThemeProvider>
   )
