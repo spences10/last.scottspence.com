@@ -4,13 +4,13 @@ import { useSiteMetadata } from '../hooks/site-metadata'
 import { Header } from './header'
 
 const Layout: FunctionComponent = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+  const { title } = useSiteMetadata()
 
   return (
     <>
       <Header
         siteTitle={title || `Title`}
-        description={description}
+        description={`Scott's knowledge pamphlet`}
       />
       <Container
         sx={{
