@@ -5,13 +5,24 @@ tags: ['api', 'vercel', 'guide']
 private: true
 ---
 
-https://github.com/spences10/positivity-api
+Create a simple Node API on Vercel Serverless functions in under 20
+minutes. But first some preamble!
+
+A while back (3 years ago) I made a [Positivity API], it was a really
+simple array of positive quotes that's used in the [#100DaysOfCode
+twitter bot] which is [still in use today]! I contributed a lot to
+that bot [back in the day]!
+
+This time around I've made some random words that are going to be used
+to make blog a name!
+
+https://random-blog-name.vercel.app/api
 
 ## Set up
 
 ```bash
 yarn global add vercel
-# or use vc
+# or use vc login
 vercel login
 ```
 
@@ -47,6 +58,17 @@ export default (req: NowRequest, res: NowResponse) => {
 }
 ```
 
+Run it locally `yarn dev`
+
 ## enable cors
 
 https://vercel.com/knowledge/how-to-enable-cors
+
+<!-- Links -->
+
+[positivity api]: https://github.com/spences10/positivity-api
+[still in use today]:
+  https://github.com/freeCodeCamp/100DaysOfCode-twitter-bot/blob/master/package.json#L48
+[#100daysofcode twitter bot]: https://twitter.com/_100DaysOfCode
+[back in the day]:
+  https://github.com/freeCodeCamp/100DaysOfCode-twitter-bot/graphs/contributors
