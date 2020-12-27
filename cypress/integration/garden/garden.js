@@ -6,7 +6,7 @@ import {
 } from 'cypress-cucumber-preprocessor/steps'
 
 Given('I am on the Garden page', () => {
-  cy.visit('/garden')
+  cy.visit('/posts')
 })
 
 Then('I will see the content', () => {

@@ -1,8 +1,3 @@
-// import {
-//   ChakraProvider,
-//   Code,
-//   Code as InlineCode,
-// } from '@chakra-ui/react'
 import { css, Global } from '@emotion/react'
 import { MDXProvider } from '@mdx-js/react'
 import { preToCodeBlock } from 'mdx-utils'

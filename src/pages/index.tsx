@@ -16,8 +16,9 @@ const IndexPage: FunctionComponent = () => {
     siteLanguage,
     siteLocale,
   } = useSiteMetadata()
+
   return (
-    <>
+    <p>
       <SEO
         title={`Home`}
         titleTemplate={title}
@@ -45,7 +46,7 @@ const IndexPage: FunctionComponent = () => {
         Now go build something great.
       </Text>
       <InternalLink
-        to="/garden/"
+        to={`/posts/`}
         sx={{
           textDecoration: 'underline',
           color: 'purple.500',
@@ -54,7 +55,7 @@ const IndexPage: FunctionComponent = () => {
       >
         Go to garden
       </InternalLink>
-    </>
+    </p>
   )
 }
 

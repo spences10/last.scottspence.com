@@ -184,6 +184,7 @@ export default {
           color: 'primary',
         },
       },
+      h2: { marginTop: 0 },
       p: { fontFamily: 'body' },
     },
     ul: { fontFamily: 'body', fontSize: 'xl', padding: '0 25px' },
