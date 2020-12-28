@@ -30,11 +30,12 @@ the term is.
 
 I was discussing it with a couple of friends ([Paul] and [Rich]) and
 it's _just_ a name, so I came up with the idea of generating some
-random words together to make what to call your blog.
+random words together to make what to call the blog/site/thought
+pamphlet whatever!
 
 ## In the beginning it was a simple site
 
-First up this was a collection of words I got from Googling [another
+First up, this was a collection of words I got from Googling [another
 word for blog], put them all into several arrays of adjectives, verbs
 and nouns then randomly create a phrase from that. Initially this was
 all in a `.js` file on [a simple project] I put together quickly to
@@ -47,11 +48,12 @@ response from the script saying "hey welcome to my
 `jot unsightly helpless record`" or something to that effect!
 
 Becuse I wanted to use the same thing in two projects I made a third
-one! 😂
+one! 😂 An endpoint to go get that from rather than moving around the
+script from project to project.
 
-It's the simple script from the other project that is now an endpoint
-on Vercel. Hitting the URL https://random-blog-name.vercel.app/api
-will give you a response like this:
+It's the simple script from that project that is now an endpoint on
+Vercel. Hitting the URL https://random-blog-name.vercel.app/api will
+give you a response like this:
 
 ```json
 {
@@ -62,11 +64,17 @@ will give you a response like this:
 
 ## Set up
 
+Install Vercel as a global dependency with your package manager of
+choice if you don't already have it installed:
+
 ```bash
 yarn global add vercel
 # or use vc login
 vercel login
 ```
+
+Once you select login you will be sent an email to authenticate then
+you're ready to go!
 
 ## Create project
 
