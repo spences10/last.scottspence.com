@@ -5,7 +5,7 @@ import {
   When,
 } from 'cypress-cucumber-preprocessor/steps'
 
-Given('I am on the Garden page', () => {
+Given('I am on the Posts page', () => {
   cy.visit('/posts')
 })
 
