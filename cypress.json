@@ -1,7 +1,7 @@
 {
   "testFiles": "**/*.feature",
-  "baseUrl": "http://localhost:4512/",
+  "baseUrl": "http://localhost:5421/",
   "video": false,
   "integrationFolder": "cypress/integration",
-  "retries": 10
+  "retries": 29
 }

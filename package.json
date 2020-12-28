@@ -10,9 +10,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "gatsby develop -p 4512 -o",
+    "dev": "gatsby develop -p 5421 -o",
     "build": "gatsby build && yarn wellknown && yarn robots",
-    "serve": "gatsby serve -p 4500 -o",
+    "serve": "gatsby serve -p 5400 -o",
     "format": "pretty-quick",
     "wellknown": "cp -r .well-known/ public/",
     "robots": "cp robots.txt public/",
