@@ -198,6 +198,7 @@ export default {
       fontFamily: 'mono',
       fontSize: 'xl',
       overflow: 'auto',
+      margin: '3rem -3rem',
       '.line-number-style': {
         display: 'inline-block',
         width: '2em',
@@ -215,6 +216,16 @@ export default {
           left: '-2px',
         },
       },
+      scrollbarColor: 'primary #639',
+      '::-webkit-scrollbar': { width: '15px' },
+      '::-webkit-scrollbar-track': {
+        background: '#639',
+      },
+      '::-webkit-scrollbar-thumb': {
+        backgroundColor: 'primary',
+        borderRadius: '14px',
+        border: '2px solid #639',
+      },
     },
     hideLink: {
       a: { float: 'left', marginLeft: '-25px' },
@@ -231,6 +242,16 @@ export default {
     root: {
       '.highlight': { backgroundColor: 'primary' },
       // marginLeft: 'calc(100vw - 100%)',
+      scrollbarColor: 'primary #639',
+      '::-webkit-scrollbar': { width: '15px' },
+      '::-webkit-scrollbar-track': {
+        background: '#639',
+      },
+      '::-webkit-scrollbar-thumb': {
+        backgroundColor: 'primary',
+        borderRadius: '14px',
+        border: '3px solid #639',
+      },
       body: {
         fontFamily: 'body',
         lineHeight: 'base',
