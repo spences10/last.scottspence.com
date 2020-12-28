@@ -78,15 +78,25 @@ you're ready to go!
 
 ## Create project
 
+I'm going to recreate the random password generator I use in my
+[Characters from Password] project I did a while back, it has the same
+list of adjectives, verbs and nouns I used for the [Random Blog Name]
+project.
+
 ```bash
-mkdir random-name-generator
-cd random-name-generator
+mkdir random-password-generator
+cd random-passord-generator
 yarn init -y
 ```
+
+Add Vercel as a dev dependency, I'll be using this to run the Vercel
+dev server:
 
 ```bash
 yarn add -D vercel
 ```
+
+Add the Vercel scripts to the `package.json` scripts for the project!
 
 ```json
 "scripts": {
@@ -95,10 +105,16 @@ yarn add -D vercel
 },
 ```
 
+Now to create the endpoint this goes into the api folder on the
+project which doesn't exist yet, so, I'll make that, then create an
+`index.ts` file in there:
+
 ```bash
 mkdir api
 touch -p api/index.ts
 ```
+
+In the `api/index.ts` file add in the classic "hello world"!
 
 ```ts
 import { NowRequest, NowResponse } from '@vercel/node'
@@ -108,7 +124,68 @@ export default (req: NowRequest, res: NowResponse) => {
 }
 ```
 
-Run it locally `yarn dev`
+Ready to go now, I'll run it locally with:
+
+```bash
+yarn dev
+```
+
+Now I go to `localhost:3000/api` in my browser and see:
+
+```json
+{ "message": "Hello World" }
+```
+
+Cool, cool, cool! Now I'll jack the `helper.js` file from my
+Characters from Password project and add it to a
+`src/random-password.ts` file and folder, neither of which exist right
+now so create those:
+
+```bash
+# assuming your in the project directory
+mkdir src
+touch src/random-password.ts
+```
+
+Paste in the contents and add the type of `arr` as and array of
+strings `arr: string[]`, I've removed the rest of the words for
+brevity here:
+
+```ts
+export function random(arr: string[]) {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
+
+export function getFunPassword() {
+  const adjectives = [
+    'adorable',
+    // rest
+  ]
+
+  const verbs = [
+    'correct',
+    //  rest
+  ]
+
+  const nouns = [
+    'women',
+    // rest
+  ]
+
+  return `${random(verbs)} ${random(adjectives)} ${random(
+    adjectives
+  )} ${random(nouns)}`
+}
+```
+
+Test it locally, make sure it gives the desire response, time to
+deploy it!
+
+## Deploy to Vercel
+
+The Vercel CLI will walk you through setting it up
+
+## Use it in another app
 
 ## enable cors
 
@@ -126,8 +203,10 @@ https://vercel.com/knowledge/how-to-enable-cors
   https://scottspence.com/2020/04/27/a-digital-garden/
 [paul]: https://twitter.com/PaulieScanlon
 [rich]: https://twitter.com/studio_hungry
-[random-blog-name]: https://github.com/spences10/random-blog-name
+[random blog name]: https://github.com/spences10/random-blog-name
 [another word for blog]:
   https://www.wordhippo.com/what-is/another-word-for/blog.html
 [a simple project]:
   https://github.com/spences10/blog-name-generator/blob/bc39bf3b98/script.js
+[characters from password]:
+  https://github.com/spences10/characters-from-password
