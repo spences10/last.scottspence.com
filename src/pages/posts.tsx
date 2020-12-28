@@ -62,7 +62,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
     includeScore: true,
     keys: ['frontmatter.title', 'excerpt', 'frontmatter.tags'],
     includeMatches: true,
-    threshold: 0.1,
+    threshold: 0.2,
   }
   const fuse = new Fuse(nodes, options)
   const results = fuse.search(query)
