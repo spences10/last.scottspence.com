@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Box, Container, Flex, Heading, Text } from 'theme-ui'
+import { Box, Container, Flex, Text } from 'theme-ui'
 import { InternalLink } from './internal-link'
 import ThemeToggle from './theme-toggle'
 
@@ -25,12 +25,15 @@ export const Header: FunctionComponent<HeaderProps> = ({
       }}
     >
       <Flex>
-        <Heading margin="0">
+        <Box as="h2" variant="styles.h2">
           <InternalLink to="/">{siteTitle}</InternalLink>
           <Text>{description}</Text>
-        </Heading>
+        </Box>
         <Box as="div" sx={{ flex: 1 }} />
-        <Box as="div" sx={{ position: 'relative' }}>
+        <Box
+          as="div"
+          sx={{ position: 'relative', alignSelf: 'center' }}
+        >
           <ThemeToggle />
         </Box>
       </Flex>
