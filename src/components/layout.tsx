@@ -27,13 +27,7 @@ const Layout: FunctionComponent = ({ children }) => {
         >
           {children}
         </Box>
-        <Box
-          as="footer"
-          sx={{
-            marginTop: '2rem',
-            fontSize: 'xl',
-          }}
-        >
+        <Box as="footer" variant="styles.p">
           © {new Date().getFullYear()} Scott Spence. All Rights
           Reserved.
         </Box>

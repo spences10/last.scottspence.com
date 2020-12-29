@@ -1,7 +1,7 @@
 // import { Link as GatsbyLink } from 'gatsby'
 import React, { FunctionComponent } from 'react'
 import SEO from 'react-seo-component'
-import { Heading, Text } from 'theme-ui'
+import { Box, Text } from 'theme-ui'
 import { InternalLink } from '../components/internal-link'
 import { useSiteMetadata } from '../hooks/site-metadata'
 import { ogImageUrl } from '../util/get-og-image'
@@ -33,28 +33,14 @@ const IndexPage: FunctionComponent = () => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <Heading>Hi people</Heading>
-      <Text
-        sx={{
-          fontSize: 'xl',
-          my: 5,
-        }}
-      >
-        Welcome to your new Gatsby site.
-      </Text>
-      <Text sx={{ fontSize: 'xl', my: 5 }}>
-        Now go build something great.
-      </Text>
-      <InternalLink
-        to={`/posts/`}
-        sx={{
-          textDecoration: 'underline',
-          color: 'purple.500',
-          fontSize: 'xl',
-        }}
-      >
-        Go to garden
-      </InternalLink>
+      <Box as="h2" variant="styles.h2">
+        Hi people
+      </Box>
+      <Text variant="styles.p">Welcome to your new Gatsby site.</Text>
+      <Text variant="styles.p">Now go build something great.</Text>
+      <Box as="p" variant="styles.p">
+        <InternalLink to={`/posts/`}>Go to garden</InternalLink>
+      </Box>
     </p>
   )
 }
