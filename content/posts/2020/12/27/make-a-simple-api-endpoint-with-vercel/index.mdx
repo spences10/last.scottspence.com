@@ -2,7 +2,7 @@
 date: 2020-12-27
 title: Make a Simple API Endpoint with Vercel Serverless Functions
 tags: ['api', 'vercel', 'guide']
-private: true
+private: false
 ---
 
 Create a simple Node API on Vercel Serverless functions in under 20
@@ -127,8 +127,11 @@ export default (req: NowRequest, res: NowResponse) => {
 Ready to go now, I'll run it locally with:
 
 ```bash
-yarn dev
+yarn start
 ```
+
+This will walk me through a first time setup with Vercel and I'll hit
+enter to accept all the default CLI options.
 
 Now I go to `localhost:3000/api` in my browser and see:
 
@@ -178,18 +181,132 @@ export function getFunPassword() {
 }
 ```
 
-Test it locally, make sure it gives the desire response, time to
-deploy it!
+Then import the function into the `api/index.ts` file and have the
+response json be the `getFunPassword()` function.
+
+```ts
+import { NowRequest, NowResponse } from '@vercel/node'
+import { getFunPassword } from '../src/random-password'
+
+export default (_req: NowRequest, res: NowResponse) => {
+  return res.json({ password: getFunPassword() })
+}
+```
+
+## Test it locally
+
+The `yarn start` script should still be running so I can check the
+response now on `localhost:3000/api`, looks a bit like this:
+
+```json
+{ "password": "know obnoxious bewildered people" }
+```
+
+Super! Time to deploy it!
 
 ## Deploy to Vercel
 
-The Vercel CLI will walk you through setting it up
+Righty ho! Time to deploy to Vercel! The script is already in the
+project when I defined the start and deploy scripts:
 
-## Use it in another app
+```bash
+yarn deploy
+```
 
-## enable cors
+This will publish the current version of the code to Vercel, if you
+want more control over how you publish to vercel check out the CLI
+documentation, it's a really powerful tool.
 
-https://vercel.com/knowledge/how-to-enable-cors
+Ok I now have an endpoint for a random password, going to
+https://random-password-generator-ten.vercel.app/api will give a
+response like this:
+
+```json
+{ "password": "try magnificent mysterious cacti" }
+```
+
+Time to use it!
+
+## Use it in another project
+
+Time to use it in another project, for brevity I've added this to an
+[example CodeSandbox] it's a example of getting data from an endpoint
+and displaying it in a project.
+
+I'm using axios to get the data, and storing the returned result in
+some state:
+
+```jsx
+export default function Home() {
+  const [blogNameObj, blogNameObjSet] = useState({
+    name: `Your password`,
+  })
+  const getBlogName = async () => {
+    await axios
+      .get(`https://random-password-generator-ten.vercel.app/api`)
+      .then(res => {
+        blogNameObjSet(res.data)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
+
+  return (
+    <div>
+      <h1>Generate Pasword</h1>
+      <h2>{blogNameObj.password}</h2>
+      <button
+        onClick={() => {
+          blogNameObjSet(getBlogName())
+        }}
+      >
+        Get Name
+      </button>
+    </div>
+  )
+}
+```
+
+But it doesn't return anything, well apart from a console error!
+
+```text
+Error: Network Error
+    at createError (https://...)
+
+    at XMLHttpRequest.handleError (https://...)
+```
+
+So that's not a terribly helpful error message but I do know that it's
+a [CORS] error, so that needs to be enabled before I go any further!
+
+## Enable CORS
+
+There's a great knowledge base resource on Vercel.com on [how to
+enable CORS]! For my use case I've set the headers:
+
+```ts
+res.setHeader('Access-Control-Allow-Credentials', `true`)
+res.setHeader('Access-Control-Allow-Origin', '*')
+```
+
+Now that's added I'll need to edploy it again with the `yarn deploy`
+script.
+
+Now going back to the CodeSandbox example it returns the API response!
+Done!!
+
+## Video detailing the process
+
+As with most of my posts now I've added a video detailing the
+process...
+
+<YouTube youTubeId="xPLrHMGYpq4" />
+
+## Code examples
+
+There's [example code on GitHub] for the serverless function and an
+[example CodeSandbox] with the implementation.
 
 <!-- Links -->
 
@@ -210,3 +327,9 @@ https://vercel.com/knowledge/how-to-enable-cors
   https://github.com/spences10/blog-name-generator/blob/bc39bf3b98/script.js
 [characters from password]:
   https://github.com/spences10/characters-from-password
+[example codesandbox]:
+  https://codesandbox.io/s/zealous-lake-ep54i?file=/src/App.js
+[example code on github]:
+  https://github.com/spences10/random-password-generator
+[cors]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+[how to enable cors]: https://vercel.com/knowledge/how-to-enable-cors
