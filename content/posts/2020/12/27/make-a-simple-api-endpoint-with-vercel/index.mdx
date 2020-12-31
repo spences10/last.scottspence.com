@@ -206,9 +206,28 @@ Super! Time to deploy it!
 
 ## Deploy to Vercel
 
-The Vercel CLI will walk you through setting it up
+Righty ho! Time to deploy to Vercel! The script is already in the
+project when I defined the start and deploy scripts:
 
-## Use it in another app
+```bash
+yarn deploy
+```
+
+This will publish the current version of the code to Vercel, if you
+want more control over how you publish to vercel check out the CLI
+documentation, it's a really powerful tool.
+
+Ok I now have an endpoint for a random password, going to
+https://random-password-generator-ten.vercel.app/api will give a
+response like this:
+
+```json
+{ "password": "try magnificent mysterious cacti" }
+```
+
+Time to use it!
+
+## Use it in another project
 
 ## Enable cors
 
@@ -217,6 +236,11 @@ https://vercel.com/knowledge/how-to-enable-cors
 ## Video detailing the process
 
 <YouTube youTubeId="xPLrHMGYpq4" />
+
+## Code examples
+
+There's [example code on GitHub] for the serverless function and an
+[example CodeSandbox] with the implementation.
 
 <!-- Links -->
 
@@ -239,3 +263,5 @@ https://vercel.com/knowledge/how-to-enable-cors
   https://github.com/spences10/characters-from-password
 [example codesandbox]:
   https://codesandbox.io/s/zealous-lake-ep54i?file=/src/App.js
+[example code on github]:
+  https://github.com/spences10/random-password-generator
