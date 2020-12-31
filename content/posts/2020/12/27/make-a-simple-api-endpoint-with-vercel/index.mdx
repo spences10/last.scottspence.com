@@ -127,8 +127,11 @@ export default (req: NowRequest, res: NowResponse) => {
 Ready to go now, I'll run it locally with:
 
 ```bash
-yarn dev
+yarn start
 ```
+
+This will walk me through a first time setup with Vercel and I'll hit
+enter to accept all the default CLI options.
 
 Now I go to `localhost:3000/api` in my browser and see:
 
@@ -178,8 +181,28 @@ export function getFunPassword() {
 }
 ```
 
-Test it locally, make sure it gives the desire response, time to
-deploy it!
+Then import the function into the `api/index.ts` file and have the
+response json be the `getFunPassword()` function.
+
+```ts
+import { NowRequest, NowResponse } from '@vercel/node'
+import { getFunPassword } from '../src/random-password'
+
+export default (_req: NowRequest, res: NowResponse) => {
+  return res.json({ password: getFunPassword() })
+}
+```
+
+## Test it locally
+
+The `yarn start` script should still be running so I can check the
+response now on `localhost:3000/api`, looks a bit like this:
+
+```json
+{ "password": "know obnoxious bewildered people" }
+```
+
+Super! Time to deploy it!
 
 ## Deploy to Vercel
 
@@ -187,7 +210,7 @@ The Vercel CLI will walk you through setting it up
 
 ## Use it in another app
 
-## enable cors
+## Enable cors
 
 https://vercel.com/knowledge/how-to-enable-cors
 
@@ -214,3 +237,5 @@ https://vercel.com/knowledge/how-to-enable-cors
   https://github.com/spences10/blog-name-generator/blob/bc39bf3b98/script.js
 [characters from password]:
   https://github.com/spences10/characters-from-password
+[example codesandbox]:
+  https://codesandbox.io/s/zealous-lake-ep54i?file=/src/App.js
