@@ -229,11 +229,77 @@ Time to use it!
 
 ## Use it in another project
 
-## Enable cors
+Time to use it in another project, for brevity I've added this to an
+[example CodeSandbox] it's a example of getting data from an endpoint
+and displaying it in a project.
 
-https://vercel.com/knowledge/how-to-enable-cors
+I'm using axios to get the data, and storing the returned result in
+some state:
+
+```jsx
+export default function Home() {
+  const [blogNameObj, blogNameObjSet] = useState({
+    name: `Your password`,
+  })
+  const getBlogName = async () => {
+    await axios
+      .get(`https://random-password-generator-ten.vercel.app/api`)
+      .then(res => {
+        blogNameObjSet(res.data)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
+
+  return (
+    <div>
+      <h1>Generate Pasword</h1>
+      <h2>{blogNameObj.password}</h2>
+      <button
+        onClick={() => {
+          blogNameObjSet(getBlogName())
+        }}
+      >
+        Get Name
+      </button>
+    </div>
+  )
+}
+```
+
+But it doesn't return anything, well apart from a console error!
+
+```text
+Error: Network Error
+    at createError (https://...)
+
+    at XMLHttpRequest.handleError (https://...)
+```
+
+So that's not a terribly helpful error message but I do know that it's
+a [CORS] error, so that needs to be enabled before I go any further!
+
+## Enable CORS
+
+There's a great knowledge base resource on Vercel.com on [how to
+enable CORS]! For my use case I've set the headers:
+
+```ts
+res.setHeader('Access-Control-Allow-Credentials', `true`)
+res.setHeader('Access-Control-Allow-Origin', '*')
+```
+
+Now that's added I'll need to edploy it again with the `yarn deploy`
+script.
+
+Now going back to the CodeSandbox example it returns the API response!
+Done!!
 
 ## Video detailing the process
+
+As with most of my posts now I've added a video detailing the
+process...
 
 <YouTube youTubeId="xPLrHMGYpq4" />
 
@@ -265,3 +331,5 @@ There's [example code on GitHub] for the serverless function and an
   https://codesandbox.io/s/zealous-lake-ep54i?file=/src/App.js
 [example code on github]:
   https://github.com/spences10/random-password-generator
+[cors]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+[how to enable cors]: https://vercel.com/knowledge/how-to-enable-cors
