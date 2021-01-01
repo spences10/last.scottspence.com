@@ -18,6 +18,7 @@ jobs:
         id: wait-for-vercel
         with:
           token: ${{ secrets.VERCEL_TOKEN }}
+          await-build: true
       - name: Checkout
         uses: actions/checkout@v1
       - name: Cypress.io
