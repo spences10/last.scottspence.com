@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "@emotion/react": "^11.1.4",
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
+    "@mdx-js/mdx": "^2.0.0-next.8",
+    "@mdx-js/react": "^2.0.0-next.8",
     "fontsource-hepta-slab": "^4.0.0",
     "fontsource-work-sans": "^4.0.0",
     "fuse.js": "^6.4.3",
