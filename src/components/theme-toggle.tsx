@@ -9,6 +9,7 @@ export default function ThemeToggle() {
   return (
     <Box
       as="button"
+      role="theme-toggle"
       onClick={() => {
         modeSet(newColorMode)
       }}
