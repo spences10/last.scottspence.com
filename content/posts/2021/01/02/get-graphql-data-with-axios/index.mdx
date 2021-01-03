@@ -78,6 +78,50 @@ async function dataGet() {
 }
 ```
 
+If the query you're using takes variables then add that to the
+`variables` object in the Axios request, in this example I've
+hardcoded in my GitHub username:
+
+```ts
+import axios from 'axios'
+import query from './query'
+
+export async function getGitHubData() {
+  const gitHubCall = await axios.post(
+    `https://api.github.com/graphql`,
+    {
+      // query using ES6+ shorthand
+      // query can be like query: query,
+      query,
+      variables: {
+        username: 'spences10',
+      },
+    },
+
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'token ' + process.env.GITHUB_TOKEN,
+      },
+    }
+  )
+  return gitHubCall.data.data
+}
+```
+
+The GraphQL query will look something like this:
+
+```ts
+export default `
+query BIO_QUERY($username: String!) {
+  user(login: $username) {
+    id
+    bio
+  }
+}
+`
+```
+
 <!-- Links -->
 
 [so]:
