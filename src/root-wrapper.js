@@ -76,6 +76,7 @@ export const wrapPageElement = ({ element }) => (
         site={process.env.GATSBY_FATHOM_TRACKING_ID_SCOTTSPENCE_COM}
         defer
       ></script>
+      <script src="https://kwes.io/v2/kwes-script.js" defer></script>
       <meta
         name="monetization"
         content="$ilp.uphold.com/bzPBWkMBzLmN"
