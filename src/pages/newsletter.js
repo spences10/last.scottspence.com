@@ -24,6 +24,9 @@ export default function MailingList() {
       <P>
         Occasional details about intersting things I'm working on.
       </P>
+      <P>
+        Get involved to be in with a chance to win a dev sticker pack!
+      </P>
       <form
         class="kwes-form"
         action="https://kwes.io/api/foreign/forms/j7gBZsxccB5zeDXJ6ZNY"
