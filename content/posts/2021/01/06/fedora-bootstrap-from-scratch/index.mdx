@@ -441,17 +441,28 @@ yarn
 yarn cy:test
 ```
 
-## Run a GUI
-
-```bash
-sudo dnf -y install libXv
-```
-
 ## References and tips
+
+Now that I've installed all the things I need I can run:
 
 ```bash
 sudo dnf clean all
 ```
+
+This will clear up all the unused files.
+
+If I want to start over I can use:
+
+```bash
+wsl --unregister Fedora-33
+```
+
+This will remove the Fedora install so I can start again.
+
+## Wrap!
+
+that's it, I've gone and installed an off the shelf version of Linux
+on my Windows machine and configured it for use in web development.
 
 <!-- Links -->
 
