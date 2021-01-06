@@ -1,0 +1,265 @@
+---
+date: 2021-01-06
+title: Fedora 33 Web Developer Bootstrap
+tags: ['fedora', 'linux', 'wsl']
+private: false
+---
+
+I have been having a blast playing around with configuring Fedora 33
+in Windows via Windows Subsystem for Linux, I didn't know you could
+straight up import a Linux distro and use it.
+
+There's a great resource I found in [Fedora Magazine] and another post
+in [Dev.to], the Dev.to one I haven't tried as the first guide does
+all I need it to do.
+
+This is my bootstrap for getting set up with Fedora 33 and all the
+related bits of software I'll need for wed development with it.
+
+First up! Importing the Fedora 33 distribution.
+
+##
+
+Credit to [Jim Perrin] for the original post in [Fedora Magazine] on
+this.
+
+```bash
+sudo dnf -y install nano git
+```
+
+```bash
+sudo dnf -y install firefox chromium
+```
+
+```bash
+sudo dnf clean all
+```
+
+## Install Zsh and Oh My Zsh
+
+```bash
+sudo dnf -y install zsh
+```
+
+Then OMZ with:
+
+```bash
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Oh My Zsh will say that it cannot change the default shell for you so
+I'll do that next.
+
+## Change default shell
+
+```bash
+# open the passwd file
+sudo nano /etc/passwd
+```
+
+Look for something like:
+
+```text
+root:x:0:0:root:/root:/bin/bash
+```
+
+Look for the part with my username, then change the `/bash` part with
+`/zsh`
+
+## Customise Zsh
+
+I've gone over this a couple of times now, if you're not interested
+skip along to the next bit.
+
+I'm going to add a few things here, these are essentials for me:
+
+Plugins:
+
+- [zsh-syntax-highlighting]
+- [zsh-autosuggestions]
+
+Theme, very important:
+
+- [Spaceship ZSH]
+
+Install the plugins first:
+
+```bash
+# zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+Update the plugins array with some added ones from Oh My Zsh:
+
+```bash
+plugins=(
+  git
+  node
+  npm
+  npx
+  nvm
+  z
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+```
+
+And remember to add the auto suggest config to the `.zshrc` config
+file:
+
+```bash
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#663399,standout"
+```
+
+Now for the theme, first up clone and symlink the repo:
+
+```bash
+# clone the repo first
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+# symlink it
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+```
+
+Then set it to the `.zshrc` file:
+
+```bash
+# nano ~/.zshrc
+ZSH_THEME="spaceship"
+```
+
+## Add starting directory
+
+Add the starting directory to be in the Linux partition.
+
+```bash
+# cd to the home directory
+~
+# Open the zshrc file
+nano ~/.zshrc
+# add this at the bottom
+cd ~/repos
+```
+
+## Add SSH keys
+
+I have one set of SSH keys I keep for my WSL instances, I'll copy
+those to my user home folder with the `explorer.exe` tool, pop open
+the explorer:
+
+```bash
+explorer.exe .
+```
+
+Paste in my `.ssh` folder and `.gitconfig`, one thing to note here is
+that sometimes copying files in will set the permissions on the files
+to `root`, check that with:
+
+```bash
+# check the .ssh file permissions
+ls -lart .ss*
+# if it shows root as the owner then change it
+-rw-r--r-- 1 root  root   749 Aug 25 17:36 id_rsa.pub
+-rw-r--r-- 1 root  root  3389 Aug 25 17:36 id_rsa
+```
+
+A really handy way to find the ordinals on a file, (so the numbers
+instead of `-rw-r--r--` whatever that means) is `stat`, this command
+will give the actual numbers:
+
+```bash
+stat -c "%a %n" ~/.ssh/*
+```
+
+That gives an output like this:
+
+```text
+644 /home/scott/.ssh/id_rsa
+644 /home/scott/.ssh/id_rsa.pub
+644 /home/scott/.ssh/known_hosts
+```
+
+So after I change owner I know I'll need to change the `id_rsa` to
+`600` from `644`.
+
+In this example the owner is `root` so I'll change it to my user
+(`scott`):
+
+```bash
+# change ownership of folder and contents
+sudo chown scott:users .ssh/ .ssh/* .gitconfig
+```
+
+Now to change the permissions on the `id_rsa` file and authenticate
+with GitHub:
+
+```bash
+# change to the .ssh/ folder
+.ssh/
+# set permission
+sudo chmod 600 id_rsa
+# change out to set the folder permissions
+../
+sudo chmod 700 .ssh/
+# authenticate with GitHub
+ssh -T git@github.com
+```
+
+## Install nvm
+
+Install nvm for that Node version goodness:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | zsh
+command -v nvm
+# sets default to 14
+nvm install 14
+# nvm alias default 14
+```
+
+## Install Yarn
+
+Install Yarn with the instruction for the [Yarn site]:
+
+```bash
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo dnf -y install yarn
+```
+
+## Set the `$DISPLAY` variable
+
+Unlike with the [Fedora Remix for WSL] the display variable needs to
+be set in Fedora 33, so I'll go through the same process as I did in
+my [Enable GUIs WSL] post. Credit to Nicky Muleman and [his post] that
+give me the initial details.
+
+```bash
+# set DISPLAY variable to the IP automatically assigned to WSL2
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+```
+
+## Run a GUI
+
+```bash
+sudo dnf -y install libXv
+```
+
+<!-- Links -->
+
+[fedora magazine]: https://fedoramagazine.org/wsl-fedora-33/
+[dev.to]:
+  https://dev.to/bowmanjd/install-fedora-on-windows-subsystem-for-linux-wsl-4b26
+[zsh-syntax-highlighting]:
+  https://github.com/zsh-users/zsh-syntax-highlighting
+[zsh-autosuggestions]:
+  https://github.com/zsh-users/zsh-autosuggestions
+[spaceship zsh]: https://github.com/denysdovhan/spaceship-prompt
+[yarn site]:
+  https://classic.yarnpkg.com/en/docs/install/#centos-stable
+[fedora remix for wsl]:
+  https://www.microsoft.com/en-us/p/fedora-remix-for-wsl/9n6gdm4k2hnc?activetab=pivot:overviewtab
+[his post]:
+  https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress#the-display-variable
+[enable guis wsl]:
+  https://scottspence.com/2020/12/09/gui-with-wsl/#gui-things
