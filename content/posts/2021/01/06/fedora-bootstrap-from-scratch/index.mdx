@@ -88,7 +88,7 @@ Ubuntu.
 
 ```bash
 # update all the things
-dnf update
+dnf -y update
 # install core packages
 dnf install -y wget curl sudo ncurses dnf-plugins-core dnf-utils passwd findutils
 ```
@@ -120,13 +120,14 @@ wsl -d Fedora-33 -u scott
 id -u
 # id -u returns 1000
 # test that user is on sudoers list
-sudo cat /etc/shadow
+sudo ll
 ```
 
-That last command will give some output, presuming that went well then
-it's time to set the default user.
+That last command will prompt me for the password I created for
+`scott`, presuming that went well then it's time to set the default
+user.
 
-To do this, `exit` WSL to get back into Powershell.
+To do that, `exit` WSL to get back into Powershell.
 
 This PowerShell one-liner configures my user properly, (thanks Jim!)
 take note of the last value here `1000` that's the `id -u` I checked
@@ -140,7 +141,7 @@ The last piece here is to add Copr for the Windows integration:
 
 ```bash
 # in the Fedora shell
-sudo dnf copr enable trustywolf/wslu
+sudo dnf -y copr enable trustywolf/wslu
 ```
 
 ## Install additional packages
@@ -162,6 +163,10 @@ sudo dnf -y install firefox chromium
 
 ## Install Zsh and Oh My Zsh
 
+Zsh has become quite special to me so this is a must for me, if you're
+following along then you do you, the majority of the config here can
+be done with bash too.
+
 ```bash
 sudo dnf -y install zsh
 ```
@@ -172,10 +177,17 @@ Then OMZ with:
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Oh My Zsh will say that it cannot change the default shell for you so
+Oh My Zsh will say:
+
+> I can't change your shell automatically because this system does not
+> have chsh. Please manually change your default shell to zsh
+
 I'll do that next.
 
 ## Change default shell
+
+There's no `chsh` utility in Fedora so if I want to change the default
+shell then I'll need to do this:
 
 ```bash
 # open the passwd file
@@ -185,11 +197,14 @@ sudo nano /etc/passwd
 Look for something like:
 
 ```text
-root:x:0:0:root:/root:/bin/bash
+scott:x:1000:1000::/home/scott:/bin/bash
 ```
 
 Look for the part with my username, then change the `/bash` part with
 `/zsh`
+
+Save the changes in nano with `Ctrl+o` to write out the changes then
+`Ctrl+x` to exit out of nano.
 
 ## Customise Zsh
 
@@ -225,7 +240,6 @@ plugins=(
   npm
   npx
   nvm
-  z
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
@@ -261,6 +275,8 @@ Add the starting directory to be in the Linux partition.
 ```bash
 # cd to the home directory
 ~
+# mkdir for repos
+mkdir repos
 # Open the zshrc file
 nano ~/.zshrc
 # add this at the bottom
@@ -337,6 +353,7 @@ Install nvm for that Node version goodness:
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | zsh
+source ~/.zshrc
 command -v nvm
 # sets default to 14
 nvm install 14
@@ -345,11 +362,54 @@ nvm install 14
 
 ## Install Yarn
 
-Install Yarn with the instruction for the [Yarn site]:
+Install Yarn with the instruction for the [Yarn docs]:
 
 ```bash
 curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 sudo dnf -y install yarn
+```
+
+Install a global yarn package and make sure global binaries are
+showing.
+
+In this case I'll add Vercels CLI:
+
+```bash
+yarn global add vercel
+```
+
+Then try to login with `vc login` I get a response of:
+
+```bash
+zsh: command not found: vercel
+```
+
+So I need to set the prefix:
+
+```bash
+# confirm global path
+yarn global bin
+yarn config get prefix
+# When I ran this it was undefined, so I set it:
+yarn config set prefix ~/.yarn
+```
+
+Add the following to my `~/.zshrc` file:
+
+```bash
+export PATH="$PATH:`yarn global bin`"
+```
+
+Reload the shell:
+
+```bash
+source ~/.zshrc
+```
+
+And try again:
+
+```bash
+vercel login
 ```
 
 ## Set the `$DISPLAY` variable
@@ -362,6 +422,23 @@ give me the initial details.
 ```bash
 # set DISPLAY variable to the IP automatically assigned to WSL2
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+```
+
+## Run a project that uses a GUIs
+
+I have an xserver in [x410] that's already running, if you need to set
+up an xserver check out [Nicky's post on getting it set up].
+
+I'm going to clone MDX Embed as I know it uses Cypress and run the
+command to do end to end tests with Cypress once it's finished
+installing:
+
+```bash
+git clone git@github.com:PaulieScanlon/mdx-embed.git
+# then install dependencies
+yarn
+# and run yarn cy:test to test
+yarn cy:test
 ```
 
 ## Run a GUI
@@ -386,7 +463,7 @@ sudo dnf clean all
 [zsh-autosuggestions]:
   https://github.com/zsh-users/zsh-autosuggestions
 [spaceship zsh]: https://github.com/denysdovhan/spaceship-prompt
-[yarn site]:
+[yarn docs]:
   https://classic.yarnpkg.com/en/docs/install/#centos-stable
 [fedora remix for wsl]:
   https://www.microsoft.com/en-us/p/fedora-remix-for-wsl/9n6gdm4k2hnc?activetab=pivot:overviewtab
@@ -401,3 +478,7 @@ sudo dnf clean all
 [nicky muleman's post on it]:
   https://nickymeuleman.netlify.app/blog/linux-on-windows-wsl2-zsh-docker
 [jim perrin]: https://fedoramagazine.org/author/jperrin/
+[x410]:
+  https://www.microsoft.com/en-gb/p/x410/9nlp712zmn9q?activetab=pivot:overviewtab
+[nicky's post on getting it set up]:
+  https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress#vcxsrv
