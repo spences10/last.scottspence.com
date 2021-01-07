@@ -35,7 +35,10 @@ export const MugFace = () => {
       <H1>
         Hello World!
         <Wavy>
-          <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" />
+          <img
+            alt="waving hand emoji"
+            src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif"
+          />
         </Wavy>
       </H1>
     </>
