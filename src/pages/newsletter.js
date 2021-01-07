@@ -3,6 +3,7 @@ import SEO from 'react-seo-component'
 import styled from 'styled-components'
 import { H1, P } from '../components/page-elements'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { ogImageUrl } from '../util/build-og-image-url'
 
 const Wrapper = styled.main`
   min-height: 60vh;
