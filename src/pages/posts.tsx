@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import React, {
   ChangeEvent,
   FunctionComponent,
+  useEffect,
   useRef,
   useState,
 } from 'react'
@@ -66,7 +67,7 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
   }
   const fuse = new Fuse(nodes, options)
   const results = fuse.search(query)
-  const searchRef = useRef(null)
+  const searchRef = useRef<HTMLInputElement>(null)
   const searchResults = query
     ? results.map(result => result.item)
     : nodes
@@ -74,6 +75,10 @@ const GardenIndex: FunctionComponent<IndexPageProps> = ({ data }) => {
   const onSearch = (event: ChangeEvent<HTMLInputElement>) => {
     updateQuery(event.currentTarget?.value)
   }
+
+  useEffect(() => {
+    if (searchRef.current != null) searchRef.current.focus()
+  }, [])
 
   return (
     <>
