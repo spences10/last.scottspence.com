@@ -1,7 +1,7 @@
 import React from 'react'
 import { TwitterShareButton } from 'react-share'
 import styled from 'styled-components'
-import { focusOutline } from './shared-styles'
+import { focusOutline, rainbowAnimation } from './shared-styles'
 const ShareWrapper = styled.section`
   h6 {
     font-size: ${({ theme }) => theme.fontSize.xl};
@@ -22,6 +22,7 @@ const ShareWrapper = styled.section`
   }
   span {
     font-weight: 900;
+    ${rainbowAnimation}
   }
   button {
     ${focusOutline}
