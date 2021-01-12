@@ -5,6 +5,7 @@ import SEO from 'react-seo-component'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { BackToTop } from '../components/back-to-top'
+import { Newsletter } from '../components/newsletter-article'
 import { A, H1, Small } from '../components/page-elements'
 import { PopularPosts } from '../components/popular-posts'
 import {
@@ -176,6 +177,7 @@ export default ({ data }) => {
         title={title}
         twitterHandle={twitterUsername}
       />
+      <Newsletter />
       <PopularPosts />
     </>
   )
