@@ -9,7 +9,8 @@ require('dotenv').config({
 
 const siteMetadata = {
   title: `Scott Spence`,
-  description: `Scott's Digital Garden.`,
+  description: `A detailled account of what Scott Spence is about. 
+Posts on TypeScript, Unit testing with React testing library with Jest and end to end testing with Cypress.`,
   lastBuildDate: new Date(Date.now()).toISOString(),
   siteUrl: `https://scottspence.com`,
   authorName: `Scott Spence`,
