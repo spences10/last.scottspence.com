@@ -15,7 +15,10 @@ export const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
     <Styles>
-      <Header title={title} description={description} />
+      <Header
+        title={title}
+        description={`Scott's Thoughts Pamphlet!`}
+      />
       {children}
       <Footer />
     </Styles>
