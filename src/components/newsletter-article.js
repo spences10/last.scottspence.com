@@ -26,7 +26,7 @@ export const Newsletter = () => {
     <Wrapper>
       <P>
         If you're interested in occasional updates from me about what
-        I'm working on and want helpful information you can sign up to
+        I'm working on and want useful information you can sign up to
         my newsletter.
       </P>
       <P>
