@@ -15,25 +15,28 @@ const Wrapper = styled.div`
     text-align: center;
     ${rainbowAnimation}
   }
+  span {
+    font-size: ${({ theme }) => theme.fontSize['2xl']};
+    display: block;
+    text-align: center;
+  }
 `
 export const Newsletter = () => {
   return (
     <Wrapper>
       <P>
-        If you're interested in occasional update from me about what
-        I'm working on and sharing helpful information you can sign up
-        to my newsletter
+        If you're interested in occasional updates from me about what
+        I'm working on and want helpful information you can sign up to
+        my newsletter.
       </P>
-
       <P>
-        I'm giving away sticker packs every Monday, Wednesday and
-        Friday over January and February, to random newsletter
-        subscribers.
-      </P>
-
-      <P>
-        The important dev related content, directly to your inbox (for
+        Important dev related content, directly to your inbox (for
         free).
+      </P>
+      <P>
+        <span>✨ ✨ ✨ ✨ ✨ ✨ ✨</span>
+        I'm giving away sticker packs every Monday, Wednesday and
+        Friday to a randomly chosen newsletter subscriber. 👇
       </P>
       <Link to="/newsletter">Newsletter signup...</Link>
     </Wrapper>
