@@ -96,7 +96,7 @@ check out the [Windows Terminal Themes GitHub `themes.json` file]
 
 ## Use your own Theme
 
-You may have notice in the last image there that the theme isn't one
+You may have noticed in the last image there that the theme isn't one
 of the provided themes.
 
 I wasn't happy with the provided theming options so went to find a
@@ -105,12 +105,86 @@ which is a a very large selection of pre made themes.
 
 You can [create your own theme] in the Windows Terminal but I went for
 one of the ones available on the Windows Terminal Themes site
+`Builtin Solarized Dark`.
+
+The way to use it is, copy the theme object from the site and paste it
+into the `schemes` array part of the `settings.json` file.
+
+In it's initial state the `schemes` array is empty:
+
+```json
+// Add custom color schemes to this array.
+// To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
+"schemes": [],
+```
+
+I add the theme object to the `schemes` array then I need to set it
+for the default, which means any tab I open for Ubuntu, Debian etc
+will have the same theme.
+
+The `shemes` array with the new theme in there:
+
+```json
+// Add custom color schemes to this array.
+// To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
+"schemes": [
+  {
+    "name": "Builtin Solarized Dark",
+    "black": "#073642",
+    "red": "#dc322f",
+    "green": "#859900",
+    "yellow": "#b58900",
+    "blue": "#268bd2",
+    "purple": "#d33682",
+    "cyan": "#2aa198",
+    "white": "#eee8d5",
+    "brightBlack": "#002b36",
+    "brightRed": "#cb4b16",
+    "brightGreen": "#586e75",
+    "brightYellow": "#657b83",
+    "brightBlue": "#839496",
+    "brightPurple": "#6c71c4",
+    "brightCyan": "#93a1a1",
+    "brightWhite": "#fdf6e3",
+    "background": "#002b36",
+    "foreground": "#839496"
+  }
+]
+```
+
+Then in `profiles`, `defaults` section add in the colour scheme:
+
+```json
+"profiles": {
+  "defaults": {
+    // Put settings here that you want to apply to all profiles.
+    "fontFace": "Builtin Solarized Dark",
+    "fontSize": 15,
+    "colorScheme": "Tango Dark",
+    "cursorShape": "filledBox",
+    "cursorColor": "#639"
+    // "cursorHeight": 85 // use with vintage cursorShape
+  }
+}
+```
+
+Bingo bango, new theme for all my new terminal tabs I open!
 
 ## Profiles
 
+So I can have a nice theme for the terminal now, nice font, yay! What
+now if I want to have a different theme for when I'm in Ubuntu and
+Debian? (I use a lot of Windows Subsystem for Linux instances)
+
 ## Schemes
 
+I've already covered `schemes` in theming, this is where I can dump
+all the themes I want to use for all the different profiles I can
+create in the profiles object!🔥
+
 ## Keybindings
+
+## Background images
 
 If you ever find reference to `ms-appdata:///roaming` for Windows
 Terminal, that's translated into:
