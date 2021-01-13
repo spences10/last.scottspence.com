@@ -81,6 +81,7 @@ export const wrapPageElement = ({ element }) => (
         name="monetization"
         content="$ilp.uphold.com/bzPBWkMBzLmN"
       />
+      <script type="text/javascript" src="clarity.js"></script>
     </Helmet>
     <AnalyticsProvider>
       <ThemeProvider theme={theme}>
