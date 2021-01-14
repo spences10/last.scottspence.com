@@ -1,0 +1,231 @@
+---
+date: 2020-01-13
+title: Windows Terminal Config - Make it Your Own
+tags: ['windows']
+private: true
+---
+
+I've been using the Windows Terminal now since the summer, it's great
+and I now prefer it over Hyper which was my preferred terminal.
+
+Windows Terminal comes with a lot of options for configuration and a
+load more which I've only just discovered after researching this post!
+
+Dope!
+
+## First impressions
+
+When I first opened the app I was greeted with PowerShell as the
+initial tab, there's a dropdown menu to choose from one of PowerShell,
+(default), Command Prompt or Azure Cloud Shell.
+
+![default windows terminal appearance]
+
+So it looks like the standard Command Prompt (sort of), I went about
+finding if I could change that and was pleasantly surprised.
+
+The Windows Terminal team have done an awesome job of documenting all
+aspects of the Terminal.
+
+## Included Themes
+
+The first thing I did was try work out how to change the theme
+(priorities! 😂) and it wasn't as simple as adding a string to a
+plugins array like with Hyper term.
+
+The Windows Terminal has a `settings.json` file to manage the
+configuration with a _lot_ of options! I'll come onto this soon, it's
+split into several sections:
+
+- Profiles
+- Schemes
+- Keybindings
+
+Anyway back to the theme, important stuff right! So there's seven
+included colour schemes (themes) that come with the Windows Terminal:
+
+- [Campbell]
+- [Campbell PowerShell]
+- [Vintage]
+- [One Half Dark]
+- [One Half Light]
+- [Tango Dark]
+- [Tango Light]
+
+The change to any of those I have to open the `settings.json` with
+Ctrl+, then I'm presented with the big boi config, I want to apply the
+theme Tango Dark to every tab that I open in the terminal so I'll add
+it in the `profiles` object:
+
+```json
+"profiles": {
+  "defaults": {
+    // Put settings here that you want to apply to all profiles.
+    "colorScheme": "Tango Dark"
+  },
+}
+```
+
+## Other config options
+
+There's also some other config options I like to set for the defaults,
+these are the font, font size and the cursor shape and colour:
+
+```json
+"profiles": {
+  "defaults": {
+    // Put settings here that you want to apply to all profiles.
+    "fontFace": "Victor Mono",
+    "fontSize": 15,
+    "colorScheme": "Tango Dark",
+    "cursorShape": "filledBox",
+    "cursorColor": "#639"
+    // "cursorHeight": 85 // use with vintage cursorShape
+  }
+}
+```
+
+ℹ I discovered the additional cursor options by hitting Ctrl+space bar
+to bring up the intellisense options:
+
+![intellisense options]
+
+If you're tired of looking through the themes on the website you can
+check out the [Windows Terminal Themes GitHub `themes.json` file]
+(it's a chonka!).
+
+## Use your own Theme
+
+You may have noticed in the last image there that the theme isn't one
+of the provided themes.
+
+I wasn't happy with the provided theming options so went to find a
+custom one to use, luckily for me there's [Windows Terminal Themes]
+which is a a very large selection of pre made themes.
+
+You can [create your own theme] in the Windows Terminal but I went for
+one of the ones available on the Windows Terminal Themes site
+`Builtin Solarized Dark`.
+
+The way to use it is, copy the theme object from the site and paste it
+into the `schemes` array part of the `settings.json` file.
+
+In it's initial state the `schemes` array is empty:
+
+```json
+// Add custom color schemes to this array.
+// To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
+"schemes": [],
+```
+
+I add the theme object to the `schemes` array then I need to set it
+for the default, which means any tab I open for Ubuntu, Debian etc
+will have the same theme.
+
+The `shemes` array with the new theme in there:
+
+```json
+// Add custom color schemes to this array.
+// To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
+"schemes": [
+  {
+    "name": "Builtin Solarized Dark",
+    "black": "#073642",
+    "red": "#dc322f",
+    "green": "#859900",
+    "yellow": "#b58900",
+    "blue": "#268bd2",
+    "purple": "#d33682",
+    "cyan": "#2aa198",
+    "white": "#eee8d5",
+    "brightBlack": "#002b36",
+    "brightRed": "#cb4b16",
+    "brightGreen": "#586e75",
+    "brightYellow": "#657b83",
+    "brightBlue": "#839496",
+    "brightPurple": "#6c71c4",
+    "brightCyan": "#93a1a1",
+    "brightWhite": "#fdf6e3",
+    "background": "#002b36",
+    "foreground": "#839496"
+  }
+]
+```
+
+Then in `profiles`, `defaults` section add in the colour scheme:
+
+```json
+"profiles": {
+  "defaults": {
+    // Put settings here that you want to apply to all profiles.
+    "fontFace": "Builtin Solarized Dark",
+    "fontSize": 15,
+    "colorScheme": "Tango Dark",
+    "cursorShape": "filledBox",
+    "cursorColor": "#639"
+    // "cursorHeight": 85 // use with vintage cursorShape
+  }
+}
+```
+
+Bingo bango, new theme for all my new terminal tabs I open!
+
+## Profiles
+
+So I can have a nice theme for the terminal now, nice font, yay! What
+now if I want to have a different theme for when I'm in Ubuntu and
+Debian? (I use a lot of Windows Subsystem for Linux instances)
+
+## Schemes
+
+I've already covered `schemes` in theming, this is where I can dump
+all the themes I want to use for all the different profiles I can
+create in the profiles object!🔥
+
+## Keybindings
+
+## Background images
+
+If you ever find reference to `ms-appdata:///roaming` for Windows
+Terminal, that's translated into:
+
+```ps
+%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\RoamingState
+```
+
+<!-- Links -->
+
+[1]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings
+[2]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes
+[3]:
+  https://docs.microsoft.com/en-us/windows/terminal/custom-terminal-gallery/custom-schemes
+[4]: https://www.youtube.com/watch?v=7bqoXHiXTHA
+[5]: https://www.youtube.com/watch?v=2dsnwlnNBzs
+[6]: https://github.com/rjcarneiro/windows-terminals
+[7]: https://www.youtube.com/watch?v=oHhiMf_6exY&t=225s
+[windows terminal themes]: https://windowsterminalthemes.dev/
+[windows terminal themes github `themes.json` file]:
+  https://github.com/atomcorp/themes/blob/master/server/themes.json
+[campbell]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes#campbell
+[campbell powershell]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes#campbell-powershell
+[vintage]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes#vintage
+[one half dark]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes#one-half-dark
+[one half light]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes#one-half-light
+[tango dark]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes#tango-dark
+[tango light]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes#tango-light
+[create your own theme]:
+  https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes#creating-your-own-color-scheme
+
+<!-- Images -->
+
+[default windows terminal appearance]: ./default-windows-terminal.png
+[intellisense options]: ./intellisense-options.png
