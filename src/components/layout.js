@@ -12,7 +12,7 @@ const Styles = styled.main`
 `
 
 export const Layout = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+  const { title } = useSiteMetadata()
   return (
     <Styles>
       <Header

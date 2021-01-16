@@ -34,7 +34,9 @@ export const Newsletter = () => {
         free).
       </P>
       <P>
-        <span>✨ ✨ ✨ ✨ ✨ ✨ ✨</span>
+        <span role="img" aria-label="sparkles">
+          ✨ ✨ ✨ ✨ ✨ ✨ ✨
+        </span>
         I'm giving away sticker packs every Monday, Wednesday and
         Friday to a randomly chosen newsletter subscriber. 👇
       </P>
