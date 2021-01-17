@@ -1,6 +1,8 @@
 ---
 date: 2021-01-15
-title: GitHub GraphQL API - GraphQL vs REST
+title:
+  Using the GitHub GraphQL API in a serverless function - GraphQL vs
+  REST
 tags: ['api', 'graphql', 'vercel']
 private: true
 ---
@@ -10,13 +12,22 @@ something I've been meaning to do for a wile now, that's to make a
 serverless function that will return the GitHub stats from my GitHub
 profile.
 
-Me doing this came up in conversation my friend [Paul Scanlon] and he
-decided to do something similar with the GitHub REST API, so we are
-making notes on how things are going!!
+Me doing this came up in conversation with my friend [Paul Scanlon]
+and he decided to do something similar but with the GitHub REST API,
+so we are making notes on how things are going!!
 
-What I'm doing is based off of several Leigh Halliday videos on using
-the GitHub GraphQL API and adding that data to a graph, I extended
-that and added a calendar/heatmap of all my GitHu contributions too.
+What I'm doing is based off of several [Leigh Halliday] videos on
+using the GitHub GraphQL API and adding that data to a graph, I
+extended that and added a calendar/heatmap of all my GitHub
+contributions too.
+
+ℹ Leigh has just released [Next Level Next.js] where you can get $10
+off with my affiliate link.
+
+## Approach
+
+The idea is to use a serverless function that will take in a GitHub
+usename and use that to
 
 I wanted to use Playwright but that didn't work on Vercel so a
 reverted to Puppeteer like with the [serverless open graph image]
@@ -67,11 +78,36 @@ next part will be a heat map.
 Paul's post:
 https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
 
+## Resources
+
+- [Map, Reduce, Filter, and Pie Charts]
+- [How to use GraphQL with React]
+- [Serverless OG Image - Part 1 - Deploying our first serverless
+  function]
+- [Serverless OG Image - Part 2 - Parsing Request]
+- [Serverless OG Image - Part 3 - Temporary File]
+- [Serverless OG Image - Part 4 - Taking Screenshot]
+
 <!-- Links -->
 
 [paul scanlon]: https://twitter.com/PaulieScanlon
 [serverless open graph image]:
   https://scottspence.com/2020/04/30/serverless-og-images/
+[leigh halliday]: https://www.youtube.com/user/leighhalliday
+[map, reduce, filter, and pie charts]:
+  https://www.youtube.com/watch?v=28StAxSjyIU&t=2173s
+[how to use graphql with react]:
+  https://www.youtube.com/watch?v=AUiUZ29pae4&t=1240s
+[serverless og image - part 1 - deploying our first serverless function]:
+  https://www.youtube.com/watch?v=Al3tCJKOydY&t=591s
+[serverless og image - part 2 - parsing request]:
+  https://www.youtube.com/watch?v=ANedwsfXpO0
+[serverless og image - part 3 - temporary file]:
+  https://www.youtube.com/watch?v=KlLgjuUQoJs
+[serverless og image - part 4 - taking screenshot]:
+  https://www.youtube.com/watch?v=ZjGCiBpDZ7g&t=378s
+[next level next.js]:
+  http://courses.leighhalliday.com/next-level-next-js?coupon=SCOTT
 
 <!-- Images -->
 
