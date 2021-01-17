@@ -1,6 +1,6 @@
 ---
 date: 2021-01-15
-title: GitHub GraphQL API
+title: GitHub GraphQL API - GraphQL vs REST
 tags: ['api', 'graphql', 'vercel']
 private: true
 ---
@@ -19,7 +19,7 @@ the GitHub GraphQL API and adding that data to a graph, I extended
 that and added a calendar/heatmap of all my GitHu contributions too.
 
 I wanted to use Playwright but that didn't work on Vercel so a
-reverted to Puppeteer like with the serverless open graph image
+reverted to Puppeteer like with the [serverless open graph image]
 project I made a while back now.
 
 I went with Google chart library first as it had what I needed
@@ -27,9 +27,53 @@ I went with Google chart library first as it had what I needed
 
 ## Latency
 
+Loading the image does take a while, I've added this one below the
+fold but because it's not part of Gatsby image there will be layout
+shift unless I add a default heihgt to the `img` tag.
+
+![GitHub contributions pie chart]
+
+## Interactive example
+
+You can check out the latency by changing my username in the live code
+example here:
+
+```js react-live
+const user = `spences10`
+
+const Image = () => {
+  return (
+    <img
+      alt="GitHub user language split"
+      style={{ width: '100%', height: '315px' }}
+      src={`https://ghui.vercel.app/pie.png?username=${user}`}
+    />
+  )
+}
+
+render(Image)
+```
+
 ## Big boi function
+
+I was poking around with the function on Vercel and found that the
+size was at 90% 😬
+
+This didn't really bode well as I'd only finished one part of it, the
+next part will be a heat map.
+
+<Tweet tweetLink="spences10/status/1348182082808328192" />
 
 Paul's post:
 https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
 
+<!-- Links -->
+
 [paul scanlon]: https://twitter.com/PaulieScanlon
+[serverless open graph image]:
+  https://scottspence.com/2020/04/30/serverless-og-images/
+
+<!-- Images -->
+
+[github contributions pie chart]:
+  https://ghui.vercel.app/pie.png?username=spences10
