@@ -100,7 +100,7 @@ export default function MailingList() {
           class="kwes-form"
           action="https://kwes.io/api/foreign/forms/j7gBZsxccB5zeDXJ6ZNY"
         >
-          <label htmlFor="name">Your Name:</label>
+          <label htmlFor="name">First Name:</label>
           <input
             type="text"
             name="name"
