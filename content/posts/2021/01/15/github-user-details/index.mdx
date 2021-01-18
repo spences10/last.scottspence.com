@@ -19,9 +19,7 @@ so we are making notes on how things are going!!
 ## What is it you're doing though?
 
 What I'm doing is based off of several [Leigh Halliday] videos on
-using the GitHub GraphQL API and adding that data to a graph, I
-extended that and added a calendar/heatmap of all my GitHub
-contributions too.
+using the GitHub GraphQL API and adding that data to a pie chart.
 
 ℹ Leigh has just released Next Level Next.js where you can get $10 off
 with [my affiliate link].
@@ -50,16 +48,88 @@ something like this:
 https://serverless.vercel.app?username=spences10
 ```
 
-The code on Verel then parses the request, takes out the `username`
+The code on Vercel then parses the request, takes out the `username`
 variable and passes that to a [GraphQL query in Axios] which returns a
 JSON object. The JSON is then manipulated to use in a pie chart.
+
+## The query
+
+The GitHub GraphQL API query looks like this:
+
+```graphql
+query GITHUB_USER_DATA_QUERY($username: String!) {
+  user(login: $username) {
+    repositories(
+      last: 100
+      isFork: false
+      orderBy: { field: UPDATED_AT, direction: ASC }
+    ) {
+      nodes {
+        name
+        description
+        url
+        updatedAt
+        languages(first: 5) {
+          nodes {
+            color
+            name
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+This query will give the last 100 repos that aren't forks for that
+GitHub username.
+
+Here's what the response from the GraphQL query looks:
+
+```json
+{
+  "data": {
+    "user": {
+      "repositories": {
+        "nodes": [
+          {
+            "name": "scottspence.com",
+            "description": "My Letter Beautiful Mysterious Notebook.",
+            "url": "https://github.com/spences10/scottspence.com",
+            "updatedAt": "2021-01-18T17:35:19Z",
+            "languages": {
+              "nodes": [
+                {
+                  "color": "#f1e05a",
+                  "name": "JavaScript"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+## Map filter reduce
+
+I then transform the data so it will go into the data shape the pie
+chart is expecting. Check out the [data transform] module on the repo
+for more detail and also Leigh's video [Map, Reduce, Filter, and Pie
+Charts] is super helpful.
+
+## Charts
+
+I went with Google chart library first as it had what I needed
+(Pie/Doughnut and Heatmap) but it's not responsive.
+
+## Take a picture
 
 I wanted to use Playwright but that didn't work on Vercel so a
 reverted to Puppeteer like with the [serverless open graph image]
 project I made a while back now.
-
-I went with Google chart library first as it had what I needed
-(Pie/Doughnut and Heatmap) but it's not responsive.
 
 ## Latency
 
@@ -120,21 +190,23 @@ https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
   https://scottspence.com/2020/04/30/serverless-og-images/
 [leigh halliday]: https://www.youtube.com/user/leighhalliday
 [map, reduce, filter, and pie charts]:
-  https://www.youtube.com/watch?v=28StAxSjyIU&t=2173s
+  https://www.youtube.com/watch?v=28StAxSjyIU
 [how to use graphql with react]:
-  https://www.youtube.com/watch?v=AUiUZ29pae4&t=1240s
+  https://www.youtube.com/watch?v=AUiUZ29pae4
 [serverless og image - part 1 - deploying our first serverless function]:
-  https://www.youtube.com/watch?v=Al3tCJKOydY&t=591s
+  https://www.youtube.com/watch?v=Al3tCJKOydY
 [serverless og image - part 2 - parsing request]:
   https://www.youtube.com/watch?v=ANedwsfXpO0
 [serverless og image - part 3 - temporary file]:
   https://www.youtube.com/watch?v=KlLgjuUQoJs
 [serverless og image - part 4 - taking screenshot]:
-  https://www.youtube.com/watch?v=ZjGCiBpDZ7g&t=378s
+  https://www.youtube.com/watch?v=ZjGCiBpDZ7g
 [my affiliate link]:
   http://courses.leighhalliday.com/next-level-next-js?coupon=SCOTT
 [graphql query in axios]:
   https://scottspence.com/2021/01/02/get-graphql-data-with-axios/
+[data transform]:
+  https://github.com/spences10/github-user-information/blob/main/src/data-transform.ts
 
 <!-- Images -->
 
