@@ -16,18 +16,43 @@ Me doing this came up in conversation with my friend [Paul Scanlon]
 and he decided to do something similar but with the GitHub REST API,
 so we are making notes on how things are going!!
 
+## What is it you're doing though?
+
 What I'm doing is based off of several [Leigh Halliday] videos on
 using the GitHub GraphQL API and adding that data to a graph, I
 extended that and added a calendar/heatmap of all my GitHub
 contributions too.
 
-ℹ Leigh has just released [Next Level Next.js] where you can get $10
-off with my affiliate link.
+ℹ Leigh has just released Next Level Next.js where you can get $10 off
+with [my affiliate link].
 
 ## Approach
 
 The idea is to use a serverless function that will take in a GitHub
-usename and use that to
+usename and use that to query the GitHub GraphQL API and return data
+related to the username.
+
+The serverless provider I'm using is Vercel, which in turn uses AWS
+Lambda. This means that the code I want to run is triggered by an
+incoming request to the code on the Vercel servers.
+
+When I say incoming request I mean a URL, something like:
+
+```url
+https://serverless.vercel.app
+```
+
+Where the GitHub username would be passed in the request as a variable
+and used for the GraphQL query, so the URL in my case would look
+something like this:
+
+```url
+https://serverless.vercel.app?username=spences10
+```
+
+The code on Verel then parses the request, takes out the `username`
+variable and passes that to a [GraphQL query in Axios] which returns a
+JSON object. The JSON is then manipulated to use in a pie chart.
 
 I wanted to use Playwright but that didn't work on Vercel so a
 reverted to Puppeteer like with the [serverless open graph image]
@@ -106,8 +131,10 @@ https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
   https://www.youtube.com/watch?v=KlLgjuUQoJs
 [serverless og image - part 4 - taking screenshot]:
   https://www.youtube.com/watch?v=ZjGCiBpDZ7g&t=378s
-[next level next.js]:
+[my affiliate link]:
   http://courses.leighhalliday.com/next-level-next-js?coupon=SCOTT
+[graphql query in axios]:
+  https://scottspence.com/2021/01/02/get-graphql-data-with-axios/
 
 <!-- Images -->
 
