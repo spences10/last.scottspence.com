@@ -139,6 +139,20 @@ Check out the [data transform] module on the repo for more detail and
 also Leigh's video [Map, Reduce, Filter, and Pie Charts] is super
 helpful.
 
+## Charts
+
+I went with [Google chart library] first as it had what I needed
+(Pie/Doughnut and Heatmap) but it's not responsive. This isn't a big
+deal as the chart is being returned as an image.
+
+To work with the chart locally I used the [live server] VS Code
+extension and a added the chart to an `index.html` file to get an idea
+of how it will look.
+
+This really helped with getting the data from the API response to fit
+with what the graph was expecting changing the data transform function
+accordingly.
+
 Here's a small sample of the `script` in the HTML file that indicates
 the data it's expecting:
 
@@ -173,20 +187,6 @@ the data it's expecting:
   }
 </script>
 ```
-
-## Charts
-
-I went with [Google chart library] first as it had what I needed
-(Pie/Doughnut and Heatmap) but it's not responsive. This isn't a big
-deal as the chart is being returned as an image.
-
-To work with the chart locally I used the [live server] VS Code
-extension and a added the chart to an `index.html` file to get an idea
-of how it will look.
-
-This really helped with getting the data from the API response to fit
-with what the graph was expecting changing the data transform function
-accordingly.
 
 ## Take a picture
 
