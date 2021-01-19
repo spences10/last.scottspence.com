@@ -206,6 +206,12 @@ shift unless I add a default heihgt to the `img` tag.
 
 ![GitHub contributions pie chart]
 
+Becuse this isn't being done at build time there is a noticeable delay
+in the image being served sometimes.
+
+There may be something I can do about it with some persisted queries
+with OneGraph, not for this post though.
+
 ## Interactive example
 
 You can check out the latency by changing my username in the live code
@@ -240,7 +246,33 @@ next part will be a heat map.
 
 ## Colour contrast on the graph
 
-There was some misso
+There was some contrast issues with the text on the pie chart so I had
+to find a way to change the contrast of the text color.
+
+After a bit of searching I found [contrast-color-generator] which
+offered up a colour to satisfy the W3C guidelines.
+
+This then had to be added to the [data transform] to change the colour
+of the text.
+
+Here's a small snippet of how the languages are addd to an object:
+
+```js {10}
+const langaugesArray = Object.entries(langObject).map(
+  ([key, value]: any) => {
+    return {
+      id: key,
+      label: key,
+      value: value.count,
+      color: value.color,
+      textColor:
+        value.color !== null
+          ? generator.generate(value.color).hexStr
+          : '#000000',
+    }
+  }
+)
+```
 
 ## Resources
 
@@ -284,6 +316,8 @@ https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
   https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
 [google chart library]:
   https://developers.google.com/chart/interactive/docs/gallery
+[contrast-color-generator]:
+  https://www.npmjs.com/package/contrast-color-generator
 
 <!-- Images -->
 
