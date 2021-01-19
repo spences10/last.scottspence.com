@@ -7,8 +7,11 @@ tags: ['api', 'graphql', 'vercel']
 private: true
 ---
 
-I started playing around with the GitHub GraphQL API endpoint to do
-something I've been meaning to do for a wile now, that's to make a
+This isn't a guide, this is me documenting the how and why for a proof
+of concept project I worked on.
+
+So, I started playing around with the GitHub GraphQL API endpoint to
+do something I've been meaning to do for a wile now, that's to make a
 serverless function that will return the GitHub stats from my GitHub
 profile.
 
@@ -21,14 +24,27 @@ so we are making notes on how things are going!!
 What I'm doing is based off of several [Leigh Halliday] videos on
 using the GitHub GraphQL API and adding that data to a pie chart.
 
-ℹ Leigh has just released Next Level Next.js where you can get $10 off
-with [my affiliate link].
+My current site has a similar pie chart in the about section which
+created at build time. This chart is created at request time from the
+client (the browser).
+
+Check out the [Interactive example] for an idea of what's going on.
+
+ℹ Also Leigh has just released Next Level Next.js where you can get
+$10 off with [my affiliate link].
 
 ## Approach
 
 The idea is to use a serverless function that will take in a GitHub
 usename and use that to query the GitHub GraphQL API and return data
 related to the username.
+
+The API data will then be used to populate a pie chart showing the
+language split for that users repositories on their GitHub account.
+
+Once that is done the serverless function will render the chart in
+HTML and take a picture of the chart and return that as the response
+to the client.
 
 The serverless provider I'm using is Vercel, which in turn uses AWS
 Lambda. This means that the code I want to run is triggered by an
@@ -50,7 +66,7 @@ https://serverless.vercel.app?username=spences10
 
 The code on Vercel then parses the request, takes out the `username`
 variable and passes that to a [GraphQL query in Axios] which returns a
-JSON object. The JSON is then manipulated to use in a pie chart.
+JSON object. The JSON is then manipulated to use in the pie chart.
 
 ## The query
 
@@ -63,6 +79,7 @@ query GITHUB_USER_DATA_QUERY($username: String!) {
       last: 100
       isFork: false
       orderBy: { field: UPDATED_AT, direction: ASC }
+      privacy: PUBLIC
     ) {
       nodes {
         name
@@ -81,10 +98,10 @@ query GITHUB_USER_DATA_QUERY($username: String!) {
 }
 ```
 
-This query will give the last 100 repos that aren't forks for that
-GitHub username.
+This query will give the last 100 repos that aren't forks and are
+publically viewable for that GitHub username.
 
-Here's what the response from the GraphQL query looks:
+Here's what the response from the GraphQL query looks like:
 
 ```json
 {
@@ -115,21 +132,71 @@ Here's what the response from the GraphQL query looks:
 
 ## Map filter reduce
 
-I then transform the data so it will go into the data shape the pie
-chart is expecting. Check out the [data transform] module on the repo
-for more detail and also Leigh's video [Map, Reduce, Filter, and Pie
-Charts] is super helpful.
+The JSON data from the GraphQL call is then transformed so it will go
+into the data shape the pie chart is expecting.
+
+Check out the [data transform] module on the repo for more detail and
+also Leigh's video [Map, Reduce, Filter, and Pie Charts] is super
+helpful.
+
+Here's a small sample of the `script` in the HTML file that indicates
+the data it's expecting:
+
+```html
+<script type="text/javascript">
+  google.charts.load('current', { packages: ['corechart'] })
+  google.charts.setOnLoadCallback(drawChart)
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Languages', 'Languages Count'],
+      ['JavaScript', 37],
+      ['TypeScript', 13],
+      ['CSS', 12],
+      ['HTML', 7],
+    ])
+
+    var options = {
+      // title: 'My Languages Split',
+      colors: ['#f1e05a', '#2b7489', '#563d7c', '#e34c26'],
+      chartArea: {
+        left: 0,
+        top: 30,
+        width: '100%',
+        height: '90%',
+      },
+    }
+
+    var chart = new google.visualization.PieChart(
+      document.getElementById('doughnut')
+    )
+    chart.draw(data, options)
+  }
+</script>
+```
 
 ## Charts
 
-I went with Google chart library first as it had what I needed
-(Pie/Doughnut and Heatmap) but it's not responsive.
+I went with [Google chart library] first as it had what I needed
+(Pie/Doughnut and Heatmap) but it's not responsive. This isn't a big
+deal as the chart is being returned as an image.
+
+To work with the chart locally I used the [live server] VS Code
+extension and a added the chart to an `index.html` file to get an idea
+of how it will look.
+
+This really helped with getting the data from the API response to fit
+with what the graph was expecting changing the data transform function
+accordingly.
 
 ## Take a picture
 
-I wanted to use Playwright but that didn't work on Vercel so a
-reverted to Puppeteer like with the [serverless open graph image]
-project I made a while back now.
+Now that the data looks ok in the pie chart I want to take a picture
+of it from a browser, but it's on a server, so I need to use a
+headless browser like Chromium.
+
+To do this I used Puppeteer I wanted to use Playwright but that didn't
+work on Vercel so a reverted to Puppeteer like with the [serverless
+open graph image] project I made a while back now.
 
 ## Latency
 
@@ -163,15 +230,17 @@ render(Image)
 ## Big boi function
 
 I was poking around with the function on Vercel and found that the
-size was at 90% 😬
+size was at 90% 😬 the max size for AWS functions is 45mb, 99% od that
+is taken up by Chrome AWS lambda anf d Puppeteer core.
 
 This didn't really bode well as I'd only finished one part of it, the
 next part will be a heat map.
 
 <Tweet tweetLink="spences10/status/1348182082808328192" />
 
-Paul's post:
-https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
+## Colour contrast on the graph
+
+There was some misso
 
 ## Resources
 
@@ -182,6 +251,9 @@ https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
 - [Serverless OG Image - Part 2 - Parsing Request]
 - [Serverless OG Image - Part 3 - Temporary File]
 - [Serverless OG Image - Part 4 - Taking Screenshot]
+
+Paul's post:
+https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
 
 <!-- Links -->
 
@@ -207,6 +279,11 @@ https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
   https://scottspence.com/2021/01/02/get-graphql-data-with-axios/
 [data transform]:
   https://github.com/spences10/github-user-information/blob/main/src/data-transform.ts
+[interactive example]: #interactive-example
+[live server]:
+  https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+[google chart library]:
+  https://developers.google.com/chart/interactive/docs/gallery
 
 <!-- Images -->
 
