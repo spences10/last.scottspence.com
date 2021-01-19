@@ -274,6 +274,21 @@ const langaugesArray = Object.entries(langObject).map(
 )
 ```
 
+## Compared to the REST API
+
+Paul has done a [great write up] on the contrast between the two
+approaches.
+
+I have outlined where my approach isn't great with the latency from
+the function but there's a lot going on with that.
+
+From what I could glen from Paul's approach is that the languages are
+only the most used language whereas the GraphQL response is all the
+languages used in and object.
+
+If I used the REST API on the serverless function there would probably
+be the same amount of latency.
+
 ## Resources
 
 - [Map, Reduce, Filter, and Pie Charts]
@@ -283,9 +298,6 @@ const langaugesArray = Object.entries(langObject).map(
 - [Serverless OG Image - Part 2 - Parsing Request]
 - [Serverless OG Image - Part 3 - Temporary File]
 - [Serverless OG Image - Part 4 - Taking Screenshot]
-
-Paul's post:
-https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
 
 <!-- Links -->
 
@@ -318,6 +330,8 @@ https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
   https://developers.google.com/chart/interactive/docs/gallery
 [contrast-color-generator]:
   https://www.npmjs.com/package/contrast-color-generator
+[great write up]:
+  https://paulie.dev/posts/2021/01/gatsby-netliyf-github-rest/
 
 <!-- Images -->
 
