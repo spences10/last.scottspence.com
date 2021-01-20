@@ -75,7 +75,6 @@ module.exports = {
         name: `MDXImages`,
         path: `${__dirname}/content`,
       },
-      __key: `${__dirname}/content`,
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -121,7 +120,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: [`/2019/*`, `/2020/*`],
+        precachePages: [`/2020/*`, `/2021/*`],
       },
     },
     // `gatsby-plugin-remove-serviceworker`,
