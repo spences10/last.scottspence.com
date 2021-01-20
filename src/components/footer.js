@@ -21,7 +21,7 @@ const Wrapper = styled.footer`
     margin: ${({ theme }) => theme.spacing[8]} 0;
   }
   hr {
-    margin: ${({ theme }) => theme.spacing[10]} 0;
+    margin: ${({ theme }) => theme.spacing[16]} 0;
     opacity: 0.5;
     color: var(
       --colour-secondary,
