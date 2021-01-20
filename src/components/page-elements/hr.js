@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledHr = styled.hr`
-  margin-top: ${({ theme }) => theme.spacing[6]};
+  margin-top: ${({ theme }) => theme.spacing[16]};
+  margin-bottom: ${({ theme }) => theme.spacing[16]};
   opacity: 0.5;
   color: var(
     --colour-secondary,
