@@ -1,5 +1,4 @@
 import { MDXProvider } from '@mdx-js/react'
-import ConvertKitForm from 'convertkit-react'
 import { preToCodeBlock } from 'mdx-utils'
 import React from 'react'
 import { Helmet } from 'react-helmet'
@@ -62,7 +61,6 @@ const components = {
   TopLanguages,
   GitHubContributions,
   Projects,
-  ConvertKitForm,
   MarkdownParser,
   Sarcasm,
 }
