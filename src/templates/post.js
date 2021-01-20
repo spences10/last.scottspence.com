@@ -81,7 +81,7 @@ const Private = styled.div`
   }
 `
 
-export default ({ data }) => {
+export default function Post({ data }) {
   const fa = useAnalytics()
   const {
     title: siteTitle,

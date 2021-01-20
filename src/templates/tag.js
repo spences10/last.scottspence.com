@@ -18,7 +18,7 @@ const Wrapper = styled.article`
   }
 `
 
-export default ({ pageContext }) => {
+export default function Tag({ pageContext }) {
   const {
     title: siteTitle,
     siteUrl,
