@@ -43,7 +43,7 @@ const Wrapper = styled.main`
   }
 `
 
-export default function MailingList() {
+export default function Newsletter() {
   const {
     title,
     description,

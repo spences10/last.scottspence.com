@@ -7,7 +7,7 @@ import { Toc } from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
 
-export default ({ data }) => {
+export default function FAQ({ data }) {
   const {
     title,
     description,

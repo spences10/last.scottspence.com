@@ -72,7 +72,7 @@ const LandingPage = ({ children }) => {
   return <Wrapper>{children}</Wrapper>
 }
 
-export default () => {
+export default function HomePage() {
   const {
     title,
     description,

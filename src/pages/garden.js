@@ -86,7 +86,7 @@ const Wrapper = styled.main`
   }
 `
 
-export default ({ data }) => {
+export default function Garden({ data }) {
   const {
     title,
     description,

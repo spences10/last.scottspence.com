@@ -20,7 +20,7 @@ const StyledLink = styled(Link)`
   ${rainbowAnimation}
 `
 
-export default () => {
+export default function Page404() {
   return (
     <>
       <H1>
