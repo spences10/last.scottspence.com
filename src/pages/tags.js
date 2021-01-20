@@ -38,11 +38,11 @@ const StyledTags = styled.article`
   }
 `
 
-export default ({
+export default function Tags({
   data: {
     allMdx: { group },
   },
-}) => {
+}) {
   const {
     title: siteTitle,
     siteUrl,
