@@ -23,8 +23,8 @@ So still used by me on a daily basis, and everyone else that uses git
 `git push origin <branch>`
 
 In my short time using Git I have always just typed out the full
-commands [usually with [my cheatsheet][git-cheatsheet] close to hand]
-and thought nothing more of it, that is how you use the tool, right?
+commands [usually with [my cheatsheet] close to hand] and thought
+nothing more of it, that is how you use the tool, right?
 
 Well that was what I foolishly presumed until I learned about
 dotfiles, I learned about `.` files from listening to the
@@ -147,8 +147,7 @@ give it a like and don't forget to share it on social media 🙌
 
 <!--Links-->
 
-[git-cheatsheet]:
-  https://github.com/spences10/cheat-sheets/blob/master/git.md
+[git-cheatsheet]: https://cheatsheets.xyz/git/
 [toolsday]: http://www.toolsday.io/
 [chris]: http://twitter.com/chrisdhanaraj
 [una]: http://twitter.com/una

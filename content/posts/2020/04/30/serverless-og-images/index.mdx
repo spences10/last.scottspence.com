@@ -83,7 +83,7 @@ To do this locally you will need to find the path of where Chrome is,
 for me, being a Linux user I did:
 
 ```bash
-➜ whereis google-chrome-stable
+whereis google-chrome-stable
 google-chrome-stable: /usr/bin/google-chrome-stable
 ```
 
@@ -155,6 +155,7 @@ const objectToQueryParams = obj => {
 const Image = () => {
   return (
     <img
+      alt={params.title}
       style={{ width: '100%' }}
       src={`https://image-og.now.sh/og.jpg${objectToQueryParams(
         params

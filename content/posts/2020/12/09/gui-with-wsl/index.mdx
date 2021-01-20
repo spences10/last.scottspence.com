@@ -276,6 +276,16 @@ sudo apt install \
   libasound2 -y
 ```
 
+ℹ If you're using [Playwright] there's a few additional dependencies
+tha need installing for WebKit, this was from using with Ubuntu.
+
+```bash
+sudo apt install \
+  libgstreamer-plugins-bad1.0-0 \
+  libenchant1c2a \
+  gstreamer1.0-libav -y
+```
+
 For the GUI apps to connect to my X-server I'll need to create a
 `DISPLAY` environment variable in my `.zshrc` config file.
 
@@ -412,3 +422,4 @@ Boom! GUI running in WSL!!
   https://packages.ubuntu.com/xenial/build-essential
 [yarn install docs]:
   https://classic.yarnpkg.com/en/docs/install/#debian-stable
+[playwright]: https://github.com/microsoft/playwright
