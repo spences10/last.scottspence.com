@@ -5,13 +5,16 @@ tags: ['hello world', 'getting started']
 private: false
 ---
 
-My first post using Gatsby, awesome static site generator
-[Gatsby][gatsby] from [Kyle Mathews][kyle]
-
-So not a lot to see, I'll just be configuring this and adding all my
-old blog posts.
+My first post using Jekyll, all I have done really is fork the awesome
+[jekyll-now] repo from [Barry Clark] and rename the repo and adjusted
+the `_config.yml` file.
 
 <!-- Links -->
 
-[gatsby]: https://github.com/gatsbyjs/gatsby
-[kyle]: https://github.com/KyleAMathews
+[jekyll-now]: https://github.com/barryclark/jekyll-now
+[barry clark]: https://github.com/barryclark
+
+<!--
+Restored from
+https://github.com/spences10/blog.scottspence.me/commit/991bf65f452cd6cb385605c5c8ccd7a4250ec9bc
+ -->
