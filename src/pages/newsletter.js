@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { H1, P } from '../components/page-elements'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
+import happyForm from '../util/happy-form'
 
 const Wrapper = styled.main`
   min-height: 60vh;
@@ -98,6 +99,10 @@ export default function Newsletter() {
         />
         <form
           class="kwes-form"
+          onSubmit={e => {
+            e.preventDefault()
+            happyForm(`yo@scottspence.dev`, `scott`)
+          }}
           action="https://kwes.io/api/foreign/forms/j7gBZsxccB5zeDXJ6ZNY"
         >
           <label htmlFor="name">First Name:</label>
