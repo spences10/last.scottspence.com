@@ -361,7 +361,7 @@ Now if we have a look at the `state` in the React dev tools we can see
 the font changing with the selection of the theme change, much like in
 the [styled-components 💅 getting started] post.
 
-![](https://thepracticaldev.s3.amazonaws.com/i/r1b8qgu6lm5xjjondse7.gif)
+![theme switching]
 
 Ok, success 💯 now onto the background switching/transition thingy.
 
@@ -475,3 +475,8 @@ here: https://scottspence.com/
   https://github.com/spences10/scottspence.me/blob/master/src/components/ThemeSelect.js
 [steve schoger]: https://twitter.com/steveschoger
 [hero patterns]: http://www.heropatterns.com/
+
+<!-- Images -->
+
+[theme switching]:
+  https://thepracticaldev.s3.amazonaws.com/i/r1b8qgu6lm5xjjondse7.gif

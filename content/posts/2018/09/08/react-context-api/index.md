@@ -16,7 +16,7 @@ private: false
 
 Let's use the React Context API to change theme in an app!
 
-![](https://thepracticaldev.s3.amazonaws.com/i/zmp2k4r128poj1gsws61.gif)
+![theme switching in react app]
 
 ## But first, some **context**! 🤣
 
@@ -92,7 +92,7 @@ use the Context API in an application.
 [Open a React CodeSandbox] and add `styled-components` as a
 dependency:
 
-![](https://thepracticaldev.s3.amazonaws.com/i/d49drafvtvz3ws2br9vs.gif)
+![codesandbox initial]
 
 ### File structure
 
@@ -126,13 +126,13 @@ API.
 Here you can see my sketchy typing as I create the directories and add
 in the `App.js` component.
 
-![](https://thepracticaldev.s3.amazonaws.com/i/oyxpggt00q754iv1azp0.gif)
+![codesandbox 1]
 
 We can then remove the `style.css` file and reference in
 `src/index.js` as we're going to be styling with styled-components 💅
 and then use our `App.js` component:
 
-![](https://thepracticaldev.s3.amazonaws.com/i/yyne3q36jc0zca2ld89u.gif)
+![codesandbox 2]
 
 Ok, so the reason why I have abstracted the `App.js` component out of
 the `src/index.js` file is so that when we come to using the Context
@@ -215,7 +215,7 @@ Button
 could be used for layout with CSS Grid or Flexbox, in our case we're
 going to align the text center.
 
-![](https://thepracticaldev.s3.amazonaws.com/i/uc08zkkf4ay1hq8pkt3w.gif)
+![codesandbox 3]
 
 Straightforward enough, right? Now the majority of the rest of the
 components will use the styled-components [`ThemeProvider`] which is
@@ -285,7 +285,7 @@ injectGlobal`
 `
 ```
 
-![](https://thepracticaldev.s3.amazonaws.com/i/qnxbteccbaw92jbwsq9c.gif)
+![codesandbox 4]
 
 Ok, so nothing really happening there apart from setting up the styles
 for use later.
@@ -319,7 +319,7 @@ there won't be any change until the `ThemeProvider` is passed the
 `ThemeProvider` component so that any component encapsulated by the
 `ThemeProvider` is able to receive `theme` props.
 
-![](https://thepracticaldev.s3.amazonaws.com/i/nuyaw29uoex6qcluf8va.gif)
+![codesandbox 5]
 
 `AppTitle` is going to be a h1 so:
 
@@ -362,7 +362,7 @@ const AppLogo = styled.img`
 `
 ```
 
-![](https://thepracticaldev.s3.amazonaws.com/i/pxe3fb5zqvprvtjthq5b.gif)
+![codesandbox 6]
 
 ### Shared components
 
@@ -428,7 +428,7 @@ export const StyledHyperLink = styled.a`
 
 Then import the components like any other:
 
-![](https://thepracticaldev.s3.amazonaws.com/i/ipi1kdmy83ieiw6sppog.gif)
+![codesandbox 7]
 
 The last three components for now, `AppIntro`, `Underline` and
 `StyledHyperLink`:
@@ -454,7 +454,7 @@ const StyledHyperLink = SHL.extend`
 `
 ```
 
-![](https://thepracticaldev.s3.amazonaws.com/i/smm6hpg2w71sxm6nf3ln.gif)
+![codesandbox 8]
 
 Add them in under the `AppLogo` styled component and then we can add
 the rest of the components into the `App` function `return`, so, ready
@@ -515,7 +515,7 @@ Sorry for the code wall! Right paste that in under the closing
 `</AppHeader>` tag and we should have the base of what we're going to
 theme!
 
-![](https://thepracticaldev.s3.amazonaws.com/i/zfcnihvmyvb9my5dn11x.gif)
+![codesandbox 9]
 
 Ok? How's it looking?
 
@@ -644,11 +644,11 @@ export class SiteThemeProvider extends React.Component {
 
 Ok, it's been a while since I've added a gif, time for another one!
 
-![](https://thepracticaldev.s3.amazonaws.com/i/n2qbxs7cbf7w5opqcri2.gif)
+![codesandbox 10]
 
 And bring in the `themes` and add state:
 
-![](https://thepracticaldev.s3.amazonaws.com/i/y6n32p1gshah5ex747mu.gif)
+![codesandbox 11]
 
 Now we can add in a function to the provider to change the theme state
 based on what has been selected via the `handleThemeChange` event
@@ -708,12 +708,12 @@ about to make.
 
 Let's go through adding in the function and adding that to the state:
 
-![](https://thepracticaldev.s3.amazonaws.com/i/3bh3bwi4ekb24uowvm65.gif)
+![codesandbox 12]
 
 And now we can add the theme provider to `src/index.js` so anything
 lower in the dependency tree can access it via a consumer.
 
-![](https://thepracticaldev.s3.amazonaws.com/i/p8nibx8ecfildi92jscm.gif)
+![codesandbox 13]
 
 ### Add the theme select
 
@@ -782,7 +782,7 @@ const ThemeSelect = props => {
 export default ThemeSelect
 ```
 
-![](https://thepracticaldev.s3.amazonaws.com/i/43e15llsi8uhlmi1z1ut.gif)
+![codesandbox 14]
 
 So from this we can list the this themes available to us in the
 `themes` object. But that's it, the function to handle the theme
@@ -823,7 +823,7 @@ const ThemeSelect = props => {
 export default ThemeSelect
 ```
 
-![](https://thepracticaldev.s3.amazonaws.com/i/1qq4hc2zqa50t0t2vi5v.gif)
+![codesandbox 15]
 
 Currently this isn't going to change the theme because we have that
 hardcoded into the styled-components `ThemeProvider`, what we want to
@@ -839,7 +839,7 @@ Then in the `App` component we can import our
 `SiteThemeContext` state and pass that to the styled-components
 `ThemeProvider`.
 
-![](https://thepracticaldev.s3.amazonaws.com/i/jn5u8bzuvufpa56c9ta7.gif)
+![codesandbox 16]
 
 ### Want to know more?
 
@@ -900,3 +900,42 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 [his youtube channel]:
   https://www.youtube.com/channel/UCWPY8W-FAZ2HdDiJp2RC_sQ
 [example code]: https://codesandbox.io/s/5vl16n5oxp
+
+<!-- Images -->
+
+[theme switching in react app]:
+  https://thepracticaldev.s3.amazonaws.com/i/zmp2k4r128poj1gsws61.gif
+[codesandbox initial]:
+  https://thepracticaldev.s3.amazonaws.com/i/d49drafvtvz3ws2br9vs.gif
+[codesandbox 1]:
+  https://thepracticaldev.s3.amazonaws.com/i/oyxpggt00q754iv1azp0.gif
+[codesandbox 2]:
+  https://thepracticaldev.s3.amazonaws.com/i/yyne3q36jc0zca2ld89u.gif
+[codesandbox 3]:
+  https://thepracticaldev.s3.amazonaws.com/i/uc08zkkf4ay1hq8pkt3w.gif
+[codesandbox 4]:
+  https://thepracticaldev.s3.amazonaws.com/i/qnxbteccbaw92jbwsq9c.gif
+[codesandbox 5]:
+  https://thepracticaldev.s3.amazonaws.com/i/nuyaw29uoex6qcluf8va.gif
+[codesandbox 6]:
+  https://thepracticaldev.s3.amazonaws.com/i/pxe3fb5zqvprvtjthq5b.gif
+[codesandbox 7]:
+  https://thepracticaldev.s3.amazonaws.com/i/ipi1kdmy83ieiw6sppog.gif
+[codesandbox 8]:
+  https://thepracticaldev.s3.amazonaws.com/i/smm6hpg2w71sxm6nf3ln.gif
+[codesandbox 9]:
+  https://thepracticaldev.s3.amazonaws.com/i/zfcnihvmyvb9my5dn11x.gif
+[codesandbox 10]:
+  https://thepracticaldev.s3.amazonaws.com/i/n2qbxs7cbf7w5opqcri2.gif
+[codesandbox 11]:
+  https://thepracticaldev.s3.amazonaws.com/i/y6n32p1gshah5ex747mu.gif
+[codesandbox 12]:
+  https://thepracticaldev.s3.amazonaws.com/i/3bh3bwi4ekb24uowvm65.gif
+[codesandbox 13]:
+  https://thepracticaldev.s3.amazonaws.com/i/p8nibx8ecfildi92jscm.gif
+[codesandbox 14]:
+  https://thepracticaldev.s3.amazonaws.com/i/43e15llsi8uhlmi1z1ut.gif
+[codesandbox 15]:
+  https://thepracticaldev.s3.amazonaws.com/i/1qq4hc2zqa50t0t2vi5v.gif
+[codesandbox 16]:
+  https://thepracticaldev.s3.amazonaws.com/i/jn5u8bzuvufpa56c9ta7.gif

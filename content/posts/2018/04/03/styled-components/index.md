@@ -8,7 +8,7 @@ private: false
 We're going to style the basic create react app with styled-components
 to look something like this:
 
-![](https://thepracticaldev.s3.amazonaws.com/i/5dwv10zpqa13wb4pr47l.gif)
+![theme switch with styled-components]
 
 But first, preamble✨: I have always struggled with styling sites, it
 seems to be an aspect of starting web development that is either an
@@ -25,7 +25,7 @@ styled-components.
 
 ###### me with css before
 
-![](https://media.giphy.com/media/2rj8VysAig8QE/giphy.gif)
+![impossible puzzle]
 
 I want to share what I have learned so far by going through styling a
 basic react application.
@@ -448,7 +448,7 @@ Themes are often used to change the look and feel of a wide range of
 things at once. For example, you may have a night and day mode like in
 Twitter. You can create your own themes in styled-components too.
 
-![](https://thepracticaldev.s3.amazonaws.com/i/gwn8czgagns1n1545zgn.png)
+![light and dark theme]
 
 ### Use the styled-components ThemeProvider
 
@@ -758,3 +758,12 @@ Find me on [Twitter] or [Ask Me Anything] on GitHub.
   https://stackoverflow.com/questions/tagged/styled-components
 [twitter]: https://twitter.com/spences10
 [ask me anything]: https://github.com/spences10/ama
+
+<!-- Images -->
+
+[theme switch with styled-components]:
+  https://thepracticaldev.s3.amazonaws.com/i/5dwv10zpqa13wb4pr47l.gif
+[impossible puzzle]:
+  https://media.giphy.com/media/2rj8VysAig8QE/giphy.gif
+[light and dark theme]:
+  https://thepracticaldev.s3.amazonaws.com/i/gwn8czgagns1n1545zgn.png
