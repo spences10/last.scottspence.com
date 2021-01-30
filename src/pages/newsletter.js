@@ -3,9 +3,11 @@ import Img from 'gatsby-image'
 import React from 'react'
 import SEO from 'react-seo-component'
 import styled from 'styled-components'
-import { H1, P } from '../components/page-elements'
+import { H1, Hr, P } from '../components/page-elements'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
+import happyForm from '../util/happy-form'
+import useForm from '../util/use-from'
 
 const Wrapper = styled.main`
   min-height: 60vh;
@@ -65,6 +67,7 @@ export default function Newsletter() {
       }
     }
   `)
+  const { values, updateValue } = useForm({ name: ``, email: `` })
   return (
     <>
       <SEO
@@ -90,14 +93,12 @@ export default function Newsletter() {
           Get involved to be in with a chance to win a dev sticker
           pack!
         </P>
-        <Img
-          alt="stickers"
-          fluid={data.placeholderImage.childImageSharp.fluid}
-          // fadeIn={false}
-          // loading="eager"
-        />
         <form
           class="kwes-form"
+          onSubmit={e => {
+            e.preventDefault()
+            happyForm(values.email, values.name)
+          }}
           action="https://kwes.io/api/foreign/forms/j7gBZsxccB5zeDXJ6ZNY"
         >
           <label htmlFor="name">First Name:</label>
@@ -105,15 +106,26 @@ export default function Newsletter() {
             type="text"
             name="name"
             rules="required|max:255"
+            value={values.name}
+            onChange={updateValue}
           ></input>
           <label htmlFor="email">Your Email:</label>
           <input
             type="text"
             name="email"
             rules="required|max:255"
+            value={values.email}
+            onChange={updateValue}
           ></input>
           <button type="submit">Submit</button>
         </form>
+        <Hr />
+        <Img
+          alt="stickers"
+          fluid={data.placeholderImage.childImageSharp.fluid}
+          // fadeIn={false}
+          // loading="eager"
+        />
       </Wrapper>
     </>
   )
