@@ -4,7 +4,7 @@ title:
   Sitemap Generation for Dynamic Routes In NextJS with the Sanity
   Client
 tags: ['nextjs', 'seo', 'notes']
-private: true
+private: false
 ---
 
 A sitemap is an important for Search Engine Optimisation (SEO) because
@@ -87,6 +87,8 @@ then James Weis came in with setting the headers to `text/xml`
 
 This made a lot more sense to me so I implemented this straight away.
 
+Create the file as `pages/sitemap.xml.js` then the following:
+
 ```js
 import groq from 'groq'
 import sanityClient from '../sanity-client'
@@ -96,7 +98,7 @@ export default function SiteMap() {
 }
 
 export async function getServerSideProps({ res }) {
-  const baseUrl = `https://promotebritain.co.uk`
+  const baseUrl = `https://myawesomesite.com`
   const query = groq`{
       "countries": *[_type == 'country']{slug},
     }`
@@ -133,6 +135,18 @@ export async function getServerSideProps({ res }) {
 }
 ```
 
+This is genius!
+
+So what the code block there is doing is saving the file as the
+sitemap and it's located with the rest of the pages as `sitemap.xml`,
+this can them be added to the Google search console as the sitemap and
+located as `https://myawesomesite.com/sitemap.xml`.
+
+I asked for permission to document this from James and he was happy
+with being mentioned, thanks James. 🙏
+
+![asking for permission to add this content to my blog]
+
 <!-- Images -->
 
 [slack message asking about site map]:
@@ -140,3 +154,5 @@ export async function getServerSideProps({ res }) {
 [knut slack reply]: ./knut-slack-reply.png
 [james weis reply headers to text/xml]:
   ./james-weis-reply-headers-to-text-xml.png
+[asking for permission to add this content to my blog]:
+  ./credit-james.png
