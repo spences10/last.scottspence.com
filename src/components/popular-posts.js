@@ -14,8 +14,8 @@ const POPULAR_POSTS = [
     slug: `2020/12/08/zsh-and-oh-my-zsh/`,
   },
   {
-    title: `My Second Brain - Zettelkasten`,
-    slug: `2020/07/17/my-second-brain-zettelkasten/`,
+    title: `Enable GUIs on Windows Subsystem Linux (WSL)`,
+    slug: `2020/12/09/gui-with-wsl/`,
   },
   {
     title: `Build a coding blog from scratch with Gatsby and MDX`,
