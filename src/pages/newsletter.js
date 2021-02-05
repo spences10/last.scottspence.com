@@ -97,7 +97,11 @@ export default function Newsletter() {
           class="kwes-form"
           onSubmit={e => {
             e.preventDefault()
-            happyForm(values.email, values.name)
+            happyForm(
+              values.email,
+              values.name,
+              '785c6867-cc31-46e9-84af-c5bf6935acd7'
+            )
           }}
           action="https://kwes.io/api/foreign/forms/j7gBZsxccB5zeDXJ6ZNY"
         >

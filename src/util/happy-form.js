@@ -4,7 +4,7 @@
  * that is the id of my Newsletter list
  */
 
-export default async function happyForm(email, name) {
+export default async function happyForm(email, name, list) {
   await fetch('https://api.sendgrid.com/v3/marketing/contacts', {
     method: 'PUT',
     headers: {
@@ -12,7 +12,7 @@ export default async function happyForm(email, name) {
       Authorization: `Bearer ${process.env.GATSBY_SENDGRID_API_KEY}`,
     },
     body: JSON.stringify({
-      list_ids: ['785c6867-cc31-46e9-84af-c5bf6935acd7'],
+      list_ids: [list],
       contacts: [
         {
           email,
