@@ -75,7 +75,7 @@ export default function Newsletter() {
       <SEO
         title={`Giveaway`}
         titleTemplate={title}
-        description={description}
+        description={`Win a Wes Bos Advanced React and GraphQL course worth $139, draws made every Monday, Wednesday and Friday throughout February 2021`}
         image={ogImageUrl(
           authorName,
           'scottspence.com',
