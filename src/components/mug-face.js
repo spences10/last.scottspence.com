@@ -17,7 +17,7 @@ export const MugFace = () => {
       placeholderImage: file(relativePath: { eq: "favicon.png" }) {
         childImageSharp {
           fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid_tracedSVG
+            ...GatsbyImageSharpFluid
           }
         }
       }
