@@ -87,12 +87,13 @@ export default function Newsletter() {
       <Wrapper>
         <H1>Newsletter</H1>
         <P>
-          Occasional details about intersting things I'm working on.
+          The people on my mailing list are the first to hear about my
+          new content and what I'm working on.
         </P>
         <P>
-          Get involved to be in with a chance to win a dev sticker
-          pack!
+          A weekly newsletter full of useful links for web developers.
         </P>
+        <P>Signing up now to get the next issue!</P>
         <form
           class="kwes-form"
           onSubmit={e => {
