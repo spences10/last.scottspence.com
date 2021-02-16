@@ -48,7 +48,6 @@ const Wrapper = styled.main`
 export default function Newsletter() {
   const {
     title,
-    description,
     siteUrl,
     twitterUsername,
     authorName,
