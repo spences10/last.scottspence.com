@@ -1,0 +1,75 @@
+---
+date: 2021-02-16
+title: Making Presentations with MDX
+tags: ['mdx', 'speaking', 'markdown']
+private: true
+---
+
+Ever since I first saw Sara Viera's slides form Vue London 2018 I've
+really liked the idea of writing a presentation in MDX.
+
+Sara used something called MDX Deck and it's pretty dope! You write
+your slides in Markdown and sprinkle in other nice bits around what
+you're saying in the slide, you know like most presentations. I made a
+couple of presentations using MDX Deck.
+
+In it's simplest form this is what a presentation can look like in
+Markdown using MDX, the `---` indicates the separator for the slides.
+
+```markdown
+# slide 1
+
+This is the first slide
+
+---
+
+## Slide 2
+
+This is the second slide
+```
+
+I've tried several other solutions along the way, here they are
+listed:
+
+- MDX Deck
+- Gatsby Theme MDX Deck
+- Next MDX Deck
+- [Fusuma]
+- [MDXP]
+- Untested by me but I did find [MDX Vue Deck]
+
+The first two are the same really with using Gatsby shadowing (theme)
+for MDX Deck in Gatsby Theme MDX Deck.
+
+MDX Deck is the OG of these and was a bit rough around the edges to
+begin with, it's now at v4. I personally never had any joy using
+anything above that when it came to using images in your
+presentations, which my presentations relied on _a lot_.
+
+I used MDX Deck happily for a couple of presentations but it always
+irked me that certain support was missing causing a lot of people to
+wonder if it was [still supported].
+
+We get it, Jackson's a busy guy and OSS is, well OSS. So after I was
+lined up to do talk about [Spreading the jamstack] at [Scale By the
+Bay] I opted for something a touch more reliable to use, this is when
+I discovered Next MDX Deck when [Monica Powell's slides] did a talk at
+[MDX conf].
+
+Next MDX Deck had the `MDXProvider` exposed which means that I could
+fold in components at a high level rather than on the slide level.
+
+This means that if
+
+<Tweet tweetLink="sarah_edo/status/1357708732847644678" />
+
+<!-- Links -->
+
+[fusuma]: https://hiroppy.github.io/fusuma/
+[mdx vue deck]: https://github.com/godkinmo/mdx-vue-deck
+[mdxp]: https://0phoff.github.io/MDXP
+[still supported]: https://github.com/jxnblk/mdx-deck/issues/765
+[spreading the jamstack]: https://www.youtube.com/watch?v=L7_z8rcbFPg
+[scale by the bay]: https://www.scale.bythebay.io/
+[monica powell's slides]: https://github.com/M0nica/migrating-to-mdx
+[mdx conf]: https://mdxjs.com/conf/
