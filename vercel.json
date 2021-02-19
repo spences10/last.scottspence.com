@@ -1,3 +1,6 @@
 {
-  "redirects": [{ "source": "/uses", "destination": "/#uses" }]
+  "redirects": [
+    { "source": "/uses", "destination": "/#uses" },
+    { "source": "/giveaway/", "destination": "/newsletter/" }
+  ]
 }
