@@ -4,7 +4,7 @@ import SEO from 'react-seo-component'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
 
-const IndexPage = () => {
+const Giveaway = () => {
   const {
     title,
     siteUrl,
@@ -36,4 +36,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default Giveaway
