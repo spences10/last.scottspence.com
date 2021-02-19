@@ -1,4 +1,5 @@
 {
+  "trailingSlash": true,
   "redirects": [
     { "source": "/uses", "destination": "/#uses" },
     { "source": "/giveaway/", "destination": "/newsletter/" }
