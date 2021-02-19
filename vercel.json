@@ -2,6 +2,7 @@
   "trailingSlash": true,
   "redirects": [
     { "source": "/uses", "destination": "/#uses" },
-    { "source": "/giveaway/", "destination": "/newsletter/" }
+    { "source": "/giveaway/", "destination": "/newsletter/" },
+    { "source": "/giveaway", "destination": "/newsletter/" }
   ]
 }
