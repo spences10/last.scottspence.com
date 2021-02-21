@@ -12988,6 +12988,11 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-carbonbadge@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-carbonbadge/-/react-carbonbadge-1.0.1.tgz#6bc374f6c2cd208ea5eeb918e72a149a21773098"
+  integrity sha512-5/hgs/4Sv8aJLnjA9Qbcel+wu1uN64Q0tpNlYdb0k36kgOzFBRVmG0GL8X8LaAPWuSBoNeDEyWmy3vDlKascJA==
+
 react-dev-utils@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.3.tgz#5b42d9ea58d5e9e017a2f57a40a8af408a3a46fb"

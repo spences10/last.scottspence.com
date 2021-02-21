@@ -65,6 +65,7 @@
     "preact-render-to-string": "^5.1.12",
     "prism-react-renderer": "1.1.1",
     "react": "17.0.1",
+    "react-carbonbadge": "^1.0.1",
     "react-dom": "17.0.1",
     "react-helmet": "^6.1.0",
     "react-live": "2.2.3",

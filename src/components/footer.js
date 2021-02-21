@@ -1,4 +1,5 @@
 import React from 'react'
+import Carbonbadge from 'react-carbonbadge'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import { focusOutline } from './shared-styles'
@@ -47,6 +48,9 @@ const Wrapper = styled.footer`
       margin-bottom: ${({ theme }) => theme.spacing[24]};
     }
   }
+  .carbon-badge {
+    margin-top: 1rem;
+  }
 `
 
 export const Footer = () => {
@@ -94,6 +98,9 @@ export const Footer = () => {
       >
         <Twitch />
       </a>
+      <div className="carbon-badge">
+        <Carbonbadge darkMode={true} />
+      </div>
       <p className="sign-off">
         {`Built with Gatsby · Hosted on Vercel · ${new Date().getFullYear()}`}
       </p>
