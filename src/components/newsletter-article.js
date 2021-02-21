@@ -1,4 +1,5 @@
 import React from 'react'
+import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import 'victormono'
 import happyForm from '../util/happy-form'
@@ -40,6 +41,10 @@ const Wrapper = styled.div`
     grid-gap: 10px;
     grid-template-columns: 2fr 2fr 1fr;
     margin-top: ${({ theme }) => theme.spacing[10]};
+    ${down('sm')} {
+      grid-template-columns: repeat(1, 1fr);
+      margin: 0 auto;
+    }
   }
   input,
   button {

@@ -3,6 +3,9 @@ import { TwitterShareButton } from 'react-share'
 import styled from 'styled-components'
 import { focusOutline, rainbowAnimation } from './shared-styles'
 const ShareWrapper = styled.section`
+  margin-top: ${({ theme }) => theme.spacing[7]};
+  margin-bottom: ${({ theme }) => theme.spacing[16]};
+  text-align: center;
   h6 {
     font-size: ${({ theme }) => theme.fontSize.xl};
     background: linear-gradient(
