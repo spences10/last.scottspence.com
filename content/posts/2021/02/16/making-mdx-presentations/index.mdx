@@ -119,9 +119,81 @@ my use-case.
 
 ## MDXP
 
-MDXP is not built in Gatsby or NextJS, just a plain old React app with
+MDXP is not built in Gatsby or NextJS, it's a plain old React app with
 an exposed webpack config file and all the requisite plugins for
 images and Markdown + MDX.
+
+MDXP comes with a set core of components for general use, `<Note>` is
+great for presenter notes and there's a really handy one in `<Step>`
+that allows you to, ahem 'step' through certain items on one slide.
+
+## How it works
+
+With MDXP there's still the top level index file which is used to wrap
+the rest of the application, this is where the components for the
+slides can be 'folded' in.
+
+Here's an example of what that could look like:
+
+```jsx {6,19}
+/** @jsx jsx */
+import * as components from '@mdxp/components'
+import Deck, { Zoom } from '@mdxp/core'
+import ReactDOM from 'react-dom'
+import { jsx } from 'theme-ui'
+import deckComponents from './deck-components'
+import MDXPresentation from './presentation.mdx'
+import theme from './theme/theme'
+
+const Index = () => {
+  return (
+    <Zoom
+      maxWidth={1000}
+      width={1000}
+      aspectRatio={16 / 9}
+      sx={{ maxWidth: '100vw', maxHeight: '100vh' }}
+    >
+      <Deck
+        components={{ ...components, ...deckComponents }}
+        theme={theme}
+      >
+        <MDXPresentation />
+      </Deck>
+    </Zoom>
+  )
+}
+
+ReactDOM.render(<Index />, document.getElementById('root'))
+```
+
+The `deckComponents` are what I provide, if I wanted to only use the
+provided MDXP components I could stick with just those.
+
+The `deck-components` file is where I can group all the components I
+want to use in the presentation, here I'm bringing in a custom
+`CodeHighlight` component that I can wrap code blocks in for the
+presentation:
+
+```jsx {1,5}
+import CodeHighlight from './components/code'
+import { Tweet, CodePen, YouTube } from 'mdx-embed'
+
+export default {
+  CodeHighlight,
+  Tweet,
+  CodePen,
+  YouTube,
+}
+```
+
+The `CodeHighlight` component can then be used in the slides, just
+bear in mind that the component needs to wrap everything in that
+slide. So if I wanted notes with the MDXP `<Note>` component they
+could need to be contained by `<CodeHighlight>`.
+
+I like the flexability of this because it means that the slides can
+have an individual look and feel which is something that I've found
+lacking in the alternitives.
 
 <!-- Links -->
 
