@@ -1,0 +1,55 @@
+---
+date: 2021-02-26
+title: Setting up ProtonMail with Vercel
+tags: ['domains', 'guide', 'resource']
+private: true
+---
+
+I've decided to give ProtonMail a shot, I have lost faith in Google
+being a force for good and coming round to the notion that [I have
+been their product] for the last 15 years or so. 😬
+
+ProtonMail is the top rated alternitive on [nomoregoogle.com] and with
+end-to-end encryption and the company based in Switzerland with strict
+Swiss privacy laws I think my mail is in a good place!
+
+You also sign up anonymously for ProtonMail when you first sign up,
+all they take is a username and password then a secondary email as a
+backup for account resets if needed.
+
+## Add Domain
+
+## Verify Domain
+
+```bash
+vc dns add yourdomainname.com @ TXT protonmail-verification=dsfsu9fsd989vv
+```
+
+## Add Addresses
+
+## Add MX Records
+
+```bash
+vc dns add yourdomainname.com @ MX mail.protonmail.ch 10
+vc dns add yourdomainname.com @ MX mailsec.protonmail.ch 20
+```
+
+## Add SPF
+
+```bash
+vc dns add yourdomainname.com @ TXT 'v=spf1 include:_spf.protonmail.ch mx ~all'
+```
+
+## Add DKIM
+
+```bash
+vc dns add yourdomainname.com protonmail._domainkey CNAME protonmail.domainkey.f98sd8f90s.domains.proton.ch.
+vc dns add yourdomainname.com protonmail2._domainkey CNAME protonmail2.domainkey.f98sd8f90s.domains.proton.ch.
+vc dns add yourdomainname.com protonmail3._domainkey CNAME protonmail3.domainkey.f98sd8f90s.domains.proton.ch.
+```
+
+<!-- Links -->
+
+[nomoregoogle.com]: http://nomoregoogle.com/
+[i have been their product]:
+  https://quoteinvestigator.com/2017/07/16/product/
