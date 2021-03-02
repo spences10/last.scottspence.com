@@ -21,6 +21,7 @@ Posts on TypeScript, Unit testing, with React testing library and Jest. End to e
 module.exports = {
   siteMetadata,
   plugins: [
+    `babel-preset-gatsby`,
     `gatsby-plugin-mdx-embed`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
