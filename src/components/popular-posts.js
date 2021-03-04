@@ -6,20 +6,20 @@ import { linkHover, linkStyle, StyledLink } from './shared-styles'
 
 const POPULAR_POSTS = [
   {
-    title: `Add a Table of Contents with Smooth scroll using Gatsby and MDX`,
+    title: `Add a Table of Contents using Gatsby and MDX`,
     slug: `2020/02/13/smooth-scroll-toc-gatsby/`,
   },
   {
-    title: `Notes on Zsh and Oh My Zsh`,
-    slug: `2020/12/08/zsh-and-oh-my-zsh/`,
+    title: `Chakra UI and Gatsby - Getting Started`,
+    slug: `2020/11/21/getting-started-chakra-ui-gatsby/`,
+  },
+  {
+    title: `Use Chrome in Ubuntu on Windows Subsystem Linux`,
+    slug: `2021/01/05/use-chrome-in-ubuntu-wsl/`,
   },
   {
     title: `Enable GUIs on Windows Subsystem Linux (WSL)`,
     slug: `2020/12/09/gui-with-wsl/`,
-  },
-  {
-    title: `Build a coding blog from scratch with Gatsby and MDX`,
-    slug: `2019/10/31/build-an-mdx-blog/`,
   },
 ]
 
