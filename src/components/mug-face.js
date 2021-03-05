@@ -37,7 +37,7 @@ export const MugFace = () => {
         <Wavy>
           <img
             alt="waving hand emoji"
-            src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif"
+            src="https://res.cloudinary.com/defkmsrpw/image/upload/q_auto,f_auto,w_60/v1614959623/wave.gif"
           />
         </Wavy>
       </H1>
