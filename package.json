@@ -11,12 +11,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop -p 4512 -o",
-    "build": "gatsby build && yarn wellknown && yarn robots && yarn clarity && yarn newsletters",
+    "build": "gatsby build && yarn wellknown && yarn robots && yarn newsletters",
     "serve": "gatsby serve -p 4500 -o",
     "format": "pretty-quick",
     "wellknown": "cp -r .well-known/ public/",
     "robots": "cp robots.txt public/",
-    "clarity": "cp clarity.js public/",
     "newsletters": "cp -r newsletters/ public/"
   },
   "husky": {
