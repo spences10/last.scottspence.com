@@ -96,7 +96,6 @@ export default function Newsletter() {
         </P>
         <P>Signing up now to get the next issue!</P>
         <form
-          class="kwes-form"
           onSubmit={e => {
             e.preventDefault()
             happyForm(
@@ -105,13 +104,12 @@ export default function Newsletter() {
               '785c6867-cc31-46e9-84af-c5bf6935acd7'
             )
           }}
-          action="https://kwes.io/api/foreign/forms/j7gBZsxccB5zeDXJ6ZNY"
+          action="#"
         >
           <label htmlFor="name">First Name:</label>
           <input
             type="text"
             name="name"
-            rules="required|max:255"
             value={values.name}
             onChange={updateValue}
           ></input>
@@ -119,7 +117,7 @@ export default function Newsletter() {
           <input
             type="text"
             name="email"
-            rules="required|max:255"
+            required
             value={values.email}
             onChange={updateValue}
           ></input>

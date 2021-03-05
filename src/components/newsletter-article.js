@@ -82,7 +82,6 @@ export const Newsletter = () => {
         Newsletter signup...
       </span>
       <form
-        class="kwes-form"
         onSubmit={e => {
           e.preventDefault()
           happyForm(
@@ -91,7 +90,7 @@ export const Newsletter = () => {
             '785c6867-cc31-46e9-84af-c5bf6935acd7'
           )
         }}
-        action="https://kwes.io/api/foreign/forms/j7gBZsxccB5zeDXJ6ZNY"
+        action="#"
       >
         <label htmlFor="name" className="visuallyhidden">
           First Name:
@@ -100,7 +99,6 @@ export const Newsletter = () => {
           type="text"
           name="name"
           placeholder="Anders"
-          rules="required|max:255"
           value={values.name}
           onChange={updateValue}
         ></input>
@@ -111,7 +109,7 @@ export const Newsletter = () => {
           type="text"
           name="email"
           placeholder="anders@hejlsberg.com"
-          rules="required|max:255"
+          required
           value={values.email}
           onChange={updateValue}
         ></input>
