@@ -61,7 +61,7 @@ export default function Newsletter() {
         childImageSharp {
           gatsbyImageData(
             width: 600
-            placeholder: TRACED_SVG
+            placeholder: BLURRED
             layout: CONSTRAINED
           )
         }

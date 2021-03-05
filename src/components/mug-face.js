@@ -16,7 +16,11 @@ export const MugFace = () => {
     {
       placeholderImage: file(relativePath: { eq: "favicon.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 200, layout: CONSTRAINED)
+          gatsbyImageData(
+            width: 200
+            placeholder: BLURRED
+            layout: CONSTRAINED
+          )
         }
       }
     }
