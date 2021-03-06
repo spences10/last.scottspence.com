@@ -2,46 +2,60 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import SEO from 'react-seo-component'
+import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
+import { NewsLetterForm } from '../components/newsletter-form'
 import { H1, Hr, P } from '../components/page-elements'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
-import happyForm from '../util/happy-form'
-import useForm from '../util/use-from'
 
 const Wrapper = styled.main`
   min-height: 60vh;
+  .visuallyhidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
   p {
     margin-bottom: 2rem;
   }
   form {
     display: grid;
-    label,
-    button {
-      padding: 1rem 0;
+    grid-gap: 10px;
+    grid-template-columns: 2fr 1fr;
+    margin-top: ${({ theme }) => theme.spacing[10]};
+    ${down('sm')} {
+      grid-template-columns: repeat(1, 1fr);
+      margin: 0 auto;
     }
-    input {
-      height: 2rem;
-    }
-    button {
-      margin-top: 2rem;
-      border-radius: 50px;
-      font-weight: ${({ theme }) => theme.fontWeight.semibold};
-      color: ${({ theme }) => theme.colors.gray[100]};
-      background: linear-gradient(
-        180turn,
-        var(
-          --title-gradient-from,
-          ${({ theme }) => theme.colors.primary[200]}
-        ),
-        var(
-          --title-gradient-to,
-          ${({ theme }) => theme.colors.primary[500]}
-        )
-      );
-      outline: none;
-      border: none;
-    }
+  }
+  input,
+  button {
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: var(--box-shadow-xl);
+  }
+  input {
+    padding: 10px;
+  }
+  button {
+    cursor: pointer;
+    background: linear-gradient(
+      180turn,
+      var(
+        --title-gradient-from,
+        ${({ theme }) => theme.colors.primary[200]}
+      ),
+      var(
+        --title-gradient-to,
+        ${({ theme }) => theme.colors.primary[500]}
+      )
+    );
+    color: ${({ theme }) => theme.colors.gray[100]};
   }
 `
 
@@ -68,7 +82,7 @@ export default function Newsletter() {
       }
     }
   `)
-  const { values, updateValue } = useForm({ name: ``, email: `` })
+
   return (
     <>
       <SEO
@@ -95,36 +109,7 @@ export default function Newsletter() {
           A weekly newsletter full of useful links for web developers.
         </P>
         <P>Signing up now to get the next issue!</P>
-        <form
-          class="kwes-form"
-          onSubmit={e => {
-            e.preventDefault()
-            happyForm(
-              values.email,
-              values.name,
-              '785c6867-cc31-46e9-84af-c5bf6935acd7'
-            )
-          }}
-          action="https://kwes.io/api/foreign/forms/j7gBZsxccB5zeDXJ6ZNY"
-        >
-          <label htmlFor="name">First Name:</label>
-          <input
-            type="text"
-            name="name"
-            rules="required|max:255"
-            value={values.name}
-            onChange={updateValue}
-          ></input>
-          <label htmlFor="email">Your Email:</label>
-          <input
-            type="text"
-            name="email"
-            rules="required|max:255"
-            value={values.email}
-            onChange={updateValue}
-          ></input>
-          <button type="submit">Submit</button>
-        </form>
+        <NewsLetterForm />
         <Hr />
         <GatsbyImage
           image={
