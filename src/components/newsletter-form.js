@@ -56,7 +56,7 @@ export const NewsLetterForm = () => {
         </form>
       ) : (
         <div>
-          <h2>Awesome, you're all signed up! </h2>
+          <h2>Awesome, you're all signed up!</h2>
           <p>Thanks for showing interest in my content.</p>
         </div>
       )}
