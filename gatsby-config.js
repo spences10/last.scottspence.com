@@ -19,7 +19,6 @@ Posts on TypeScript, Unit testing, with React testing library and Jest. End to e
   siteLocale: `en_gb`,
 }
 module.exports = {
-  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata,
   plugins: [
     `babel-preset-gatsby`,
