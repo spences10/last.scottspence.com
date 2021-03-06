@@ -24,7 +24,8 @@ const Wrapper = styled.div`
     display: block;
     text-align: center;
   }
-  p {
+  p,
+  h2 {
     text-align: center;
   }
   .visuallyhidden {
