@@ -2,8 +2,7 @@ import React from 'react'
 import { down } from 'styled-breakpoints'
 import styled from 'styled-components'
 import 'victormono'
-import happyForm from '../util/happy-form'
-import useForm from '../util/use-from'
+import { NewsLetterForm } from '../components/newsletter-form'
 import { P } from './page-elements'
 import { rainbowAnimation } from './shared-styles'
 
@@ -63,8 +62,6 @@ const Wrapper = styled.div`
   }
 `
 export const Newsletter = () => {
-  const { values, updateValue } = useForm({ name: ``, email: `` })
-
   return (
     <Wrapper>
       <span role="img" aria-label="sparkles">
@@ -81,40 +78,7 @@ export const Newsletter = () => {
       <span className="newsletterShine shimmer">
         Newsletter signup...
       </span>
-      <form
-        onSubmit={e => {
-          e.preventDefault()
-          happyForm(
-            values.email,
-            values.name,
-            '785c6867-cc31-46e9-84af-c5bf6935acd7'
-          )
-        }}
-        action="#"
-      >
-        <label htmlFor="name" className="visuallyhidden">
-          First Name:
-        </label>
-        <input
-          type="text"
-          name="name"
-          placeholder="Anders"
-          value={values.name}
-          onChange={updateValue}
-        ></input>
-        <label htmlFor="email" className="visuallyhidden">
-          Your Email:
-        </label>
-        <input
-          type="text"
-          name="email"
-          placeholder="anders@hejlsberg.com"
-          required
-          value={values.email}
-          onChange={updateValue}
-        ></input>
-        <button type="submit">Submit</button>
-      </form>
+      <NewsLetterForm />
     </Wrapper>
   )
 }

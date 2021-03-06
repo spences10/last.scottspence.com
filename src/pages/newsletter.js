@@ -3,11 +3,10 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import SEO from 'react-seo-component'
 import styled from 'styled-components'
+import { NewsLetterForm } from '../components/newsletter-form'
 import { H1, Hr, P } from '../components/page-elements'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
-import happyForm from '../util/happy-form'
-import useForm from '../util/use-from'
 
 const Wrapper = styled.main`
   min-height: 60vh;
@@ -68,7 +67,7 @@ export default function Newsletter() {
       }
     }
   `)
-  const { values, updateValue } = useForm({ name: ``, email: `` })
+
   return (
     <>
       <SEO
@@ -95,34 +94,7 @@ export default function Newsletter() {
           A weekly newsletter full of useful links for web developers.
         </P>
         <P>Signing up now to get the next issue!</P>
-        <form
-          onSubmit={e => {
-            e.preventDefault()
-            happyForm(
-              values.email,
-              values.name,
-              '785c6867-cc31-46e9-84af-c5bf6935acd7'
-            )
-          }}
-          action="#"
-        >
-          <label htmlFor="name">First Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={values.name}
-            onChange={updateValue}
-          ></input>
-          <label htmlFor="email">Your Email:</label>
-          <input
-            type="text"
-            name="email"
-            required
-            value={values.email}
-            onChange={updateValue}
-          ></input>
-          <button type="submit">Submit</button>
-        </form>
+        <NewsLetterForm />
         <Hr />
         <GatsbyImage
           image={
