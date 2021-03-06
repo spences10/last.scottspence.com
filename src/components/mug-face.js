@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import styled from 'styled-components'
 import { H1 } from './page-elements'
@@ -13,12 +13,14 @@ const Wavy = styled.span`
 
 export const MugFace = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       placeholderImage: file(relativePath: { eq: "favicon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(
+            width: 200
+            placeholder: BLURRED
+            layout: CONSTRAINED
+          )
         }
       }
     }
@@ -26,18 +28,16 @@ export const MugFace = () => {
 
   return (
     <>
-      <Img
+      <GatsbyImage
+        image={data.placeholderImage.childImageSharp.gatsbyImageData}
         alt="mug face"
-        fluid={data.placeholderImage.childImageSharp.fluid}
-        // fadeIn={false}
-        // loading="eager"
       />
       <H1>
         Hello World!
         <Wavy>
           <img
             alt="waving hand emoji"
-            src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif"
+            src="https://res.cloudinary.com/defkmsrpw/image/upload/q_auto,f_auto,w_60/v1614959623/wave.gif"
           />
         </Wavy>
       </H1>

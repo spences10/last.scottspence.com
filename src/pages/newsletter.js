@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import SEO from 'react-seo-component'
 import styled from 'styled-components'
@@ -56,12 +56,14 @@ export default function Newsletter() {
   } = useSiteMetadata()
 
   const data = useStaticQuery(graphql`
-    query {
+    {
       placeholderImage: file(relativePath: { eq: "stickers.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
+          gatsbyImageData(
+            width: 600
+            placeholder: BLURRED
+            layout: CONSTRAINED
+          )
         }
       }
     }
@@ -124,11 +126,11 @@ export default function Newsletter() {
           <button type="submit">Submit</button>
         </form>
         <Hr />
-        <Img
+        <GatsbyImage
+          image={
+            data.placeholderImage.childImageSharp.gatsbyImageData
+          }
           alt="stickers"
-          fluid={data.placeholderImage.childImageSharp.fluid}
-          // fadeIn={false}
-          // loading="eager"
         />
       </Wrapper>
     </>
