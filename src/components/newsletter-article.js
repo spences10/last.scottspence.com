@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   form {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-columns: 2fr 1fr;
     margin-top: ${({ theme }) => theme.spacing[10]};
     ${down('sm')} {
       grid-template-columns: repeat(1, 1fr);
@@ -57,7 +57,17 @@ const Wrapper = styled.div`
   }
   button {
     cursor: pointer;
-    background-color: ${({ theme }) => theme.colors.primary[500]};
+    background: linear-gradient(
+      180turn,
+      var(
+        --title-gradient-from,
+        ${({ theme }) => theme.colors.primary[200]}
+      ),
+      var(
+        --title-gradient-to,
+        ${({ theme }) => theme.colors.primary[500]}
+      )
+    );
     color: ${({ theme }) => theme.colors.gray[100]};
   }
 `
