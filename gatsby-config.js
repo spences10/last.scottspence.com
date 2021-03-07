@@ -29,7 +29,6 @@ module.exports = {
     `gatsby-plugin-preact`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-use-dark-mode`,
-    `gatsby-plugin-mailgo`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sharp`,
     {
