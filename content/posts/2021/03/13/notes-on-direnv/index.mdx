@@ -13,7 +13,7 @@ In the past I have always reached for dotenv so taking a look at other
 Chris and he mentioned direnv.
 
 I found a really useful video from [Vlad] detailing the setup which
-I've adopted ad started using.
+I've adopted and started using.
 
 ## Install
 
@@ -26,17 +26,17 @@ sudo dnf -y install direnv
 
 ## Setup
 
-To hook direnv into my Zsh shell I added the direnv hook from the
-documentation and wrapped it in an if as detailed in Vlad's video.
+To hook direnv into my Zsh shell I added the direnv [hook from the
+documentation] and wrapped it in an if as detailed in Vlad's video.
 
 ```bash
-# direnv
+# .zshrc
 if [ $(command -v direnv) ]; then
   eval "$(direnv hook zsh)"
 fi
 ```
 
-In the project I want to use direnv I created a `.envrc` file then
+In the project I want to use direnv in I created a `.envrc` file then
 added `dotenv` to that file:
 
 ```bash
