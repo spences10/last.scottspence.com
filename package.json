@@ -59,7 +59,7 @@
     "mdx-embed": "^0.0.19",
     "mdx-utils": "0.2.0",
     "preact": "^10.5.13",
-    "preact-render-to-string": "^5.1.16",
+    "preact-render-to-string": "^5.1.15",
     "prism-react-renderer": "1.2.0",
     "react": "17.0.1",
     "react-carbonbadge": "^1.0.1",
