@@ -58,7 +58,7 @@
     "markdown-to-jsx": "^7.1.2",
     "mdx-embed": "^0.0.19",
     "mdx-utils": "0.2.0",
-    "preact": "^10.5.12",
+    "preact": "^10.5.13",
     "preact-render-to-string": "^5.1.16",
     "prism-react-renderer": "1.2.0",
     "react": "17.0.1",
