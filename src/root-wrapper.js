@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 import { DateDistance } from './components/date-distance'
 import { DateUpdated } from './components/date-updated'
+import { Details } from './components/details'
 import { GitHubContributions } from './components/gh-contributions'
 import { TopLanguages } from './components/gh-top-languages'
 import { Layout } from './components/layout'
@@ -63,6 +64,7 @@ const components = {
   Projects,
   MarkdownParser,
   Sarcasm,
+  Details,
 }
 
 export const wrapPageElement = ({ element }) => (
