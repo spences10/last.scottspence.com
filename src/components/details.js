@@ -1,5 +1,4 @@
-import { useState } from 'preact/hooks'
-import React from 'react'
+import React, { useState } from 'react'
 
 export const Details = ({ label, children }) => {
   const [isExpanded, setIsExpanded] = useState(false)
