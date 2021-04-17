@@ -6,6 +6,11 @@
       "source": "/giveaway",
       "destination": "/newsletter",
       "permanent": false
+    },
+    {
+      "source": "/",
+      "destination": "https://toast.scottspence.com",
+      "permanent": false
     }
   ]
 }
