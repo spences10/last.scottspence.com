@@ -6,11 +6,6 @@
       "source": "/giveaway",
       "destination": "/newsletter",
       "permanent": false
-    },
-    {
-      "source": "/",
-      "destination": "https://last.scottspence.com",
-      "permanent": false
     }
   ]
 }
