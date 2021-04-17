@@ -122,7 +122,7 @@ module.exports = {
         precachePages: [`/2020/*`, `/2021/*`],
       },
     },
-    // `gatsby-plugin-remove-serviceworker`,
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
