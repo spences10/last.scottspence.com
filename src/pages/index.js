@@ -92,7 +92,7 @@ export default function HomePage() {
         description={description}
         image={ogImageUrl(
           authorName,
-          'scottspence.com',
+          'last.scottspence.com',
           `Scott's Digital Garden`
         )}
         pathname={siteUrl}

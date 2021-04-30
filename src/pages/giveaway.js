@@ -22,7 +22,7 @@ const Giveaway = () => {
         description={`Win a Wes Bos Advanced React and GraphQL course worth $139, draws made every Monday, Wednesday and Friday throughout February 2021`}
         image={ogImageUrl(
           authorName,
-          'scottspence.com',
+          'last.scottspence.com',
           `Wes Bos > Advanced React and GraphQL - Giveaway`
         )}
         pathname={siteUrl}

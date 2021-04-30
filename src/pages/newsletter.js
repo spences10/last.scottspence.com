@@ -91,7 +91,7 @@ export default function Newsletter() {
         description={`Sign up to Scott's weekly email to get sneak peeks on what he's working on and helpful links and tips for web developers.`}
         image={ogImageUrl(
           authorName,
-          'scottspence.com',
+          'last.scottspence.com',
           `Newsletter - Signup`
         )}
         pathname={siteUrl}

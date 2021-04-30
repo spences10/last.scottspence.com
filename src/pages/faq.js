@@ -26,7 +26,7 @@ export default function FAQ({ data }) {
         description={description}
         image={ogImageUrl(
           authorName,
-          'scottspence.com',
+          'last.scottspence.com',
           `Recruiter - FAQ`
         )}
         pathname={siteUrl}

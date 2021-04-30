@@ -8,9 +8,9 @@ const objectToQueryParams = obj => {
 export const ogImageUrl = (author, website, title) => {
   const params = {
     author,
-    website: website || `scottspence.com`,
+    website: website || `last.scottspence.com`,
     title,
-    image: `https://scottspence.com/favicon.png`,
+    image: `https://last.scottspence.com/favicon.png`,
   }
   return `https://image-og.now.sh/og.jpg${objectToQueryParams(
     params

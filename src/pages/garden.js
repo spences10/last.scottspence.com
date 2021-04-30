@@ -134,7 +134,7 @@ export default function Garden({ data }) {
         description={description}
         image={ogImageUrl(
           authorName,
-          'scottspence.com',
+          'last.scottspence.com',
           `Digital Garden`
         )}
         pathname={`${siteUrl}/garden/`}

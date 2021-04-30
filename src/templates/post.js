@@ -108,7 +108,7 @@ export default function Post({ data }) {
         title={title}
         titleTemplate={siteTitle}
         description={excerpt}
-        image={ogImageUrl(authorName, 'scottspence.com', title)}
+        image={ogImageUrl(authorName, 'last.scottspence.com', title)}
         pathname={`${siteUrl}${slug}`}
         article={true}
         siteLanguage={siteLanguage}
