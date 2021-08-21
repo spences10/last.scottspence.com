@@ -81,7 +81,7 @@
   },
   "resolutions": {
     "graphql": "^15.4.0",
-    "graphql-compose": "^7.25.0",
+    "graphql-compose": "^9.0.0",
     "webpack": "^5.24.2"
   },
   "prettier": {
